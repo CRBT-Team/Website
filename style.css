@@ -1,0 +1,303 @@
+@font-face {font-family: 'ArcaMajora3-Bold'; src: url('/ArcaMajora3-Bold.otf') format('opentype'); font-weight: normal; font-style: normal;font-display: swap;}
+@font-face {font-family: 'Inter'; src: url('/Inter.ttf') format('truetype'); font-style: normal;font-display: swap;}
+
+* {box-sizing: border-box;}
+html {scroll-behavior: smooth;}
+
+:root
+{
+    --CRBTRed: #9A192F;
+    --ClémBombRed: #E20000;
+    --ClémBombOrange: #F05D05;
+    --clmbYellow: #FFD800;
+    --NitroGreen: #01CD06;
+    --TCMGreen:#0DC5A0;
+    --T3CBlue: #00A2E8;
+    --ClembsPurple: #6A21FF;
+    --clmbPink: #E784EF;
+    --MediumGrey:#ECECEC;
+    --LightWhite: #6F7477;
+    --main: var(--ClembsPurple);
+    --cards: #181818;
+    --cardshover: #272727;
+    --black: black;
+    --white: white;
+}
+
+::selection { background-color: var(--main)}
+
+main {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 1.75rem;
+    margin-top: -4px;
+    transition-duration: 0.3s;
+}
+
+body {
+    font-family: 'Inter';
+    font-weight: 400;
+    background-color: var(--main);
+    text-align: left;
+    margin: 0;
+}
+
+.cards {
+    margin: 5px 0px;
+    padding: 1px 20px;
+    width: 100%;
+    transition-duration: 0.3s;
+    text-align: left;
+    color: var(--white);
+    border-radius: 10px;
+    cursor: pointer;
+    background: var(--cards);
+    outline:0;
+    display: inline-block;
+}
+
+.disabledcards {
+    padding: 1px 20px;
+    margin: 5px 0px;
+    width: 100%;
+    text-align: left;
+    color: var(--white);
+    border-radius: 10px;
+    cursor: not-allowed;
+    opacity: 50%;
+    background: var(--cards);
+    outline:0;
+    display: inline-block;
+}
+
+.cards:hover {
+    background: var(--cardshover);
+    text-align: left;
+    color: var(--white);
+    outline: 0;
+    transform: scale(1.05);
+}
+
+a {color: var(--white); text-decoration: none;}
+
+.text a:hover {text-decoration: underline;}
+
+.container {
+    margin: auto;
+    max-width: 600px;
+    transition-duration: 0.3s;
+}
+
+.infobox {
+    border: 3px solid var(--cards);
+    padding: 5px 20px;
+    border-radius: 10px;
+    background-color: var(--cards);
+}
+
+li {list-style: square;}
+
+.infobox img {
+    margin: -8px -6px;
+    width: 30px;
+    margin-right: 7px;
+}
+
+.infobox p {line-height: 200%; padding-bottom: 0;}
+
+footer h4 {text-align: center; font-weight: 300;}
+
+.title {padding: 15px 0; text-align: center;}
+
+.icon {height: 30px;transform: translateY(5px)}
+
+h5 {font-size: large;}
+
+h3 {padding-top: 10px; font-weight: 600;}
+
+button p {
+    font-size: 1rem;
+    font-family: 'inter';
+}
+
+button h2 {
+    font-size: 1.5rem;
+}
+
+.footericons {width: 30px; margin: 0 5px;transition-duration: 0.2s; }
+.footericons:hover {transition-duration: 0.2s; transform: scale(1.15); }
+
+.headericons:hover {
+    filter: grayscale(0);
+    transition-duration: 0.2s;
+    transform: scale(1.15);
+}
+
+.headericons {
+    filter: grayscale(100);
+    transition-duration: 0.2s;
+    width: 50px;
+    margin: 0 7px;
+}
+
+.blogname {
+    font-size: xx-large;
+    text-align: center;
+    font-family: 'ArcaMajora3-Bold';
+}
+
+.blogpowered {
+    font-size: x-large;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.blogdescription {
+    opacity: 50%;
+    text-align: center;
+}
+
+.bloginfo {
+    text-align: center;
+}
+
+.caption {
+    text-align: center;
+    opacity: 50%;
+}
+
+.designawardsfirstplace {
+    color: rgb(230, 184, 33)
+}
+
+.designawardssecondplace {
+    color: rgb(185, 176, 176)
+}
+
+.designawardsthirdplace {
+    color: rgb(110, 44, 5)
+}
+
+footer {padding-top: 50px;}
+
+.cards h2 {text-align: left;}
+.disabledcards h2 {text-align: left;}
+
+h2 {font-family: 'ArcaMajora3-Bold'; text-align: center;}
+
+h1 {margin-bottom: 0;transform: translateY(25px)}
+
+.text h4 {padding-top: 50px}
+
+h1 img {width: 100%;}
+
+h1 {font-family: 'ArcaMajora3-Bold';}
+
+code{opacity: 50%; text-align: left; font-size: large;}
+
+.align-left {display: inline-block;}
+
+.align-left img {width: 100px;}
+
+.tooltip {position: relative; display: inline-block;}
+  
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--cardshover);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    box-shadow: 0px 5px 10px black;
+    z-index: 1;
+    top: 115%;
+    left: 50%;
+    margin-left: -60px;
+}
+  
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent var(--cardshover) transparent;
+}
+  
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.spoiler {text-shadow: 0 0 15px white;color: transparent;transition-duration: 0.3s;}
+.spoiler:hover {text-shadow: 0 0 0px white;color: transparent;transition-duration: 0.3s;}
+
+.secondaire {color: #7F7F7F;}
+
+h1 a {
+  font-size: 2em;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+}
+
+/*effect-underline*/
+a.effect-underline:after {
+	content: '';
+  position: absolute;
+  left: 0;
+  display: inline-block;
+  height: 1em;
+  width: 100%;
+  border-bottom: 1px solid;
+  margin-top: 10px;
+  opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale(0,1);
+	transform: scale(0,1);
+}
+
+a.effect-underline:hover:after {
+  opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+@-webkit-keyframes shine {
+  from {
+    -webkit-mask-position: 150%;
+  }
+  
+  to {
+    -webkit-mask-position: -50%;
+  }
+}
+
+main > :first-child {margin-top: 0;}
+main > :last-child {margin-bottom: 0;}
+::-webkit-scrollbar {width: 5px;}
+::-webkit-scrollbar-track {display: none;}
+::-webkit-scrollbar-thumb {background: var(--white);border-radius: 10px;}
+::-webkit-scrollbar-thumb:hover {background-color: var(--MediumGrey);}
+
+@media screen and (max-width: 600px) {
+.container {
+    margin: 5% auto;
+    max-width: 90%;
+    margin-bottom: 0;
+}
+
+main {padding: 1,5rem 0;}
+
+.headericons {width: 40px;filter: grayscale(0);}
+
+.headericons:hover {filter: grayscale(0);transform: scale(1);}
+
+.footericons {margin: 0;}
+
+h2 {font-size: large;}
+}
