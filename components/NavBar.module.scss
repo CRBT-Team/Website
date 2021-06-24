@@ -1,0 +1,23 @@
+.root {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+  margin: 20px 0;
+
+  a {
+    font-size: 1.25em;
+    line-height: 72px;
+    width: 125px;
+    text-align: center;
+    transition: opacity 200ms;
+
+    &:hover {
+      opacity: 0.85;
+    }
+    &:active {
+      transition: opacity 50ms;
+      opacity: 0.65;
+    }
+  }
+}
