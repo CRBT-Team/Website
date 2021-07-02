@@ -6,6 +6,8 @@ body {
   margin: 0;
   font-size: 18px;
   font-family: "DM Sans", sans-serif;
+  color: white;
+  background: #4A0920;
 }
 
 a {
@@ -15,4 +17,9 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+#__next > * {
+  min-height: 100vh;
+  padding-top: 0.1px;
 }

@@ -4,7 +4,8 @@ import c from './NavBar.module.scss'
 export default function NavBar() {
   return <nav className={c.root}>
     <a href='/invite'>Invite</a>
-    <Link href='/blog'>Blog</Link>
+    {/* <Link href='/blog'>Blog</Link> */}
+    <del>Blog</del>
     <Link href='/'>
       <a>
         <svg width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -15,7 +15,7 @@
   color: white;
   background: linear-gradient(180deg, #003FAC 0%, #002668 100%);
   width: 100%;
-  height: 500px;
+  flex: 0 0 500px;
   text-align: center;
 
   p {
@@ -58,12 +58,40 @@
   }
 }
 
+h1.why {
+  font-size: 2rem;
+}
+
 // Section 1
+.section1, .section2 {
+  width: 100%;
+  padding: 0 2em;
+  display: flex;
+  justify-content: center;
+
+  h2 {
+    font-weight: normal;
+  }
+
+  .text {
+    flex: 0 1 800px;
+  }
+  .spacer {
+    width: 100px;
+  }
+  .img {
+    flex: 0 1 400px;
+    & > * {
+      max-height: 250px;
+    }
+  }
+}
+
 .section1 {
   background: #4A0920;
-  color: white;
-  width: 100%;
-  min-height: calc(100vh - 500px);
+}
+.section2 {
+  background: #4A0920;
 }
 
 
