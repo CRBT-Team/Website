@@ -20,7 +20,7 @@ export default function Home({ credits }) {
       <main className={c.content}>
         {
           Object.entries(credits).map(([name, contents]) => {
-            return <div>
+            return <div key={name}>
               <h2>{name}</h2>
               <div className={c.group}>
                 {Object.entries(contents).map(([username, { url, discord }]) => {
@@ -33,13 +33,13 @@ export default function Home({ credits }) {
                   </>;
 
                   if (url) {
-                    return <Link href={url}>
+                    return <Link href={url} key={discord}>
                     <a className={c.card}>
                       {contents}
                     </a>
                   </Link>;
                   } else {
-                    return <div className={c.card}>
+                    return <div className={c.card} key={discord}>
                       {contents}
                     </div>;
                   }
