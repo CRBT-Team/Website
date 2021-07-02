@@ -65,7 +65,7 @@ h1.why {
 // Section 1
 .section1, .section2 {
   width: 100%;
-  padding: 0 2em;
+  padding: 2em 2em;
   display: flex;
   justify-content: center;
 
@@ -74,15 +74,22 @@ h1.why {
   }
 
   .text {
-    flex: 0 1 800px;
+    flex: 0 1 700px;
   }
   .spacer {
-    width: 100px;
+    width: 120px;
   }
   .img {
-    flex: 0 1 400px;
+    flex: 0 3 450px;
+    display: flex;
+    justify-content: center;
+
     & > * {
       max-height: 250px;
+      @media (max-width: 1000px) {
+        max-height: 120px;
+        align-self: center;
+      }
     }
   }
 }
@@ -91,7 +98,12 @@ h1.why {
   background: #4A0920;
 }
 .section2 {
-  background: #4A0920;
+  background: #F27187;
+  color: #4A0920;
+  flex-direction: row-reverse;
+  .text {
+    text-align: right;
+  }
 }
 
 

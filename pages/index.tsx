@@ -40,7 +40,7 @@ export default function Home() {
         </div>
         <div className={c.spacer} />
         <div className={c.img}>
-          <img src="/favicon.png" alt="" />
+          <img src="/assets/logos/crbt.png" alt="" />
         </div>
       </section>
 
@@ -53,7 +53,7 @@ export default function Home() {
         </div>
         <div className={c.spacer} />
         <div className={c.img}>
-          <img src="" alt="" />
+          <img src="/assets/logos/crbt.png" alt="" />
         </div>
       </section>
 
@@ -66,7 +66,7 @@ export default function Home() {
         </div>
         <div className={c.spacer} />
         <div className={c.img}>
-          <img src="" alt="" />
+          <img src="/assets/logos/crbt.png" alt="" />
         </div>
       </section>
 

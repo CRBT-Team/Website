@@ -1,10 +1,9 @@
-## CRBT // Privacy Policy
-
+# CRBT Privacy Policy
 _Last updated: 2021-04-29_
 
 When adding CRBT to a server, or use it as a server member, you automatically apply to this privacy policy.
 
-### Phraseology:
+## Phraseology
 
 - **Discord**: The chat platform managed by Discord Inc.
 - **User**: Any Discord account.
@@ -15,7 +14,7 @@ When adding CRBT to a server, or use it as a server member, you automatically ap
 - **CRBT**: The Discord bot made by Clembs with 595731552709771264 being its user ID.
 - **Prefix**: What differences a normal message from a command addressed to CRBT.
 
-### What data I collect
+## What data I collect
 
 The below data is collected only when a user decides to use CRBT, with their data collect enabled. 
 
@@ -27,19 +26,19 @@ The below data is collected only when a user decides to use CRBT, with their dat
 - Command arguments: The words that come after the command trigger (ex: search terms in `(prefix)play`, user mention/name/ID in `(prefix)userinfo`).
 - How many times a user has used CRBT.
 
-### Why I collect data:
+## Why I collect data
 
 I collect data in order to get analytics, to understand how people use CRBT (in terms of how any command is used or what commands are the most used) in order to improve CRBT's ease of use and text fluency.
 
-### Who can access this data:
+## Who can access this data
 
 Your data can only be accessed by me, Clembs#2925, CRBT's creator and developer.
 
-### How your data is stored:
+## How your data is stored
 
 Your data is stored on a private Discord server channel, in which I am the only member.
 
-### Your rights to your data:
+## Your rights to your data
 
 You can disable data collect whenever you want by simply executing the command `(prefix)data disable`.
 You can access some of what's been collected by executing the `(prefix)data` command.
