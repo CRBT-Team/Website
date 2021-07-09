@@ -2,8 +2,11 @@
   display: flex;
   width: 100%;
   justify-content: center;
-
-  margin: 20px 0;
+  position: sticky;
+  top: 0;
+  padding-top: 20px;
+  z-index: 100;
+  transition: background-color 200ms linear, backdrop-filter 200ms linear;
 
   a, del {
     font-size: 1.25em;
@@ -30,4 +33,9 @@
     color: rgba(255,255,255,0.6);
     text-decoration-color: white;
   }
+}
+
+.blur {
+  background-color: rgba(200, 200, 200, 0.5);
+  backdrop-filter: blur(8px) saturate(2.5) brightness(0.85) ;
 }

@@ -22,4 +22,10 @@ a {
 #__next > * {
   min-height: 100vh;
   padding-top: 0.1px;
+  display: flex;
+  flex-direction: column;
+}
+
+.spacer {
+  flex: 1
 }

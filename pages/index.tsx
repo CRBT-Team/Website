@@ -1,8 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 import Head from 'next/head'
-import NavBar from '../components/NavBar'
-import Footer from '../components/Footer'
 
 import c from '../styles/Home.module.scss'
 
@@ -17,18 +15,24 @@ export default function Home() {
 
       <header className={c.header}>
         <div className={c.banner} />
-        <NavBar />
-        <h1>The Discord companion made for you.</h1>
-        <p>
-          Quit the hassle and ditch all of your different bots. <br />
-          CRBT is easy, powerful and efficient.
-        </p>
-        <a href='/invite' className={c.inviteButton}>Invite</a>
+        <div className={c.headerContent}>
+          <h1>
+            <span>The Discord companion</span>
+            <span>made for you.</span>
+          </h1>
+          <p>
+            Quit the hassle and ditch all of your different bots. <br />
+            CRBT is easy, powerful and efficient.
+          </p>
+          <a href='/invite' className={c.inviteButton}>Invite</a>
+        </div>
       </header>
 
-      <h1 className={c.why}>
-        Why CRBT?
-      </h1>
+      <div className={c.noiselayer}>
+        <h2 className={c.why}>
+          Why CRBT?
+        </h2>
+      </div>
 
       <section className={c.section1}>
         <div className={c.text}>
@@ -71,8 +75,6 @@ export default function Home() {
           <img src="/assets/logos/crbt.png" alt="" />
         </div>
       </section>
-
-      <Footer />
     </div>
   )
 }

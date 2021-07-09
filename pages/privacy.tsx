@@ -14,8 +14,6 @@ export default function Home({ source }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <NavBar />
-
       <main className={c.content}>
         <MDXRemote {...source}/>
       </main>

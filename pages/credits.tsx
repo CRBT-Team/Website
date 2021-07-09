@@ -4,6 +4,7 @@ import Head from 'next/head'
 import NavBar from '../components/NavBar'
 
 import c from '../styles/Credits.module.scss'
+import Footer from '../components/Footer'
 
 export default function Home({ credits }) {
   return (
@@ -12,8 +13,6 @@ export default function Home({ credits }) {
         <title>CRBT - Privacy Policy</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <NavBar />
 
       <h1>Credits</h1>
 

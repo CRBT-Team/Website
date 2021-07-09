@@ -1,8 +1,23 @@
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import c from './NavBar.module.scss'
+import clsx from 'clsx';
 
 export default function NavBar() {
-  return <nav className={c.root}>
+  const [blur, setBlur] = useState(typeof window === 'undefined' ? false : document.scrollingElement.scrollTop > 5);
+
+  useEffect(() => {
+    function cb() {
+      setBlur(document.scrollingElement.scrollTop > 5)
+    }
+
+    document.addEventListener('scroll', cb);
+    return () => {
+      document.removeEventListener('scroll', cb);
+    }
+  });
+
+  return <nav className={clsx(c.root, blur && c.blur)}>
     <a href='/invite'>Invite</a>
     {/* <Link href='/blog'>Blog</Link> */}
     <del>Blog</del>
