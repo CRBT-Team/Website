@@ -21,7 +21,7 @@ export default function Home() {
         <div className={c.banner} />
         <div className={c.headerContent}>
           <h1>
-            <span>The Discord companion</span>
+            <span>The Discord companion&nbsp;</span>
             <span>made for you.</span>
           </h1>
           <p>

@@ -26,23 +26,23 @@ export default function Footer() {
         <section>
           <div>Explore</div>
           <ul>
-            <li><Link href='/blog'>Blog</Link></li>
-            <li><Link href='/partners'>Partners</Link></li>
+            {/* <li><Link href='/blog'>Blog</Link></li> */}
+            {/* <li><Link href='/partners'>Partners</Link></li> */}
             <li><Link href='/branding'>Branding</Link></li>
             <li><Link href='/credits'>Credits</Link></li>
           </ul>
         </section>
-        {/* <section>
+        <section>
           <div>Developers</div>
           <ul>
             <li><Link href='https://api.crbt.ga'>Clembs API</Link></li>
             <li><Link href='https://script.crbt.ga'>CRBTScript</Link></li>
           </ul>
-        </section> */}
+        </section>
         <section>
           <div>Legal</div>
           <ul>
-            <li><Link href='/policy'>Privacy</Link></li>
+            <li><Link href='/policy'>Privacy Policy</Link></li>
           </ul>
         </section>
         <section>
