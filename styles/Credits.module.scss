@@ -1,0 +1,32 @@
+.root {
+  h1 {
+    text-align: center;
+  }
+}
+
+.group {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  max-width: calc(4 * 300px + 3em);
+  margin: auto;
+}
+
+.card {
+  background-color: #330716;
+  width: 300px;
+  height: calc(50px + 2em);
+  border-radius: 8px;
+  display: block;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  
+  .img {
+    flex: 0 0 50px;
+    border-radius: 50%;
+    background-color: #F27187;
+    height: 50px;
+  }
+}
