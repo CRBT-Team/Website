@@ -9,8 +9,8 @@ export default function Policy({ mdx }) {
   return (
     <div className={c.root}>
       <Head>
-        <title>CRBT.ga - Privacy Policy</title>
-        <meta property="og:title" content="CRBT.ga - Privacy Policy" />
+        <title>CRBT.ga - Changelog</title>
+        <meta property="og:title" content="CRBT.ga - Changelog" />
         <meta name="description" content="The Discord companion made for you. Made by Clembs." />
         <meta property="og:description" content="The Discord companion made for you. Made by Clembs." />
         <meta property="og:image" content="/assets/logos/crbt-small.png" />
@@ -26,7 +26,7 @@ export default function Policy({ mdx }) {
 }
 
 export async function getStaticProps() {
-  const policyMd = (await readFile('policy.md')).toString();
+  const policyMd = (await readFile('changelog.md')).toString();
   const policyMdx = await serialize(policyMd);
 
   return {

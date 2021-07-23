@@ -1,12 +1,14 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 import Head from 'next/head'
-import NavBar from '../components/NavBar'
 
 import c from '../styles/Credits.module.scss'
-import Footer from '../components/Footer'
 
-export default function Home({ credits }) {
+import credits from '../credits';
+import pfpdata from '../pfpdata';
+
+export default function Home() {
   return (
     <div className={c.root}>
       <Head>
@@ -23,14 +25,17 @@ export default function Home({ credits }) {
 
       <main className={c.content}>
         {
-          Object.entries(credits).map(([name, contents]) => {
+          Object.entries(credits.credits).map(([name, contents]) => {
             return <div key={name}>
               <h2>{name}</h2>
               <div className={c.group}>
-                {Object.entries(contents).map(([username, { url, discord }]) => {
+                {contents.map((username) => {
+                  const { url, discord, override } = credits.userData[username];
+                  
+                  const img = override || pfpdata[discord];
+
                   const contents = <>
-                    <div className={c.img}>
-                    </div>
+                    <Image src={img} width={50} height={50} alt={`${username}`} className={c.img} />
                     <span>
                       {username}
                     </span>
@@ -55,14 +60,4 @@ export default function Home({ credits }) {
       </main>
     </div>
   )
-}
-
-import credits from '../credits';
-
-export function getStaticProps() {
-  return {
-    props: {
-      credits
-    }
-  }
 }

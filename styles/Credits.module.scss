@@ -2,13 +2,20 @@
   h1 {
     text-align: center;
   }
+  h2 {
+    max-width: calc(4 * 300px + 4em);
+    padding-left: 1em;
+    margin: auto;
+  }
+  margin-bottom: 2em;
 }
 
 .group {
+  padding: 1em;
   display: flex;
   gap: 1em;
   flex-wrap: wrap;
-  max-width: calc(4 * 300px + 3em);
+  max-width: calc(4 * 300px + 3em + 2em);
   margin: auto;
 }
 
@@ -26,7 +33,13 @@
   .img {
     flex: 0 0 50px;
     border-radius: 50%;
-    background-color: #F27187;
     height: 50px;
+  }
+
+  &:hover {
+    background-color: #2f0714;
+  }
+  &:active {
+    background-color: #290711;
   }
 }

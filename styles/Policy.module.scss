@@ -11,7 +11,7 @@
     font-size: 3em;
     margin-bottom: 0;
   }
-  h1 + * {
+  h1 + p {
     margin-top: 0em;
     margin-bottom: 2em;
   }
@@ -21,5 +21,25 @@
     padding: 0.25em;
     border-radius: 8px;
     font-size: 0.8em;
+  }
+}
+
+.button2 {
+  display: inline-block;
+  margin-top: 0.5em;
+  background: white;
+  color: #4A0920;
+  border-radius: 16px;
+  font-size: 1.5em;
+  padding: 0.25em 1em;
+  
+  transition: background-color 200ms;
+
+  &:hover {
+    background: #ffdfea;
+  }
+  &:active {
+    background: #ffb9d1;
+    transition: opacity 50ms;
   }
 }

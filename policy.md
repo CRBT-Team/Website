@@ -1,11 +1,11 @@
 # CRBT - Privacy Policy
-_Last update: 2021-07-02 (10.0)_
+Last update: 2021-07-23 (as of version 10.0)
 
-When you make use of the CRBT service, by adding it to a server or by using it as a Discord user, you automatically apply to this privacy policy.
+When you make use of the CRBT service (bot), by adding it to a server or by using it as a Discord user, you automatically apply to this privacy policy.
 
 ## Your privacy controls
 
-CRBT offers a simple toggle between two telemetry modes: "Minimal" and "Complete". By default, the Complete mode is enabled. To change it to Minimal, you can simply execute the `()telemetry` command. This will allow you to review a part of your collected data along with information on how to manage it. If you wish to entirely delete saved data about you, you can always [send me an email](mailto:clembs@clembs.xyz).
+CRBT offers a simple toggle between two telemetry modes: "Minimal" and "Complete". By default, the Complete mode is enabled. To change it to Minimal, you can simply execute the `()telemetry` command. This will allow you to review a part of your collected data along with information on how to manage it. If you wish to entirely delete saved data about you, you can always [email me about it](mailto:clembs@clembs.xyz).
 
 ## How your data is used
 
@@ -20,6 +20,6 @@ Note that minimal mode is not active by default.
 
 As said earlier, the Complete mode is enabled by default and will log more data, including:
 - The command name + the arguments (what come after the command name)
-- Where the command was executed (DMs/Server)
+- Where the command was executed (from Direct Messages or a Server)
 - Your user ID
 - The platform (Desktop/Mobile/Web)

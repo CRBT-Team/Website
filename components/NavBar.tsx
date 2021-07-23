@@ -4,9 +4,11 @@ import c from './NavBar.module.scss'
 import clsx from 'clsx';
 
 export default function NavBar() {
-  const [blur, setBlur] = useState(typeof window === 'undefined' ? false : document.scrollingElement.scrollTop > 5);
+  const [blur, setBlur] = useState(false);
 
   useEffect(() => {
+    setBlur(document.scrollingElement.scrollTop > 5)
+
     function cb() {
       setBlur(document.scrollingElement.scrollTop > 5)
     }
@@ -15,7 +17,7 @@ export default function NavBar() {
     return () => {
       document.removeEventListener('scroll', cb);
     }
-  });
+  }, []);
 
   return <nav className={clsx(c.root, blur && c.blur)}>
     <a href='/invite'>Invite</a>

@@ -75,8 +75,8 @@
       background-position-x: 30%;
     }
     @media (max-width: 650px) {
-      height: 850px;
-      background-position-x: 35%;
+      height: 750px;
+      background-position-x: 30%;
     }
   }
 
@@ -84,25 +84,25 @@
     position: relative;
     z-index: 10;
   }
+}
 
-  .inviteButton {
-    display: inline-block;
-    margin-top: 0.25em;
-    background: white;
-    color: #4A0920;
-    border-radius: 16px;
-    font-size: 1.5em;
-    padding: 0.25em 1em;
-    
-    transition: background-color 200ms;
+.inviteButton {
+  display: inline-block;
+  margin-top: 0.25em;
+  background: white;
+  color: #4A0920;
+  border-radius: 16px;
+  font-size: 1.5em;
+  padding: 0.25em 1em;
   
-    &:hover {
-      background: #ffdfea;
-    }
-    &:active {
-      background: #ffb9d1;
-      transition: opacity 50ms;
-    }
+  transition: background-color 200ms;
+
+  &:hover {
+    background: #ffdfea;
+  }
+  &:active {
+    background: #ffb9d1;
+    transition: opacity 50ms;
   }
 }
 

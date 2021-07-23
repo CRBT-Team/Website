@@ -30,12 +30,13 @@ export default function Footer() {
             {/* <li><Link href='/partners'>Partners</Link></li> */}
             <li><Link href='/branding'>Branding</Link></li>
             <li><Link href='/credits'>Credits</Link></li>
+            <li><Link href='/changelog'>Changelog</Link></li>
           </ul>
         </section>
         <section>
           <div>Developers</div>
           <ul>
-            <li><Link href='https://api.crbt.ga'>Clembs API</Link></li>
+            <li><Link href='https://api.clembs.xyz'>Clembs API</Link></li>
             <li><Link href='https://script.crbt.ga'>CRBTScript</Link></li>
           </ul>
         </section>
