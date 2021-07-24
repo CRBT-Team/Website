@@ -14,8 +14,8 @@ export default function Home() {
       <Head>
         <title>CRBT.ga - Credits</title>
         <meta property="og:title" content="CRBT.ga - Credits" />
-        <meta name="description" content="The Discord companion made for you. Made by Clembs." />
-        <meta property="og:description" content="The Discord companion made for you. Made by Clembs." />
+        <meta name="description" content="The Discord companion made for you. Created by Clembs." />
+        <meta property="og:description" content="The Discord companion made for you. Created by Clembs." />
         <meta property="og:image" content="/assets/logos/crbt-small.png" />
         <meta name='theme-color' content='#F17188' />
         <link rel="icon" href="/favicon.ico" />
