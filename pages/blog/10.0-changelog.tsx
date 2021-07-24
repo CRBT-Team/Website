@@ -9,8 +9,8 @@ export default function Policy({ mdx }) {
   return (
     <div className={c.root}>
       <Head>
-        <title>CRBT.ga - v10.0 Changelog</title>
-        <meta property="og:title" content="CRBT.ga - v10.0 Changelog" />
+        <title>CRBT - v10.0 Changelog</title>
+        <meta property="og:title" content="CRBT - v10.0 Changelog" />
         <meta name="description" content="The Discord companion made for you. Created by Clembs." />
         <meta property="og:description" content="The Discord companion made for you. Created by Clembs." />
         <meta property="og:image" content="/assets/logos/crbt-small.png" />

@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className={c.root}>
       <Head>
-        <title>CRBT.ga - Not Found</title>
+        <title>CRBT - Not Found</title>
         <meta name='theme-color' content='#F17188' />
         <link rel="icon" href="/favicon.ico" />
       </Head>

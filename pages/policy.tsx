@@ -9,8 +9,8 @@ export default function Policy({ mdx }) {
   return (
     <div className={c.root}>
       <Head>
-        <title>CRBT.ga - Privacy Policy</title>
-        <meta property="og:title" content="CRBT.ga - Privacy Policy" />
+        <title>CRBT - Privacy Policy</title>
+        <meta property="og:title" content="CRBT - Privacy Policy" />
         <meta name="description" content="The Discord companion made for you. Created by Clembs." />
         <meta property="og:description" content="The Discord companion made for you. Created by Clembs." />
         <meta property="og:image" content="/assets/logos/crbt-small.png" />

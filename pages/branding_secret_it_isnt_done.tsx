@@ -9,8 +9,8 @@ export default function Home({ credits }) {
   return (
     <div className={c.root}>
       <Head>
-        <title>CRBT.ga - Branding Assets</title>
-        <meta property="og:title" content="CRBT.ga - Branding Assets" />
+        <title>CRBT - Branding Assets</title>
+        <meta property="og:title" content="CRBT - Branding Assets" />
         <meta name="description" content="The Discord companion made for you. Created by Clembs." />
         <meta property="og:description" content="The Discord companion made for you. Created by Clembs." />
         <meta property="og:image" content="/assets/logos/crbt-small.png" />
