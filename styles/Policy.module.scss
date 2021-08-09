@@ -1,0 +1,45 @@
+.root {
+  background: #4A0920;
+}
+
+.content {
+  max-width: 1000px;
+  padding: 2em;
+  margin: auto;
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 0;
+  }
+  h1 + p {
+    margin-top: 0em;
+    margin-bottom: 2em;
+  }
+
+  code {
+    background-color: #2c0613;
+    padding: 0.25em;
+    border-radius: 8px;
+    font-size: 0.8em;
+  }
+}
+
+.button2 {
+  display: inline-block;
+  margin-top: 0.5em;
+  background: white;
+  color: #4A0920;
+  border-radius: 16px;
+  font-size: 1.5em;
+  padding: 0.25em 1em;
+  
+  transition: background-color 200ms;
+
+  &:hover {
+    background: #ffdfea;
+  }
+  &:active {
+    background: #ffb9d1;
+    transition: opacity 50ms;
+  }
+}

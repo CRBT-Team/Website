@@ -1,0 +1,171 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.root h1 {
+  font-size: 2.5em;
+}
+
+@media (max-width: 1080px) {
+  .root h1 span {
+    display: block;
+  }
+}
+
+@media (max-width: 450px) {
+  .root h1 {
+    font-size: 8.8vw;
+  }
+}
+@media (max-width: 640px) {
+  .header p  {
+    font-size: 3.8vw !important;
+  }
+}
+
+// Header
+.header {
+  color: black;
+  background: linear-gradient(180deg, #649DFF 0%, #3781FF 100%);
+  width: 100%;
+  flex: 0 0 600px;
+  text-align: center;
+  position: relative;
+
+  padding-top: 114px;
+  margin-top: -114px;
+
+  @media (max-width: 1300px) {
+    flex: 0 0 800px;
+  }
+  @media (max-width: 1080px) {
+    flex: 0 0 850px;
+  }
+
+  p {
+    font-size: 1.25em;
+  }
+
+  .banner {
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    transform: translateX(-50%);
+    z-index: 0;
+    pointer-events: none;
+    width: 100%;
+    max-width: 4439px;
+    height: 830px;
+    background-image: url(/assets/home-banner-desktop.svg);
+    background-size: cover;
+    background-position-x: 43%;
+    margin: auto;
+
+    @media (max-width: 2000px) {
+      background-position-x: 45%;
+    }
+    @media (max-width: 1300px) {
+      height: 900px;
+      background-position-x: 35%;
+    }
+    @media (max-width: 1080px) {
+      height: 850px;
+      background-position-x: 30%;
+    }
+    @media (max-width: 650px) {
+      height: 750px;
+      background-position-x: 30%;
+    }
+  }
+
+  .headerContent {
+    position: relative;
+    z-index: 10;
+  }
+}
+
+.inviteButton {
+  display: inline-block;
+  margin-top: 0.25em;
+  background: white;
+  color: #4A0920;
+  border-radius: 16px;
+  font-size: 1.5em;
+  padding: 0.25em 1em;
+  
+  transition: background-color 200ms;
+
+  &:hover {
+    background: #ffdfea;
+  }
+  &:active {
+    background: #ffb9d1;
+    transition: opacity 50ms;
+  }
+}
+
+h2.why {
+  font-size: 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+.noiselayer {
+  background-image: url(/noise-layer.png);
+  width: 100%;
+  display: flex;
+}
+
+// Section 1
+.section1, .section2 {
+  width: 100%;
+  padding: 2em 2em;
+  display: flex;
+  justify-content: center;
+  background-image: url(/noise-layer.png);
+
+  h2 {
+    font-weight: 700;
+  }
+
+  .text {
+    flex: 0 1 700px;
+  }
+  .spacer {
+    width: 120px;
+  }
+  .img {
+    flex: 0 3 450px;
+    display: flex;
+    justify-content: center;
+
+    & > * {
+      max-height: 250px;
+      @media (max-width: 1000px) {
+        max-height: 120px;
+        align-self: center;
+      }
+    }
+
+    @media (max-width: 500px) {
+      display: none;
+    }
+  }
+}
+
+.section1 {
+  background-color: #4A0920;
+}
+.section2 {
+  background-color: #F27187;
+  color: #4A0920;
+  flex-direction: row-reverse;
+  .text {
+    text-align: right;
+  }
+}
+
+
+
