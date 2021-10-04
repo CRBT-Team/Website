@@ -1,6 +1,6 @@
 {
   "name": "crbt-website",
-  "version": "2021.02.01",
+  "version": "2021.02.02",
   "private": true,
   "scripts": {
     "dev": "next dev",

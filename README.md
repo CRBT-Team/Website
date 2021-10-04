@@ -8,15 +8,16 @@ The website for the CRBT application, available at [crbt.ga](https://crbt.ga).
 
 1. Install dependencies with `yarn`
 2. Run `yarn dev` to build on a local environment (on http://localhost:3000)
+3. Run `yarn build` to build for production
 
 ### To-Do
 
-- [ ] Add the missing illustrations.
-- [ ] Polish the design.
-- [ ] Add the blog.
-- [ ] Add the 
+- [ ] Add the missing illustrations
+- [ ] Polish the design
+- [ ] Add the blog
+- [ ] Add the events page for the later CRBT events
 
 ### Credits
 
-- [@davecaruso](https://github.com/davecaruso) for making this design I had possible.
+- [@davecaruso](https://github.com/davecaruso) for making this design I made possible.
 - [next.js](https://nextjs.org) for being cool.
