@@ -1,16 +1,16 @@
 require('dotenv').config();
 
-const discord = require('discord.js');
+const { Client } = require('discord.js');
 const { writeFileSync } = require('fs');
-const x = require('./credits');
+const { userData } = require('./credits');
 
-const client = new discord.Client({ intents: [] });
+const client = new Client({ intents: [] });
 
 client.on('ready', async() => {
   console.log('Logged in as: ' + client.user.username);
 
   const set = new Set();
-  Object.values(x.userData).forEach((value) => {
+  Object.values(userData).forEach((value) => {
     set.add(value.discord);
   });
 
@@ -20,7 +20,7 @@ client.on('ready', async() => {
 
   await Promise.all([...set].map(async (value) => {
     const user = await client.users.fetch(value);
-    const url = await user.avatarURL({ size: 1024 });
+    const url = user.avatarURL({ size: 1024 });
     map[value] = url;
   }));
 
@@ -30,6 +30,6 @@ export default ${JSON.stringify(map, null, 2)}`)
   client.destroy();
 });
 
-client.login(process.env.DISCORD_TOKEN)
+client.login();
 
 // '/users/{user.id}'

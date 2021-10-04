@@ -5,12 +5,16 @@
 The website for the CRBT application, available at [crbt.ga](https://crbt.ga).
 
 ### Installation
-N/A
+
+1. Install dependencies with `yarn`
+2. Run `yarn dev` to build on a local environment (on http://localhost:3000)
 
 ### To-Do
 
-- [ ] Update this page to include the installation instructions.
 - [ ] Add the missing illustrations.
+- [ ] Polish the design.
+- [ ] Add the blog.
+- [ ] Add the 
 
 ### Credits
 

@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   async redirects() {
-    return (await require('fs-extra').readFile(__dirname + '/redirects'))
+    return (await require('fs-extra').readFile(__dirname + '/_redirects'))
       .toString()
       .replace(/\r/g, '')
       .split('\n')

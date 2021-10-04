@@ -51,7 +51,7 @@ module.exports = {
   userData: {
     'Akaï': { url: 'https://instagram.com/Akai_Greenleaf', discord: '383955088861036544' },
     'bkly': { url: 'https://youtube.com/bklydesign', discord: '298866667264409601', override: 'https://bkly.tk/bkly.jpg' },
-    'Clembs': { url: 'https://clembs.xyz', discord: '327690719085068289', override: 'https://' },
+    'Clembs': { url: 'https://clembs.xyz', discord: '327690719085068289' },
     'Cyb': { url: 'https://twitter.com/Cyb_er_', discord: '368736952746246144', override: 'https://cdn.discordapp.com/attachments/491286455730307082/868272803693072384/INSTAPFP.png' },
     'dave caruso': { url: 'https://davecode.me', discord: '244905301059436545', override: 'https://media.discordapp.net/attachments/722451535962964061/868276477299400764/profile-base.png' },
     'Dee Jeh': { url: 'https://twitter.com/DanielJ_1234', discord: '508130497143111700' },
