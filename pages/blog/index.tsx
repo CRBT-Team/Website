@@ -1,16 +1,13 @@
 import Head from 'next/head'
-import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote } from 'next-mdx-remote';
 
 import c from '../../styles/Markdown.module.scss'
-import { readFile } from 'fs-extra';
 
-export default function Policy({ mdx }) {
+export default function Home({ source }) {
   return (
     <div className={c.root}>
       <Head>
-        <title>CRBT Blog - About CRBT Messages</title>
-        <meta property="og:title" content="CRBT Blog - About CRBT Messages" />
+        <title>CRBT Blog</title>
+        <meta property="og:title" content="CRBT Blog" />
         <meta name="description" content="The Discord companion made for you. Created by Clembs." />
         <meta property="og:description" content="The Discord companion made for you. Created by Clembs." />
         <meta property="og:image" content="/assets/logos/crbt-small.png" />
@@ -19,19 +16,8 @@ export default function Policy({ mdx }) {
       </Head>
 
       <div className={c.content}>
-        <MDXRemote {...mdx} />
+        <h1>CRBT Blog</h1>
       </div>
     </div>
   )
-}
-
-export async function getStaticProps() {
-  const policyMd = (await readFile('pages/blog/about-crbt-messages.md')).toString();
-  const policyMdx = await serialize(policyMd);
-
-  return {
-    props: {
-      mdx: policyMdx,
-    }
-  };
 }

@@ -26,8 +26,7 @@ export default function Home({ credits }) {
       <section>
         <h2>Wordmark</h2>
         <p>
-          You can try to transform, recolor, edit or change the CRBT logo,
-          but it'll probably just end up looking like garbage so use these ones:
+          Do not transform, recolor, edit or change the CRBT logo, use these ones:
         </p>
         <div>
           

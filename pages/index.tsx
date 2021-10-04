@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className={c.root}>
       <Head>
-        <title>CRBT.ga</title>
+        <title>CRBT - The Discord companion made for you.</title>
         <meta property="og:title" content="CRBT" />
         <meta
           name="description"
@@ -34,7 +34,7 @@ export default function Home() {
             Quit the hassle and ditch all of your different bots. <br />
             CRBT is easy, powerful and efficient.
           </p>
-          <a href="/invite" className={c.inviteButton}>
+          <a href="/invite" className={c.Button}>
             Invite
           </a>
         </div>
@@ -51,15 +51,14 @@ export default function Home() {
             CRBT has a lot of commands, all made to be packed with smartly
             designed features and organized commands. It has a ton of useful
             commands to get any kind of information, set reminders, do math, and
-            much more! It has smart music commands, which makes it super easy to
-            manage your tracks and listen along with your friends, right on
-            Discord. It has an original and complete economy system, which allow
-            for cool profile combinations and endless fun!
+            much more! It's capable of starting the new Discord activities in any
+            voice channel, too! It has an original and complete economy system, 
+            which allow for cool profile combinations!
           </p>
         </div>
         <div className={c.spacer} />
         <div className={c.img}>
-          <img src="/placeholder-image.png" alt="" />
+          <img src="/placeholder-image.png" alt="Placeholder image" />
         </div>
       </section>
 
@@ -68,14 +67,14 @@ export default function Home() {
           <h2>It's made to be easy, yet powerful</h2>
           <p>
             Whether you simply want to get someone's avatar, or set up a whole
-            profile with badges and CRBTscript-fueled fields, CRBT is snappy,
+            profile with badges and <a href="https://script.crbt.ga">CRBTscript</a>-fueled fields, CRBT is snappy,
             doesn't need much learning and always has its handy help command and
             error messages to help you accomplish whatever you want to do!
           </p>
         </div>
         <div className={c.spacer} />
         <div className={c.img}>
-          <img src="/placeholder-image.png" alt="" />
+          <img src="/placeholder-image.png" alt="Placeholder image" />
         </div>
       </section>
 
@@ -90,7 +89,7 @@ export default function Home() {
         </div>
         <div className={c.spacer} />
         <div className={c.img}>
-          <img src="/placeholder-image.png" alt="" />
+          <img src="/placeholder-image.png" alt="Placeholder image" />
         </div>
       </section>
     </div>

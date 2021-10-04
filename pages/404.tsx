@@ -7,7 +7,7 @@ import c from '../styles/Home.module.scss'
 
 export default function Home() {
   return (
-    <div className={c.root}>
+    <div className={c.root} style={{marginBottom: 140}}>
       <Head>
         <title>CRBT - Not Found</title>
         <meta name='theme-color' content='#F17188' />

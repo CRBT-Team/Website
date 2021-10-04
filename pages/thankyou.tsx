@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
-import c from '../styles/Policy.module.scss'
+import c from '../styles/Markdown.module.scss'
 
 export default function Home({ source }) {
   return (
@@ -22,13 +22,13 @@ export default function Home({ source }) {
         <p>Here are some quick links you can make use of:</p>
 
         <div>
-          <Link href="/discord"><a className={c.button2}>Join our Discord Server</a></Link>
+          <Link href="/discord"><a className={c.Button}>Join our Discord server</a></Link>
         </div>
         <div>
-          <Link href="/vote"><a className={c.button2}>Visit CRBT on Top.gg</a></Link>
+          <Link href="/vote"><a className={c.Button}>Vote for us on Top.gg!</a></Link>
         </div>
         <div>
-          <Link href="/vote2"><a className={c.button2}>Visit CRBT on Discord Bots</a></Link>
+          <Link href="/vote2"><a className={c.Button}>Visit CRBT on Discord Bots</a></Link>
         </div>
       </main>
     </div>

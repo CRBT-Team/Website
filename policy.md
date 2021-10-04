@@ -1,25 +1,32 @@
 # CRBT - Privacy Policy
-Last update: 2021-07-23 (as of version 10.0)
+##### Last update: October 4th, 2021
 
-When you make use of the CRBT service (bot), by adding it to a server or by using it as a Discord user, you automatically apply to this privacy policy.
+When you make use of the CRBT service (bot), by adding it to a server, removing it from a server or by using it as a Discord user, you automatically apply to this privacy policy.
 
 ## Your privacy controls
 
-CRBT offers a simple toggle between two telemetry modes: "Minimal" and "Complete". By default, the Complete mode is enabled. To change it to Minimal, you can simply execute the `()telemetry` command. This will allow you to review a part of your collected data along with information on how to manage it. If you wish to entirely delete saved data about you, you can always [email me about it](mailto:clembs@clembs.xyz).
+As of August 2021, we removed the option to change the telemetry mode, as seeing a lack of interest in the toggle by users and for simplicity reasons.
+In the incoming updates, we are planning to add a way for users to easily download, review or completely erase the data we store in our servers.
+For the time being, you can always **[email Clembs about it](mailto:clembs@clembs.xyz)**.
 
 ## How your data is used
 
-I do __not__ sell, share or give your data. This data is only accessible by me, Clembs, the creator and main developer of CRBT. I use this data to understand how anyone use CRBT to improve on its fluency, its ease of use and what commands are more used than other to improve them. If Complete mode is enabled, I will also use the user ID to track potential abusers and breach-exploiters. Note that this data is logged through messages sent into a private Discord server that only I and CRBT can access.
+Here at CRBT, we do __not__ give, share or sell your data to anyone. 
+Your user & server data is only accessible by the creator and main developer of CRBT, Clembs.
+This data is used to understand how is CRBT used so we can improve on its fluency and its ease of use. We also use this data in order to understand what commands are more used than others in order to prioritize them.
+If Complete mode is enabled, I will also use the user ID to track potential abusers and breach-exploiters. Note that this data is logged through messages sent into a private Discord server that only I and CRBT can access.
 
-## Minimal mode: What I collect
+## What data is logged
 
-If minimal mode is enabled (through the `()telemetry` command), I only collect the command name of whatever command is used.
-Note that minimal mode is not active by default.
+##### Upon triggering a command:
+- The command name along with the options (what come after the command name)
+- Your public 16-digits Discord User ID
+- The platform where the command was executed from (Desktop, Mobile or Web)
 
-## Complete mode: What I collect
+##### Upon inviting or removing CRBT on a server:
+- The server name and its 16-digit ID
 
-As said earlier, the Complete mode is enabled by default and will log more data, including:
-- The command name + the arguments (what come after the command name)
-- Where the command was executed (from Direct Messages or a Server)
-- Your user ID
-- The platform (Desktop/Mobile/Web)
+## Where this data is logged
+
+Logged command & server data is sent in a private Discord channel only accessible by Clembs and CRBT.
+Other data used for command suggestions and other analytics are stored in a database located in **[Kiwatech](https://kiwatech.net)**'s servers and are only used by CRBT to provide useful suggestions.

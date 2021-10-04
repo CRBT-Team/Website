@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 
-import c from '../../styles/Policy.module.scss'
+import c from '../../styles/Markdown.module.scss'
 import { readFile } from 'fs-extra';
 
 export default function Policy({ mdx }) {

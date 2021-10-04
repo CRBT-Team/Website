@@ -86,26 +86,6 @@
   }
 }
 
-.inviteButton {
-  display: inline-block;
-  margin-top: 0.25em;
-  background: white;
-  color: #4A0920;
-  border-radius: 16px;
-  font-size: 1.5em;
-  padding: 0.25em 1em;
-  
-  transition: background-color 200ms;
-
-  &:hover {
-    background: #ffdfea;
-  }
-  &:active {
-    background: #ffb9d1;
-    transition: opacity 50ms;
-  }
-}
-
 h2.why {
   font-size: 2rem;
   width: 100%;
@@ -128,6 +108,10 @@ h2.why {
 
   h2 {
     font-weight: 700;
+  }
+
+  .text a:hover {
+    text-decoration: underline;
   }
 
   .text {
@@ -167,5 +151,22 @@ h2.why {
   }
 }
 
+.Button {
+  display: inline-block;
+  margin-top: 0.25em;
+  background: white;
+  color: #4A0920;
+  border-radius: 16px;
+  font-size: 1.5em;
+  padding: 0.25em 1em;
+  
+  transition: background-color 200ms;
 
-
+  &:hover {
+    background: #ffdfea;
+  }
+  &:active {
+    background: #ffb9d1;
+    transition: opacity 50ms;
+  }
+}
