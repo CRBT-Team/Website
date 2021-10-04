@@ -36,6 +36,7 @@ export default function Footer() {
         <section>
           <div>Developers</div>
           <ul>
+            <li><Link href='/github'>GitHub</Link></li>
             <li><Link href='https://api.clembs.xyz'>Clembs API</Link></li>
             <li><Link href='https://script.crbt.ga'>CRBTScript</Link></li>
           </ul>

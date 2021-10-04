@@ -1,6 +1,6 @@
 {
-  "name": "crbt",
-  "version": "0.1.0",
+  "name": "crbt-website",
+  "version": "2021.02.01",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -19,7 +19,7 @@
   "devDependencies": {
     "@types/fs-extra": "^9.0.11",
     "@types/react": "^17.0.11",
-    "discord.js": "^13.0.0-dev.c8ca7bf.1627041776",
+    "discord.js": "13.1.0",
     "dotenv": "^10.0.0",
     "eslint": "7.29.0",
     "eslint-config-next": "11.0.1",
