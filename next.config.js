@@ -10,6 +10,6 @@ module.exports = {
       .map(([source, destination]) => ({ source, destination, permanent: false }));
   },
   images: {
-    domains: ['cdn.discordapp.com', 'morggan.ga', 'bkly.tk', 'media.discordapp.net', 'lh3.googleusercontent.com'],
+    domains: ['cdn.discordapp.com', 'morggan.ga', 'bkly.tk', 'media.discordapp.net', 'lh3.googleusercontent.com', 'avatars.githubusercontent.com'],
   },
 };

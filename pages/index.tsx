@@ -57,9 +57,7 @@ export default function Home() {
           </p>
         </div>
         <div className={c.spacer} />
-        <div className={c.img}>
-          <img src="/placeholder-image.png" alt="Placeholder image" />
-        </div>
+        
       </section>
 
       <section className={c.section2}>
@@ -73,9 +71,7 @@ export default function Home() {
           </p>
         </div>
         <div className={c.spacer} />
-        <div className={c.img}>
-          <img src="/placeholder-image.png" alt="Placeholder image" />
-        </div>
+        
       </section>
 
       <section className={c.section1}>
@@ -88,9 +84,7 @@ export default function Home() {
           </p>
         </div>
         <div className={c.spacer} />
-        <div className={c.img}>
-          <img src="/placeholder-image.png" alt="Placeholder image" />
-        </div>
+        
       </section>
     </div>
   );
