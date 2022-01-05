@@ -1,0 +1,54 @@
+# CRBT - 11.0 (BETA) Changelog
+
+## Added Slash Commands!!
+
+They're replacing the old message commands, which are now completely removed.
+
+Not all commands are ported over for the time being, but I made sure to add as much as I could:
+
+- `/userinfo`
+- `/pfp`
+- `/emojiinfo`
+- `/roleinfo`
+- `/channelinfo`
+- `/serverinfo`
+- `/crbtinfo`
+- `/ping`
+- `/report`
+- `/activity` (combining all of the Activity commands)
+- `/set-color`
+- `/lenny`, `/reverse`, `/shout`
+- `/8ball`, `/calc`, `/convert`, `/pick`, `/rng`, `/translate`
+
+Many commands are missing for now, but I'll make sure to bring more and more of them on the following weeks.
+
+## Changed
+
+- `/serverinfo` now supports Stickers, Stage channels and Boosting plans.
+- `/channelinfo` supports Stage channels as well, and will now give more info depending on the channel type.
+- `/userinfo` will now give you the ability to see all activities of a user, including their Spotify activity and Custom Status.
+- `/emojiinfo` returns more info on an Unicode emoji, like its name, since when it is available, its category and more designs.
+- `/set-color` adds the ability to sync your accent color with your Discord Profile color (with `/set-color color:profile`)
+- Tweaked the designed of `/8ball`, `/translate` and `/pick`
+
+## Temporarily removed
+
+- Economy commands & CRBT Store
+- CRBT Profiles
+- Usage telemetry
+- Animal commands
+- Auto-publishing messages
+- Logs
+- Moderation commands
+- NSFW commands
+- Some fun commands
+- Some administration commands
+- A lot of info commands
+- Some other stuff I forgot to mention
+
+## Removed
+
+- The ability to change CRBT's prefix
+- The ability to disable certain modules
+- The `//help` command, as typing `/` now offers a similar result with Discord's UI.
+- All user data, as the original database was reset and destroyed. We are now using Supabase for the database, which should work way better.
