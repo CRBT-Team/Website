@@ -49,7 +49,6 @@
 		header {
 			margin-bottom: 3rem;
 		}
-		margin: 3rem;
 	}
 
 	.group {

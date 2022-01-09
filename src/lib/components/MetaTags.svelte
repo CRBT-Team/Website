@@ -8,7 +8,7 @@
 		site_name: 'CRBT',
 		title: title ? `CRBT - ${title}` : 'CRBT - The Discord companion made for you.',
 		description,
-		baseUrl: 'https://crbt.ga',
+		baseUrl: $page.url.host,
 		image: '/assets/logos/crbt.png',
 		color: '#F17188'
 	};

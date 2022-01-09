@@ -2,7 +2,9 @@
 	import MetaTags from '$lib/components/MetaTags.svelte';
 </script>
 
-<MetaTags description="CRBT is a Discord bot that helps you get things done quickly through user-friendly and customizable commands."/>
+<MetaTags
+	description="CRBT is a Discord bot that helps you get things done quickly through user-friendly and customizable commands."
+/>
 
 <main>
 	<header class="header">
@@ -36,9 +38,12 @@
 			<h2>Now using Slash commands!</h2>
 			<p>
 				We've spent a lot of time carefully designing the new version of CRBT around the new Discord
-				API. To use CRBT, just type / and click it to see a list of commands. Then, follow the
-				instructions on screen. Truly a piece of cake!
+				API. Slash commands means you get a nice overview of all the commands, and autocomplete to
+				help you find the right options. Just type / and click CRBT to get started!
 			</p>
+		</div>
+		<div class="img">
+			<img src="https://cdn.clembs.xyz/Tu4vEe0.png" alt="/user pfp with options" />
 		</div>
 	</section>
 
@@ -48,10 +53,14 @@
 			<p>
 				CRBT was designed around speed, simplicity and ease of use. We've made it easy to get any
 				kind of info you need, from a simple translation using <code>/translate</code> to a whole
-				sheet of info about the server of your choice with <code>/serverinfo</code>`. You can even
+				sheet of info about the server of your choice with <code>/server info</code>`. You can even
 				enlarge an emoji using
-				<code>/emojiinfo</code> or start a Watch Together party with the <code>/activity</code> command!
+				<code>/emoji info</code> or start a Watch Together party with the <code>/activity</code> command!
 			</p>
+		</div>
+
+		<div class="img">
+			<img src="https://cdn.clembs.xyz/NoXYHmk.png" alt="/define word:useful" />
 		</div>
 	</section>
 
@@ -69,6 +78,7 @@
 <style lang="scss">
 	main {
 		padding: 0;
+		margin: 0;
 		line-height: initial;
 		display: flex;
 		flex-direction: column;
@@ -99,7 +109,7 @@
 	.header {
 		color: black;
 		background: linear-gradient(180deg, #649dff 0%, #3781ff 100%);
-		width: 100%;
+		width: 100vw;
 		flex: 0 0 600px;
 		text-align: center;
 		position: relative;
@@ -168,7 +178,7 @@
 	// }
 
 	// .noiselayer {
-	// 	background-image: url(/noise-layer.png);
+	// 	background-image: url(/noise-layer.webp);
 	// 	width: 100%;
 	// 	display: flex;
 	// }
@@ -176,22 +186,44 @@
 	// Section 1
 	.section1,
 	.section2 {
-		width: 100%;
+		width: 100vw;
 		padding: 2em 2em;
+		gap: 2rem;
 		display: flex;
-		justify-content: center;
-		background-image: url(/noise-layer.png);
+		justify-content: space-evenly;
+		align-items: center;
+		background-image: url(/noise-layer.webp);
+
+		@media (max-width: 850px) {
+			gap: initial;
+			flex-direction: column-reverse;
+			padding: 2rem 3rem;
+			.text {
+				flex-wrap: wrap;
+				width: 100%;
+			}
+		}
+
+		.text {
+			max-width: 30rem;
+		}
 
 		h2 {
 			font-weight: 700;
 		}
 
-		// .text a:hover {
-		// 	text-decoration: underline;
-		// }
+		.img {
+			display: flex;
+			justify-content: center;
 
-		.text {
-			flex: 0 1 700px;
+			& > * {
+				width: 23rem;
+				border-radius: 1rem;
+				@media (max-width: 850px) {
+					width: 80vw;
+					align-self: center;
+				}
+			}
 		}
 	}
 
@@ -202,6 +234,13 @@
 		background-color: #f27187;
 		color: #4a0920;
 		flex-direction: row-reverse;
+		@media (max-width: 850px) {
+			flex-direction: column-reverse;
+			.text {
+				text-align: left !important;
+			}
+		}
+
 		.text {
 			text-align: right;
 		}

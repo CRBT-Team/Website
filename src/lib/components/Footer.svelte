@@ -147,6 +147,10 @@
 		.links {
 			flex-direction: column;
 			gap: 0em;
+			ul li {
+				font-size: 1.03rem;
+				margin-bottom: 0.7rem;
+			}
 		}
 	}
 </style>
