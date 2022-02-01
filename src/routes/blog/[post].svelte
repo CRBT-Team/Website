@@ -4,9 +4,22 @@
 	export const load: Load = async ({ params, fetch }) => {
 		const post = await fetch(`/markdown/blog/${params.post}.md`);
 		if (post.status === 200) {
+			const text = await post.text();
+			const meta = Object.fromEntries(
+				text
+					.split('---')[1]
+					.split('\r\n')
+					.slice(1, 4)
+					.map((line) => [line.split(':')[0].trim(), line.split(':')[1].trim()])
+			);
 			return {
 				props: {
-					post: await post.text()
+					post: text.split('---')[2],
+					meta: {
+						title: meta.title,
+						description: meta.description,
+						date: dayjs(meta.date)
+					}
 				}
 			};
 		}
@@ -14,29 +27,35 @@
 </script>
 
 <script lang="ts">
+	export let meta: {
+		title: string;
+		description: string;
+		date: Dayjs;
+	};
 	export let post: string;
 	import MetaTags from '$lib/components/MetaTags.svelte';
-	//	import { removeMarkdown } from '$lib/util/functions/escapeMarkdown';
 	import { marked } from 'marked';
+	import { replace } from 'node-emoji';
 	import '../../styles/markdown.scss';
-
-	// console.log(
-	// 	removeMarkdown(post.replace(post.split('\n')[0], ''))
-	// 		.split(' ')
-	// 		.slice(0, 20)
-	// 		.join(' ')
-	// 		.replace('\n', '')
-	// 		.trim()
-	// );
+	import dayjs, { Dayjs } from 'dayjs';
 </script>
 
-<MetaTags
-	title={post
-		.split('\n')[0]
-		.replace(/# CRBT - |# /, '')
-		.trim()}
-/>
+<MetaTags title={meta.title} description={meta.description} />
 
 <main>
-	{@html marked(post)}
+	<article itemscope itemtype="http://schema.org/Article">
+		<header>
+			<h1 itemprop="name">CRBT {meta.title}</h1>
+			<p>
+				Published on <time datetime={meta.date.toISOString()}
+					>{meta.date.format('MMMM D, YYYY')}</time
+				>
+			</p>
+		</header>
+		<section itemprop="articleBody">
+			{@html replace(marked(post), ({ emoji, key }) => {
+				return `<img class="emoji" src="https://clembs.xyz/emojis/${key}.png" alt="${emoji}">`;
+			})}
+		</section>
+	</article>
 </main>

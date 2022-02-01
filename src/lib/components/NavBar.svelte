@@ -1,16 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	// import CRBTSVG from '../svg/crbt.svg?component';
 	let blur = false;
-	onMount(() => {
-		blur = document.scrollingElement.scrollTop > 5;
-	});
+	onMount(() => (blur = document.scrollingElement.scrollTop > 5));
 </script>
 
 <svelte:window on:scroll={() => (blur = document.scrollingElement.scrollTop > 5)} />
 
 <nav class:blur>
-	<a href="/invite">Invite</a>
 	<a href="/">
 		<svg width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path
@@ -19,49 +15,56 @@
 			/>
 		</svg>
 	</a>
-	<a href="/discord">Discord</a>
+	<div class="list">
+		<a href="/invite">Invite</a>
+		<a href="/discord">Discord</a>
+	</div>
 </nav>
 
 <style lang="scss">
 	nav {
 		display: flex;
 		width: 100%;
-		justify-content: center;
+		padding: 20px 40px;
+		justify-content: space-between;
 		position: sticky;
+		align-items: center;
 		top: 0;
-		padding-top: 20px;
 		z-index: 100;
 		transition: background-color 200ms linear, backdrop-filter 200ms linear;
+		.list {
+			display: flex;
+			align-items: center;
 
-		a {
-			font-size: 1.25em;
-			line-height: 72px;
-			width: 125px;
-			text-align: center;
-			user-select: none;
-		}
+			& > * {
+				cursor: pointer;
+				font-size: 1.25em;
+				text-align: center;
+				height: 100%;
+				padding-left: 40px;
+				user-select: none;
+				transition: opacity 200ms;
 
-		a {
-			transition: opacity 200ms;
-
-			&:hover {
-				opacity: 0.85;
+				&:hover {
+					opacity: 0.85;
+				}
+				&:active {
+					transition: opacity 50ms;
+					opacity: 0.65;
+				}
 			}
-			&:active {
-				transition: opacity 50ms;
-				opacity: 0.65;
-			}
 		}
-
-		// del {
-		// 	cursor: not-allowed;
-		// 	color: rgba(255, 255, 255, 0.6);
-		// 	text-decoration-color: white;
-		// }
 	}
 
 	.blur {
 		background-color: rgba(120, 120, 120, 0.4);
 		backdrop-filter: blur(20px) saturate(1.5) brightness(0.75);
+	}
+
+	@media (max-width: 800px) {
+		nav {
+			padding: 20px;
+			justify-content: center;
+		}
 	}
 </style>

@@ -51,7 +51,7 @@
 				<div>Developers</div>
 				<ul>
 					<li><a href="/github">GitHub</a></li>
-					<li><a href="/purplet"><strong>NEW</strong> Purplet</a></li>
+					<li><a href="/purplet">Purplet, a bot framework</a></li>
 					<!-- <li><a href="https://api.clembs.xyz">Clembs API</a></li>
 					<li><a href="https://script.crbt.ga">CRBTScript</a></li> -->
 				</ul>
@@ -118,9 +118,6 @@
 				color: #d97a88;
 			}
 		}
-		strong {
-			text-decoration: underline;
-		}
 	}
 
 	.copyright {
@@ -147,10 +144,10 @@
 		.links {
 			flex-direction: column;
 			gap: 0em;
-			ul li {
-				font-size: 1.03rem;
-				margin-bottom: 0.7rem;
-			}
+		}
+		ul li {
+			font-size: 1.03rem;
+			margin-bottom: 0.7rem;
 		}
 	}
 </style>

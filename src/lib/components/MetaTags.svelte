@@ -19,7 +19,6 @@
 	<meta name="author" content={tags.site_name} />
 	<meta name="title" content={tags.title} />
 	{#if description} <meta name="description" content={tags.description} /> {/if}
-	<meta name="distribution" content="web" />
 	<meta name="copyright" content="&copy;2019-{new Date().getFullYear()} Clembs" />
 	<meta name="theme-color" content={tags.color} />
 	<!-- Google index -->

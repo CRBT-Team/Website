@@ -13,6 +13,9 @@ main {
 		margin-block-start: 0.5rem;
 		padding-inline-start: 20px;
 	}
+	a:hover {
+		text-decoration: underline;
+	}
 }
 
 blockquote {
@@ -20,4 +23,11 @@ blockquote {
 	padding: 0.5rem 1rem;
 	background: #d76177;
 	border-radius: 0.7rem;
+
+	a {
+		text-decoration: underline;
+		&:hover {
+			color: #370718;
+		}
+	}
 }

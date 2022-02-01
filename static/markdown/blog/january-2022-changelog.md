@@ -1,4 +1,8 @@
-# CRBT - January 2022 Update
+---
+title: January 2022 Update
+description: Added some commands, added data collection and improvements in stability
+date: 2022-01-09
+---
 
 CRBT is now verified!!! Thank you so much guys for making this achievement possible!
 

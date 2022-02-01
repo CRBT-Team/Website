@@ -1,18 +1,26 @@
-# CRBT - September 2021 Update
+---
+title: September 2021 Update
+description: Added activities, removed Music & NSFW commands, fixed a lot of bugs and removed all error messages
+date: 2021-09-29
+---
 
 ## Added
 
 - Bad word detection in `//setname`, `//setbio` (in beta), alongside a new minimum length requirement.
 
 #### Activities
+
 These commands will allow you to start the following activities in a voice channel:
+
 - `//chess`: Chess in the Park
 - `//poker`: Poker Night
 - `//betrayal`: Betrayal.io
 - `//fishington`: Fishington.io
 
 #### To-Do lists
+
 Finally out of Experimental features, these commands will allow you to manage your own to-do list:
+
 - `//addtodo`
 - `//viewtodo`
 - `//checktodo`
@@ -36,7 +44,7 @@ Finally out of Experimental features, these commands will allow you to manage yo
 - Updated ()help to have the Logs module, replacing Music.
 - `//help general | settings` not showing "You can't disable this module."
 - `//icon's usage recommending to use a user ID instead of a server ID
-- `//mutedrole` doing weird shenanigans (experimental) 
+- `//mutedrole` doing weird shenanigans (experimental)
 
 ### Removed
 

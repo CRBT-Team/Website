@@ -1,27 +1,37 @@
-# CRBT - October 2021 Update
+---
+title: October 2021 Update
+description: More activities, better //translate, member join/leave logs and several API improvements!
+date: 2021-10-30
+---
 
 ## Added
 
-
 #### Activities
+
 I added more activities from Discord, make sure to try them out, they're a lot of fun!
+
 - `//lettertile`: Letter Time
 - `//watchtogether`: Watch Together (replaces YouTube Together)
 - `//wordsnacks`: Word Snacks
 - `//doodlecrew`: Doodle Crew
 
 #### Member logs
+
 I'm upgrading CRBT's logging features by adding join and leave logs, that are working similarly to other CRBT logs.
+
 - Use `//memberlogs <channel>` to enable member logs and define where they should be sent.
 - More logs will be added in the future!
 
 #### API Improvements
+
 - Added the /other/translate endpoint for translating text using Google Translate, with language detection, auto-correction and source/target language.
 - Added new private GET and POST requests for the CRBT database, for use by future CRBT-related projects (web dashboard? 👀).
 - Updated the /other/anime endpoint to use request queries instead of values in the path (/other/anime/{id} -> /other/anime?title={id}).
 
 #### Improved ()translate
+
 Using the new API endpoint, I've added several quality-of-life improvements to the `//translate` command:
+
 - Loads way faster
 - Less fail rates
 - Better language detection

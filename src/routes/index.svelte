@@ -77,6 +77,7 @@
 
 <style lang="scss">
 	main {
+		min-width: 100%;
 		padding: 0;
 		margin: 0;
 		line-height: initial;
@@ -109,7 +110,7 @@
 	.header {
 		color: black;
 		background: linear-gradient(180deg, #649dff 0%, #3781ff 100%);
-		width: 100vw;
+		width: 100%;
 		flex: 0 0 600px;
 		text-align: center;
 		position: relative;
@@ -186,7 +187,7 @@
 	// Section 1
 	.section1,
 	.section2 {
-		width: 100vw;
+		width: 100%;
 		padding: 2em 2em;
 		gap: 2rem;
 		display: flex;

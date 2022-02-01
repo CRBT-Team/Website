@@ -110,6 +110,11 @@
   resolved "https://registry.yarnpkg.com/@types/marked/-/marked-4.0.1.tgz#d588a7bbc4d6551c5e75249bc106ffda96ae33c5"
   integrity sha512-ZigEmCWdNUU7IjZEuQ/iaimYdDHWHfTe3kg8ORfKjyGYd9RWumPoOJRQXB0bO+XLkNwzCthW3wUIQtANaEZ1ag==
 
+"@types/node-emoji@^1.8.1":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@types/node-emoji/-/node-emoji-1.8.1.tgz#689cb74fdf6e84309bcafce93a135dfecd01de3f"
+  integrity sha512-0fRfA90FWm6KJfw6P9QGyo0HDTCmthZ7cWaBQndITlaWLTZ6njRyKwrwpzpg+n6kBXBIGKeUHEQuBx7bphGJkA==
+
 "@types/node@*":
   version "17.0.5"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.5.tgz#57ca67ec4e57ad9e4ef5a6bab48a15387a1c83e0"
@@ -245,6 +250,11 @@ d@1, d@^1.0.1:
   dependencies:
     es5-ext "^0.10.50"
     type "^1.0.1"
+
+dayjs@^1.10.7:
+  version "1.10.7"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.7.tgz#2cf5f91add28116748440866a0a1d26f3a6ce468"
+  integrity sha512-P6twpd70BcPK34K26uJ1KT3wlhpuOAPoMwJzpsIWUxHZ7wpmbdZL/hQqBDfz7hGurYSa5PhzdhDHtt319hL3ig==
 
 debug@^2.2.0:
   version "2.6.9"
@@ -579,6 +589,11 @@ kleur@^4.1.4:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-4.1.4.tgz#8c202987d7e577766d039a8cd461934c01cda04d"
   integrity sha512-8QADVssbrFjivHWQU7KkMgptGTl6WAcSdlbBPY4uNF+mWr6DGcKrvY2w4FQJoXch7+fKMjj0dRrL75vk3k23OA==
 
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
 magic-string@^0.25.7:
   version "0.25.7"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.25.7.tgz#3f497d6fd34c669c6798dcb821f2ef31f5445051"
@@ -652,6 +667,13 @@ next-tick@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
+
+node-emoji@^1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/node-emoji/-/node-emoji-1.11.0.tgz#69a0150e6946e2f115e9d7ea4df7971e2628301c"
+  integrity sha512-wo2DpQkQp7Sjm2A0cq+sN7EHKO6Sl0ctXeBdFZrL9T9+UywORbufTcTZxom8YqpLQt/FqNMUkOpkZrJVYSKD3A==
+  dependencies:
+    lodash "^4.17.21"
 
 node-fetch@2.6.1:
   version "2.6.1"

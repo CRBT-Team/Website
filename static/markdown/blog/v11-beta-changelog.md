@@ -1,4 +1,8 @@
-# CRBT - 11.0 (BETA) Changelog
+---
+title: 11.0 (BETA) Update
+description: Added Slash Commands!! And moved CRBT on Discord.js & Purplet! Arguaably the most important update to CRBT, ever!
+date: 2021-12-21
+---
 
 ## Added Slash Commands!!
 

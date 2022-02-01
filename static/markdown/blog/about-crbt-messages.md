@@ -1,20 +1,24 @@
-# CRBT Help - What are those CRBT messages all about?
+---
+title: Help - What are those CRBT messages all about?
+description: So you recieved a sudden DM from CRBT on Discord, what do you do??? This guide is here to help!
+date: 2022-02-01
+---
 
 ### What??
 
 So you are on Discord, using CRBT (or maybe not!) and suddenly you receive this:
 
-![Sudden DM from CRBT!](https://cdn.discordapp.com/attachments/859380488141275166/868243430759866419/unknown.png) (or similar)
+![Sudden DM from CRBT!](https://cdn.discordapp.com/attachments/639241740800491566/937984726550077460/unknown.png) (or similar)
 
-That is what we call a CRBT message! 
+That is what we call a CRBT message!
 
 ### Why?
 
 You may receive CRBT messages on multiple occasions, including:
 
-- [🔗](#about-bug-reports-or-suggestions) A bug you reported (with the  `//report` command) got fixed or rejected.
+- [🔗](#about-bug-reports-or-suggestions) A bug you reported (with the `//report` command) got fixed or rejected.
 - [🔗](#about-bug-reports-or-suggestions) Something you suggested (with the `//suggest` command) got added to CRBT, or was rejected.
-- [🔗](#about-bug-reports-or-suggestions) You got a message from the CRBT developers to your suggestion or bug report. 
+- [🔗](#about-bug-reports-or-suggestions) You got a message from the CRBT developers to your suggestion or bug report.
 - [🔗](#about-blocklisting-on-crbt) You got blocklisted or unblocklisted by a CRBT developer
 - [🔗](#about-being-striked-from-a-discord-server) You got striked (banned, warned, kicked, muted) by a moderator
 - [🔗](#other-occurences) Other occasions
@@ -22,6 +26,7 @@ You may receive CRBT messages on multiple occasions, including:
 ### About bug reports or suggestions
 
 You typically receive this type of message whenever an official CRBT developer has interacted to a suggestion or bug report you sent. These interactions can be:
+
 - An approval
 - A denial
 - A reply
@@ -50,6 +55,6 @@ Please note that CRBT is never affiliated with the server, the moderator or the 
 
 You may receive other kinds of messages from CRBT, including:
 
-- Broadcasted partner messages (assuming you're a CRBT Partner)
+- ~~Broadcasted partner messages (assuming you're a CRBT Partner)~~
 - ~~Updates on CRBT's news (if you've signed up for them)~~ (coming soon)
-- Broadcasted CRBT Beta Channel messages (if you got access to CRBT Dev/Beta)
+- Broadcasted CRBT Dev messages (if you've got access to CRBT Dev)
