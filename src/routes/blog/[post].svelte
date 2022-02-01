@@ -12,6 +12,7 @@
 					.slice(1, 4)
 					.map((line) => [line.split(':')[0].trim(), line.split(':')[1].trim()])
 			);
+			console.log(meta);
 			return {
 				props: {
 					post: text.split('---')[2],
@@ -35,7 +36,7 @@
 	export let post: string;
 	import MetaTags from '$lib/components/MetaTags.svelte';
 	import { marked } from 'marked';
-	import { replace } from 'node-emoji';
+	// import { replace } from 'node-emoji';
 	import '../../styles/markdown.scss';
 	import dayjs, { Dayjs } from 'dayjs';
 </script>
@@ -53,9 +54,10 @@
 			</p>
 		</header>
 		<section itemprop="articleBody">
-			{@html replace(marked(post), ({ emoji, key }) => {
+			{@html marked(post)}
+			<!-- {@html replace(marked(post), ({ emoji, key }) => {
 				return `<img class="emoji" src="https://clembs.xyz/emojis/${key}.png" alt="${emoji}">`;
-			})}
+			})} -->
 		</section>
 	</article>
 </main>
