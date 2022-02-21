@@ -17,6 +17,7 @@
 		"@sveltejs/kit": "next",
 		"@types/marked": "^4.0.1",
 		"@types/node-emoji": "^1.8.1",
+		"mdsvex": "^0.10.5",
 		"prettier": "^2.4.1",
 		"prettier-plugin-svelte": "^2.4.0",
 		"sass": "^1.45.2",

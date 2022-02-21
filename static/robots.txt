@@ -1,0 +1,3 @@
+# hi robots :P
+User-agent: *
+Disallow:

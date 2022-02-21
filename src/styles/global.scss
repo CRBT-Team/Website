@@ -1,3 +1,9 @@
+:root {
+	--light: #f27187;
+	--dark: #4a0920;
+	--darker: #290310;
+}
+
 html,
 body {
 	padding: 0;
@@ -8,7 +14,7 @@ body {
 	font-size: 18px;
 	font-family: 'DM Sans', Inter, 'Helvetica Neue', system-ui, sans-serif;
 	color: white;
-	background-color: #4a0920;
+	background-color: var(--darker);
 	background-image: url(/noise-layer.webp);
 }
 
@@ -38,9 +44,9 @@ a {
 }
 
 main {
-	padding: 3rem;
-	align-self: center;
-	max-width: fit-content;
+	// padding: 3rem;
+	// align-self: center;
+	// max-width: fit-content;
 }
 
 @media screen and (max-width: 850px) {

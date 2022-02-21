@@ -1,0 +1,5 @@
+Contact: clembs@clembs.xyz
+Expires: 2022-04-12T13:00:00.000Z
+Preferred-Languages: en
+Canonical: https://crbt.ga/security.txt
+Policy: https://crbt.ga/policy

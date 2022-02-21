@@ -2,15 +2,18 @@
 	import MetaTags from '$lib/components/MetaTags.svelte';
 	import { credits, userData } from './_credits';
 	const a = Object.entries(credits).map(([title, people]) => {
+		console.log(people);
 		return {
 			title,
-			people: people.map((person) => {
-				return {
-					username: person,
-					pfp: userData[person].avatar ?? '/placeholder-image.png',
-					url: userData[person].url
-				};
-			})
+			people: people
+				.sort((a, b) => a.localeCompare(b))
+				.map((person) => {
+					return {
+						username: person,
+						pfp: userData[person].avatar ?? '/placeholder-image.png',
+						url: userData[person].url
+					};
+				})
 		};
 	});
 </script>
@@ -46,6 +49,7 @@
 
 <style lang="scss">
 	main {
+		width: 100%;
 		header {
 			margin-bottom: 3rem;
 		}

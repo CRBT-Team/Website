@@ -1,6 +1,6 @@
 # CRBT - Privacy Policy
 
-##### Last update: January 9th, 2022
+##### Last update: February 22nd, 2022
 
 When you make use of the CRBT service, by adding it to a server, removing it from a server or by using it as a Discord user, you automatically apply to this privacy policy.
 
@@ -21,14 +21,14 @@ I will also use the user ID to track potential abusers and breach-exploiters.
 
 ## What data is logged
 
-##### When using a command (through Slash Commands):
+##### When using a command (through any kind of Application Command):
 
 - The full command name, along with its options
 - Your public Discord user ID
 
 ##### When inviting or removing CRBT on a server:
 
-- The server/guild name and ID
+- The server name and ID
 
 ## Where this data is logged
 

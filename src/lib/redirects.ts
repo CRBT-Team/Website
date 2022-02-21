@@ -1,5 +1,5 @@
 export const redirects = {
-	'/changelog': '/blog/11.2-changelog',
+	'/changelog': '/blog/11.3-changelog',
 	'/github/*': 'https://github.com/CRBT-Team/*',
 	'/purplet': 'https://github.com/CRBT-Team/Purplet',
 	'/discord': 'https://discord.gg/AvwhNtsgAC',

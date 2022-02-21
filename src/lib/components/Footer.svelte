@@ -51,9 +51,13 @@
 				<div>Developers</div>
 				<ul>
 					<li><a href="/github">GitHub</a></li>
-					<li><a href="/purplet">Purplet, a bot framework</a></li>
-					<!-- <li><a href="https://api.clembs.xyz">Clembs API</a></li>
-					<li><a href="https://script.crbt.ga">CRBTScript</a></li> -->
+					<li><a href="/purplet">Purplet framework</a></li>
+					<!-- <li><a href="https://api.clembs.xyz">Clembs API</a></li> -->
+					<li>
+						<a href="https://crbt.notion.site/CRBTscript-Docs-742706c71b5848c9a1b155d187573bba"
+							>CRBTScript</a
+						>
+					</li>
 				</ul>
 			</section>
 			<section>

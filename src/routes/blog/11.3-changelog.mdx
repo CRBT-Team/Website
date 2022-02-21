@@ -1,0 +1,122 @@
+---
+category: Changelog
+title: What's new in CRBT 11.3?
+description: Featuring a new convienient access to commands, Voice Linkers, Reminders, Economy and CRBT Profiles!
+author: CRBT
+date: 2022-02-22
+---
+
+<script lang="ts">
+	import MetaTags from '$lib/components/MetaTags.svelte'; import BlogHeader from
+	'$lib/components/BlogHeader.svelte';
+</script>
+
+<MetaTags title={title} description={description} />
+<BlogHeader metadata={metadata} />
+
+<section itemprop="articleBody">
+
+> ⚠ Warning: CRBT v11 is still in beta, so bugs can happen and the bot isn't completed yet.
+>
+> If you find any bugs, make sure to `/report` them.
+>
+> To track the progress of the remake, here's a [Notion page](https://clembs.notion.site/7219f79b49c549e785fe6734c748f33c?v=b32a606e6b3343a285a0a45248f1b1b3) where you can find all of CRBT v10's commands and their current status.
+
+## Economy
+
+You heard (or read) that right, we brought the economy system back to CRBT!
+
+The following commands are available right now:
+
+- `/hourly` - Get a few Purplets
+- `/balance` - Get your Purplet balance
+- `/give` - Give Purplets to another user
+- `/leaderboard` - Get the top 20 users with the most Purplets globally
+
+We know that this is quite limited, and we will be adding more commands in the next updates. Stay tuned!
+
+## Profiles
+
+The well known CRBT profiles are also making a return to CRBT! To view yours or anyone else's, simply use **`/profile`** or right click the person and click "View CRBT Profile".
+
+What about editing them though? Well that's where the magic happens!
+
+<img src="https://cdn.clembs.xyz/RX0nP3Z.gif" alt="Editing a CRBT Profile">
+<p class="subtext">Simply click on the "Edit Profile" button and fill out the info!</p>
+
+We're also testing [CRBTscript v11](https://crbt.notion.site/CRBTscript-Docs-742706c71b5848c9a1b155d187573bba) in profile bios only this time! Make sure to give us feedback using `/suggest`.
+
+## Context menu commands
+
+Want to get fast access to someone's avatar? To someone's CRBT Profile? Translate a message or save it for later? Well, you can now do it with a single right-click!
+
+Starting from now on, you can right-click on a message to:
+
+- Bookmark it
+- Translate it to your Discord locale
+- Scan any QR codes
+
+<div class="grid">
+  <div class="column">
+    <img src="https://cdn.clembs.xyz/WY4iLrP.gif" alt="Demo of the Bookmark Message context menu command">
+    <p class="subtext">Bookmarking messages is now child's play!</p>
+  </div>
+  <div class="column">
+    <img src="https://cdn.clembs.xyz/1w8zhOP.gif" alt="Demo of the Translate Message context menu command on a message in german, to french">
+    <p class="subtext">Was ist das?? Just right click a message and translate it to your Discord locale.</p>
+  </div>
+</div>
+
+You can also right-click a user to:
+
+- Get their user info
+- Get their avatar
+- View their CRBT Profile
+
+<img src="https://cdn.clembs.xyz/u1Qh2Ko.gif" alt="Demo of the user context menu commands">
+<p class="subtext">Easy peasy, right?</p>
+
+## Reminders
+
+You can now very easily set reminders using the `/remind me` command! You can set reminders up to 2 years in the future, and change whether it should be sent as a DM, or in a channel of your choice!
+
+  <img src="https://cdn.clembs.xyz/q7AbFb0.png" alt="/remind me when:tomorrow at 3pm subject:buy flowers">
+  <p class="subtext">Any kind of syntax should work, so you can for example write "tomorrow at 3pm", "in 30 minutes", "3M2w3d" or even "on July 2'!</p>
+
+You can also view all of your reminders with the `/reminders` command.
+
+And if you ABSOLUTELY need those sweet Purplets, and you just want to be reminded of when you can get your hourly payment? Worry not, you can now set a reminder right under the cooldown error message!
+
+  <img src="https://cdn.clembs.xyz/iJbRRgv.gif" alt="Demo of the Add Reminder button">
+  <p class="subtext">FINALLY!</p>
+
+## Voice Linkers
+
+Got a #voice-text or a #no-mic channel for users that can't talk on your voice channel? You can now link access to the former whenever the user joins your voice channel with the `/voice-linker set` command!
+
+  <img src="https://cdn.clembs.xyz/50xhzfD.gif" alt="Joining a voice channel grants users access to your text channel, and vice versa.">
+  <p class="subtext">Just like magic!</p>
+
+## Other additions
+
+- `/manga`
+- `/coinflip`
+- `/mc skin`
+- The source API or service on the footer of some info commands
+- Added caching & local storage to CRBT so it's faster at picking up colors
+- Prisma for the database, so it's even faster
+- Added Ocho, Letter League and SpellCast in `/activity`
+- Added a button to generate another animal in `/animal`
+- Added navigation buttons and an "anonymous" option in `/nsfw rule34`
+- Bumped Purplet to 1.2.7 and Discord.js v13.6
+- Telemetry for Context menu commands
+
+## Changes and fixes
+
+- Changed instances of "Profile picture" to "Avatar" in `/user pfp` to match Discord's terminology
+- `/translate` now defaults to your Discord locale instead of English
+- More commands optimized to be run in DMs
+- Improved error handling
+- Fixed `/define`
+
+</section>
