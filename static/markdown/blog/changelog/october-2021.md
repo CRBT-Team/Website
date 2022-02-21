@@ -1,0 +1,60 @@
+---
+title: October 2021 Update
+description: More activities, better //translate, member join/leave logs and several API improvements!
+date: 2021-10-30
+---
+
+## Added
+
+#### Activities
+
+I added more activities from Discord, make sure to try them out, they're a lot of fun!
+
+- `//lettertile`: Letter Time
+- `//watchtogether`: Watch Together (replaces YouTube Together)
+- `//wordsnacks`: Word Snacks
+- `//doodlecrew`: Doodle Crew
+
+#### Member logs
+
+I'm upgrading CRBT's logging features by adding join and leave logs, that are working similarly to other CRBT logs.
+
+- Use `//memberlogs <channel>` to enable member logs and define where they should be sent.
+- More logs will be added in the future!
+
+#### API Improvements
+
+- Added the /other/translate endpoint for translating text using Google Translate, with language detection, auto-correction and source/target language.
+- Added new private GET and POST requests for the CRBT database, for use by future CRBT-related projects (web dashboard? 👀).
+- Updated the /other/anime endpoint to use request queries instead of values in the path (/other/anime/{id} -> /other/anime?title={id}).
+
+#### Improved ()translate
+
+Using the new API endpoint, I've added several quality-of-life improvements to the `//translate` command:
+
+- Loads way faster
+- Less fail rates
+- Better language detection
+- You can specify the source language using `//translate <target lang> <text> -from <source lang>`
+- Compatible with more languages
+- Suggests corrections to your text
+
+## Changed
+
+- Removed some packages and a lot of useless code (comments, bad formatting, lots of unused code, etc) for a smaller file size.
+- Changed version naming rules to semver rules (YEAR.MAJOR.BUILD -> MAJOR.MINOR.BUILD)
+- Updated old packages
+- Added automatic developer mode for CRBT Dev
+- Added a new "first-time notice" for activity commands
+- Updated `//help fun` to include activities
+- Added an halloween 2021 banner for the giveaway in the [CRBT server](https://crbt.ga/discord).
+- Updated `//clear`'s log to be more consistent with other moderation logs.
+- Auto-stats now show CRBT's version name and aoi.js version
+
+## Fixed
+
+- `//store` not working
+- `//translate` not working
+- `//ban`, `//mute`, `//kick` not working for unknown members
+- Minor typos, wording tweaks, etc
+- Auto-publish module not shown in the dashboard
