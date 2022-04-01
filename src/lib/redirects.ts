@@ -1,5 +1,6 @@
 export const redirects = {
 	'/changelog': '/blog/11.3-changelog',
+	'/premium': 'https://www.youtube.com/watch?v=6n3pFFPSlW4',
 	'/github/*': 'https://github.com/CRBT-Team/*',
 	'/purplet': 'https://github.com/CRBT-Team/Purplet',
 	'/discord': 'https://discord.gg/AvwhNtsgAC',
