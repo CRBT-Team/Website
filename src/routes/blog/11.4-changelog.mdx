@@ -19,70 +19,93 @@ date: 2022-03-23
 > ⚠ Warning: CRBT v11 is still in beta, so bugs can happen and the bot isn't completed yet.
 >
 > If you find any bugs, make sure to `/report` them.
->
-> To track the progress of the remake, here's a [Notion page](https://clembs.notion.site/7219f79b49c549e785fe6734c748f33c?v=b32a606e6b3343a285a0a45248f1b1b3) where you can find all of CRBT v10's commands and their current status.
-
-## More Privacy Controls!
-
-Privacy online is everyone's right, and we respect that, so to review and manage your privacy prefrences using CRBT you can now use **`/privacy`**.
-Learn more about our [privacy policy.](https://crbt.ga/policy)
-
-## Polls Are Here!
-
-Polls are great. We can use them to communicate with our guild members and see their opinions in specific subjects. So you now can do that by using **`/poll create`** and setting a title to be the subject, choose the channel to start the poll in, choose the poll ending date and finally setting more than one choice.
-
-**Note:** You can end a poll before it's end date using **`/poll end`** with the wanted poll ID which is located at each poll's footer.
-
-## Profile Upgrades!
-
-CRBT profiles are great, don't you agree? That's why in this update we tried making them even greater.
-We tweaked and changed the UI to be as efficient, thanks to the navbar that navigates between a user's profile, avatar and user info, as easy-to-use and as generally satisfying to look at.
-We also added a website integration to the command, which basically enables you to see somebody's profile online on [crbt.ga](https://crbt.ga/)
-You now can additionally add more optional information about you in your profile, like your birthdate and general location.
-
-## Other additions
-
-- added autocompleting names in /profile
-- added /npm
-- added extra info about activities in /activity
-- added user name & avatar history in the User Info sheet
-- added a snooze button for reminders
-- added /privacy, a way to review and change privacy settings
-- added role selectors (/roleselector create, edit, delete)
-- added a button to add a reminder to google calendar
-- added caching and optimization for profiles
-
-## Changes and fixes
-
-- new paging system for leaderboards
-- set maximum length of a reminder to 120 characters
-- reworked many strings and command descriptions
-- renamed /user pfp to /avatar and /user banner to /banner
-- tweaked the success messages UI
-- revamped issues with modals and replies
-- revamped error messages UI
-
-- fixed issue messages
-- fixed the "Add Reminder" button in /hourly
-- fixed hourly streaks
-- fixed /manga and /define not working
-- fixed /give accepting floats
-- fixed badges in /user info
-- fixed profile editing when using the same name
-- fixed pinging users in channels on reminders
 
 ## Polls
 
-## Upgraded Profiles
+A new feature in CRBT v11 is the ability to create polls, which can be used to ask for your members' opinion on specific subjects. You can create a new poll using `/poll create` with a title and up to 10 choices. You can even choose to automatically end the poll after some time.
+
+<div class="grid">
+  <div class="column">
+		<img src="https://cdn.clembs.xyz/0dMk2ej.png" alt="Using /poll create">
+    <p class="subtext">Example input</p>
+  </div>
+  <div class="column">
+    <img src="https://cdn.clembs.xyz/KUSobCj.png" alt="Example output">
+    <p class="subtext">Example output</p>
+  </div>
+</div>
+
+You can also end a poll before its end date using `/poll end` with a poll ID located at each poll's footer.
+
+## Profile Upgrades
+
+As we introduced CRBT Profiles last month, many of you already created one for their account, so we kept on improving them in this version!
+First, we redesigned the interface to be efficient, thanks to a new navigation bar to switch between a user's Profile, avatar and user info.
+
+<img src="https://cdn.clembs.xyz/DD7KFTy.gif" alt="A user's CRBT Profile, with the new navbar">
+<p class="subtext">Quickly get a user's profile, user info and avatar</p>
+
+And as you can see, you can now add more information about you in your Profile, like your birthdate, a website URL and your location.
+
+<img src="https://cdn.clembs.xyz/Jcdrdgm.png" alt="@Clembs's profile">
+
+Lastly, we introduced a way to get someone's profile by their profile name, which is much easier than using their ID, using a smart autocomplete in `/profile`.
+
+<img src="https://cdn.clembs.xyz/5MXYFdQ.png" alt="Autocompleting profile names in /profile">
+
+## More controls for your privacy
+
+Privacy is a fundamental right, so to review and manage telemetry prefrences, you can now use the `/privacy` command.
+We've also updated our [privacy policy](https://crbt.ga/policy) to reflect these changes.
 
 ## Upgraded Issues & Suggestions
 
-## User info navbar
+Another big change in this update is on the issues and suggestions system. First of all, they now use Discord's modal system which looks sick.
 
-## Privacy settings
+<img src="https://cdn.clembs.xyz/np5lqz6.png" alt="A issue submission form">
+
+This also means you can add a description to your issue, which is a great way to explain what you're trying to achieve.
+
+We also redesigned how issues look in the server, and made it easy for developers and issue reporters to discuss them.
+
+<div class="grid">
+  <div class="column">
+    <img src="https://cdn.clembs.xyz/yEqer44.png" alt="An older issue">
+    <p class="subtext">Here's how they used to look before. Quite messy and souless...</p>
+  </div>
+  <div class="column">
+		<img src="https://cdn.clembs.xyz/WflXUK3.png" alt="A issue from the new system">
+		<p class="subtext">Their new look!</p>
+  </div>
+</div>
+		<img src="https://cdn.clembs.xyz/XhwOeZX.png" alt="A Reply button">
+		<p class="subtext">A new reply button, allowing users to finally reply to CRBT issue update messages</p>
+
+As for suggestions, they now use the same system as issues, but will also create a new thread message to allow other people to discuss about them.
 
 ## Other additions
 
+- `/npm`
+- More info about Activities in `/activity`
+- Snoozing button for reminders
+- A button to add a CRBT reminder as a Google Calendar event
+- Added caching and optimization for profiles
+- Paging system for leaderboards
+
 ## Changes and fixes
+
+- Set maximum length of a reminder to 120 characters
+- Reworked many strings and command descriptions
+- Renamed `/user pfp` to `/avatar` and `/user banner` to `/banner`
+- Tweaked success & error messages
+- Revamped issues with modals and replies
+- Fixed issue messages
+- Fixed the "Add Reminder" button in `/hourly`
+- Fixed hourly streaks
+- Fixed `/manga` and `/define` not working
+- Fixed `/give` accepting floating point numbers
+- Fixed badges in `/user info`
+- Fixed profile editing when using the same name
+- Fixed pinging users in channels on reminders
 
 </section>
