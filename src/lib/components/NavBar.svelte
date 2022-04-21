@@ -1,70 +1,276 @@
 <script lang="ts">
+	import CRBTIcon from '../svg/crbt.svelte';
+	import {
+		Menu,
+		BookOpen,
+		MessageSquare,
+		Github,
+		Award,
+		UserPlus,
+		ExternalLink,
+		Eye
+	} from 'lucide-svelte';
+
+	const pages = (
+		[
+			[BookOpen, 'Changelog', '/changelog'],
+			[UserPlus, 'Invite CRBT', '/invite'],
+			[MessageSquare, 'Join the Community', '/discord'],
+			[Award, 'Credits', '/credits'],
+			[Github, 'GitHub', '/github'],
+			[Eye, 'Privacy Policy', '/policy'],
+			[ExternalLink, 'Vote on Top.gg', '/vote'],
+			[ExternalLink, 'View on Discord Bots', '/discordbots']
+		] as [any, string, string][]
+	).map(([icon, name, url]) => ({
+		icon,
+		name,
+		url
+	}));
+
 	import { onMount } from 'svelte';
-	let blur = false;
-	onMount(() => (blur = document.scrollingElement.scrollTop > 5));
+	let hideNavbar = false;
+	let solid = false;
+	let previousScroll = 0;
+	let query;
+	let showingMenu: 'none' | 'menu' | 'search' = 'none';
+	$: searchResults = !query
+		? pages
+		: pages.filter(({ icon, name, url }) => name.toLowerCase().includes(query.toLowerCase()));
+
+	onMount(() => {
+		solid = document.scrollingElement.scrollTop > 5;
+	});
 </script>
 
-<svelte:window on:scroll={() => (blur = document.scrollingElement.scrollTop > 5)} />
+<svelte:window
+	on:scroll={() => {
+		if (showingMenu !== 'none') return;
+		solid = document.scrollingElement.scrollTop > 5;
+		hideNavbar = window.scrollY > previousScroll;
+		previousScroll = window.scrollY;
+	}}
+/>
+{#if showingMenu !== 'none'}
+	<div class="bg" on:click={() => (showingMenu = 'none')} />
+{/if}
 
-<nav class:blur>
-	<a href="/">
-		<svg width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<path
-				d="M63.9494 61.9891H35.0453C31.2472 61.9941 27.4856 61.2485 23.9765 59.7951C20.4675 58.3417 17.2803 56.2092 14.5981 53.5201C13.6833 52.6056 12.8301 51.6315 12.0442 50.6041L22.7511 44.3002L6.16622 34.5236C6.14278 34.0387 6.13066 33.5537 6.13066 33.0688V31.9058C6.13456 25.2349 8.44435 18.7704 12.6687 13.6074C16.8931 8.44445 22.7724 4.9005 29.3105 3.57593C35.8487 2.25135 42.6437 3.22759 48.5444 6.33927C54.4452 9.45095 59.0889 14.5067 61.6889 20.6502C63.196 24.2109 63.969 28.0393 63.9615 31.9058L63.9494 61.9891ZM43.5232 40.0532L26.6474 41.2518L26.7023 42.0599C26.8309 44.0778 27.7176 45.9725 29.1845 47.3641C30.6515 48.7556 32.5902 49.5412 34.6121 49.5632C34.7988 49.5632 34.9879 49.5567 35.1778 49.5438L35.4259 49.526C37.7534 49.3372 39.9115 48.2349 41.4287 46.46C42.9459 44.685 43.6989 42.3816 43.5232 40.0532ZM47.7153 22.8565C46.6091 22.8315 45.5205 23.1366 44.5884 23.733C43.6564 24.3294 42.9232 25.19 42.4824 26.2049C42.0416 27.2198 41.9133 28.3431 42.1137 29.4313C42.3141 30.5195 42.8343 31.5233 43.6078 32.3146C44.3812 33.1059 45.373 33.6487 46.4563 33.8739C47.5397 34.099 48.6656 33.9963 49.6903 33.5787C50.715 33.1611 51.592 32.4477 52.2095 31.5295C52.8269 30.6112 53.1567 29.5299 53.1568 28.4233C53.1717 26.9641 52.6072 25.5584 51.5871 24.5148C50.567 23.4712 49.1745 22.8749 47.7153 22.8565ZM23.0429 22.8565C21.9366 22.8315 20.848 23.1366 19.916 23.733C18.9839 24.3294 18.2507 25.19 17.81 26.2049C17.3692 27.2198 17.2408 28.3431 17.4413 29.4313C17.6417 30.5195 18.1619 31.5233 18.9353 32.3146C19.7088 33.1059 20.7005 33.6487 21.7839 33.8739C22.8672 34.099 23.9931 33.9963 25.0178 33.5787C26.0425 33.1611 26.9196 32.4477 27.537 31.5295C28.1544 30.6112 28.4843 29.5299 28.4844 28.4233C28.4993 26.9641 27.9347 25.5584 26.9146 24.5148C25.8945 23.4712 24.5021 22.8749 23.0429 22.8565ZM0.52747 57.3881V31.2027L6.16622 34.5236C6.45171 40.3551 8.50211 45.9632 12.0458 50.6033L0.52747 57.3881Z"
-				fill="white"
-			/>
-		</svg>
+<nav class="mobile" class:hide={hideNavbar}>
+	<a on:click={() => (showingMenu = 'none')} class="item" href="/">
+		<CRBTIcon />
 	</a>
-	<div class="list">
-		<a href="/invite">Invite</a>
-		<a href="/discord">Discord</a>
+	<div
+		class="item"
+		on:click={() => {
+			showingMenu = showingMenu === 'menu' ? 'none' : 'menu';
+		}}
+	>
+		<Menu />
 	</div>
 </nav>
+<nav class="desktop" class:hide={hideNavbar} class:solid>
+	<div class="item">
+		<a href="/">
+			<CRBTIcon />
+		</a>
+	</div>
+	<div class="list">
+		<div class="item">
+			<a href="/changelog">Changelog</a>
+		</div>
+		<div class="item">
+			<a href="/invite">Invite</a>
+		</div>
+		<div class="item">
+			<a href="/discord">Discord</a>
+		</div>
+	</div>
+</nav>
+<div class="navbar-sliding-menu" class:show={showingMenu === 'menu' && !hideNavbar}>
+	<h2>More</h2>
+	<div class="search">
+		<input bind:value={query} role="search" type="text" placeholder="Search" />
+
+		{#each searchResults as cool}
+			<a class="item" href={cool.url}>
+				<svelte:component this={cool.icon} />
+				{cool.name}
+			</a>
+		{/each}
+	</div>
+</div>
 
 <style lang="scss">
-	nav {
+	.bg {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #000;
+		z-index: 5;
+		opacity: 0.6;
+		transition: opacity 0.3s ease;
+	}
+
+	.mobile {
+		display: none;
+	}
+
+	.desktop {
 		display: flex;
 		width: 100%;
-		padding: 20px 40px;
+		padding: 0 1.5rem;
 		justify-content: space-between;
 		position: sticky;
 		align-items: center;
 		top: 0;
 		z-index: 100;
-		transition: background-color 200ms linear, backdrop-filter 200ms linear;
+		transition: cubic-bezier(1, 0, 0, 1) 0.3s;
+
+		&.hide {
+			transform: translateY(-100%);
+			transition: cubic-bezier(1, 0, 0, 1) 0.3s;
+		}
+
+		&.solid {
+			background-color: var(--darker);
+			box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+		}
+
 		.list {
 			display: flex;
 			align-items: center;
+			height: 100%;
+		}
+		.item {
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			padding: 1rem 1.5rem;
+			font-size: 1.25em;
+			user-select: none;
+			transition: background-color cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+			border-radius: 3rem;
+			&:hover {
+				a {
+					color: var(--light);
+				}
+				:global(svg) {
+					fill: var(--light);
+				}
+				transition: background-color cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+				background-color: rgba(255, 255, 255, 0.1);
+			}
+			&:active {
+				opacity: 0.65;
+			}
+		}
+	}
 
-			& > * {
-				cursor: pointer;
-				font-size: 1.25em;
-				text-align: center;
-				height: 100%;
-				padding-left: 40px;
-				user-select: none;
-				transition: opacity 200ms;
+	@media (max-width: 800px) {
+		.desktop {
+			display: none;
+		}
+
+		.mobile {
+			&.hide {
+				transform: translateY(100%);
+				box-shadow: none;
+			}
+			background: var(--darker);
+			justify-content: space-evenly;
+			display: flex;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			user-select: none;
+			cursor: pointer;
+			z-index: 9;
+			transition: cubic-bezier(1, 0, 0, 1) 0.3s;
+			-webkit-tap-highlight-color: transparent;
+			box-shadow: 0px 0px 20px 20px rgba(0, 0, 0, 0.3);
+			.item {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 3.5rem;
+				width: 100%;
+				padding: 0.8rem;
+				width: 100%;
+				color: white;
+				fill: white;
+				transition: cubic-bezier(0.5, 0, 0.5, 1) 0.2s;
+
+				:global(svg) {
+					height: 100%;
+					width: auto;
+				}
 
 				&:hover {
-					opacity: 0.85;
+					transform: scale(1.1);
+					transition: cubic-bezier(0.5, 0, 0.5, 1) 0.2s;
 				}
 				&:active {
-					transition: opacity 50ms;
-					opacity: 0.65;
+					transform: scale(0.8);
+					transition: cubic-bezier(0.5, 0, 0.5, 1) 0.2s;
 				}
 			}
 		}
 	}
 
-	.blur {
-		background-color: rgba(120, 120, 120, 0.4);
-		backdrop-filter: blur(20px) saturate(1.5) brightness(0.75);
-	}
+	.navbar-sliding-menu {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		background: var(--darker);
+		display: flex;
+		flex-direction: column;
+		// align-items: center;
+		z-index: 8;
+		transition: ease 0.3s;
+		transform: translateY(100%);
+		max-height: 350px;
+		overflow-y: scroll;
+		padding: 1rem;
 
-	@media (max-width: 800px) {
-		nav {
-			padding: 20px;
-			justify-content: center;
+		&::-webkit-scrollbar {
+			width: 0;
+		}
+
+		.item {
+			display: flex;
+			align-items: center;
+			padding: 1rem 0;
+			gap: 1rem;
+			// justify-content: center;
+			height: 3.5rem;
+			width: 100%;
+			user-select: none;
+			color: white;
+			fill: white;
+		}
+
+		&.show {
+			transform: translateY(-55px);
+			transition: ease 0.3s;
+		}
+
+		input[type='text'] {
+			appearance: none;
+			width: 100%;
+			background: var(--bg);
+			height: 2.5rem;
+			border: none;
+			border-radius: 99rem;
+			padding: 0 1rem;
+			color: white;
+			font-size: 1.2rem;
+			outline: none;
+			transition: ease 0.3s;
+			&:focus {
+				color: white;
+			}
 		}
 	}
 </style>

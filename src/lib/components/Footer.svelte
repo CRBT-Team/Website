@@ -79,7 +79,7 @@
 
 <style lang="scss">
 	footer {
-		background-color: #412d34;
+		background: var(--bg);
 		width: 100%;
 	}
 	.content {

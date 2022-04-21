@@ -1,11 +1,13 @@
 :root {
 	--light: #f27187;
 	--dark: #4a0920;
-	--darker: #290310;
+	--darker: #242122;
+	--bg: #141414;
 }
 
 html,
 body {
+	scroll-behavior: smooth;
 	padding: 0;
 	min-height: 100vh;
 	margin: 0;
@@ -14,8 +16,7 @@ body {
 	font-size: 18px;
 	font-family: 'DM Sans', Inter, 'Helvetica Neue', system-ui, sans-serif;
 	color: white;
-	background-color: var(--darker);
-	background-image: url(/noise-layer.webp);
+	background-color: var(--bg);
 }
 
 a {
@@ -39,14 +40,8 @@ a {
 		}
 	}
 	main {
-		padding: 1rem;
+		margin: 1rem;
 	}
-}
-
-main {
-	// padding: 3rem;
-	// align-self: center;
-	// max-width: fit-content;
 }
 
 @media screen and (max-width: 850px) {
@@ -58,9 +53,9 @@ main {
 
 code {
 	font-size: 0.9rem;
-	color: #f27187;
-	background: #370718;
-	padding: 0.2rem;
+	color: var(--light);
+	background: var(--darker);
+	padding: 0.3rem;
 	border-radius: 5px;
 }
 
@@ -68,17 +63,6 @@ code {
 	box-sizing: border-box;
 }
 
-#__next > * {
-	min-height: 100vh;
-	padding-top: 0.1px;
-	display: flex;
-	flex-direction: column;
-}
-
-.spacer {
-	flex: 1;
-}
-
-main {
-	flex: 1;
+li {
+	padding: 0.25rem;
 }

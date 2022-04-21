@@ -1,0 +1,71 @@
+---
+category: Changelog
+title: What's new in CRBT 11.5?
+description: Added Role Pickers, Moderation, command localization and deprecation/removal of several features and commands.
+author: bkly
+date: 2022-04-22
+---
+
+<script lang="ts">
+	import MetaTags from '$lib/components/MetaTags.svelte'; import BlogHeader from
+	'$lib/components/BlogHeader.svelte';
+</script>
+
+<MetaTags title={title} description={description} />
+<BlogHeader metadata={metadata} />
+
+## Role Pickers
+
+Yes! We've added a way for admins to set up Role Pickers, which allow users to give themselves roles that you set up. All of the hard parts are handled by CRBT.
+No more need to invite another bot to do just that, CRBT does it, and it's never been that simple!
+You may have heard of "reaction roles", which are very common among multipurpose bots. Major problems with them is that they're slow, small to access and janky to use, so we decided to make a better way of doing that, with Discord's buttons & components.
+To create a custom Role Picker, simply use `/role-picker create` and follow the steps.
+But to make it even simpler, we created four Presets: Color, Pronouns, Zodiac Signs and Human Verification that you can use while making a Role Picker with the `/role-picker preset` command. It creates the roles for you, sends everything in a pretty embed so users can assign themselves roles.
+
+<img src="" alt="">
+
+## Moderation
+
+Moderators, here are your new toys:
+
+- `/ban` to ban a user, with possibility to write a reason, delete all messages sent by the user and set the duration for a temporary ban.
+- `/clear` to delete a specified number of messages in the channel.
+- `/kick` to kick a user, with possibility to write a reason.
+- `/timeout` to mute a user for a specified amount of time, with possibility to write a reason.
+
+NB: These are very limited for the time being, but more features like moderation logs, unban/untimeouts, and more will be added in the near future.
+
+## Command localization
+
+## CRBT Profiles & Economy
+
+## The future
+
+## Removed commands
+
+- `/anime`
+- `/ascii`
+- `/balance`
+- `/color list` (replaced with `/color set`'s autocomplete)
+- `/github`
+- `/give`
+- `/hourly`
+- `/leaderboard`
+- `/npm`
+- `/nsfw rule34`
+- `/reverse`
+- `/shuffletext`
+- `/shout`
+- `/profile`
+
+## Other additions & changes
+
+- Renamed a few commands:
+  - `/avatar` -> `/avatar default`
+  - `/calc` -> `/calculate`
+  - `/remind me` -> `/reminder new`
+  - `/reminders` -> `/reminder list`
+  - `/mc skin` -> `/skin`
+- Added an improved `/convert` command, which now supports converting in many other units, including mass, volume, length, speed, area, cryptocurrencies, and many more.
+- Embed colors will now use the default pinkred-ish color if the user set a profile-synced color and reset their profile color.
+- Removed a ton of internal data, libraries and config that was no longer needed, and reduced bundle size by 70%.
