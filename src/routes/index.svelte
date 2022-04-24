@@ -1,8 +1,21 @@
 <script>
-	import { UserPlus, ChevronDown } from 'lucide-svelte';
+	import {
+		UserPlus,
+		ChevronDown,
+		CheckSquare,
+		Languages,
+		Hammer,
+		Coins,
+		Hand,
+		List,
+		Link,
+		LayoutList
+	} from 'lucide-svelte';
 	import Button from '$lib/components/Button.svelte';
-
+	import '../styles/homepage.scss';
 	import MetaTags from '$lib/components/MetaTags.svelte';
+	import Cta from '$lib/components/CTA.svelte';
+	import Section from '$lib/components/Section.svelte';
 </script>
 
 <MetaTags
@@ -10,9 +23,9 @@
 />
 
 <div role="main" class="content">
-	<section class="align-right hero-header">
+	<Section align="right" className="hero-header">
 		<div class="hero-background image">
-			<img src="/assets/hero-image.png" alt="CRBT ultra cool" />
+			<img src="/assets/hero-image.png" draggable="false" alt="CRBT ultra cool" />
 		</div>
 		<div class="text">
 			<h1 class="header">
@@ -32,8 +45,8 @@
 				>
 			</div>
 		</div>
-	</section>
-	<section class="align-left" id="features">
+	</Section>
+	<Section align="left" id="features">
 		<div class="image">
 			<img src="/assets/slash-commands.svg" alt="CRBT showing slash command autocomplete options" />
 		</div>
@@ -46,12 +59,12 @@
 				with autocomplete and error checking as you type.
 			</p>
 		</div>
-	</section>
-	<section class="align-right">
+	</Section>
+	<Section align="right">
 		<div class="image">
 			<img src="/assets/localization.svg" alt="CRBT showing slash command autocomplete options" />
 		</div>
-		<div class="hero-text">
+		<div class="text">
 			<h1 class="header">(maybe) Speaks <span class="pink">your language</span>.</h1>
 			<p class="subheader">
 				We've added full support for localization within commands in English (US) Spanish, French,
@@ -59,8 +72,8 @@
 				of it is possible thanks to our <a href="/credits">collaborators</a>.
 			</p>
 		</div>
-	</section>
-	<section class="align-left">
+	</Section>
+	<Section align="left">
 		<div class="image">
 			<img
 				loading="lazy"
@@ -80,131 +93,115 @@
 				members of your server can freely assign themselves some roles!
 			</p>
 		</div>
-	</section>
-	<section class="cta">
-		<h1 class="header">
-			Enhance your Discord experience and make your server engaging, <br /><span class="pink"
-				>all for free, forever</span
-			>.
-		</h1>
-		<Button href="/invite">
-			<UserPlus />
-			Add to Discord</Button
-		>
-	</section>
+	</Section>
+
+	<Section align="center">
+		<h1 class="header">Features everything you'd expect, <span class="pink">and more</span>!</h1>
+
+		<div class="features">
+			<div class="feature">
+				<div class="top">
+					<div class="icon">
+						<LayoutList />
+					</div>
+					<div class="label">NEW</div>
+				</div>
+				<h3>Role Pickers</h3>
+				<p class="subheader">Create intuitive self-role selector menus for your members.</p>
+			</div>
+			<div class="feature">
+				<div class="top">
+					<div class="icon">
+						<CheckSquare />
+					</div>
+					<div class="label">NEW</div>
+				</div>
+				<h3>Polls</h3>
+				<p class="subheader">Create polls for your members to vote on specific subjects.</p>
+			</div>
+			<div class="feature">
+				<div class="top">
+					<div class="icon"><Link /></div>
+					<div class="label">NEW</div>
+				</div>
+				<h3>Voice-text linkers</h3>
+				<p class="subheader">
+					Create a secret text channel accessible to those in voice. Sorta like your private and
+					cooler #no-mic.
+				</p>
+			</div>
+			<div class="feature">
+				<div class="top">
+					<div class="icon">
+						<Languages />
+					</div>
+					<div class="label">NEW</div>
+				</div>
+				<h3>Localization</h3>
+				<p class="subheader">
+					CRBT is partially localized in English (US), French, German, Spanish and Portuguese... and
+					more soon thanks for the fan translations!
+				</p>
+			</div>
+			<div class="feature">
+				<div class="top">
+					<div class="icon">
+						<Coins />
+					</div>
+					<div class="label">COMING SOON</div>
+				</div>
+				<h3>Customizable economy</h3>
+				<p class="subheader">
+					Create your very own economy system in your servers, from the currency to the income, down
+					to the items!
+				</p>
+			</div>
+			<div class="feature">
+				<div class="top">
+					<div class="icon">
+						<Hammer />
+					</div>
+					<div class="label">COMING SOON</div>
+				</div>
+				<h3>(Auto)moderate</h3>
+				<p class="subheader">
+					Manually strike misbehavior and configure rules to automatically strike banned words,
+					spam, suspicious behavior, etc.
+				</p>
+			</div>
+			<div class="feature">
+				<div class="top">
+					<div class="icon">
+						<List />
+					</div>
+					<div class="label">COMING SOON</div>
+				</div>
+				<h3>Logging</h3>
+				<p class="subheader">
+					Choose a channel to send logs of your server's deleted & edited messages, member
+					joins/leaves and moderation actions.
+				</p>
+			</div>
+			<div class="feature">
+				<div class="top">
+					<div class="icon">
+						<Hand />
+					</div>
+					<div class="label">COMING SOON</div>
+				</div>
+				<h3>Welcome & leave scripts</h3>
+				<p class="subheader">
+					Welcome your members to your server with a custom message, and set up custom scripts to
+					give roles and coins using our custom-built <a
+						href="https://crbt.notion.site/CRBTscript-Docs-742706c71b5848c9a1b155d187573bba"
+						>CRBTscript</a
+					> language.
+				</p>
+			</div>
+		</div>
+	</Section>
+	<Cta />
 </div>
 
 <style lang="scss">
-	.content {
-		display: flex;
-		flex-direction: column;
-		.hero-header {
-			gap: 10px;
-
-			.buttons {
-				display: flex;
-				gap: 10px;
-			}
-		}
-		.header {
-			font-size: 2rem;
-			font-weight: bold;
-			margin: 0.5rem 0;
-		}
-		.subheader {
-			color: #a1a1a1;
-
-			a {
-				color: white;
-				text-decoration: underline;
-			}
-		}
-		.pink {
-			color: var(--light);
-		}
-		.label {
-			border-radius: 99rem;
-			width: max-content;
-			background: var(--light);
-			color: var(--dark);
-			font-size: 1rem;
-			font-weight: bold;
-			padding: 0.25rem 0.75rem;
-			user-select: none;
-		}
-
-		.cta {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			flex-direction: column;
-			text-align: center;
-			gap: 30px;
-			padding: 3rem 4rem;
-			background: var(--darker);
-		}
-
-		section {
-			display: flex;
-			gap: 50px;
-			justify-content: space-between;
-			padding: 2rem 100px;
-			align-items: center;
-			width: 100%;
-
-			&.align-left {
-				text-align: end;
-				.text {
-					align-items: flex-end;
-				}
-			}
-			&.align-right {
-				flex-direction: row-reverse;
-			}
-			.text {
-				max-width: 700px;
-				display: flex;
-				flex-direction: column;
-			}
-			.image {
-				user-select: none;
-				img {
-					image-rendering: optimizeSpeed;
-					width: 100%;
-				}
-			}
-		}
-	}
-
-	@media (max-width: 1100px) {
-		.content {
-			gap: 30px;
-			.header {
-				font-size: 1.5rem;
-			}
-			section {
-				padding: 1rem;
-				gap: 10px;
-				flex-direction: column !important;
-				.image img {
-					width: 100%;
-					max-height: 150px;
-				}
-				.text {
-					max-width: 100%;
-					align-items: flex-start !important;
-					text-align: left !important;
-				}
-			}
-		}
-		.hero-header {
-			text-align: center !important;
-			.header {
-				font-size: 2.5rem;
-			}
-			.hero-background img {
-				max-height: 400px !important;
-			}
-		}
-	}
 </style>

@@ -15,6 +15,7 @@
 
 <style lang="scss">
 	.primary-button {
+		text-overflow: ellipsis;
 		transition: 0.6s;
 		overflow: hidden;
 		appearance: none;
@@ -24,7 +25,7 @@
 		justify-content: center;
 		gap: 1rem;
 		padding: 1rem 2.5rem;
-		height: 100%;
+		height: min-content;
 		border-radius: 99rem;
 		text-decoration: none;
 		font-size: 1rem;

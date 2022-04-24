@@ -75,15 +75,9 @@
 		</a>
 	</div>
 	<div class="list">
-		<div class="item">
-			<a href="/changelog">Changelog</a>
-		</div>
-		<div class="item">
-			<a href="/invite">Invite</a>
-		</div>
-		<div class="item">
-			<a href="/discord">Discord</a>
-		</div>
+		<a href="/changelog" class="item"> Changelog </a>
+		<a href="/invite" class="item"> Invite </a>
+		<a href="/discord" class="item"> Discord </a>
 	</div>
 </nav>
 <div class="navbar-sliding-menu" class:show={showingMenu === 'menu' && !hideNavbar}>
@@ -153,12 +147,9 @@
 			transition: background-color cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
 			border-radius: 3rem;
 			&:hover {
-				a {
-					color: var(--light);
-				}
-				:global(svg) {
-					fill: var(--light);
-				}
+				color: var(--light);
+				fill: var(--light);
+
 				transition: background-color cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
 				background-color: rgba(255, 255, 255, 0.1);
 			}

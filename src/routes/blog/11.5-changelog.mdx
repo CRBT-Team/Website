@@ -2,8 +2,10 @@
 category: Changelog
 title: What's new in CRBT 11.5?
 description: Added Role Pickers, Moderation, command localization and deprecation/removal of several features and commands.
-author: bkly
-date: 2022-04-22
+author: [bkly, Clembs]
+date: 2022-04-24
+minutes: 10
+banner: /assets/hero-image.png
 ---
 
 <script lang="ts">
@@ -17,12 +19,17 @@ date: 2022-04-22
 ## Role Pickers
 
 Yes! We've added a way for admins to set up Role Pickers, which allow users to give themselves roles that you set up. All of the hard parts are handled by CRBT.
+
 No more need to invite another bot to do just that, CRBT does it, and it's never been that simple!
 You may have heard of "reaction roles", which are very common among multipurpose bots. Major problems with them is that they're slow, small to access and janky to use, so we decided to make a better way of doing that, with Discord's buttons & components.
+
 To create a custom Role Picker, simply use `/role-picker create` and follow the steps.
 But to make it even simpler, we created four Presets: Color, Pronouns, Zodiac Signs and Human Verification that you can use while making a Role Picker with the `/role-picker preset` command. It creates the roles for you, sends everything in a pretty embed so users can assign themselves roles.
 
-<img src="" alt="">
+<img src="https://cdn.clembs.xyz/fr14Zbi.gif" alt="Selecting a role from multiple color role choices.">
+<p class="subtext">Simply select a role from a given list to get the role.</p>
+
+For a more in-depth guide on Role Pickers, check out [this article](https://crbt.ga/blog/introduction-to-role-pickers).
 
 ## Moderation
 
@@ -35,11 +42,50 @@ Moderators, here are your new toys:
 
 NB: These are very limited for the time being, but more features like moderation logs, unban/untimeouts, and more will be added in the near future.
 
-## Command localization
+## Localizations
 
-## CRBT Profiles & Economy
+Enfin ! We've added command localizations to CRBT. What this means is that provided some of CRBT's texts were translated in select languages, and will show up in your corresponding Discord language when you use certain commands.
 
-## The future
+As of now, part of CRBT will be available in French, German, Portuguese (Brazil), Spanish and Russian. Not all texts are translated yet, and will default to English (US).
+
+> Fluent in another language? Your contribution is welcome!
+>
+> You can help by translating CRBT into your language. Join our [Community server](/discord) and our [Crowdin project](https://crowdin.com/project/crbt) for more info.
+
+## New Website
+
+A brand new version of the website is live! There's brand new front page with home-made illustrations featuring the CRBT character and in full dark theme.
+
+The new website is also way more indicative of CRBT's new features, and its code is more stable, allowing me to add features more easily.
+
+  <img src="https://cdn.clembs.xyz/KWnjDLK.gif" alt="Transition to the new front page">
+  <p class="subtext">The new dark theme with red accents and round buttons.</p>
+
+  <img src="https://cdn.clembs.xyz/1kxkc69.gif" alt="The new illustrations">
+  <p class="subtext">The new CRBT illustrations! Doesn't it look great?</p>
+
+There's also an enhanced navigation bar on PC with better contrast, wider touch targets and a new "Changelog" page.
+
+And as an added bonus, it auto disappears as you scroll so you can focus on whatever you're doing!
+
+  <img src="https://cdn.clembs.xyz/MDiWgbA.png" alt="The new desktop navbar">
+
+I also designed a completely new bottom navigation bar for mobile, with a tabs system for more fluent navigation.
+
+As of now, the new navbar only contains two tabs: One for going back to the front page, and a "More" tab to access some links without having to head down to the footer. More tabs will be added as the website evolves into the web dashboard.
+
+  <img src="https://cdn.clembs.xyz/i04VFDx.png" alt="The new mobile navbar, with tabs">
+  <p class="subtext">The new navigation bar for mobile. Tell me what you think on the [Discord server](/invite).</p>
+
+I also revamped most pages to include these new components, icons, etc...
+
+And last but not least, the blog posts now feature banners, estimated reading times, and support for co-authored posts.
+
+## Deprecating Profiles & Economy
+
+This may come as a surprise to most of the OG community, but I've decided to deprecate the CRBT Profiles and the Economy modules, as Discord is moving forward with their own built-in profiles and that CRBT is getting per-server economy soon.
+
+You can read more about my decision to remove profiles & economy [here](/blog/rethinking-crbt-profiles-economy).
 
 ## Removed commands
 

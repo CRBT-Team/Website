@@ -1,11 +1,13 @@
-import { userData } from '../credits/_credits';
+import { credits } from '../credits/_credits';
 
-export const authors = {
-	CRBT: {
-		avatar: '/assets/logos/crbt.png'
+export const authors = [
+	{
+		name: 'CRBT',
+		pfp: '/assets/logos/crbt.png'
 	},
-	'CRBT Dev': {
-		avatar: '/assets/logos/crbt-dev.png'
+	{
+		name: 'CRBT Dev',
+		pfp: '/assets/logos/crbt-dev.png'
 	},
-	...userData
-};
+	...credits
+];

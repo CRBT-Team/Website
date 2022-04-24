@@ -21,7 +21,7 @@ body {
 
 a {
 	color: inherit;
-	text-decoration: none;
+	// text-decoration: none;
 }
 
 @media screen and (max-width: 850px) {
@@ -64,5 +64,9 @@ code {
 }
 
 li {
-	padding: 0.25rem;
+	padding: 0.25rem 0;
+}
+
+.pink {
+	color: var(--light);
 }

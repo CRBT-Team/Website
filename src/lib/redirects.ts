@@ -10,6 +10,8 @@ export const redirects = {
 	'/invite':
 		'https://discord.com/oauth2/authorize?client_id=595731552709771264&permissions=8&scope=bot+applications.commands',
 
+	'/blog/january-2022-changelog': '/blog/11.1-changelog',
+
 	'/topgg': 'https://top.gg/bot/595731552709771264',
 	'/discordbots': 'https://discord.bots.gg/bots/595731552709771264',
 	'/vote': 'https://top.gg/bot/595731552709771264/vote'
