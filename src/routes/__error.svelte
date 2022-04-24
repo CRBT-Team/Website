@@ -18,7 +18,6 @@
 	import Section from '$lib/components/Section.svelte';
 
 	export let status: number;
-	export let name: string;
 	export let message: string;
 	export let stack: string;
 </script>

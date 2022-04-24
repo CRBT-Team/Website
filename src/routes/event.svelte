@@ -1,8 +1,9 @@
 <script>
 	import Button from '$lib/components/Button.svelte';
+	import Section from '$lib/components/Section.svelte';
 </script>
 
-<main>
+<Section align="center">
 	<header>
 		<h1>CRBT Event</h1>
 		<h2>Coming July 2nd, 2022.</h2>
@@ -12,22 +13,6 @@
 	</Button>
 	<div class="command">
 		<p>Or with CRBT:</p>
-		<code>/remind me when:2022-07-02T16:00:00Z subject:CRBT Event</code>
+		<code>/reminder new when:2022-07-02T16:00:00Z subject:CRBT Event</code>
 	</div>
-</main>
-
-<style lang="scss">
-	main {
-		display: flex;
-		height: 100vh;
-		width: 100%;
-		flex-direction: column;
-		text-align: center;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.command {
-		margin: 2rem 0;
-	}
-</style>
+</Section>

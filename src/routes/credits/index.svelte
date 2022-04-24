@@ -28,9 +28,13 @@
 				<div class="description">
 					<p>{person.roles}</p>
 				</div>
-				{#if person.url}
-					<Button href={person.url} style="secondary"><ExternalLink />{trimURL(person.url)}</Button>
-				{/if}
+				<div class="linkbutton">
+					{#if person.url}
+						<Button href={person.url} style="secondary"
+							><ExternalLink />{trimURL(person.url)}</Button
+						>
+					{/if}
+				</div>
 			</div>
 		{/each}
 	</div>
@@ -39,7 +43,7 @@
 <style lang="scss">
 	.group {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 		// grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 		gap: 20px;
 		grid-auto-rows: min-content;
@@ -55,13 +59,16 @@
 		align-items: flex-start;
 		text-align: left;
 		padding: 1rem;
-		gap: 10px;
 
 		.profile {
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			gap: 1rem;
+		}
+
+		.linkbutton {
+			margin-top: auto;
 		}
 
 		img {

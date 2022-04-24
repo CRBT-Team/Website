@@ -69,11 +69,9 @@
 	</div>
 </nav>
 <nav class="desktop" class:hide={hideNavbar} class:solid>
-	<div class="item">
-		<a href="/">
-			<CRBTIcon />
-		</a>
-	</div>
+	<a href="/" class="item">
+		<CRBTIcon />
+	</a>
 	<div class="list">
 		<a href="/changelog" class="item"> Changelog </a>
 		<a href="/invite" class="item"> Invite </a>
@@ -95,6 +93,9 @@
 </div>
 
 <style lang="scss">
+	a {
+		text-decoration: none;
+	}
 	.bg {
 		position: fixed;
 		top: 0;
