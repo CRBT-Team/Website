@@ -6,6 +6,7 @@ export const redirects = {
 	'/discord': 'https://discord.gg/AvwhNtsgAC',
 	'/support': 'https://discord.gg/AvwhNtsgAC',
 	'/server': 'https://discord.gg/AvwhNtsgAC',
+	'/twitter': 'https://twitter.com/crbt_app',
 
 	'/invite':
 		'https://discord.com/oauth2/authorize?client_id=595731552709771264&permissions=8&scope=bot+applications.commands',

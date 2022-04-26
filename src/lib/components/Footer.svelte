@@ -37,21 +37,14 @@
 
 	<div class="links">
 		<section>
-			<div>Explore</div>
+			<p>Product</p>
 			<ul>
-				<!-- <li><a href='/blog'>Blog</a></li>
-          <li><a href='/partners'>Partners</a></li>
-          <li><a href='/branding'>Branding</a></li> -->
-				<li><a href="/credits">Credits</a></li>
+				<!-- <li><a href='/blog'>Blog</a></li> -->
+				<!-- <li><a href='/partners'>Partners</a></li> -->
+				<!-- <li><a href='/branding'>Branding</a></li> -->
+				<li><a href="/invite">Invite</a></li>
 				<li><a href="/changelog">Changelog</a></li>
-			</ul>
-		</section>
-		<section>
-			<div>Developers</div>
-			<ul>
-				<li><a href="/github">GitHub</a></li>
 				<li><a href="/purplet">Purplet framework</a></li>
-				<!-- <li><a href="https://api.clembs.xyz">Clembs API</a></li> -->
 				<li>
 					<a href="https://crbt.notion.site/CRBTscript-Docs-742706c71b5848c9a1b155d187573bba"
 						>CRBTScript</a
@@ -60,15 +53,19 @@
 			</ul>
 		</section>
 		<section>
-			<div>Legal</div>
+			<p>Policies</p>
 			<ul>
-				<li><a href="/policy">Privacy Policy</a></li>
+				<li><a href="/credits">Credits</a></li>
+				<!-- <li><a href="/terms">Terms</a></li> -->
+				<li><a href="/policy">Privacy</a></li>
 			</ul>
 		</section>
 		<section>
-			<div>Contact</div>
+			<p>Social</p>
 			<ul>
+				<li><a href="/github">GitHub</a></li>
 				<li><a href="/discord">Discord</a></li>
+				<li><a href="/twitter">Twitter</a></li>
 				<li><a href="mailto:clembs@clembs.xyz">Email</a></li>
 			</ul>
 		</section>
@@ -97,8 +94,8 @@
 		display: flex;
 		gap: 3em;
 
-		div {
-			color: rgba(255, 255, 255, 0.5);
+		p {
+			color: var(--light);
 			user-select: none;
 		}
 		ul {
