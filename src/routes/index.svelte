@@ -67,9 +67,9 @@
 		<div class="text">
 			<h1 class="header">(maybe) Speaks <span class="pink">your language</span>.</h1>
 			<p class="subheader">
-				We've added full support for localization within commands in English (US) Spanish, French,
-				German and Russian. Partial support for English (UK) and Vietnamese is also available. All
-				of it is possible thanks to our <a href="/credits">collaborators</a>.
+				We've added full support for localization within commands in English Spanish, French, German
+				and Russian. Partial support for English (UK) and Vietnamese is also available. All of it is
+				possible thanks to our <a href="/credits">collaborators</a>.
 			</p>
 		</div>
 	</Section>
@@ -82,7 +82,6 @@
 			/>
 		</div>
 		<div class="text">
-			<div class="label">NEW</div>
 			<h1 class="header">
 				Self-assignable roles, evolved.<br />
 				Introducing <span class="pink">Role Pickers</span>.
@@ -104,7 +103,6 @@
 					<div class="icon">
 						<LayoutList />
 					</div>
-					<div class="label">NEW</div>
 				</div>
 				<h3>Role Pickers</h3>
 				<p class="subheader">Create intuitive self-role selector menus for your members.</p>
@@ -114,7 +112,6 @@
 					<div class="icon">
 						<CheckSquare />
 					</div>
-					<div class="label">NEW</div>
 				</div>
 				<h3>Polls</h3>
 				<p class="subheader">Create polls for your members to vote on specific subjects.</p>
@@ -122,7 +119,6 @@
 			<div class="feature">
 				<div class="top">
 					<div class="icon"><Link /></div>
-					<div class="label">NEW</div>
 				</div>
 				<h3>Voice-text linkers</h3>
 				<p class="subheader">
@@ -135,38 +131,11 @@
 					<div class="icon">
 						<Languages />
 					</div>
-					<div class="label">NEW</div>
 				</div>
 				<h3>Localization</h3>
 				<p class="subheader">
-					CRBT is partially localized in English (US), French, German, Spanish and Portuguese... and
-					more soon thanks for the fan translations!
-				</p>
-			</div>
-			<div class="feature">
-				<div class="top">
-					<div class="icon">
-						<Coins />
-					</div>
-					<div class="label">COMING SOON</div>
-				</div>
-				<h3>Customizable economy</h3>
-				<p class="subheader">
-					Create your very own economy system in your servers, from the currency to the income, down
-					to the items!
-				</p>
-			</div>
-			<div class="feature">
-				<div class="top">
-					<div class="icon">
-						<Hammer />
-					</div>
-					<div class="label">COMING SOON</div>
-				</div>
-				<h3>(Auto)moderate</h3>
-				<p class="subheader">
-					Manually strike misbehavior and configure rules to automatically strike banned words,
-					spam, suspicious behavior, etc.
+					CRBT is partially localized in English, French, German, Spanish and Portuguese... and more
+					soon thanks for the fan translations!
 				</p>
 			</div>
 			<div class="feature">
@@ -174,7 +143,7 @@
 					<div class="icon">
 						<List />
 					</div>
-					<div class="label">COMING SOON</div>
+					<div class="label">JUNE</div>
 				</div>
 				<h3>Logging</h3>
 				<p class="subheader">
@@ -187,7 +156,7 @@
 					<div class="icon">
 						<Hand />
 					</div>
-					<div class="label">COMING SOON</div>
+					<div class="label">JUNE</div>
 				</div>
 				<h3>Welcome & leave scripts</h3>
 				<p class="subheader">
@@ -196,6 +165,32 @@
 						href="https://crbt.notion.site/CRBTscript-Docs-742706c71b5848c9a1b155d187573bba"
 						>CRBTscript</a
 					> language.
+				</p>
+			</div>
+			<div class="feature">
+				<div class="top">
+					<div class="icon">
+						<Coins />
+					</div>
+					<div class="label">JULY</div>
+				</div>
+				<h3>Customizable economy</h3>
+				<p class="subheader">
+					Create your very own economy system in your servers, from the currency to the income, down
+					to the items!
+				</p>
+			</div>
+			<div class="feature">
+				<div class="top">
+					<div class="icon">
+						<Hammer />
+					</div>
+					<div class="label">JULY</div>
+				</div>
+				<h3>(Auto)moderate</h3>
+				<p class="subheader">
+					Manually strike misbehavior and configure rules to automatically strike banned words,
+					spam, suspicious behavior, etc.
 				</p>
 			</div>
 		</div>

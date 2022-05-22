@@ -24,7 +24,7 @@ export const credits = [
 	},
 	{
 		name: 'Morgan Jones',
-		roles: 'Bot Development',
+		roles: 'Previously on Bot Development',
 		url: 'https://github.com/INF-INITY',
 		pfp: 'https://avatars.githubusercontent.com/u/64072077'
 	},

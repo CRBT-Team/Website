@@ -9,31 +9,31 @@
 	>
 	
 	<url>
-		<loc>https://crbt.ga</loc>
+		<loc>https://crbt.app</loc>
 		<changefreq>monthly</changefreq>
 		<priority>1.0</priority>
 	</url>
 
 	<url>
-		<loc>https://crbt.ga/policy</loc>
+		<loc>https://crbt.app/policy</loc>
 		<changefreq>yearly</changefreq>
 		<priority>1.0</priority>
 	</url>
 
 	<url>
-		<loc>https://crbt.ga/changelog</loc>
+		<loc>https://crbt.app/changelog</loc>
 		<changefreq>monthly</changefreq>
 		<priority>1.0</priority>
 	</url>
 
 	<url>
-		<loc>https://crbt.ga/discord</loc>
+		<loc>https://crbt.app/discord</loc>
 		<changefreq>yearly</changefreq>
 		<priority>0.8</priority>
 	</url>
 
 	<url>
-		<loc>https://crbt.ga/credits</loc>
+		<loc>https://crbt.app/credits</loc>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>

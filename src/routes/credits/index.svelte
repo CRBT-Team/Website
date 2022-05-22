@@ -5,7 +5,7 @@
 	import Section from '$lib/components/Section.svelte';
 	import { trimURL } from '$lib/util/functions/trimURL';
 	import { ExternalLink } from 'lucide-svelte';
-	import { credits, specialThanks } from './_credits';
+	import { credits } from './_credits';
 </script>
 
 <MetaTags title="Credits" description="People who made CRBT what it is today." />

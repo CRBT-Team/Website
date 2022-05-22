@@ -59,7 +59,7 @@ Using the new API endpoint, I've added several quality-of-life improvements to t
 - Added automatic developer mode for CRBT Dev
 - Added a new "first-time notice" for activity commands
 - Updated `//help fun` to include activities
-- Added an halloween 2021 banner for the giveaway in the [CRBT server](https://crbt.ga/discord).
+- Added an halloween 2021 banner for the giveaway in the [CRBT server](https://crbt.app/discord).
 - Updated `//clear`'s log to be more consistent with other moderation logs.
 - Auto-stats now show CRBT's version name and aoi.js version
 

@@ -50,7 +50,7 @@ If your suggestion or bug report was approved, hurray, and thanks for submitting
 
 You will receive this type of message whenever a CRBT developer has blocklisted or unblocklisted you from using CRBT.
 
-If you've got blocklisted, this means you will not be able to use CRBT any longer and that nobody will be able to interact with you within the CRBT economy system. Most of the times a message is attached by the developer detailing the reasoning behind your blocklisting. If you want to dispute this blocklisting, feel free to join the [Discord server](https://crbt.ga/discord) and ask to get unblocklisted.
+If you've got blocklisted, this means you will not be able to use CRBT any longer and that nobody will be able to interact with you within the CRBT economy system. Most of the times a message is attached by the developer detailing the reasoning behind your blocklisting. If you want to dispute this blocklisting, feel free to join the [Discord server](https://crbt.app/discord) and ask to get unblocklisted.
 If you've got unblocklisted, well GG you can get back to using CRBT like you used to.
 
 ### About being striked from a Discord server
