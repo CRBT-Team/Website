@@ -18,12 +18,12 @@
 	</p>
 </Section>
 <Section align="center" className="group">
-	<div class="group">
+	<li class="list">
 		{#each credits as person}
-			<div class="card">
+			<div class="item">
 				<div class="profile">
 					<img src={person.pfp ?? '/assets/default_pfp.svg'} alt={person.name} />
-					<h2>{person.name}</h2>
+					<h3>{person.name}</h3>
 				</div>
 				<div class="description">
 					<p>{person.roles}</p>
@@ -37,43 +37,55 @@
 				</div>
 			</div>
 		{/each}
-	</div>
+	</li>
 </Section>
 
 <style lang="scss">
-	.group {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		// grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	.list {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
 		gap: 20px;
-		grid-auto-rows: min-content;
-		grid-template-rows: auto;
-		width: 80%;
+		width: 100%;
+		max-width: fit-content;
 	}
 
-	.card {
+	.item {
 		background-color: var(--darker);
 		border-radius: 2rem;
 		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
+		gap: 1.7rem;
+		flex-wrap: wrap;
+		// flex-direction: column;
+		align-items: center;
 		text-align: left;
-		padding: 1rem;
+		padding: 0.7rem;
 
 		.profile {
 			display: flex;
 			align-items: center;
-			justify-content: center;
 			gap: 1rem;
+			min-width: 240px;
+			max-width: fit-content;
+			// margin-right: auto;
+			img {
+				border-radius: 50%;
+				height: 50px;
+			}
+		}
+
+		.description {
+			margin-right: auto;
 		}
 
 		.linkbutton {
-			margin-top: auto;
+			margin-left: auto;
 		}
+	}
 
-		img {
-			border-radius: 50%;
-			height: 50px;
+	@media (max-width: 768px) {
+		.item {
+			gap: 0.5rem;
 		}
 	}
 </style>

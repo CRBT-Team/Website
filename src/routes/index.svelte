@@ -9,7 +9,8 @@
 		Hand,
 		List,
 		Link,
-		LayoutList
+		LayoutList,
+		Gift
 	} from 'lucide-svelte';
 	import Button from '$lib/components/Button.svelte';
 	import '../styles/homepage.scss';
@@ -67,9 +68,9 @@
 		<div class="text">
 			<h1 class="header">(maybe) Speaks <span class="pink">your language</span>.</h1>
 			<p class="subheader">
-				We've added full support for localization within commands in English Spanish, French, German
-				and Russian. Partial support for English (UK) and Vietnamese is also available. All of it is
-				possible thanks to our <a href="/credits">collaborators</a>.
+				Partial support for localization within commands in American and British English, Spanish,
+				French, German, Russian, Vietnamese and Romanian is also available. All of which is possible
+				thanks to our <a href="/credits">collaborators</a>.
 			</p>
 		</div>
 	</Section>
@@ -118,37 +119,14 @@
 			</div>
 			<div class="feature">
 				<div class="top">
-					<div class="icon"><Link /></div>
-				</div>
-				<h3>Voice-text linkers</h3>
-				<p class="subheader">
-					Create a secret text channel accessible to those in voice. Sorta like your private and
-					cooler #no-mic.
-				</p>
-			</div>
-			<div class="feature">
-				<div class="top">
 					<div class="icon">
 						<Languages />
 					</div>
 				</div>
 				<h3>Localization</h3>
 				<p class="subheader">
-					CRBT is partially localized in English, French, German, Spanish and Portuguese... and more
-					soon thanks for the fan translations!
-				</p>
-			</div>
-			<div class="feature">
-				<div class="top">
-					<div class="icon">
-						<List />
-					</div>
-					<div class="label">JUNE</div>
-				</div>
-				<h3>Logging</h3>
-				<p class="subheader">
-					Choose a channel to send logs of your server's deleted & edited messages, member
-					joins/leaves and moderation actions.
+					CRBT is partially localized in English, French, German, Spanish, Portuguese, Russian,
+					Vietnamese, Romanian... and more soon thanks for the fan translations!
 				</p>
 			</div>
 			<div class="feature">
@@ -158,13 +136,36 @@
 					</div>
 					<div class="label">JUNE</div>
 				</div>
-				<h3>Welcome & leave scripts</h3>
+				<h3>Welcome & farewell messages</h3>
 				<p class="subheader">
 					Welcome your members to your server with a custom message, and set up custom scripts to
-					give roles and coins using our custom-built <a
-						href="https://crbt.notion.site/CRBTscript-Docs-742706c71b5848c9a1b155d187573bba"
-						>CRBTscript</a
-					> language.
+					give roles and coins using our custom-built <a href="/script">CRBTscript</a> language.
+				</p>
+			</div>
+			<div class="feature">
+				<div class="top">
+					<div class="icon">
+						<Gift />
+					</div>
+					<div class="label">JUNE</div>
+				</div>
+				<h3>Giveaways</h3>
+				<p class="subheader">
+					Create giveaways with custom rules and cool prizes to give for your members to
+					participate.
+				</p>
+			</div>
+			<div class="feature">
+				<div class="top">
+					<div class="icon">
+						<List />
+					</div>
+					<div class="label">JULY</div>
+				</div>
+				<h3>Logging</h3>
+				<p class="subheader">
+					Choose a channel to send logs of your server's deleted & edited messages, member
+					joins/leaves and moderation actions.
 				</p>
 			</div>
 			<div class="feature">
@@ -178,19 +179,6 @@
 				<p class="subheader">
 					Create your very own economy system in your servers, from the currency to the income, down
 					to the items!
-				</p>
-			</div>
-			<div class="feature">
-				<div class="top">
-					<div class="icon">
-						<Hammer />
-					</div>
-					<div class="label">JULY</div>
-				</div>
-				<h3>(Auto)moderate</h3>
-				<p class="subheader">
-					Manually strike misbehavior and configure rules to automatically strike banned words,
-					spam, suspicious behavior, etc.
 				</p>
 			</div>
 		</div>

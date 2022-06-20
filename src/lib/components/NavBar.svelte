@@ -8,11 +8,13 @@
 		Award,
 		UserPlus,
 		ExternalLink,
-		Eye
+		Eye,
+		Heart
 	} from 'lucide-svelte';
 
 	const pages = (
 		[
+			[Heart, 'Donate', '/donate'],
 			[BookOpen, 'Changelog', '/changelog'],
 			[UserPlus, 'Invite CRBT', '/invite'],
 			[MessageSquare, 'Join the Community', '/discord'],
@@ -73,6 +75,7 @@
 		<CRBTIcon />
 	</a>
 	<div class="list">
+		<a href="/donate" class="item donate"> ❤️ Donate </a>
 		<a href="/changelog" class="item"> Changelog </a>
 		<a href="/invite" class="item"> Invite </a>
 		<a href="/discord" class="item"> Discord </a>
@@ -156,6 +159,15 @@
 			}
 			&:active {
 				opacity: 0.65;
+			}
+
+			&.donate {
+				color: var(--light);
+
+				&:hover {
+					background-color: var(--light);
+					color: var(--dark);
+				}
 			}
 		}
 	}

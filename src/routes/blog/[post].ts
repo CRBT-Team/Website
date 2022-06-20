@@ -1,8 +1,7 @@
 import type { RequestHandler } from '@sveltejs/kit';
-import { readFileSync } from 'fs';
 import { compile } from 'mdsvex';
 
-export const get: RequestHandler = async ({ params, url }) => {
+export const get: RequestHandler = async ({ url }) => {
 	try {
 		const raw = await (await fetch(`${url.href.replace('blog', 'markdown')}.mdx`)).text();
 		const { code: post, data: meta } = await compile(raw);

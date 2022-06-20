@@ -31,8 +31,9 @@
 	</div>
 
 	<div class="copyright">
-		&copy; 2019-{new Date().getFullYear()} Clembs<br />
-		All rights reserved <br />
+		&copy; 2019-{new Date().getFullYear()} Clembs <br />
+		All rights reserved. <br />
+		CRBT is not affiliated with Discord.
 	</div>
 
 	<div class="links">
@@ -45,11 +46,7 @@
 				<li><a href="/invite">Invite</a></li>
 				<li><a href="/changelog">Changelog</a></li>
 				<li><a href="/purplet">Purplet</a></li>
-				<li>
-					<a href="https://crbt.notion.site/CRBTscript-Docs-742706c71b5848c9a1b155d187573bba"
-						>CRBTScript</a
-					>
-				</li>
+				<li><a href="/script">CRBTScript</a></li>
 			</ul>
 		</section>
 		<section>

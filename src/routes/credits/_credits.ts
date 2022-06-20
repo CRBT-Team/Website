@@ -11,26 +11,26 @@ export const specialThanks = {
 
 export const credits = [
 	{
-		name: 'Clembs',
-		roles: 'Creator, Bot & Website Development, Design, Localization',
+		name: 'Clément',
+		roles: 'Creator, Bot & Website Developer, Design, Localization (French)',
 		url: 'https://clembs.xyz',
 		pfp: '/assets/logos/clembs.png'
 	},
 	{
 		name: 'Dave Caruso',
-		roles: 'Purplet Development',
+		roles: 'Main Purplet Developer',
 		url: 'https://davecode.net',
 		pfp: 'https://cdn.discordapp.com/attachments/722451535962964061/904469129602416740/Icon_-_Base_-_1024.png'
 	},
 	{
 		name: 'Morgan Jones',
-		roles: 'Previously on Bot Development',
+		roles: 'Former Bot Developer, Localization (British)',
 		url: 'https://github.com/INF-INITY',
 		pfp: 'https://avatars.githubusercontent.com/u/64072077'
 	},
 	{
 		name: 'Trubiso',
-		roles: 'CRBTscript Development, Localization',
+		roles: 'CRBTscript Developer, Localization (Spanish)',
 		url: 'https://trubiso.tk',
 		pfp: 'https://cdn.discordapp.com/emojis/717683480787550228.png?size=512'
 	},
@@ -42,40 +42,51 @@ export const credits = [
 	},
 	{
 		name: 'Y0urD0ctor',
-		roles: 'Localization',
+		roles: 'Localization (Russian)',
 		url: 'https://youtube.com/channel/UCJSQ9yn_mY3OUauMRvhsNNg',
 		pfp: 'https://cdn.discordapp.com/attachments/843148633687588945/894275718039609395/wipcool.png'
 	},
 	{
 		name: 'navy',
-		roles: 'Localization',
+		roles: 'Localization (Brazilian Portuguese)',
 		url: 'https://twitter.com/NavyBluue_'
 	},
 	{
 		name: 'bkly',
-		roles: 'Blog, Localization',
+		roles: 'Blog, Localization (French)',
 		url: 'https://youtube.com/bklydesign',
 		pfp: 'https://cdn.discordapp.com/attachments/945417344656752712/967499332704157736/unknown.png'
 	},
 	{
 		name: 'Sovencho',
-		roles: 'Localization',
+		roles: 'Localization (Russian)',
 		pfp: 'https://cdn.discordapp.com/attachments/580744592819748905/862879661130514432/GBJI52I5_400x400.png'
 	},
 	{
 		name: 'DankNil',
-		roles: 'Localization'
+		roles: 'Localization (Russian)'
 	},
 	{
 		name: 'karl2883',
-		roles: 'Localization'
+		roles: 'Localization (German)'
 	},
 	{
-		name: 'Sorizona',
-		roles: 'Localization'
+		name: 'Sorizona Macara',
+		roles: 'Localization (Brazilian Portuguese)'
 	},
 	{
 		name: 'Akasora',
-		roles: 'Localization'
+		roles: 'Localization (French)'
+	},
+	{
+		name: 'Harole Ethan',
+		roles: 'Localization (Vietnamese)',
+		pfp: 'https://crowdin-static.downloads.crowdin.com/avatar/15223840/small/21c5ad2b1f3866060ec07789ebf113c1.png'
+	},
+	{
+		name: 'Luca',
+		roles: 'Localization (Romanian)',
+		pfp: 'https://crowdin-static.downloads.crowdin.com/avatar/15312082/small/7b0192cea59a6313cb01dd896f4ca2dd.png',
+		url: 'https://youtube.com/channel/UCFFBvpaP4ReGfE5z9YUUMDw'
 	}
 ];
