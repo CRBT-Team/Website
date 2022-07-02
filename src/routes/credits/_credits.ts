@@ -11,82 +11,117 @@ export const specialThanks = {
 
 export const credits = [
 	{
+		id: 'Clembs',
 		name: 'Clément',
 		roles: 'Creator, Bot & Website Developer, Design, Localization (French)',
 		url: 'https://clembs.xyz',
 		pfp: '/assets/logos/clembs.png'
 	},
 	{
+		id: 'Dave',
 		name: 'Dave Caruso',
 		roles: 'Main Purplet Developer',
 		url: 'https://davecode.net',
 		pfp: 'https://cdn.discordapp.com/attachments/722451535962964061/904469129602416740/Icon_-_Base_-_1024.png'
 	},
 	{
+		id: 'Morgan',
 		name: 'Morgan Jones',
 		roles: 'Former Bot Developer, Localization (British)',
 		url: 'https://github.com/INF-INITY',
 		pfp: 'https://avatars.githubusercontent.com/u/64072077'
 	},
 	{
+		id: 'Trubiso',
 		name: 'Trubiso',
 		roles: 'CRBTscript Developer, Localization (Spanish)',
 		url: 'https://trubiso.tk',
 		pfp: 'https://cdn.discordapp.com/emojis/717683480787550228.png?size=512'
 	},
 	{
+		id: 'Username',
 		name: 'Username *',
 		roles: 'Blog',
 		url: 'https://user5522.github.io',
 		pfp: 'https://cdn.discordapp.com/attachments/813511433764995142/933742076598812694/Artboard_1.png'
 	},
 	{
-		name: 'Y0urD0ctor',
+		id: 'Y0urD0ctor',
+		name: 'Arsenii Iablochnikov Vadimovich',
 		roles: 'Localization (Russian)',
 		url: 'https://youtube.com/channel/UCJSQ9yn_mY3OUauMRvhsNNg',
 		pfp: 'https://cdn.discordapp.com/attachments/843148633687588945/894275718039609395/wipcool.png'
 	},
 	{
+		id: 'bkly',
+		name: 'bkly',
+		roles: 'Supporter, Blog, Localization (French)',
+		url: 'https://youtube.com/bklydesign',
+		pfp: 'https://cdn.discordapp.com/attachments/945417344656752712/967499332704157736/unknown.png'
+	},
+	{
+		id: 'james',
+		name: 'James',
+		roles: 'Supporter',
+		pfp: 'https://cdn.buymeacoffee.com/uploads/profile_pictures/2021/07/f2c4fbbb61c5e4c76b5d98b6ba595e4f.png@300w_0e.webp'
+	},
+	{
+		id: 'navy',
 		name: 'navy',
 		roles: 'Localization (Brazilian Portuguese)',
 		url: 'https://twitter.com/NavyBluue_'
 	},
 	{
-		name: 'bkly',
-		roles: 'Blog, Localization (French)',
-		url: 'https://youtube.com/bklydesign',
-		pfp: 'https://cdn.discordapp.com/attachments/945417344656752712/967499332704157736/unknown.png'
-	},
-	{
+		id: 'Sovencho',
 		name: 'Sovencho',
 		roles: 'Localization (Russian)',
 		pfp: 'https://cdn.discordapp.com/attachments/580744592819748905/862879661130514432/GBJI52I5_400x400.png'
 	},
 	{
-		name: 'DankNil',
-		roles: 'Localization (Russian)'
+		id: 'DankNil',
+		name: 'Mikhail',
+		roles: 'Localization (Russian)',
+		pfp: 'https://avatars.githubusercontent.com/u/65212334'
 	},
 	{
+		id: 'Karl2883',
 		name: 'karl2883',
 		roles: 'Localization (German)'
 	},
 	{
+		id: 'Sorizona',
 		name: 'Sorizona Macara',
-		roles: 'Localization (Brazilian Portuguese)'
+		roles: 'Localization (Brazilian Portuguese)',
+		pfp: 'https://avatars.cloudflare.steamstatic.com/269b39a832733e3d4b15eb4b8eb14725b62c3401_full.jpg',
+		url: 'https://steamcommunity.com/id/Sorizona/'
 	},
 	{
+		id: 'Akasora',
 		name: 'Akasora',
 		roles: 'Localization (French)'
 	},
 	{
-		name: 'Harole Ethan',
+		id: 'Harole',
+		name: 'Harole Duong',
 		roles: 'Localization (Vietnamese)',
-		pfp: 'https://crowdin-static.downloads.crowdin.com/avatar/15223840/small/21c5ad2b1f3866060ec07789ebf113c1.png'
+		pfp: 'https://cdn.discordapp.com/attachments/961646631965585458/988640466444640316/5054F3DF-0A62-4657-BFEB-D2EF15E4CD80.jpg'
 	},
 	{
+		id: 'Luca',
 		name: 'Luca',
 		roles: 'Localization (Romanian)',
 		pfp: 'https://crowdin-static.downloads.crowdin.com/avatar/15312082/small/7b0192cea59a6313cb01dd896f4ca2dd.png',
 		url: 'https://youtube.com/channel/UCFFBvpaP4ReGfE5z9YUUMDw'
+	},
+	{
+		id: 'Kutomi1',
+		name: 'Kutomi1',
+		roles: 'Localization (Hungarian)',
+		pfp: 'https://cdn.discordapp.com/attachments/795331058710216734/988779468799758336/Sonic_Art_Assets_DVD_-_Sonic_The_Hedgehog_-_12.jpeg'
+	},
+	{
+		id: 'tecavuzcu',
+		name: 'tecavuzcu',
+		roles: 'Localization (Turkish)'
 	}
 ];

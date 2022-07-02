@@ -4,11 +4,9 @@
 		ChevronDown,
 		CheckSquare,
 		Languages,
-		Hammer,
 		Coins,
 		Hand,
 		List,
-		Link,
 		LayoutList,
 		Gift
 	} from 'lucide-svelte';
@@ -47,33 +45,15 @@
 			</div>
 		</div>
 	</Section>
-	<Section align="left" id="features">
+	<div id="features" />
+	<!-- <Section align="left">
 		<div class="image">
-			<img src="/assets/slash-commands.svg" alt="CRBT showing slash command autocomplete options" />
+			<img src="/assets/tada_deluxe.svg" alt="A party popper" />
 		</div>
 		<div class="text">
-			<h1 class="header">Less reading, <span class="pink">more doing</span>.</h1>
-			<p class="subheader">
-				No more checking the documentation before using a command because <em>that</em> argument
-				doesn't go
-				<em>there</em>. Just right click a message or a user, or type / and get to write commands
-				with autocomplete and error checking as you type.
-			</p>
+			<h1 class="header">Create giveaways with ease!</h1>
 		</div>
-	</Section>
-	<Section align="right">
-		<div class="image">
-			<img src="/assets/localization.svg" alt="CRBT showing slash command autocomplete options" />
-		</div>
-		<div class="text">
-			<h1 class="header">(maybe) Speaks <span class="pink">your language</span>.</h1>
-			<p class="subheader">
-				Partial support for localization within commands in American and British English, Spanish,
-				French, German, Russian, Vietnamese and Romanian is also available. All of which is possible
-				thanks to our <a href="/credits">collaborators</a>.
-			</p>
-		</div>
-	</Section>
+	</Section> -->
 	<Section align="left">
 		<div class="image">
 			<img
@@ -94,11 +74,64 @@
 			</p>
 		</div>
 	</Section>
+	<Section align="right">
+		<div class="image">
+			<img src="/assets/localization.svg" alt="CRBT showing slash command autocomplete options" />
+		</div>
+		<div class="text">
+			<h1 class="header">Speaks <span class="pink">your language</span>.</h1>
+			<p class="subheader">
+				Partial support for localization within commands in American and British English, Spanish,
+				French, German, Russian, Vietnamese and Romanian is also available. All of which is possible
+				thanks to our <a href="/credits">collaborators</a>.
+			</p>
+		</div>
+	</Section>
+	<Section align="left">
+		<div class="image">
+			<img src="/assets/slash-commands.svg" alt="CRBT showing slash command autocomplete options" />
+		</div>
+		<div class="text">
+			<h1 class="header">Less reading, <span class="pink">more doing</span>.</h1>
+			<p class="subheader">
+				No more checking the documentation before using a command because <em>that</em> argument
+				doesn't go
+				<em>there</em>. Just right click a message or a user, or type / and get to write commands
+				with autocomplete and error checking as you type.
+			</p>
+		</div>
+	</Section>
 
 	<Section align="center">
 		<h1 class="header">Features everything you'd expect, <span class="pink">and more</span>!</h1>
 
 		<div class="features">
+			<div class="feature">
+				<div class="top">
+					<div class="icon">
+						<Hand />
+					</div>
+					<div class="label">NEW</div>
+				</div>
+				<h3>Welcome & farewell messages</h3>
+				<p class="subheader">
+					Welcome your members to your server with a custom message, and set up custom scripts to
+					give roles and coins using our custom-built <a href="/script">CRBTscript</a> language.
+				</p>
+			</div>
+			<div class="feature">
+				<div class="top">
+					<div class="icon">
+						<Gift />
+					</div>
+					<div class="label">NEW</div>
+				</div>
+				<h3>Giveaways</h3>
+				<p class="subheader">
+					Create giveaways with custom rules and cool prizes to give for your members to
+					participate.
+				</p>
+			</div>
 			<div class="feature">
 				<div class="top">
 					<div class="icon">
@@ -127,32 +160,6 @@
 				<p class="subheader">
 					CRBT is partially localized in English, French, German, Spanish, Portuguese, Russian,
 					Vietnamese, Romanian... and more soon thanks for the fan translations!
-				</p>
-			</div>
-			<div class="feature">
-				<div class="top">
-					<div class="icon">
-						<Hand />
-					</div>
-					<div class="label">JUNE</div>
-				</div>
-				<h3>Welcome & farewell messages</h3>
-				<p class="subheader">
-					Welcome your members to your server with a custom message, and set up custom scripts to
-					give roles and coins using our custom-built <a href="/script">CRBTscript</a> language.
-				</p>
-			</div>
-			<div class="feature">
-				<div class="top">
-					<div class="icon">
-						<Gift />
-					</div>
-					<div class="label">JUNE</div>
-				</div>
-				<h3>Giveaways</h3>
-				<p class="subheader">
-					Create giveaways with custom rules and cool prizes to give for your members to
-					participate.
 				</p>
 			</div>
 			<div class="feature">

@@ -19,7 +19,7 @@
 	<meta name="author" content={tags.site_name} />
 	<meta name="title" content={tags.title} />
 	{#if description} <meta name="description" content={tags.description} /> {/if}
-	<meta name="copyright" content="&copy;2019-{new Date().getFullYear()} Clembs" />
+	<meta name="copyright" content="&copy;{new Date().getFullYear()} CRBT Team" />
 	<meta name="theme-color" content={tags.color} />
 	<!-- Google index -->
 	<meta name="”robots”" content="”follow,index”" />

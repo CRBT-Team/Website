@@ -31,8 +31,7 @@
 	</div>
 
 	<div class="copyright">
-		&copy; 2019-{new Date().getFullYear()} Clembs <br />
-		All rights reserved. <br />
+		&copy;{new Date().getFullYear()} All rights reserved <br />
 		CRBT is not affiliated with Discord.
 	</div>
 
@@ -46,7 +45,7 @@
 				<li><a href="/invite">Invite</a></li>
 				<li><a href="/changelog">Changelog</a></li>
 				<li><a href="/purplet">Purplet</a></li>
-				<li><a href="/script">CRBTScript</a></li>
+				<li><a href="/script">CRBTscript</a></li>
 			</ul>
 		</section>
 		<section>

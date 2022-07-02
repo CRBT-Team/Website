@@ -33,7 +33,7 @@
 		}
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 1200px) {
 		.fancy-section {
 			padding: 1rem;
 			gap: 10px;

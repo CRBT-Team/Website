@@ -14,8 +14,8 @@
 
 	let authors =
 		typeof metadata.author === 'object'
-			? metadata.author.map((author) => authorData.find(({ name }) => author === name))
-			: [authorData.find(({ name }) => name === metadata.author)];
+			? metadata.author.map((author) => authorData.find(({ id }) => author === id))
+			: [authorData.find(({ id }) => id === metadata.author)];
 </script>
 
 <header class="blog-hero">
@@ -99,8 +99,8 @@
 			gap: 0.5rem;
 
 			img.blog-meta-avatar {
-				height: 60px;
-				width: 60px;
+				height: 70px;
+				width: 70px;
 				border-radius: 50%;
 				border: 4px solid var(--bg);
 			}

@@ -26,7 +26,7 @@
 					<h3>{person.name}</h3>
 				</div>
 				<div class="description">
-					<p>{person.roles}</p>
+					<p>{@html person.roles.replace('Supporter', '<a href="/donate">Supporter</a>')}</p>
 				</div>
 				<div class="linkbutton">
 					{#if person.url}
@@ -66,11 +66,14 @@
 			align-items: center;
 			gap: 1rem;
 			min-width: 240px;
-			max-width: fit-content;
+			max-width: 240px;
 			// margin-right: auto;
 			img {
 				border-radius: 50%;
-				height: 50px;
+				height: 65px;
+				width: 65px;
+				object-fit: cover;
+				image-rendering: optimizeSpeed;
 			}
 		}
 
