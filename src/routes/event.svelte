@@ -51,7 +51,7 @@
 			title="CRBT Event"
 			src="https://player.twitch.tv/?channel=clembs&parent={!dev ? 'crbt.app' : '127.0.0.1'}"
 			height="720"
-			width="1280"
+			width="100%"
 			allowfullscreen
 		/>
 	</Section>
