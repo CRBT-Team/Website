@@ -5,8 +5,10 @@
 	const now = new Date().getTime();
 	let countDownDate = 1657368000000;
 
+	const dev = import.meta.env.DEV;
+
 	let distance = countDownDate - now;
-	let done = false;
+	let done = true;
 	$: hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 	$: minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 	$: seconds = Math.floor((distance % (1000 * 60)) / 1000);
@@ -47,7 +49,7 @@
 	<Section align="center">
 		<iframe
 			title="CRBT Event"
-			src="https://player.twitch.tv/?channel=clembs&parent=127.0.0.1"
+			src="https://player.twitch.tv/?channel=clembs&parent={!dev ? 'crbt.app' : '127.0.0.1'}"
 			height="720"
 			width="1280"
 			allowfullscreen
