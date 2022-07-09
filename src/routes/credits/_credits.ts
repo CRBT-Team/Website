@@ -40,7 +40,7 @@ export const credits = [
 	},
 	{
 		id: 'Username',
-		name: 'Username *',
+		name: 'User5522',
 		roles: 'Blog',
 		url: 'https://user5522.github.io',
 		pfp: 'https://cdn.discordapp.com/attachments/813511433764995142/933742076598812694/Artboard_1.png'

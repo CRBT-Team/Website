@@ -1,18 +1,68 @@
 <script>
 	import Button from '$lib/components/Button.svelte';
 	import Section from '$lib/components/Section.svelte';
+
+	const now = new Date().getTime();
+	let countDownDate = 1657368000000;
+
+	let distance = countDownDate - now;
+	let done = false;
+	$: hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	$: minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	$: seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+	const x = setInterval(() => {
+		distance -= 1000;
+
+		if (distance < 0) {
+			clearInterval(x);
+			done = true;
+		}
+	}, 1000);
 </script>
 
-<Section align="center">
-	<header>
-		<h1>CRBT Event</h1>
-		<h2>Coming July 2nd, 2022.</h2>
-	</header>
-	<Button href="https://discord.gg/yGZEPng7V5?event=930525819825176656">
-		Get notified on Discord
-	</Button>
-	<div class="command">
-		<p>Or with CRBT:</p>
-		<code>/reminder new when:2022-07-02T16:00:00Z subject:CRBT Event</code>
-	</div>
-</Section>
+{#if !done}
+	<Section align="center">
+		<header>
+			<h1>Bigger, better, bolder</h1>
+
+			<p>
+				Join us for a new event live where we'll unveil what's been in the works for CRBT and
+				Purplet, as well as some extra announcements!
+			</p>
+
+			<h2>
+				In {hours}
+				{hours === 1 ? 'hour' : 'hours'}, {minutes}
+				{minutes === 1 ? 'minute' : 'minutes'} and {seconds}
+				{seconds === 1 ? 'second' : 'seconds'}
+			</h2>
+		</header>
+
+		<Button href="https://discord.gg/AvwhNtsgAC?event=930525819825176656">
+			Get notified on Discord
+		</Button>
+	</Section>
+{:else}
+	<Section align="center">
+		<iframe
+			title="CRBT Event"
+			src="https://player.twitch.tv/?channel=clembs&parent=127.0.0.1"
+			height="720"
+			width="1280"
+			allowfullscreen
+		/>
+	</Section>
+
+	<Section align="right">
+		<header>
+			<h1>Bigger, better, bolder</h1>
+
+			<p>
+				Join us for a new event live where we'll unveil what's been in the works for CRBT and
+				Purplet, as well as some extra announcements!
+			</p>
+			<Button href="https://discord.gg/AvwhNtsgAC">Join us on Discord</Button>
+		</header>
+	</Section>
+{/if}

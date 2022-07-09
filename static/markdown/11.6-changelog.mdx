@@ -3,7 +3,7 @@ category: Changelog
 title: What's new in CRBT 11.6?
 description: Added Welcome & Farewell messages, new languages, improved Polls, Moderation History, Giveaways, smarter autocomplete for dates, and more!
 author: Clembs
-date: 2022-06-20
+date: 2022-07-11
 minutes: 8
 banner: /assets/hero-image.png
 ---
@@ -21,10 +21,49 @@ banner: /assets/hero-image.png
 - [Welcome & Farewell messages](#welcome-farewell-messages)
 - [Improved Polls](#improved-polls)
 - [Moderation Logs](#moderation-logs)
-- [Giveaways](#per-server-economy)
+- [Giveaways](#giveaways)
 - [New Languages](#new-languages)
 - [Quality-of-Life improvements](#quality-of-life)
 - [Other additions & changes](#other-additions)
 
 <h2 id="welcome-farewell-messages">Welcome & Farewell messages</h2>
 
+- Added two new commands, `/welcome` and `/farewell`
+- On each command, use `message` to bring up a message builder to completely customize the message to send. Use [CRBTscript](/script) to enrichen your messages with dynamic tags!
+- Use `channel` to change the channel where new welcome or farewell messages should be sent.
+- Use `preview` to preview how the message will look to users joining or leaving the server, and check for any errors along the way.
+- To disable or re-enable them, use the `/module` command.
+
+> Feedback, suggestions or bug reports? Check [this form]() to send us anything related to them!
+
+<h2 id="improved-polls">Improved Polls</h2>
+
+- `/poll end` and `/poll start` merged into `/poll`
+- To edit, cancel, delete or view a poll's info, use the menu button! These controls are only available
+  to the original poster and the server's moderators.
+- Added support for emojis in option names
+- Bumped up title max length to 100 and choice names to 40 (emojis excluded) -
+
+<h2 id="moderation-logs">Moderation Logs</h2>
+
+- Whenever you warn, ban, timeout or kick a user or clear a channel, a moderation log will be created.
+- To view all the server's moderation history,
+  use the `/modlogs all` command.
+- To view an individual user's history, use `/modlogs user` or right
+  click/long press them.
+- More user context menu moderation commands are available such as Ban User
+  and Warn User.
+- You can now simply warn a user by using `/warn` or by right clicking/long pressing
+  them.
+
+<h2 id="giveaways">Giveaways</h2>
+
+- You can now host giveaways in your server with CRBT using the `/giveaway` command.
+
+<h2 id="new-languages">New Languages</h2>
+
+<h2 id="quality-of-life">Quality-of-Life improvements</h2>
+
+<h2 id="other-additions">Other additions & changes</h2>
+
+WIP
