@@ -8,7 +8,7 @@
 	const dev = import.meta.env.DEV;
 
 	let distance = countDownDate - now;
-	let done = true;
+	let done = false;
 	$: hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 	$: minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 	$: seconds = Math.floor((distance % (1000 * 60)) / 1000);
