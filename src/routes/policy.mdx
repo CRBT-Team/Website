@@ -8,15 +8,13 @@
 
 # CRBT - Privacy Policy
 
-##### Last update: April 24th, 2022
+##### Last update: July 14th, 2022
 
 When you make use of the CRBT service, by adding it to a server, removing it from a server or by using it as a Discord user, you automatically apply to this privacy policy.
 
 ## Your privacy controls
 
-Since the 11.4 update, you can now safely opt out of any data collection on CRBT by using the `/privacy` command, and clicking on the "Disable Telemetry" button component on CRBT's reply.
-
-Until then, you can always [email me about it](mailto:clembs@clembs.xyz).
+You can safely opt out of any future data collection on CRBT by using the `/privacy` command, and toggling "Telemetry" off on CRBT's message.
 
 ## How your data is used
 
@@ -25,24 +23,33 @@ Your user & server data is only accessible by me, the creator and main developer
 
 This data is used to understand how is CRBT used so I can improve on its fluency and its ease of use. I also use this data in order to understand what commands are more used than others in order to prioritize the development of them.
 
+Errors thrown by the CRBT bot are also logged in order to help me fix them. These will always throw a message to the user, noted as an "Unknown error message".
+
 I will also use the user ID to track potential abusers and breach-exploiters.
 
 ## What data is logged
 
-##### When using a command (through any kind of Application Command):
+### When using a command (through any kind of Application Command):
 
-- The full command name, along with its options
+- The full command name with its options
 - Your public Discord user ID
-- The channel type (guild/DM)
+- Whether the command was used in a server or through DMs
 
-##### When inviting or removing CRBT from a server:
+### When inviting or removing CRBT from a server:
 
-- The server name and ID
+- The server's name
+- The server's ID
+
+### When an unknown error occurs:
+
+- The [interaction object](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object)
 
 ## Where this data is logged
 
 Logged command & server data is sent in a private Discord channel only accessible by me, Clembs, and CRBT itself.
 
-Note: We use [Heroku](https://heroku.com/) to host CRBT (but no data should be stored there aside from Discord.js caching), and [Supabase](https://supabase.com) for the database.
+## Additional information
+
+Although third-party services like [Heroku](https://heroku.com/) and [Supabase](https://supabase.com) are used by us to operate with CRBT, no Discord user data is stored on them.
 
 </article>
