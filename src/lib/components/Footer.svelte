@@ -44,8 +44,15 @@
 				<!-- <li><a href='/branding'>Branding</a></li> -->
 				<li><a href="/invite">Invite</a></li>
 				<li><a href="/changelog">Changelog</a></li>
-				<li><a href="/purplet">Purplet</a></li>
 				<li><a href="/script">CRBTscript</a></li>
+			</ul>
+		</section>
+		<section>
+			<p>Developers</p>
+			<ul>
+				<li><a href="/github">GitHub</a></li>
+				<li><a href="/purplet">Purplet</a></li>
+				<li><a href="https://gist.github.com/Clembs/2c166903997cda962f8e4fe8e2fe887e">API</a></li>
 			</ul>
 		</section>
 		<section>
@@ -59,7 +66,6 @@
 		<section>
 			<p>Social</p>
 			<ul>
-				<li><a href="/github">GitHub</a></li>
 				<li><a href="/discord">Discord</a></li>
 				<li><a href="/twitter">Twitter</a></li>
 				<li><a href="mailto:clembs@clembs.xyz">Email</a></li>
