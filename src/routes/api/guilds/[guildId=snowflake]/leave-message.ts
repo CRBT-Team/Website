@@ -1,4 +1,4 @@
-import { unauthorized, validateAccess } from '$lib/api';
+import { errors, validateAccess } from '$lib/api';
 import { db } from '$lib/prisma';
 import type { RequestHandler } from '@sveltejs/kit';
 
@@ -7,7 +7,7 @@ export const get: RequestHandler = async ({ request, params }) => {
 
 	if (tokenData?.guildId !== params.guildId) isAuthorized = false;
 
-	if (!isAuthorized) return unauthorized;
+	if (!isAuthorized) return errors.unauthorized;
 
 	const serverData = await db.servers.findFirst({
 		where: { id: params.guildId },
