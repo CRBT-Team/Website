@@ -1,0 +1,22 @@
+/blog/*          https://resources.crbt.app/:splat
+/changelog       /blog/11.6-changelog
+
+/purplet         https://purplet.js.org
+/api-docs        https://resources.crbt.app/docs/api/intro
+/script          https://resources.crbt.app/docs/crbtscript
+/banners         https://drive.google.com/drive/folders/15oc_O48AEGRUGtPGfjq14ixgBxa_UfO1?usp=sharing
+
+/github/*        https://github.com/CRBT-Team/:splat
+/discord         https://discord.gg/AvwhNtsgAC
+/twitter         https://twitter.com/crbt_app
+/topgg           https://top.gg/bot/595731552709771264
+/discordbots     https://discord.bots.gg/bots/595731552709771264
+/vote            https://top.gg/bot/595731552709771264/vote
+/donate          https://buymeacoffee.com/clembs
+
+/invite          https://discord.com/oauth2/authorize?client_id=595731552709771264&permissions=8&scope=bot+applications.commands
+
+/support         /discord
+/server          /discord
+
+/premium         https://www.youtube.com/watch?v=6n3pFFPSlW4

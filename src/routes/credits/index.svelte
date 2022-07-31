@@ -26,7 +26,7 @@
 					<h3>{person.name}</h3>
 				</div>
 				<div class="description">
-					<p>{@html person.roles.replace('Supporter', '<a href="/donate">Supporter</a>')}</p>
+					<p>{@html person.roles?.replace('Supporter', '<a href="/donate">Supporter</a>') ?? ''}</p>
 				</div>
 				<div class="linkbutton">
 					{#if person.url}

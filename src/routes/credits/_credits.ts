@@ -13,23 +13,16 @@ export const credits = [
 	{
 		id: 'Clembs',
 		name: 'Clément',
-		roles: 'Creator, Bot & Website Developer, Design, Localization (French)',
+		roles: 'Founder',
 		url: 'https://clembs.xyz',
 		pfp: '/assets/logos/clembs.png'
 	},
 	{
 		id: 'Dave',
 		name: 'Dave Caruso',
-		roles: 'Main Purplet Developer',
+		roles: 'Purplet Co-founder',
 		url: 'https://davecode.net',
 		pfp: 'https://cdn.discordapp.com/attachments/722451535962964061/904469129602416740/Icon_-_Base_-_1024.png'
-	},
-	{
-		id: 'Morgan',
-		name: 'Morgan Jones',
-		roles: 'Former Bot Developer, Localization (British)',
-		url: 'https://github.com/INF-INITY',
-		pfp: 'https://avatars.githubusercontent.com/u/64072077'
 	},
 	{
 		id: 'Trubiso',
@@ -39,23 +32,9 @@ export const credits = [
 		pfp: 'https://cdn.discordapp.com/emojis/717683480787550228.png?size=512'
 	},
 	{
-		id: 'Username',
-		name: 'User5522',
-		roles: 'Blog',
-		url: 'https://user5522.github.io',
-		pfp: 'https://cdn.discordapp.com/attachments/813511433764995142/933742076598812694/Artboard_1.png'
-	},
-	{
-		id: 'Y0urD0ctor',
-		name: 'Arsenii Iablochnikov Vadimovich',
-		roles: 'Localization (Russian)',
-		url: 'https://youtube.com/channel/UCJSQ9yn_mY3OUauMRvhsNNg',
-		pfp: 'https://cdn.discordapp.com/attachments/843148633687588945/894275718039609395/wipcool.png'
-	},
-	{
 		id: 'bkly',
 		name: 'bkly',
-		roles: 'Supporter, Blog, Localization (French)',
+		roles: 'Supporter, Localization (French)',
 		url: 'https://youtube.com/bklydesign',
 		pfp: 'https://cdn.discordapp.com/attachments/945417344656752712/967499332704157736/unknown.png'
 	},
@@ -64,6 +43,26 @@ export const credits = [
 		name: 'James',
 		roles: 'Supporter',
 		pfp: 'https://cdn.buymeacoffee.com/uploads/profile_pictures/2021/07/f2c4fbbb61c5e4c76b5d98b6ba595e4f.png@300w_0e.webp'
+	},
+	{
+		id: 'Username',
+		name: 'User5522',
+		url: 'https://user5522.github.io',
+		pfp: 'https://cdn.discordapp.com/attachments/813511433764995142/933742076598812694/Artboard_1.png'
+	},
+	{
+		id: 'Morgan',
+		name: 'Morgan Jones',
+		roles: 'Localization (British)',
+		url: 'https://github.com/INF-INITY',
+		pfp: 'https://avatars.githubusercontent.com/u/64072077'
+	},
+	{
+		id: 'Y0urD0ctor',
+		name: 'Arsenii Iablochnikov Vadimovich',
+		roles: 'Localization (Russian)',
+		url: 'https://youtube.com/channel/UCJSQ9yn_mY3OUauMRvhsNNg',
+		pfp: 'https://cdn.discordapp.com/attachments/971714634342076436/998604723089330316/danavatartwitter.png'
 	},
 	{
 		id: 'navy',

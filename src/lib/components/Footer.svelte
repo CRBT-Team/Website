@@ -39,7 +39,7 @@
 		<section>
 			<p>Product</p>
 			<ul>
-				<!-- <li><a href='/blog'>Blog</a></li> -->
+				<li><a href="/blog">Blog</a></li>
 				<!-- <li><a href='/partners'>Partners</a></li> -->
 				<!-- <li><a href='/branding'>Branding</a></li> -->
 				<li><a href="/invite">Invite</a></li>

@@ -9,12 +9,14 @@
 		UserPlus,
 		ExternalLink,
 		Eye,
-		Heart
+		Heart,
+		Book
 	} from 'lucide-svelte';
 
 	const pages = (
 		[
 			[Heart, 'Donate', '/donate'],
+			[Book, 'Blog', '/blog'],
 			[BookOpen, 'Changelog', '/changelog'],
 			[UserPlus, 'Invite CRBT', '/invite'],
 			[MessageSquare, 'Join the Community', '/discord'],
@@ -76,7 +78,7 @@
 	</a>
 	<div class="list">
 		<a href="/donate" class="item donate"> ❤️ Donate </a>
-		<a href="/changelog" class="item"> Changelog </a>
+		<a href="/blog" class="item"> Blog </a>
 		<a href="/invite" class="item"> Invite </a>
 		<a href="/discord" class="item"> Discord </a>
 	</div>
@@ -118,7 +120,7 @@
 	.desktop {
 		display: flex;
 		width: 100%;
-		padding: 0 1.5rem;
+		padding: 0 1rem;
 		justify-content: space-between;
 		position: sticky;
 		align-items: center;
