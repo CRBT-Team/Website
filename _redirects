@@ -1,5 +1,5 @@
 /blog/*          https://resources.crbt.app/:splat
-/changelog       /blog/11.6-changelog
+/changelog       /blog/11.7-changelog
 
 /purplet         https://purplet.js.org
 /api-docs        https://resources.crbt.app/docs/api/intro

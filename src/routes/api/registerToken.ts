@@ -1,11 +1,11 @@
+import { randomBytes } from 'crypto';
 import type { RequestHandler } from '@sveltejs/kit';
 import 'dotenv/config';
 import { db } from '$lib/prisma';
-import { errors, jwt, type CRBTTokenPayload } from '$lib/api';
+import { errors, type APITokenData } from '$lib/api';
+import { TokenTypes } from '@prisma/client';
 
 export const post: RequestHandler = async ({ request }) => {
-	console.log(request);
-
 	if (request.headers.get('Authorization') !== process.env.JWT_SECRET) {
 		return errors.unauthorized;
 	}
@@ -14,32 +14,38 @@ export const post: RequestHandler = async ({ request }) => {
 		return errors.badRequest;
 	}
 
-	try {
-		const bodyBuffer = await request.arrayBuffer();
-		const bodyString = new TextDecoder('utf-8').decode(bodyBuffer);
-		const body = new URLSearchParams(bodyString);
+	const bodyBuffer = await request.arrayBuffer();
+	const bodyString = new TextDecoder('utf-8').decode(bodyBuffer);
+	const body = new URLSearchParams(bodyString);
 
-		if (!body.has('userId')) {
-			return errors.badRequest;
-		}
-
-		const tokenData: CRBTTokenPayload = {
-			userId: body.get('userId'),
-			guildId: body.get('guildId')
-		};
-
-		const newToken = jwt.sign(tokenData, process.env.JWT_SECRET);
-
-		await db.tokens.create({
-			data: { token: newToken }
-		});
-
-		return {
-			body: {
-				token: newToken
-			}
-		};
-	} catch (e) {
-		return errors.internalServerError;
+	if (!body.has('userId')) {
+		return errors.badRequest;
 	}
+
+	const tokenData: APITokenData['data'] = {
+		userId: body.get('userId'),
+		guildId: body.get('guildId')
+	};
+
+	const userId = Buffer.from(tokenData.userId).toString('base64url');
+	const now = Buffer.from(Math.round(Date.now() / 1000).toString()).toString('base64url');
+	const password = randomBytes(11)
+		.toString('base64url')
+		.replace(
+			// replace all -, _, . with a random character
+			/[-_.]/g,
+			() => randomBytes(1).toString('base64url').charAt(0)
+		);
+
+	const tokenString = `${userId}.${now}.${password}`;
+
+	const token = await db.tokens.create({
+		data: { token: tokenString, data: tokenData, type: TokenTypes.API }
+	});
+
+	return {
+		body: {
+			token
+		}
+	};
 };

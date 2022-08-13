@@ -2,12 +2,12 @@ import { errors, validateAccess } from '$lib/api';
 import { db } from '$lib/prisma';
 import type { RequestHandler } from '@sveltejs/kit';
 
-export const get: RequestHandler = async ({ request, params }) => {
-	let { isAuthorized, tokenData } = await validateAccess(request);
+export const GET: RequestHandler = async ({ request, params }) => {
+	let { isAuthorized, error } = await validateAccess(request, {
+		guildId: params.guildId
+	});
 
-	if (tokenData?.guildId !== params.guildId) isAuthorized = false;
-
-	if (!isAuthorized) return errors.unauthorized;
+	if (!isAuthorized) return error;
 
 	const serverData = await db.servers.findFirst({
 		where: { id: params.guildId },

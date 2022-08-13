@@ -20,8 +20,8 @@ export const credits = [
 	{
 		id: 'Dave',
 		name: 'Dave Caruso',
-		roles: 'Purplet Co-founder',
-		url: 'https://davecode.net',
+		roles: 'Purplet Co-founder, Supporter',
+		url: 'https://paperdave.net',
 		pfp: 'https://cdn.discordapp.com/attachments/722451535962964061/904469129602416740/Icon_-_Base_-_1024.png'
 	},
 	{

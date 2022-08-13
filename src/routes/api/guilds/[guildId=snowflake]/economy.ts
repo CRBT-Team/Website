@@ -4,21 +4,15 @@
 import type { RequestHandler } from '@sveltejs/kit';
 import { errors, validateAccess } from '$lib/api';
 
-export const get: RequestHandler = async ({ params, request }) => {
-	let { isAuthorized, tokenData } = await validateAccess(request);
+export const GET: RequestHandler = async ({ params, request }) => {
+	let { isAuthorized, error } = await validateAccess(request, { guildId: params.guildId });
 
-	if (tokenData.guildId !== params.guildId) isAuthorized = false;
-
-	if (!isAuthorized) return errors.unauthorized;
+	//TODO: make this endpoint return something
+	if (!isAuthorized) return error;
 
 	// const serverData = await db.economy.findFirst({
 	// 	where: { serverId: params.guildId }
 	// });
 
-	return {
-		status: 4096,
-		body: {
-			error: 'Not implemented'
-		}
-	};
+	return errors.unauthorized;
 };

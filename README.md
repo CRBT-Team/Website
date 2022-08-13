@@ -4,21 +4,13 @@
 
 The website for the CRBT application, available at [crbt.app](https://crbt.app).
 
-Now remade with SvelteKit!
-
 ### Installation
 
 1. Install dependencies with `yarn`
-2. Run `yarn dev` to dev (on http://localhost:3000)
+2. Run `yarn dev` to serve it locally
 3. Run `yarn build` to build for production
 
-### To-Do
+### Credits
 
-- [x] Polish the design
-- [ ] Add the blog page
-- [ ] Add the events page for the later CRBT events
-
-### Thanks
-
-- [dave caruso](https://github.com/davecaruso) for making most of the CSS and the structure for the original website.
-- [Svelte](https://svelte.dev) for being cool.
+- [paperdave](https://github.com/paperdave) for making most of the CSS and the structure for the original website.
+- [and all other deps](/CREDITS.md) for being cool!

@@ -1,25 +1,29 @@
 {
 	"name": "crbt-website",
-	"version": "2.0.0",
+	"version": "2.2.0",
 	"private": true,
+	"type": "module",
 	"scripts": {
-		"dev": "svelte-kit dev",
-		"build": "npx prisma generate && svelte-kit build",
-		"package": "svelte-kit package",
-		"preview": "svelte-kit preview",
+		"build": "prisma generate && vite build",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+		"dev": "vite dev",
+		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
 		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. .",
-		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
+		"package": "svelte-kit package",
+		"preview": "svelte-kit preview"
+	},
+	"dependencies": {
+		"@prisma/client": "^3.10.0",
+		"dayjs": "^1.10.7",
+		"dotenv": "^10.0.0",
+		"lucide-svelte": "^0.30.0",
+		"validate.js": "^0.13.1"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-netlify": "^1.0.0-next.35",
-		"@sveltejs/kit": "^1.0.0-next.211",
-		"@types/jsonwebtoken": "^8.5.8",
-		"@types/marked": "^4.0.1",
-		"@types/node-emoji": "^1.8.1",
+		"@sveltejs/kit": "^1.0.0-next.405",
 		"discord-api-types": "^0.30.0",
-		"mdsvex": "^0.10.5",
 		"prettier": "^2.4.1",
 		"prettier-plugin-svelte": "^2.4.0",
 		"prisma": "^3.10.0",
@@ -29,17 +33,7 @@
 		"svelte-check": "^2.2.6",
 		"svelte-preprocess": "^4.9.4",
 		"tslib": "^2.3.1",
-		"typescript": "^4.4.3"
-	},
-	"type": "module",
-	"dependencies": {
-		"@prisma/client": "^3.10.0",
-		"@supabase/supabase-js": "^1.29.1",
-		"dayjs": "^1.10.7",
-		"dotenv": "^10.0.0",
-		"jsonwebtoken": "^8.5.1",
-		"lucide-svelte": "^0.30.0",
-		"marked": "^4.0.8",
-		"node-emoji": "^1.11.0"
+		"typescript": "^4.4.3",
+		"vite": "^3.0.6"
 	}
 }
