@@ -1,6 +1,5 @@
 <script>
 	import MetaTags from '$lib/components/MetaTags.svelte';
-	import '../styles/markdown.scss';
 </script>
 
 <MetaTags title="Privacy Policy" description="Read about our usage of data collection on CRBT." />

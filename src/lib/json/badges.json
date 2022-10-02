@@ -1,0 +1,30 @@
+{
+  "goodmeal": {
+    "name": "Good meal",
+    "contents": "<:good_meal:750034917743919256>"
+  },
+  "dollidot": {
+    "name": "Dollidot",
+    "contents": "<:dollidot:730074523277197333>"
+  },
+  "udu": {
+    "name": "udu",
+    "contents": "<:udu:800716716627853332>"
+  },
+  "purplet": {
+    "name": "Purplet",
+    "contents": "<:purplet:866116902215745576>"
+  },
+  "dave": {
+    "name": "dave",
+    "contents": "<:davecool:789190897803591740>"
+  },
+  "issuefinder": {
+    "name": "Issue Finder",
+    "contents": "<:issuefinder:957010384768893008>"
+  },
+  "gold_purplet": {
+    "name": "Gold Purplet",
+    "contents": "<:gold_purplet:1000783727875596368>"
+  }
+}

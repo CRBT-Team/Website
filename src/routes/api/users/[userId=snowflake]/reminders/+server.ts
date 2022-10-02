@@ -1,6 +1,5 @@
 import { db } from '$lib/prisma';
 import type { RequestHandler } from '@sveltejs/kit';
-import badges from '$lib/json/badges.json';
 import { validateAccess } from '$lib/api';
 
 interface Reminder {

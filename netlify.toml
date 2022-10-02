@@ -1,7 +1,6 @@
 [build]
   command = "yarn build"
   publish = "build"
-  environment = { NODE_VERSION = "16.13.0" }
 
 [functions]
   directory = "netlify/functions"
