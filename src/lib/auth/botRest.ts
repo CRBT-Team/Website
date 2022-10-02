@@ -1,6 +1,6 @@
-import 'dotenv/config';
+import { DISCORD_TOKEN } from '$env/static/private';
 import { Rest } from '@purplet/rest';
 
 export const botRest = new Rest({
-  token: process.env.DISCORD_TOKEN
+  token: DISCORD_TOKEN
 });

@@ -1,116 +1,44 @@
 [
   {
     "name": "@prisma/client",
-    "version": "3.14.0",
+    "version": "3.15.2",
     "license": "Apache-2.0",
-    "url": "https://github.com/prisma/prisma"
+    "url": "https://github.com/prisma/prisma",
+    "type": "DEPENDENCY"
   },
   {
-    "name": "@sveltejs/adapter-netlify",
-    "version": "1.0.0-next.58",
-    "license": "MIT",
-    "url": "https://github.com/sveltejs/kit"
-  },
-  {
-    "name": "@sveltejs/kit",
-    "version": "1.0.0-next.405",
-    "license": "MIT",
-    "url": "https://github.com/sveltejs/kit"
+    "name": "@purplet/rest",
+    "version": "1.0.1",
+    "license": "Apache-2.0",
+    "url": "https://github.com/CRBT-Team/Purplet",
+    "type": "DEPENDENCY"
   },
   {
     "name": "dayjs",
-    "version": "1.11.2",
+    "version": "1.11.5",
     "license": "MIT",
-    "url": "https://github.com/iamkun/dayjs"
-  },
-  {
-    "name": "discord-api-types",
-    "version": "0.30.0",
-    "license": "MIT",
-    "url": "https://github.com/discordjs/discord-api-types"
-  },
-  {
-    "name": "dotenv",
-    "version": "10.0.0",
-    "license": "BSD-2-Clause",
-    "url": "git://github.com/motdotla/dotenv"
+    "url": "https://github.com/iamkun/dayjs",
+    "type": "DEPENDENCY"
   },
   {
     "name": "lucide-svelte",
     "version": "0.30.0",
     "license": "ISC",
-    "url": "https://github.com/lucide-icons/lucide"
+    "url": "https://github.com/lucide-icons/lucide",
+    "type": "DEPENDENCY"
   },
   {
-    "name": "prettier",
-    "version": "2.6.2",
+    "name": "node-cache",
+    "version": "5.1.2",
     "license": "MIT",
-    "url": "prettier/prettier"
-  },
-  {
-    "name": "prettier-plugin-svelte",
-    "version": "2.7.0",
-    "license": "MIT",
-    "url": "https://github.com/sveltejs/prettier-plugin-svelte"
-  },
-  {
-    "name": "prisma",
-    "version": "3.14.0",
-    "license": "Apache-2.0",
-    "url": "https://github.com/prisma/prisma"
-  },
-  {
-    "name": "sass",
-    "version": "1.52.1",
-    "license": "MIT",
-    "url": "https://github.com/sass/dart-sass"
-  },
-  {
-    "name": "stream",
-    "version": "0.0.2",
-    "license": "MIT",
-    "url": "git://github.com/juliangruber/stream"
-  },
-  {
-    "name": "svelte",
-    "version": "3.48.0",
-    "license": "MIT",
-    "url": "https://github.com/sveltejs/svelte"
-  },
-  {
-    "name": "svelte-check",
-    "version": "2.7.1",
-    "license": "MIT",
-    "url": "https://github.com/sveltejs/language-tools"
-  },
-  {
-    "name": "svelte-preprocess",
-    "version": "4.10.6",
-    "license": "MIT",
-    "url": "https://github.com/sveltejs/svelte-preprocess"
-  },
-  {
-    "name": "tslib",
-    "version": "2.4.0",
-    "license": "0BSD",
-    "url": "https://github.com/Microsoft/tslib"
-  },
-  {
-    "name": "typescript",
-    "version": "4.6.4",
-    "license": "Apache-2.0",
-    "url": "https://github.com/Microsoft/TypeScript"
+    "url": "git://github.com/node-cache/node-cache",
+    "type": "DEPENDENCY"
   },
   {
     "name": "validate.js",
     "version": "0.13.1",
     "license": "MIT",
-    "url": "https://github.com/ansman/validate.js"
-  },
-  {
-    "name": "vite",
-    "version": "3.0.6",
-    "license": "MIT",
-    "url": "https://github.com/vitejs/vite"
+    "url": "https://github.com/ansman/validate.js",
+    "type": "DEPENDENCY"
   }
 ]

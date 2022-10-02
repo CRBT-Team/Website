@@ -1,12 +1,12 @@
 import { randomBytes } from 'crypto';
-import 'dotenv/config';
 import { db } from '$lib/prisma';
 import { errors, type APITokenData } from '$lib/api';
 import { TokenTypes } from '@prisma/client';
+import { CLIENT_SECRET } from '$env/static/private';
 import type { RequestHandler } from '@sveltejs/kit';
 
 export const POST: RequestHandler = async ({ request }) => {
-	if (request.headers.get('Authorization') !== process.env.JWT_SECRET) {
+	if (request.headers.get('Authorization') !== CLIENT_SECRET) {
 		return errors.unauthorized;
 	}
 

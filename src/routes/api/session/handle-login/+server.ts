@@ -1,6 +1,5 @@
 import { error, redirect } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import 'dotenv/config';
 import { getTokens } from '$lib/auth/getTokens';
 
 export const GET: RequestHandler = async ({ url, cookies }) => {
@@ -10,8 +9,6 @@ export const GET: RequestHandler = async ({ url, cookies }) => {
   if (!code || errors) {
     return Response.redirect('/', 302);
   }
-
-  console.log(process.env.CLIENT_SECRET)
 
   const res = await getTokens('authorization_code', code, url.host);
 
