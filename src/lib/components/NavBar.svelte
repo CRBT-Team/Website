@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import CRBTIcon from '../svg/crbt.svelte';
 	import {
 		Menu,
@@ -279,4 +279,4 @@
 			}
 		}
 	}
-</style>
+</style> -->

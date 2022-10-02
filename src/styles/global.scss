@@ -1,10 +1,3 @@
-:root {
-	--light: #f27187;
-	--dark: #4a0920;
-	--darker: #242122;
-	--bg: #141414;
-}
-
 html,
 body {
 	scroll-behavior: smooth;
@@ -13,63 +6,26 @@ body {
 	margin: 0;
 	display: flex;
 	flex-direction: column;
-	font-size: 18px;
-	font-family: 'DM Sans', Inter, 'Helvetica Neue', system-ui, sans-serif;
-	color: white;
-	background-color: var(--bg);
-}
-
-a {
-	color: inherit;
-	// text-decoration: none;
-	&:hover {
-		color: var(--light);
-	}
-}
-
-@media screen and (max-width: 850px) {
-	html,
-	body {
-		font-size: 16px;
-	}
-	a {
-		position: relative;
-		&::after {
-			content: '';
-			padding: 20px 50px;
-			position: absolute;
-			left: -10px;
-			top: -10px;
-		}
-	}
-	main {
-		margin: 1rem;
-	}
-}
-
-@media screen and (max-width: 850px) {
-	ul {
-		margin-block-start: 0.5rem;
-		padding-inline-start: 20px;
-	}
-}
-
-code {
-	font-size: 0.9rem;
-	color: var(--light);
-	background: var(--darker);
-	padding: 0.3rem;
-	border-radius: 5px;
+	font-size: var(--body-medium-font-size);
+	font-family: var(--body-medium-font-family);
+	font-weight: var(--body-medium-font-weight);
+	background-color: var(--color-background);
+	color: var(--color-on-background);
 }
 
 * {
 	box-sizing: border-box;
 }
 
-li {
-	padding: 0.25rem 0;
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: var(--font-heading);
+	color: var(--color-on-background);
 }
 
-.pink {
-	color: var(--light);
+a {
+	text-decoration: none;
 }

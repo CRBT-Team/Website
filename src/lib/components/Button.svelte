@@ -4,11 +4,11 @@
 </script>
 
 {#if href}
-	<a class="primary-button {style}" {href}>
+	<a class="primary-button" {href}>
 		<slot />
 	</a>
 {:else}
-	<button on:click class="primary-button {style}">
+	<button on:click class="primary-button">
 		<slot />
 	</button>
 {/if}
@@ -23,10 +23,12 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
+		color: var(--color-on-primary);
+		background-color: var(--color-primary);
 		gap: 1rem;
 		padding: 1rem 2.5rem;
 		height: min-content;
-		border-radius: 99rem;
+		border-radius: var(--border-radius-medium);
 		text-decoration: none;
 		font-size: 1rem;
 		font-weight: 600;
@@ -34,18 +36,9 @@
 		text-align: left;
 		cursor: pointer;
 		transition: all 0.2s ease-in-out;
-		&.primary {
-			background-color: var(--light);
-			color: var(--dark);
-		}
-		&.secondary {
-			background-color: white;
-			color: var(--dark);
-		}
 		&:hover {
-			filter: brightness(0.9);
-			transform: translateY(-0.1rem);
-			box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+			transform: translateY(-2px);
+			box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.2);
 		}
 	}
 

@@ -1,4 +1,4 @@
-<footer>
+<!-- <footer>
 	<div class="logo">
 		<svg
 			width="220"
@@ -40,8 +40,6 @@
 			<p>Product</p>
 			<ul>
 				<li><a href="/blog">Blog</a></li>
-				<!-- <li><a href='/partners'>Partners</a></li> -->
-				<!-- <li><a href='/branding'>Branding</a></li> -->
 				<li><a href="/invite">Invite</a></li>
 				<li><a href="/changelog">Changelog</a></li>
 				<li><a href="/script">CRBTscript</a></li>
@@ -59,7 +57,6 @@
 			<p>Policies</p>
 			<ul>
 				<li><a href="/credits">Credits</a></li>
-				<!-- <li><a href="/terms">Terms</a></li> -->
 				<li><a href="/policy">Privacy</a></li>
 			</ul>
 		</section>
@@ -150,4 +147,4 @@
 			margin-bottom: 0.7rem;
 		}
 	}
-</style>
+</style> -->

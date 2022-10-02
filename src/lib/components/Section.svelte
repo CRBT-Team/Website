@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	export let align: 'left' | 'right' | 'center' = 'left';
 	export let className: string = '';
 </script>
@@ -19,7 +19,7 @@
 		&.center {
 			flex-direction: column;
 			justify-content: center;
-			text-align: center;
+			// text-align: center;
 		}
 
 		&.left {
@@ -40,4 +40,4 @@
 			flex-direction: column !important;
 		}
 	}
-</style>
+</style> -->
