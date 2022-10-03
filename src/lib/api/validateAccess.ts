@@ -13,7 +13,7 @@ export async function validateAccess(request: Request, extraProps?: Partial<APIT
 		error = formatError('You must provide an Authorization header');
 	}
 
-	const rawToken = (await db.tokens.findFirst({
+	const rawToken = (await db.token.findFirst({
 		where: { token: request.headers.get('Authorization') || undefined }
 	})) as APITokenData;
 

@@ -11,7 +11,7 @@
 	export let hide = false;
 </script>
 
-<div class="main-sidebar" class:hide>
+<aside class="main-sidebar" class:hide>
 	{#each items as group}
 		<div class="item group">
 			<p class="item-label">
@@ -34,7 +34,7 @@
 			{/if}
 		{/each}
 	{/each}
-</div>
+</aside>
 
 <style lang="scss">
 	.main-sidebar {

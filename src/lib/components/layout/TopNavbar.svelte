@@ -1,8 +1,12 @@
 <script lang="ts">
+	import Wordmark from '$lib/svg/wordmark.svelte';
+	import type { RESTGetAPICurrentUserGuildsResult } from 'discord-api-types/v10';
 	import { Menu } from 'lucide-svelte';
 	import { createEventDispatcher } from 'svelte';
+	import Breadcrumbs from '../Breadcrumbs.svelte';
 
 	let hideSidebar = false;
+	export let guilds: RESTGetAPICurrentUserGuildsResult;
 
 	const dispatchMenuBtn = createEventDispatcher();
 </script>
@@ -19,8 +23,10 @@
 	</div>
 
 	<div class="heading-logo">
-		<img src="/assets/logos/CRBT-wordmark-dark.png" alt="CRBT" />
+		<Wordmark />
 	</div>
+
+	<Breadcrumbs {guilds} />
 </header>
 
 <style lang="scss">
@@ -47,14 +53,16 @@
 
 		.heading-logo {
 			display: flex;
-			align-items: center;
 			height: 60px;
 			width: 256px;
+			fill: var(--color-on-surface);
+			align-items: center;
 
-			img {
-				position: relative;
-				left: 22px;
+			:global(svg) {
 				height: 40px;
+				width: 100%;
+				left: -24px;
+				position: relative;
 			}
 		}
 	}

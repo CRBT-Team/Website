@@ -11,12 +11,12 @@ export const GET: RequestHandler = async ({ params, request }) => {
 
 	const serverData = await db.servers.findFirst({
 		where: { id: params.guildId },
-		select: { accentColor: true }
+		select: { accentColor: true, modules: true }
 	});
 
 	return {
 		body: {
-			accentColor: serverData?.accentColor
+			...serverData
 		}
 	};
 };

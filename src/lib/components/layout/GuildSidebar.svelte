@@ -9,7 +9,7 @@
 	$: currentGuildId = $page.params.id;
 </script>
 
-<nav class="guild-sidebar-wrapper" aria-label="servers">
+<aside class="guild-sidebar-wrapper" aria-label="servers">
 	<div class="scroller">
 		<div class="guilds">
 			{#each guilds as guild}
@@ -52,7 +52,7 @@
 			</div>
 		</div>
 	</div>
-</nav>
+</aside>
 
 <style lang="scss">
 	.guild-sidebar-wrapper {
@@ -76,12 +76,9 @@
 		}
 
 		.guilds {
-			margin-top: 10px;
 			display: flex;
-			gap: 12px;
 			flex-direction: column;
 			height: 100%;
-			position: relative;
 		}
 
 		.guild {
@@ -89,6 +86,7 @@
 			align-items: center;
 			gap: 6px;
 			width: 68px;
+			margin-bottom: 12px;
 			transition: all 0.2s ease-in-out;
 
 			.icon {

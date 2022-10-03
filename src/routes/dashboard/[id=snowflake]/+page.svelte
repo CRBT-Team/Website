@@ -9,15 +9,7 @@
 	$: currentGuild = data.guilds.find((g) => g.id === $page.params.id);
 </script>
 
-<h1>{currentGuild.name} / Overview</h1>
-
 <div class="features">
-	{#each features.filter(({ href, isToggleable }) => href || isToggleable) as feature}
-		<FeatureCard {feature} />
-	{/each}
-	{#each features.filter(({ href, isToggleable }) => href || isToggleable) as feature}
-		<FeatureCard {feature} />
-	{/each}
 	{#each features.filter(({ href, isToggleable }) => href || isToggleable) as feature}
 		<FeatureCard {feature} />
 	{/each}

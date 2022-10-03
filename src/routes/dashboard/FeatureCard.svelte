@@ -5,7 +5,7 @@
 	export let feature: Feature;
 </script>
 
-<div class="feature">
+<a class="feature" href={feature.href}>
 	<div class="top">
 		{#if feature.icon}
 			<div class="icon">
@@ -18,7 +18,7 @@
 	</div>
 	<h3>{feature.name}</h3>
 	<p>{@html feature.description}</p>
-</div>
+</a>
 
 <style lang="scss">
 	.feature {
@@ -26,6 +26,7 @@
 		border-radius: var(--border-radius-medium);
 		color: var(--color-on-surface);
 		background-color: var(--color-surface);
+		user-select: none;
 
 		.top {
 			display: flex;

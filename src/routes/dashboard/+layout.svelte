@@ -10,8 +10,11 @@
 	$: currentGuild = data.guilds.find((g) => g.id === $page.params.id);
 </script>
 
-<main class="root">
-	<TopNavbar on:menu={({ detail: newState }) => (hideMainSidebar = newState)} />
+<div class="root">
+	<TopNavbar
+		guilds={data.guilds}
+		on:menu={({ detail: newState }) => (hideMainSidebar = newState)}
+	/>
 	<div class="layout">
 		<GuildSidebar guilds={data.guilds} />
 		{#if $page.params.id}
@@ -21,10 +24,10 @@
 			<slot />
 		</main>
 	</div>
-</main>
+</div>
 
 <style lang="scss">
-	main.root {
+	div.root {
 		display: flex;
 		flex-direction: column;
 		height: 100vh;
@@ -33,8 +36,8 @@
 			display: flex;
 			background-color: var(--color-surface);
 			width: 100%;
-			height: 100%;
-
+			height: 0;
+			flex: 1;
 			.content {
 				background-color: var(--color-background);
 				width: 100%;
