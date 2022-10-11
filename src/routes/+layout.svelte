@@ -1,11 +1,13 @@
 <script lang="ts">
 	import '../styles/theme.scss';
-	// import Footer from '$lib/components/Footer.svelte';
-	// import NavBar from '$lib/components/NavBar.svelte';
+	import DesktopNavBar from '$lib/components/DesktopNavBar.svelte';
+	import type { PageServerData } from './$types';
+
+	export let data: PageServerData;
 </script>
 
-<!-- <NavBar />
-<main> -->
-<slot />
-<!-- </main>
-<Footer /> -->
+<DesktopNavBar user={data?.user} />
+<main>
+	<slot />
+</main>
+<!-- <Footer /> -->
