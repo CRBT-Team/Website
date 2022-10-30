@@ -1,4 +1,4 @@
-<!-- <script lang="ts">
+<script lang="ts">
 	export let align: 'left' | 'right' | 'center' = 'left';
 	export let className: string = '';
 </script>
@@ -40,4 +40,4 @@
 			flex-direction: column !important;
 		}
 	}
-</style> -->
+</style>

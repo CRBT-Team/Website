@@ -9,6 +9,6 @@
 		background-color: var(--color-surface);
 		color: var(--color-on-surface);
 		border-radius: var(--border-radius-medium);
-		padding: 1rem;
+		padding: 20px;
 	}
 </style>

@@ -6,6 +6,7 @@
 
 	let solidNavBar = false;
 
+	export let show: 'always' | 'onscroll' = 'always';
 	export let user: APIUser | null;
 
 	const solidify = () => (solidNavBar = document.scrollingElement.scrollTop > 5);
@@ -15,7 +16,7 @@
 
 <svelte:window on:scroll={solidify} />
 
-<nav class="navbar-desktop" class:solid={solidNavBar}>
+<nav class="navbar-desktop" class:solid={solidNavBar} class:showonscroll={show === 'onscroll'}>
 	<a href="/" class="side">
 		<Wordmark />
 	</a>
@@ -39,14 +40,32 @@
 <style lang="scss">
 	.navbar-desktop {
 		display: flex;
+		overflow: hidden;
 		justify-content: space-between;
 		width: 100%;
 		padding: 10px 20px;
 		align-items: center;
-		position: sticky;
+		// position: sticky;
 		top: 0;
 		left: 0;
-		transition: background-color 0.2;
+		z-index: 1;
+
+		&.showonscroll {
+			opacity: 0;
+			position: fixed;
+
+			> * {
+				transition: transform 0.2s ease;
+				transform: translateY(50px);
+			}
+		}
+
+		&:not(.showonscroll) {
+			position: sticky;
+		}
+
+		background-color: rgb(0 0 0 / 0);
+		transition: background 0.2s, opacity 0.2s;
 
 		.items {
 			display: flex;
@@ -71,10 +90,22 @@
 		.side {
 			padding: 0px;
 			width: 100px;
+			display: flex;
+			align-items: flex-end;
 		}
 
 		&.solid {
 			background-color: var(--color-surface);
+
+			&.showonscroll {
+				transition: opacity 0.2s;
+				opacity: 1;
+
+				> * {
+					transition: transform 0.2s ease 0.1s;
+					transform: translateY(0);
+				}
+			}
 		}
 	}
 </style>
