@@ -1,9 +1,9 @@
-/blog/*          https://resources.crbt.app/:splat
-/changelog       /blog/11.7-changelog
+/blog/*          https://docs.crbt.app/blog/:splat
+/changelog       https://docs.crbt.app/blog/11.7-changelog
 
 /purplet         https://purplet.js.org
-/api-docs        https://resources.crbt.app/docs/api/intro
-/script          https://resources.crbt.app/docs/crbtscript/intro
+/api-docs        https://docs.crbt.app/api/intro
+/script          https://docs.crbt.app/crbtscript/intro
 /banners         https://drive.google.com/drive/folders/15oc_O48AEGRUGtPGfjq14ixgBxa_UfO1?usp=sharing
 
 /github/*        https://github.com/CRBT-Team/:splat
