@@ -1,7 +1,6 @@
 import { db } from '$lib/prisma';
 import type { RequestHandler } from '@sveltejs/kit';
 import { errors, validateAccess } from '$lib/api';
-import { validate, type ValidateOption } from 'validate.js';
 
 export const GET: RequestHandler = async ({ params, request }) => {
 	let { isAuthorized, error } = await validateAccess(request, {
