@@ -1,12 +1,6 @@
 <script lang="ts">
 	import { features } from '../_features';
-	import FeatureCard from '../FeatureCard.svelte';
-	import type { PageParentData } from './$types';
-	import { page } from '$app/stores';
-
-	export let data: PageParentData;
-
-	$: currentGuild = data.guilds.find((g) => g.id === $page.params.id);
+	import FeatureCard from '$lib/components/FeatureCard.svelte';
 </script>
 
 <div class="features">

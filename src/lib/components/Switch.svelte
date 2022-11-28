@@ -18,21 +18,15 @@
 	}
 </script>
 
-<label for={id} {style}>
-	{label}
-	<input
-		{id}
-		type="checkbox"
-		role="switch"
-		aria-checked={checked}
-		{disabled}
-		bind:checked
-		on:click={toggle}
-	/>
-</label>
+<div class="switch" on:click={toggle}>
+	<label for={id} {style}>
+		{label}
+	</label>
+	<input {id} type="checkbox" role="switch" aria-checked={checked} {disabled} bind:checked />
+</div>
 
 <style lang="scss">
-	label {
+	.switch {
 		--thumb-size: 1.5rem;
 		--thumb-highlight: hsla(0, 0%, 0%, 0.25);
 		--track-size: calc(var(--thumb-size) * 2.25);
@@ -48,8 +42,12 @@
 
 		--isLTR: 1;
 		cursor: pointer;
+		display: flex;
+		justify-content: space-between;
+		gap: 10px;
+		align-items: center;
 
-		& > input {
+		input {
 			--thumb-position: 0%;
 			--thumb-transition-duration: 0.25s;
 			padding: var(--track-padding);
@@ -71,6 +69,7 @@
 			align-items: center;
 			grid: [track] 1fr / [track] 1fr;
 			transition: background-color 0.25s ease;
+			outline: none;
 
 			// &:hover {
 			// 	::before {

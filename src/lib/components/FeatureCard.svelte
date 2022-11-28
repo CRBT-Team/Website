@@ -1,11 +1,13 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 	import Switch from '$lib/components/Switch.svelte';
-	import type { Feature } from './_features';
+	import type { Feature } from '../../routes/dashboard/_features';
 
 	export let feature: Feature;
 </script>
 
-<a class="feature" href={feature.href}>
+<div class="feature" on:click={() => goto(`/dashboard/${$page.params.id}/${feature.href}`)}>
 	<div class="top">
 		{#if feature.icon}
 			<div class="icon">
@@ -13,12 +15,14 @@
 			</div>
 		{/if}
 		{#if feature.isToggleable}
-			<Switch checked={true} style="--thumb-size: 1rem;" />
+			<div on:click={(e) => e.stopPropagation()}>
+				<Switch checked={true} style="--thumb-size: 1rem;" />
+			</div>
 		{/if}
 	</div>
 	<h3>{feature.name}</h3>
 	<p>{@html feature.description}</p>
-</a>
+</div>
 
 <style lang="scss">
 	.feature {
@@ -27,6 +31,7 @@
 		color: var(--color-on-surface);
 		background-color: var(--color-surface);
 		user-select: none;
+		cursor: pointer;
 
 		.top {
 			display: flex;

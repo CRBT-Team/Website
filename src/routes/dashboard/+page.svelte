@@ -5,5 +5,5 @@
 </script>
 
 {#each data.guilds as guild}
-	<a href="/dashboard/{guild.id}">{guild.name}</a>
+	<a href="/dashboard/{guild.id}">{guild.name}</a><br />
 {/each}
