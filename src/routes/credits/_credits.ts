@@ -9,28 +9,31 @@ export const specialThanks = {
 	tomato: 'https://www.youtube.com/channel/UCtNkzHACllaTHUQq1w-_LTw'
 };
 
-export const credits = [
+export const CRBTTeam = [
 	{
 		id: 'Clembs',
 		name: 'Clément',
 		roles: 'Founder',
-		url: 'https://clembs.xyz',
+		url: 'https://clembs.com',
 		pfp: '/assets/logos/clembs.png'
 	},
 	{
 		id: 'Dave',
 		name: 'Dave Caruso',
-		roles: 'Purplet Co-founder, Supporter',
+		roles: 'Purplet co-founder, Supporter',
 		url: 'https://paperdave.net',
 		pfp: 'https://cdn.discordapp.com/attachments/722451535962964061/904469129602416740/Icon_-_Base_-_1024.png'
 	},
 	{
 		id: 'Trubiso',
 		name: 'Trubiso',
-		roles: 'CRBTscript Developer, Localization (Spanish)',
-		url: 'https://trubiso.tk',
+		roles: 'CRBTscript developer, Localization (Spanish)',
+		url: 'https://trubiso.netlify.app',
 		pfp: 'https://cdn.discordapp.com/emojis/717683480787550228.png?size=512'
 	},
+]
+
+export const credits = [
 	{
 		id: 'bkly',
 		name: 'bkly',
