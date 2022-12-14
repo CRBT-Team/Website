@@ -1,20 +1,44 @@
 <script lang="ts">
 	export let inline = false;
 	export let href: string = '';
+	export let style: 'primary' | 'secondary' | 'tertiary' = 'primary';
 </script>
 
 {#if href}
-	<a class="primary-button" class:inline {href}>
+	<a class="button {style}" class:inline {href}>
+		<slot name="icon" />
 		<slot />
 	</a>
 {:else}
-	<button on:click class="primary-button" class:inline>
+	<button class="button {style}" class:inline on:click on:submit>
+		<div class="icon">
+			<slot name="icon" />
+		</div>
 		<slot />
 	</button>
 {/if}
 
 <style lang="scss">
-	.primary-button {
+	.button {
+		&.primary {
+			--button-bg: var(--color-primary);
+			--button-text: var(--color-on-primary);
+			--button-bg-hover: var(--color-primary-container);
+			--button-text-hover: var(--color-on-primary-container);
+		}
+		&.secondary {
+			--button-bg: var(--color-secondary);
+			--button-text: var(--color-on-secondary);
+			--button-bg-hover: var(--color-secondary-container);
+			--button-text-hover: var(--color-on-secondary-container);
+		}
+		&.tertiary {
+			--button-bg: var(--color-tertiary);
+			--button-text: var(--color-on-tertiary);
+			--button-bg-hover: var(--color-tertiary-container);
+			--button-text-hover: var(--color-on-tertiary-container);
+		}
+
 		text-overflow: ellipsis;
 		// transition: 0.6s;
 		overflow: hidden;
@@ -23,15 +47,15 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		color: var(--color-on-primary);
-		background-color: var(--color-primary);
+		color: var(--button-text);
+		background-color: var(--button-bg);
 		gap: 1rem;
 		width: 100%;
 		padding: 1rem 0;
 		height: min-content;
 		border-radius: var(--border-radius-medium);
 		text-decoration: none;
-		font-size: 1rem;
+		font-size: 1.1rem;
 		font-weight: 600;
 		line-height: 1.25;
 		text-align: left;
@@ -39,22 +63,27 @@
 		// transition: all 0.2s ease-in-out;
 
 		&:hover {
-			background-color: var(--color-primary-container);
-			color: var(--color-on-primary-container);
+			background-color: var(--button-bg-hover);
+			color: var(--button-text-hover);
+		}
+
+		:global(svg) {
+			// fill: currentColor;
+			width: 24px;
+			height: 24px;
 		}
 
 		&.inline {
 			width: max-content;
-			padding: 1rem 2.5rem;
+			padding: 1rem 2rem;
 		}
 	}
 
 	@media (max-width: 800px) {
-		.primary-button {
+		.button {
 			padding: 1rem 1.5rem;
 			font-size: 1rem;
 			// width: 100%;
-			font-weight: 700;
 			line-height: 1.5;
 		}
 	}

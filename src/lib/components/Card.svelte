@@ -1,4 +1,4 @@
-<div {...$$restProps}>
+<div {...$$restProps} on:click>
 	<slot />
 </div>
 
@@ -9,6 +9,6 @@
 		background-color: var(--color-surface);
 		color: var(--color-on-surface);
 		border-radius: var(--border-radius-medium);
-		padding: 20px;
+		padding: 15px;
 	}
 </style>

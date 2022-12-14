@@ -19,10 +19,10 @@
 </script>
 
 <div class="switch" on:click={toggle}>
+	<input {id} type="checkbox" role="switch" aria-checked={checked} {disabled} bind:checked />
 	<label for={id} {style}>
 		{label}
 	</label>
-	<input {id} type="checkbox" role="switch" aria-checked={checked} {disabled} bind:checked />
 </div>
 
 <style lang="scss">
