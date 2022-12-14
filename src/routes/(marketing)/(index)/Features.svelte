@@ -4,36 +4,52 @@
 
 	let features: Element;
 	let scrolling = true;
+	let scrollFinished = false;
 
 	import { marketingFeatures } from './_features';
 
 	onMount(() => {
-		setInterval(() => {
+		const interval = setInterval(() => {
+			let currentScroll = features?.scrollLeft + document.body.scrollWidth;
+			let maxScroll = features?.scrollWidth;
+
 			if (scrolling) {
-				let maxScroll = features.scrollWidth;
-				let currentScroll = features.scrollLeft;
-				console.log(currentScroll, maxScroll);
-				if (currentScroll > maxScroll) {
-					features.scrollTo({
+				if (currentScroll >= maxScroll) {
+					features?.scrollTo({
 						left: 0,
 						behavior: 'smooth'
 					});
+					scrollFinished = true;
 				} else {
-					features.scrollBy({
-						behavior: 'smooth',
-						left: 10
-					});
+					if (scrollFinished) {
+						setTimeout(() => {
+							features?.scrollBy({
+								left: 20,
+								behavior: 'smooth'
+							});
+							scrollFinished = false;
+						}, 700);
+					} else {
+						features?.scrollBy({
+							left: 20,
+							behavior: 'smooth'
+						});
+					}
 				}
 			}
 		}, 100);
+
+		return () => clearInterval(interval);
 	});
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
 	class="features"
 	bind:this={features}
 	on:mouseenter={() => (scrolling = false)}
 	on:mouseleave={() => (scrolling = true)}
+	on:click={() => (scrolling = !scrolling)}
 >
 	{#each marketingFeatures as feature}
 		<Card>

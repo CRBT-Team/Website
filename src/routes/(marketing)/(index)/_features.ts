@@ -7,7 +7,6 @@ import {
 	CheckSquare,
 	Languages,
 	Globe2,
-	Bell,
 	BellRing
 } from 'lucide-svelte';
 import type { Feature } from 'src/routes/(app)/dashboard/_features';
