@@ -3,7 +3,7 @@
 	import type { RESTGetAPICurrentUserGuildsResult } from 'discord-api-types/v10';
 	import { Menu } from 'lucide-svelte';
 	import { createEventDispatcher } from 'svelte';
-	import Breadcrumbs from '../Breadcrumbs.svelte';
+	import Breadcrumbs from './Breadcrumbs.svelte';
 
 	let hideSidebar = false;
 	export let guilds: RESTGetAPICurrentUserGuildsResult;
@@ -12,7 +12,7 @@
 </script>
 
 <header class="top-navbar">
-	<div
+	<button
 		class="menu-button"
 		on:click={() => {
 			hideSidebar = !hideSidebar;
@@ -20,7 +20,7 @@
 		}}
 	>
 		<Menu size={20} stroke="2" />
-	</div>
+	</button>
 
 	<div class="heading-logo">
 		<Wordmark />

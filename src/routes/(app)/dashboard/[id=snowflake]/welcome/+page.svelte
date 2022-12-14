@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Button from '$lib/components/Button.svelte';
 	import Divider from '$lib/components/Divider.svelte';
 	import MessageBuilder from '$lib/components/message-builder/MessageBuilder.svelte';
 	import type {
@@ -28,14 +29,14 @@
 	let newState: typeof data = Object.create(data);
 </script>
 
-<form action="" method="post">
+<form method="post">
 	<select name="servers" id="guilds">
 		{#each categories as category}
 			<optgroup label={category.name}>
 				{#each category.children as channel}
-					<option selected={channel.id === data.joinChannel} value={channel.id}
-						>{channel.name}</option
-					>
+					<option selected={channel.id === data.joinChannel} value={channel.id}>
+						{channel.name}
+					</option>
 				{/each}
 			</optgroup>
 		{/each}
@@ -45,5 +46,6 @@
 
 	<MessageBuilder messageData={data.joinMessage} />
 
+	<Button>Hi</Button>
 	<!-- <pre>{JSON.stringify(data.channels, null, 2)}</pre> -->
 </form>

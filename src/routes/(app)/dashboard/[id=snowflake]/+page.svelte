@@ -1,15 +1,10 @@
 <script lang="ts">
-	import FeatureCard from './dashboard/FeatureCard.svelte';
-	import { features } from './dashboard/_features';
+	import { features } from '../_features';
+	import FeatureCard from '../FeatureCard.svelte';
 </script>
 
-<header>
-	<h1>CRBT</h1>
-	<h2>The Discord companion made for you.</h2>
-</header>
-
 <div class="features">
-	{#each features as feature}
+	{#each features.filter(({ href, isToggleable }) => href || isToggleable) as feature}
 		<FeatureCard {feature} />
 	{/each}
 </div>

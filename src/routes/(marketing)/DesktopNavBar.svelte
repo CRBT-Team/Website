@@ -2,11 +2,11 @@
 	import Wordmark from '$lib/svg/wordmark.svelte';
 	import type { APIUser } from 'discord-api-types/v10';
 	import { onMount } from 'svelte';
-	import Button from './Button.svelte';
+	import Button from '$lib/components/Button.svelte';
 
 	let solidNavBar = false;
 
-	export let show: 'always' | 'onscroll' = 'always';
+	// export let show: 'always' | 'onscroll' = 'always';
 	export let user: APIUser | null;
 
 	const solidify = () => (solidNavBar = document.scrollingElement.scrollTop > 5);
@@ -16,7 +16,7 @@
 
 <svelte:window on:scroll={solidify} />
 
-<nav class="navbar-desktop" class:solid={solidNavBar} class:showonscroll={show === 'onscroll'}>
+<nav class="navbar-desktop" class:solid={solidNavBar}>
 	<a href="/" class="side">
 		<Wordmark />
 	</a>
@@ -25,7 +25,6 @@
 		<a href="/features" class="item">Features</a>
 		<a href="/donate" class="item">Donate</a>
 		<a href="/docs" class="item">Docs</a>
-		<a href="/discord" class="item">Discord</a>
 	</div>
 
 	<div class="side">
@@ -45,24 +44,24 @@
 		width: 100%;
 		padding: 10px 20px;
 		align-items: center;
-		// position: sticky;
+		position: sticky;
 		top: 0;
 		left: 0;
 		z-index: 1;
 
-		&.showonscroll {
-			opacity: 0;
-			position: fixed;
+		// &.showonscroll {
+		// 	opacity: 0;
+		// 	position: fixed;
 
-			> * {
-				transition: transform 0.2s ease;
-				transform: translateY(50px);
-			}
-		}
+		// 	> * {
+		// 		transition: transform 0.2s ease;
+		// 		transform: translateY(50px);
+		// 	}
+		// }
 
-		&:not(.showonscroll) {
-			position: sticky;
-		}
+		// &:not(.showonscroll) {
+		//   position: sticky;
+		// }
 
 		background-color: rgb(0 0 0 / 0);
 		transition: background 0.2s, opacity 0.2s;
@@ -97,15 +96,15 @@
 		&.solid {
 			background-color: var(--color-surface);
 
-			&.showonscroll {
-				transition: opacity 0.2s;
-				opacity: 1;
+			// &.showonscroll {
+			// 	transition: opacity 0.2s;
+			// 	opacity: 1;
 
-				> * {
-					transition: transform 0.2s ease 0.1s;
-					transform: translateY(0);
-				}
-			}
+			// 	> * {
+			// 		transition: transform 0.2s ease 0.1s;
+			// 		transform: translateY(0);
+			// 	}
+			// }
 		}
 	}
 </style>

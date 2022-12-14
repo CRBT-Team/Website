@@ -70,7 +70,7 @@
 		}
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 800px) {
 		.item {
 			gap: 0.5rem;
 		}

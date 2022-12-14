@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import type { RESTGetAPICurrentUserGuildsResult } from 'discord-api-types/v10';
 	import { ChevronRight } from 'lucide-svelte';
-	import { items } from './layout/_SidebarItems';
+	import { items } from './_SidebarItems';
 
 	$: tree = $page.url.pathname.split('/').slice(1);
 

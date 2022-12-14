@@ -1,8 +1,10 @@
-<script lang="ts">
+<div>Not yet 👀</div>
+
+<!-- <script lang="ts">
 	import { page } from '$app/stores';
-	import GuildSidebar from '$lib/components/layout/GuildSidebar.svelte';
-	import MainSidebar from '$lib/components/layout/MainSidebar.svelte';
-	import TopNavbar from '$lib/components/layout/TopNavbar.svelte';
+	import GuildSidebar from './GuildSidebar.svelte';
+	import MainSidebar from './MainSidebar.svelte';
+	import TopNavbar from './TopNavbar.svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -48,4 +50,4 @@
 			}
 		}
 	}
-</style>
+</style> -->
