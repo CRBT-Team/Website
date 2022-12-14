@@ -11,17 +11,23 @@
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
 		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. .",
 		"package": "vite package",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"credit": "ack -F=md -D"
 	},
 	"dependencies": {
 		"@prisma/client": "^3.10.0",
 		"@purplet/rest": "^1.0.1",
-		"lucide-svelte": "^0.30.0"
+		"lucide-svelte": "^0.30.0",
+		"zod": "^3.19.1"
 	},
 	"devDependencies": {
+		"@purplet/polyfill": "^1.2.1",
+		"@purplet/utils": "^1.0.0",
 		"@sveltejs/adapter-netlify": "^1.0.0-next.35",
 		"@sveltejs/kit": "^1.0.0-next.563",
+		"@types/node": "^18.11.10",
 		"discord-api-types": "^0.37.20",
+		"dotenv": "^16.0.3",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
 		"prisma": "^4.6.1",

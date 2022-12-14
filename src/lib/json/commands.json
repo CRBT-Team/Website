@@ -1,0 +1,1580 @@
+[
+  {
+    "id": "931233685120901120",
+    "application_id": "595731552709771264",
+    "version": "1030853949797965825",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "8ball",
+    "description": "Ask a question to 8-Ball.",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 3,
+        "name": "question",
+        "description": "A question to ask.",
+        "required": true,
+        "max_length": 1024
+      }
+    ]
+  },
+  {
+    "id": "931233685120901121",
+    "application_id": "595731552709771264",
+    "version": "1034391302982344766",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "activity",
+    "description": "Start an activity in the current voice channel",
+    "dm_permission": false,
+    "options": [
+      {
+        "type": 3,
+        "name": "activity",
+        "description": "The activity to start",
+        "required": true,
+        "choices": [
+          {
+            "name": "📺 Watch Together (Free)",
+            "value": "880218394199220334"
+          },
+          {
+            "name": "⛳ Putt Party (Free)",
+            "value": "945737671223947305"
+          },
+          {
+            "name": "#⃣ Ask Away (May be free)",
+            "value": "976052223358406656"
+          },
+          {
+            "name": "😂 Know What I Meme (May be free)",
+            "value": "950505761862189096"
+          },
+          {
+            "name": "🔠 Word Snacks (May be free)",
+            "value": "879863976006127627"
+          },
+          {
+            "name": "🚘 Bash Out (💎 May require Boosting)",
+            "value": "1006584476094177371"
+          },
+          {
+            "name": "⚽ Bobble League (💎 May require Boosting)",
+            "value": "947957217959759964"
+          },
+          {
+            "name": "🔮 SpellCast (💎 May require Boosting)",
+            "value": "852509694341283871"
+          },
+          {
+            "name": "🃏 Poker Night (💎 Nitro required)",
+            "value": "755827207812677713"
+          },
+          {
+            "name": "🖌 Sketch Heads (💎 Nitro required)",
+            "value": "902271654783242291"
+          },
+          {
+            "name": "♟ Chess In The Park (💎 Nitro required)",
+            "value": "832012774040141894"
+          },
+          {
+            "name": "🐍 Land-io (💎 Nitro required)",
+            "value": "903769130790969345"
+          },
+          {
+            "name": "🎴 Blazing 8s (💎 Nitro required)",
+            "value": "832025144389533716"
+          },
+          {
+            "name": "📝 Letter League (💎 Nitro required)",
+            "value": "879863686565621790"
+          },
+          {
+            "name": "🔴 Checkers In The Park (💎 Nitro required)",
+            "value": "832013003968348200"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "931233685120901122",
+    "application_id": "595731552709771264",
+    "version": "1030853949797965827",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "lenny",
+    "description": "Appends ( ͡° ͜ʖ ͡°) to your message.",
+    "dm_permission": false,
+    "options": [
+      {
+        "type": 3,
+        "name": "message",
+        "description": "Your message.",
+        "max_length": 4096
+      }
+    ]
+  },
+  {
+    "id": "931233685120901126",
+    "application_id": "595731552709771264",
+    "version": "1030853949797965829",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "ping",
+    "description": "Ping CRBT. Returns latency and connection info.",
+    "dm_permission": true
+  },
+  {
+    "id": "931233685120901127",
+    "application_id": "595731552709771264",
+    "version": "1030853949957357613",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "report",
+    "description": "File a new bug report on the Discord server.",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 11,
+        "name": "image",
+        "description": "An image to attach to the report."
+      }
+    ]
+  },
+  {
+    "id": "931233685120901128",
+    "application_id": "595731552709771264",
+    "version": "1030853949797965831",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "channel",
+    "description": "No Description Provided",
+    "dm_permission": false,
+    "options": [
+      {
+        "type": 1,
+        "name": "info",
+        "description": "Gives info on a given channel.",
+        "options": [
+          {
+            "type": 7,
+            "name": "channel",
+            "description": "The channel to get info from. Leave blank to get the current one."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "931233685322223626",
+    "application_id": "595731552709771264",
+    "version": "1030853949797965832",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "define",
+    "description": "Look up the definition of a given word on an English dictionary.",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 3,
+        "name": "word",
+        "description": "The word to define.",
+        "required": true,
+        "autocomplete": true
+      }
+    ]
+  },
+  {
+    "id": "931233685322223627",
+    "application_id": "595731552709771264",
+    "version": "1030853950007689337",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "emoji",
+    "description": "No Description Provided",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 1,
+        "name": "info",
+        "description": "Get info on a given emoji.",
+        "options": [
+          {
+            "type": 3,
+            "name": "emoji",
+            "description": "The emoji whose info to get. Works with custom emojis and standard Unicode emoji.",
+            "required": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "931233685322223628",
+    "application_id": "595731552709771264",
+    "version": "1030853949848289332",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "role",
+    "description": "No Description Provided",
+    "dm_permission": false,
+    "options": [
+      {
+        "type": 1,
+        "name": "info",
+        "description": "Get information about a specified server role.",
+        "options": [
+          {
+            "type": 8,
+            "name": "role",
+            "description": "The role whose info to get.",
+            "required": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "931233685322223629",
+    "application_id": "595731552709771264",
+    "version": "1030853949848289333",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "server",
+    "description": "No Description Provided",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 1,
+        "name": "icon",
+        "description": "Get a chosen server's icon or the current server's icon.",
+        "options": [
+          {
+            "type": 3,
+            "name": "id",
+            "description": "The ID of the server to get the icon of."
+          },
+          {
+            "type": 3,
+            "name": "size",
+            "description": "The size of the icon to get.",
+            "choices": [
+              {
+                "name": "Small (128px)",
+                "value": "1"
+              },
+              {
+                "name": "Medium (512px)",
+                "value": "2"
+              },
+              {
+                "name": "Large (2048px)",
+                "value": "3"
+              },
+              {
+                "name": "Largest (4096px)",
+                "value": "4"
+              }
+            ]
+          },
+          {
+            "type": 3,
+            "name": "format",
+            "description": "The format of the icon to get.",
+            "choices": [
+              {
+                "name": "PNG",
+                "value": "1"
+              },
+              {
+                "name": "JPG",
+                "value": "2"
+              },
+              {
+                "name": "WEBP",
+                "value": "3"
+              },
+              {
+                "name": "GIF",
+                "value": "4"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": 1,
+        "name": "info",
+        "description": "Get information on a given Discord server, or the current one if no server is specified.",
+        "options": [
+          {
+            "type": 3,
+            "name": "id",
+            "description": "ID of the server to get info on. Defaults to the current server."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "931233685322223630",
+    "application_id": "595731552709771264",
+    "version": "1030853949957357616",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "user",
+    "description": "No Description Provided",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 1,
+        "name": "info",
+        "description": "Get a user's Discord information.",
+        "options": [
+          {
+            "type": 6,
+            "name": "user",
+            "description": "User to get info from. Leave blank to get yours."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "931233685322223633",
+    "application_id": "595731552709771264",
+    "version": "1030853949894434903",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "convert",
+    "description": "Convert a specified amount from any unit to another.",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 10,
+        "name": "amount",
+        "description": "The amount to convert.",
+        "required": true
+      },
+      {
+        "type": 3,
+        "name": "from",
+        "description": "The unit to convert from.",
+        "required": true,
+        "autocomplete": true
+      },
+      {
+        "type": 3,
+        "name": "to",
+        "description": "The unit to convert to.",
+        "required": true,
+        "autocomplete": true
+      }
+    ]
+  },
+  {
+    "id": "931233685322223634",
+    "application_id": "595731552709771264",
+    "version": "1030853949894434905",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "pick",
+    "description": "Pick an item at random from a given list.",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 3,
+        "name": "values",
+        "description": "The values to pick from, seperated by commas.",
+        "required": true
+      },
+      {
+        "type": 3,
+        "name": "comment",
+        "description": "The comment to display when picking."
+      }
+    ]
+  },
+  {
+    "id": "931233685322223635",
+    "application_id": "595731552709771264",
+    "version": "1030853949957357610",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "rng",
+    "description": "Pick a number at random from the given range.",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 10,
+        "name": "max",
+        "description": "The maximum number to pick. Defaults to 100."
+      },
+      {
+        "type": 10,
+        "name": "min",
+        "description": "The minimum number to pick. Defaults to 1."
+      },
+      {
+        "type": 3,
+        "name": "comment",
+        "description": "The comment to display when picking."
+      }
+    ]
+  },
+  {
+    "id": "931233685531934720",
+    "application_id": "595731552709771264",
+    "version": "1030853950007689339",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "translate",
+    "description": "Translate text to another language.",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 3,
+        "name": "text",
+        "description": "The text to translate.",
+        "required": true
+      },
+      {
+        "type": 3,
+        "name": "target",
+        "description": "The language to translate to. Defaults to your Discord locale.",
+        "autocomplete": true
+      },
+      {
+        "type": 3,
+        "name": "source",
+        "description": "The source language to translate from.",
+        "autocomplete": true
+      }
+    ]
+  },
+  {
+    "id": "934565604852117554",
+    "application_id": "595731552709771264",
+    "version": "1035295373679411213",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "animal",
+    "description": "Search for animal pics on Google Images.",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 3,
+        "name": "type",
+        "description": "The animal to display.",
+        "required": true,
+        "choices": [
+          {
+            "name": "🐶 Dog",
+            "value": "dog"
+          },
+          {
+            "name": "😺 Cat",
+            "value": "cat"
+          },
+          {
+            "name": "🐼 Panda",
+            "value": "panda"
+          },
+          {
+            "name": "🦊 Fox",
+            "value": "fox"
+          },
+          {
+            "name": "🐦 Bird",
+            "value": "bird"
+          },
+          {
+            "name": "🐨 Koala",
+            "value": "koala"
+          },
+          {
+            "name": "🦦 Otter",
+            "value": "otter"
+          },
+          {
+            "name": "🐟 Fish",
+            "value": "fish"
+          },
+          {
+            "name": "🦔 Hedgehog",
+            "value": "hedgehog"
+          },
+          {
+            "name": "🐴 Horse",
+            "value": "horse"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "934565604852117555",
+    "application_id": "595731552709771264",
+    "version": "1030853949957357614",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "suggest",
+    "description": "Send a suggestion for CRBT on the Discord server.",
+    "dm_permission": true
+  },
+  {
+    "id": "934565604852117557",
+    "application_id": "595731552709771264",
+    "version": "1030853949894434900",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "color",
+    "description": "No Description Provided",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 1,
+        "name": "set",
+        "description": "Change your CRBT accent color.",
+        "options": [
+          {
+            "type": 3,
+            "name": "color",
+            "description": "Color to change your accent color to. Use one of the suggestions or a HEX color.",
+            "required": true,
+            "autocomplete": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "934909098766504077",
+    "application_id": "595731552709771264",
+    "version": "1030853949797965828",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "help",
+    "description": "Returns a quick help guide for CRBT.",
+    "dm_permission": true
+  },
+  {
+    "id": "934909098766504078",
+    "application_id": "595731552709771264",
+    "version": "1030853949797965833",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "invite",
+    "description": "No Description Provided",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 1,
+        "name": "info",
+        "description": "Get information on a given Discord invite URL or code.",
+        "options": [
+          {
+            "type": 3,
+            "name": "invite",
+            "description": "A discord.gg invite URL, or just its code.",
+            "required": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "934909098766504079",
+    "application_id": "595731552709771264",
+    "version": "1030853949848289335",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "urban",
+    "description": "Get the definition of a word from Urban Dictionary.",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 3,
+        "name": "word",
+        "description": "The word to define.",
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "945428903076429901",
+    "application_id": "595731552709771264",
+    "version": "1030853949894434902",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "coinflip",
+    "description": "Flip a coin!",
+    "dm_permission": true
+  },
+  {
+    "id": "945428903126769746",
+    "application_id": "595731552709771264",
+    "version": "1030853950007689344",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 2,
+    "name": "Get User Info",
+    "description": "",
+    "dm_permission": true
+  },
+  {
+    "id": "945428903126769748",
+    "application_id": "595731552709771264",
+    "version": "1030853950007689345",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 3,
+    "name": "Bookmark Message",
+    "description": "",
+    "dm_permission": true
+  },
+  {
+    "id": "954765150257299586",
+    "application_id": "595731552709771264",
+    "version": "1030853949848289336",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "banner",
+    "description": "Get a user's Profile Banner.",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 6,
+        "name": "user",
+        "description": "The user to get the banner of."
+      },
+      {
+        "type": 3,
+        "name": "size",
+        "description": "The size of the banner to get.",
+        "choices": [
+          {
+            "name": "Small (128px)",
+            "value": "1"
+          },
+          {
+            "name": "Medium (512px)",
+            "value": "2"
+          },
+          {
+            "name": "Large (2048px)",
+            "value": "3"
+          },
+          {
+            "name": "Largest (4096px)",
+            "value": "4"
+          }
+        ]
+      },
+      {
+        "type": 3,
+        "name": "format",
+        "description": "The format of the banner to get.",
+        "choices": [
+          {
+            "name": "PNG",
+            "value": "1"
+          },
+          {
+            "name": "JPG",
+            "value": "2"
+          },
+          {
+            "name": "WEBP",
+            "value": "3"
+          },
+          {
+            "name": "GIF",
+            "value": "4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "954765150257299588",
+    "application_id": "595731552709771264",
+    "version": "1030853950007689342",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "poll",
+    "description": "Create a poll with the given choices.",
+    "dm_permission": false,
+    "options": [
+      {
+        "type": 3,
+        "name": "title",
+        "description": "What's your poll about?",
+        "required": true,
+        "min_length": 3,
+        "max_length": 120
+      },
+      {
+        "type": 3,
+        "name": "end_date",
+        "description": "When the poll should end.",
+        "required": true,
+        "autocomplete": true
+      },
+      {
+        "type": 3,
+        "name": "choice1",
+        "description": "The first choice a user can chose. Make it short preferably.",
+        "required": true,
+        "max_length": 45
+      },
+      {
+        "type": 3,
+        "name": "choice2",
+        "description": "An other choice a user can choose.",
+        "required": true,
+        "max_length": 45
+      },
+      {
+        "type": 3,
+        "name": "choice3",
+        "description": "Same as choice 1 and 2, not required.",
+        "max_length": 45
+      },
+      {
+        "type": 3,
+        "name": "choice4",
+        "description": "And that's how far choices can go.",
+        "max_length": 45
+      }
+    ]
+  },
+  {
+    "id": "954765150257299589",
+    "application_id": "595731552709771264",
+    "version": "1030853949957357615",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "avatar",
+    "description": "Get a user's display avatar (Server or User Profile Avatar).",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 6,
+        "name": "user",
+        "description": "The user to get the avatar of."
+      },
+      {
+        "type": 3,
+        "name": "size",
+        "description": "The size of the avatar to get.",
+        "choices": [
+          {
+            "name": "Small (128px)",
+            "value": "1"
+          },
+          {
+            "name": "Medium (512px)",
+            "value": "2"
+          },
+          {
+            "name": "Large (2048px)",
+            "value": "3"
+          },
+          {
+            "name": "Largest (4096px)",
+            "value": "4"
+          }
+        ]
+      },
+      {
+        "type": 3,
+        "name": "format",
+        "description": "The format of the avatar to get.",
+        "choices": [
+          {
+            "name": "PNG",
+            "value": "1"
+          },
+          {
+            "name": "JPG",
+            "value": "2"
+          },
+          {
+            "name": "WEBP",
+            "value": "3"
+          },
+          {
+            "name": "GIF",
+            "value": "4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "954765150257299591",
+    "application_id": "595731552709771264",
+    "version": "1030853949957357617",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "privacy",
+    "description": "Review your CRBT privacy settings and edit them.",
+    "dm_permission": true
+  },
+  {
+    "id": "967715293264760872",
+    "application_id": "595731552709771264",
+    "version": "1030853949848289334",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "skin",
+    "description": "Get a Minecraft skin from a username.",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 3,
+        "name": "player_name",
+        "description": "The username of the player. (Java Edition only)",
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "967715293264760873",
+    "application_id": "595731552709771264",
+    "version": "1030853950007689338",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "ban",
+    "description": "Ban a chosen user from this server.",
+    "dm_permission": false,
+    "options": [
+      {
+        "type": 6,
+        "name": "user",
+        "description": "The user to ban.",
+        "required": true
+      },
+      {
+        "type": 3,
+        "name": "reason",
+        "description": "The reason for the ban."
+      },
+      {
+        "type": 4,
+        "name": "delete_messages",
+        "description": "The number of messages to delete."
+      },
+      {
+        "type": 3,
+        "name": "duration",
+        "description": "Temporarily ban the user for a specified time.",
+        "autocomplete": true
+      }
+    ]
+  },
+  {
+    "id": "967715293264760874",
+    "application_id": "595731552709771264",
+    "version": "1036080142688202772",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "clear",
+    "description": "Clear a number of messages from this channel.",
+    "dm_permission": false,
+    "options": [
+      {
+        "type": 4,
+        "name": "amount",
+        "description": "The number of messages to delete.",
+        "required": true
+      },
+      {
+        "type": 3,
+        "name": "reason",
+        "description": "The reason for clearing the channel."
+      }
+    ]
+  },
+  {
+    "id": "967715293264760875",
+    "application_id": "595731552709771264",
+    "version": "1030853949848289341",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "kick",
+    "description": "Kick a chosen user from this server.",
+    "dm_permission": false,
+    "options": [
+      {
+        "type": 6,
+        "name": "user",
+        "description": "The user to kick.",
+        "required": true
+      },
+      {
+        "type": 3,
+        "name": "reason",
+        "description": "The reason for the kick."
+      }
+    ]
+  },
+  {
+    "id": "967715293264760876",
+    "application_id": "595731552709771264",
+    "version": "1030853949894434897",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "timeout",
+    "description": "Timeout a chosen user from this server.",
+    "dm_permission": false,
+    "options": [
+      {
+        "type": 6,
+        "name": "user",
+        "description": "The user to timeout.",
+        "required": true
+      },
+      {
+        "type": 3,
+        "name": "duration",
+        "description": "How long they should be timed out for.",
+        "required": true,
+        "choices": [
+          {
+            "name": "60 seconds",
+            "value": "60s"
+          },
+          {
+            "name": "5 minutes",
+            "value": "5m"
+          },
+          {
+            "name": "10 minutes",
+            "value": "10m"
+          },
+          {
+            "name": "1 hour",
+            "value": "1h"
+          },
+          {
+            "name": "1 day",
+            "value": "1d"
+          },
+          {
+            "name": "1 week",
+            "value": "1w"
+          },
+          {
+            "name": "1 month",
+            "value": "1m"
+          },
+          {
+            "name": "Max (28 days)",
+            "value": "28d"
+          }
+        ]
+      },
+      {
+        "type": 3,
+        "name": "reason",
+        "description": "The reason for timing them out."
+      }
+    ]
+  },
+  {
+    "id": "967715293264760877",
+    "application_id": "595731552709771264",
+    "version": "1030853949894434901",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "calculate",
+    "description": "Calculate a mathematical expression.",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 3,
+        "name": "expression",
+        "description": "The expression to calculate.",
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "967715293264760878",
+    "application_id": "595731552709771264",
+    "version": "1030853949957357609",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "reminder",
+    "description": "No Description Provided",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 1,
+        "name": "new",
+        "description": "Set a reminder.",
+        "options": [
+          {
+            "type": 3,
+            "name": "when",
+            "description": "When to remind you (e.g. 2 hours, 3w2d, 20:30).",
+            "required": true,
+            "autocomplete": true
+          },
+          {
+            "type": 3,
+            "name": "subject",
+            "description": "What to remind you of.",
+            "required": true,
+            "min_length": 1,
+            "max_length": 512
+          },
+          {
+            "type": 7,
+            "name": "destination",
+            "description": "Where to send the reminder (leave blank to send it by DM).",
+            "channel_types": [
+              0,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "type": 1,
+        "name": "list",
+        "description": "Get a list of all of your reminders."
+      }
+    ]
+  },
+  {
+    "id": "967715293264760879",
+    "application_id": "595731552709771264",
+    "version": "1030853949894434899",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "role-picker",
+    "description": "No Description Provided",
+    "dm_permission": false,
+    "options": [
+      {
+        "type": 1,
+        "name": "create",
+        "description": "Manually create a new Role Picker, a menu for members to choose roles themselves.",
+        "options": [
+          {
+            "type": 3,
+            "name": "behavior",
+            "description": "How the Role Picker should behave.",
+            "required": true,
+            "choices": [
+              {
+                "name": "Toggle giving/removing role(s)",
+                "value": "toggle"
+              },
+              {
+                "name": "Only give the role(s) once",
+                "value": "once"
+              }
+            ]
+          },
+          {
+            "type": 4,
+            "name": "role_limit",
+            "description": "How much roles can be selected. Set to 0 for unlimited.",
+            "required": true,
+            "min_value": 0,
+            "max_value": 13
+          },
+          {
+            "type": 8,
+            "name": "role1",
+            "description": "A role to assign to the member when selected.",
+            "required": true
+          },
+          {
+            "type": 8,
+            "name": "role2",
+            "description": "A role to assign to the member when selected."
+          },
+          {
+            "type": 8,
+            "name": "role3",
+            "description": "A role to assign to the member when selected."
+          },
+          {
+            "type": 8,
+            "name": "role4",
+            "description": "A role to assign to the member when selected."
+          },
+          {
+            "type": 8,
+            "name": "role5",
+            "description": "A role to assign to the member when selected."
+          },
+          {
+            "type": 8,
+            "name": "role6",
+            "description": "A role to assign to the member when selected."
+          },
+          {
+            "type": 8,
+            "name": "role7",
+            "description": "A role to assign to the member when selected."
+          },
+          {
+            "type": 8,
+            "name": "role8",
+            "description": "A role to assign to the member when selected."
+          },
+          {
+            "type": 8,
+            "name": "role9",
+            "description": "A role to assign to the member when selected."
+          },
+          {
+            "type": 8,
+            "name": "role10",
+            "description": "A role to assign to the member when selected."
+          },
+          {
+            "type": 8,
+            "name": "role11",
+            "description": "A role to assign to the member when selected."
+          },
+          {
+            "type": 8,
+            "name": "role12",
+            "description": "A role to assign to the member when selected."
+          },
+          {
+            "type": 8,
+            "name": "role13",
+            "description": "A role to assign to the member when selected."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "988494582528491641",
+    "application_id": "595731552709771264",
+    "version": "1030853949848289338",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "farewell",
+    "description": "No Description Provided",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 1,
+        "name": "preview",
+        "description": "Preview the farewell message."
+      }
+    ]
+  },
+  {
+    "id": "988494582981484584",
+    "application_id": "595731552709771264",
+    "version": "1030853949848289339",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "welcome",
+    "description": "No Description Provided",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 1,
+        "name": "preview",
+        "description": "Preview the welcome message."
+      }
+    ]
+  },
+  {
+    "id": "988494582981484585",
+    "application_id": "595731552709771264",
+    "version": "1030853949894434896",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "modlogs",
+    "description": "No Description Provided",
+    "dm_permission": false,
+    "options": [
+      {
+        "type": 1,
+        "name": "user",
+        "description": "View the moderation history for a chosen user, or yours.",
+        "options": [
+          {
+            "type": 6,
+            "name": "user",
+            "description": "The user to view the history of."
+          }
+        ]
+      },
+      {
+        "type": 1,
+        "name": "all",
+        "description": "View the moderation history for all users and channels in this server."
+      }
+    ]
+  },
+  {
+    "id": "988494582981484586",
+    "application_id": "595731552709771264",
+    "version": "1030853949894434898",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "warn",
+    "description": "Warn a chosen user. This will add a strike to the user's moderation history.",
+    "dm_permission": false,
+    "options": [
+      {
+        "type": 6,
+        "name": "user",
+        "description": "The user to warn.",
+        "required": true
+      },
+      {
+        "type": 3,
+        "name": "reason",
+        "description": "The reason for warning."
+      }
+    ]
+  },
+  {
+    "id": "988494582981484588",
+    "application_id": "595731552709771264",
+    "version": "1030853950007689341",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "giveaway",
+    "description": "Create a giveaway.",
+    "dm_permission": false,
+    "options": [
+      {
+        "type": 3,
+        "name": "prize",
+        "description": "What to giveaway.",
+        "required": true,
+        "max_length": 100
+      },
+      {
+        "type": 3,
+        "name": "end_date",
+        "description": "When to end the giveaway.",
+        "required": true,
+        "autocomplete": true
+      },
+      {
+        "type": 4,
+        "name": "winners",
+        "description": "How many people can win (up to 40).",
+        "min_value": 1,
+        "max_value": 40
+      }
+    ]
+  },
+  {
+    "id": "989999838190002278",
+    "application_id": "595731552709771264",
+    "version": "1030853950049624095",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 2,
+    "name": "Ban User",
+    "description": "",
+    "dm_permission": true
+  },
+  {
+    "id": "992476596013371503",
+    "application_id": "595731552709771264",
+    "version": "1030853950049624096",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 2,
+    "name": "View Moderation History",
+    "description": "",
+    "dm_permission": true
+  },
+  {
+    "id": "995243551443140618",
+    "application_id": "595731552709771264",
+    "version": "1030853949797965824",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "error",
+    "description": "Send an error message to the developers. For debugging purposes, or to send me a message :)",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 3,
+        "name": "type",
+        "description": "The type of error message",
+        "required": true,
+        "choices": [
+          {
+            "name": "CRBTError",
+            "value": "formatted"
+          },
+          {
+            "name": "UnknownError",
+            "value": "unknown"
+          },
+          {
+            "name": "CooldownError",
+            "value": "cooldown"
+          }
+        ]
+      },
+      {
+        "type": 3,
+        "name": "error",
+        "description": "The error message to send",
+        "required": true
+      },
+      {
+        "type": 3,
+        "name": "details",
+        "description": "The details of the error message"
+      }
+    ]
+  },
+  {
+    "id": "1002698876064649336",
+    "application_id": "595731552709771264",
+    "version": "1035295373679411216",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "achievements",
+    "description": "View a list of a user's CRBT Achievements.",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 6,
+        "name": "user",
+        "description": "User to get info from. Leave blank to see yours."
+      }
+    ]
+  },
+  {
+    "id": "1012817858318843907",
+    "application_id": "595731552709771264",
+    "version": "1030853950007689340",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "settings",
+    "description": "Configure CRBT settings on this server.",
+    "dm_permission": false
+  },
+  {
+    "id": "1012817858318843908",
+    "application_id": "595731552709771264",
+    "version": "1030853950007689343",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 2,
+    "name": "Get Avatar/Banner",
+    "description": "",
+    "dm_permission": true
+  },
+  {
+    "id": "1012817858318843910",
+    "application_id": "595731552709771264",
+    "version": "1030853950049624097",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 3,
+    "name": "Translate with Scan",
+    "description": "",
+    "dm_permission": true
+  },
+  {
+    "id": "1026215603708637245",
+    "application_id": "595731552709771264",
+    "version": "1030853949894434904",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "roll",
+    "description": "Roll a dice. Supports RPG dice notation.",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 3,
+        "name": "dice",
+        "description": "What dice to roll. Use 'd6' for a 6-sided die.",
+        "required": true
+      },
+      {
+        "type": 3,
+        "name": "comment",
+        "description": "A comment to display to provide additional context."
+      }
+    ]
+  },
+  {
+    "id": "1026215603708637246",
+    "application_id": "595731552709771264",
+    "version": "1030853950007689346",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 3,
+    "name": "Scan Images in Message",
+    "description": "",
+    "dm_permission": true
+  },
+  {
+    "id": "1026215603708637247",
+    "application_id": "595731552709771264",
+    "version": "1030853950049624094",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 3,
+    "name": "View JSON",
+    "description": "",
+    "dm_permission": true
+  },
+  {
+    "id": "1034391302982344765",
+    "application_id": "595731552709771264",
+    "version": "1034391302982344767",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "test",
+    "description": "a select menu",
+    "dm_permission": true
+  },
+  {
+    "id": "1035295373679411210",
+    "application_id": "595731552709771264",
+    "version": "1035295373679411214",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "crbt",
+    "description": "No Description Provided",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 1,
+        "name": "info",
+        "description": "Get information about CRBT"
+      }
+    ]
+  },
+  {
+    "id": "1035295373679411211",
+    "application_id": "595731552709771264",
+    "version": "1036080142688202773",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 1,
+    "name": "search",
+    "description": "Search for anything in one of the provided search engines.",
+    "dm_permission": true,
+    "options": [
+      {
+        "type": 3,
+        "name": "query",
+        "description": "What to search for.",
+        "required": true,
+        "autocomplete": true
+      },
+      {
+        "type": 3,
+        "name": "site",
+        "description": "What search engine to use for your query.",
+        "choices": [
+          {
+            "name": "🔎 Web - Powered by DuckDuckGo",
+            "value": "web"
+          },
+          {
+            "name": "🖼 Images - Powered by Google Images",
+            "value": "images"
+          },
+          {
+            "name": "🎥 Videos - Powered by YouTube",
+            "value": "videos"
+          },
+          {
+            "name": "☀ Weather - Powered by Open-Meteo.com & OpenStreetMap",
+            "value": "weather"
+          },
+          {
+            "name": "📖 Dictionary - Powered by Google Dictionary",
+            "value": "dictionary"
+          },
+          {
+            "name": "🧱 Urban Dictionary - Powered by Urban Dictionary",
+            "value": "urban"
+          }
+        ]
+      },
+      {
+        "type": 5,
+        "name": "anonymous",
+        "description": "Whether to show the search results as a public message."
+      }
+    ]
+  },
+  {
+    "id": "1035295373679411212",
+    "application_id": "595731552709771264",
+    "version": "1035295373679411217",
+    "default_permission": true,
+    "default_member_permissions": null,
+    "type": 3,
+    "name": "Remind me about this",
+    "description": "",
+    "dm_permission": true
+  }
+]
