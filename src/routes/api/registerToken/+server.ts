@@ -1,9 +1,9 @@
 import { randomBytes } from 'crypto';
-import { db } from '$lib/prisma';
+import { prisma } from '$lib/prisma';
 import { errors, type APITokenData } from '$lib/api';
 import { TokenTypes } from '@prisma/client';
 import { CLIENT_SECRET } from '$env/static/private';
-import type { RequestHandler } from '@sveltejs/kit';
+import { json, type RequestHandler } from '@sveltejs/kit';
 
 export const POST: RequestHandler = async ({ request }) => {
 	if (request.headers.get('Authorization') !== CLIENT_SECRET) {
@@ -39,13 +39,11 @@ export const POST: RequestHandler = async ({ request }) => {
 
 	const tokenString = `${userId}.${now}.${password}`;
 
-	const token = await db.tokens.create({
+	const token = await prisma.token.create({
 		data: { token: tokenString, data: tokenData, type: TokenTypes.API }
 	});
 
-	return new Response(
-		JSON.stringify({
-			token: token
-		})
-	);
+	return json({
+		token
+	});
 };

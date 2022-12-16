@@ -1,24 +1,24 @@
 import { botRest } from '$lib/auth/botRest';
-import { db } from '$lib/prisma';
+import { prisma } from '$lib/prisma';
 import type { RawServerJoin } from '$lib/types/messageBuilder';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ params }) => {
-  const dbData = await db.servers.findFirst({
-    where: { id: params.id },
-    select: {
-      joinChannel: true,
-      joinMessage: true,
-      modules: true
-    }
-  }) as RawServerJoin;
+	const dbData = (await prisma.servers.findFirst({
+		where: { id: params.id },
+		select: {
+			joinChannel: true,
+			joinMessage: true,
+			modules: true
+		}
+	})) as RawServerJoin;
 
-  const channels = await botRest.guild.getGuildChannels({
-    guildId: params.id
-  });
+	const channels = await botRest.guild.getGuildChannels({
+		guildId: params.id
+	} as any);
 
-  return {
-    channels,
-    ...dbData
-  };
+	return {
+		channels,
+		...dbData
+	};
 };

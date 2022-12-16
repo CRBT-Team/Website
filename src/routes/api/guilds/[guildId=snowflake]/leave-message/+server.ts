@@ -1,6 +1,6 @@
 import { errors, validateAccess } from '$lib/api';
-import { db } from '$lib/prisma';
-import type { RequestHandler } from '@sveltejs/kit';
+import { prisma } from '$lib/prisma';
+import { json, type RequestHandler } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async ({ request, params }) => {
 	let { isAuthorized, error } = await validateAccess(request, {
@@ -9,15 +9,13 @@ export const GET: RequestHandler = async ({ request, params }) => {
 
 	if (!isAuthorized) return error;
 
-	const serverData = await db.servers.findFirst({
+	const serverData = await prisma.servers.findFirst({
 		where: { id: params.guildId },
 		select: { leaveMessage: true, leaveChannel: true }
 	});
 
-	return {
-		body: {
-			leaveMessage: serverData?.leaveMessage,
-			leaveChannel: serverData?.leaveChannel
-		}
-	};
+	return json({
+		leaveMessage: serverData?.leaveMessage,
+		leaveChannel: serverData?.leaveChannel
+	});
 };

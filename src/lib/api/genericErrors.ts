@@ -1,20 +1,7 @@
-export const formatError = (
-	error: string,
-	status = 500,
-	details?: string | Object
-): {
-	status: number;
-	body: {
-		error: string;
-		[key: string]: any;
-	};
-} => ({
-	status,
-	body: {
-		error,
-		...(details ? (typeof details === 'object' ? details : { details }) : {})
-	}
-});
+import { json } from '@sveltejs/kit';
+
+export const formatError = (error: any, status = 500) =>
+	json(typeof error === 'object' ? error : { error }, { status });
 
 export const unauthorized = formatError('Unauthorized', 401);
 
@@ -23,7 +10,13 @@ export const badRequest = formatError('Bad Request', 400);
 export const internalServerError = formatError('Internal Server Error', 500);
 
 export const rateLimitError = (retryAfter: number) =>
-	formatError('Rate limited', 429, { retryAfter });
+	formatError(
+		{
+			error: 'Rate limited',
+			retryAfter
+		},
+		429
+	);
 
 export const invalidBody = (missingProp: string) => ({
 	status: 400,

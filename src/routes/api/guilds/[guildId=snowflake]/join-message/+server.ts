@@ -1,5 +1,5 @@
-import { db } from '$lib/prisma';
-import type { RequestHandler } from '@sveltejs/kit';
+import { prisma } from '$lib/prisma';
+import { json, type RequestHandler } from '@sveltejs/kit';
 import { errors, validateAccess } from '$lib/api';
 
 export const GET: RequestHandler = async ({ params, request }) => {
@@ -9,17 +9,15 @@ export const GET: RequestHandler = async ({ params, request }) => {
 
 	if (!isAuthorized) return error;
 
-	const serverData = await db.servers.findFirst({
+	const serverData = await prisma.servers.findFirst({
 		where: { id: params.guildId },
 		select: { joinMessage: true, joinChannel: true }
 	});
 
-	return {
-		body: {
-			joinMessage: serverData?.joinMessage,
-			joinChannel: serverData?.joinChannel
-		}
-	};
+	return json({
+		joinMessage: serverData?.joinMessage,
+		joinChannel: serverData?.joinChannel
+	});
 };
 
 export const PATCH: RequestHandler = async ({ params, request }) => {

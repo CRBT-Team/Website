@@ -1,5 +1,5 @@
-import { db } from '$lib/prisma';
-import type { RequestHandler } from '@sveltejs/kit';
+import { prisma } from '$lib/prisma';
+import { json, type RequestHandler } from '@sveltejs/kit';
 import { validateAccess } from '$lib/api';
 
 export const GET: RequestHandler = async ({ params, request }) => {
@@ -9,14 +9,10 @@ export const GET: RequestHandler = async ({ params, request }) => {
 
 	if (!isAuthorized) return error;
 
-	const serverData = await db.servers.findFirst({
+	const serverData = await prisma.servers.findFirst({
 		where: { id: params.guildId },
 		select: { accentColor: true, modules: true }
 	});
 
-	return {
-		body: {
-			...serverData
-		}
-	};
+	return json(serverData);
 };

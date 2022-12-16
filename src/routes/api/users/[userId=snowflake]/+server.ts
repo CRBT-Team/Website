@@ -1,4 +1,4 @@
-import { db } from '$lib/prisma';
+import { prisma } from '$lib/prisma';
 import type { RequestHandler } from '@sveltejs/kit';
 import badges from '$lib/json/badges.json';
 import { validateAccess } from '$lib/api';
@@ -10,13 +10,12 @@ export const GET: RequestHandler = async ({ params, request }) => {
 
 	const userId = params.userId === '@me' ? tokenData.userId : params.userId;
 
-	const userData = await db.users.findFirst({
+	const userData = await prisma.user.findFirst({
 		where: { id: userId },
 		select: {
 			accentColor: true,
 			silentJoins: true,
 			silentLeaves: true,
-			birthday: true,
 			id: true,
 			crbtBadges: true
 		}
@@ -26,11 +25,10 @@ export const GET: RequestHandler = async ({ params, request }) => {
 		body: {
 			id: userData?.id,
 			accentColor: userData?.accentColor || null,
-			birthday: isAuthorized ? userData?.birthday || null : null,
 			crbtBadges: userData?.crbtBadges.map((b) => ({ id: b, ...badges[b] })) || null,
 			privacy: {
-				joinMessagesEnabled: !(userData?.silentJoins || false),
-				leaveMessagesEnabled: !(userData?.silentLeaves || false)
+				silentJoins: userData?.silentJoins || false,
+				silentLeaves: userData?.silentLeaves || false
 			}
 		}
 	};
