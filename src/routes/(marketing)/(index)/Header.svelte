@@ -7,7 +7,7 @@
 <header class="hero-header">
 	<div class="hero-content">
 		<h2 class="tagline">
-			The <span class="emphasis-tertiary">perfect</span><br />
+			The <i><span class="emphasis-tertiary">perfect</span></i><br />
 			<span class="emphasis-primary">just-about-anything</span><br /> Discord app.
 		</h2>
 		<p class="descriptive-text">

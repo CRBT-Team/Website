@@ -1,4 +1,7 @@
 <script lang="ts">
+	export const prerender = true;
+
+	import Compare from './Compare.svelte';
 	import FeaturedServers from './FeaturedServers.svelte';
 	import Features from './Features.svelte';
 	import Header from './Header.svelte';
@@ -10,6 +13,8 @@
 	<FeaturedServers />
 
 	<Features />
+
+	<Compare />
 </div>
 
 <style lang="scss">

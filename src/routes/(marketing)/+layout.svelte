@@ -2,10 +2,8 @@
 	import { page } from '$app/stores';
 	import DesktopNavBar from './DesktopNavBar.svelte';
 	import Footer from './Footer.svelte';
-
+	import MobileNavBar from './MobileNavBar.svelte';
 	// export let data: PageServerData;
-
-	console.log($page.url);
 </script>
 
 <!-- show={$page.url.pathname === '/' ? 'onscroll' : 'always'} -->
@@ -19,6 +17,7 @@
 	// }
 	null}
 />
+<MobileNavBar />
 <main>
 	<slot />
 </main>

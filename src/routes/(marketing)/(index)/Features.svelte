@@ -81,13 +81,13 @@
 			flex-direction: column;
 			gap: 10px;
 			.icon {
-				color: var(--color-on-primary-container);
+				color: var(--color-on-primary);
 				// width: 24px;
 				// height: 24px;
 				border-radius: var(--border-radius-small);
 				padding: 5px;
 				width: min-content;
-				background-color: var(--color-primary-container);
+				background-color: var(--color-primary);
 			}
 		}
 	}

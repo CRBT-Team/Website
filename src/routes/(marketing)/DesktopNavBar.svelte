@@ -64,7 +64,7 @@
 		// }
 
 		background-color: rgb(0 0 0 / 0);
-		transition: background 0.2s, opacity 0.2s;
+		transition: background 0.2s, opacity 0.2s, transform 0.2s ease-in-out;
 
 		.items {
 			display: flex;
@@ -105,6 +105,13 @@
 			// 		transform: translateY(0);
 			// 	}
 			// }
+		}
+	}
+
+	@media (max-width: 800px) {
+		.navbar-desktop {
+			transform: translateY(-100%);
+			transition: transform 0.2s ease-in-out;
 		}
 	}
 </style>

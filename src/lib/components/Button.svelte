@@ -60,11 +60,14 @@
 		line-height: 1.25;
 		text-align: left;
 		cursor: pointer;
-		// transition: all 0.2s ease-in-out;
+		transition: box-shadow 0.2s ease-in-out;
+		box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 0px;
 
 		&:hover {
-			background-color: var(--button-bg-hover);
-			color: var(--button-text-hover);
+			transition: box-shadow 0.2s ease-in-out;
+			box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 6px;
+			// background-color: var(--button-bg-hover);
+			// color: var(--button-text-hover);
 		}
 
 		:global(svg) {

@@ -12,7 +12,7 @@
 	</div>
 
 	<div class="links">
-		<a href="/privacy">Privacy Policy</a>
+		<a href="/policy">Privacy Policy</a>
 		<a href="/terms">Terms of Service</a>
 		<a href="/acknowledgements">Acknowledgements</a>
 	</div>
@@ -21,9 +21,9 @@
 		<a href="/discord">
 			<Discord />
 		</a>
-		<a href="/guilded">
+		<!-- <a href="/guilded">
 			<Guilded />
-		</a>
+		</a> -->
 		<a href="/donate">
 			<KoFi />
 		</a>
@@ -76,11 +76,12 @@
 		footer {
 			flex-direction: column;
 			text-align: center;
-			gap: 1rem;
+			gap: 1.1rem;
 			.links {
 				flex-direction: column;
-				gap: 0.5rem;
+				gap: 1.1rem;
 			}
+			padding-bottom: 110px;
 		}
 	}
 </style>

@@ -47,7 +47,7 @@
 				transition: all 0.1s ease-in-out;
 				opacity: 0;
 				scale: 1.1;
-				// visibility: hidden;
+				visibility: hidden;
 				width: max-content;
 				background-color: var(--color-surface-variant);
 				color: var(--color-on-surface-variant);
@@ -88,7 +88,7 @@
 					transition: all 0.1s ease-in-out;
 					opacity: 1;
 					scale: 1;
-					// visibility: visible;
+					visibility: visible;
 				}
 
 				img {
@@ -99,7 +99,7 @@
 		}
 	}
 
-	@media (max-width: 800px) {
+	@media (max-width: 860px) {
 		.servers {
 			flex-direction: column;
 		}
