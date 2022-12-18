@@ -72,7 +72,7 @@
 	.features {
 		justify-content: start;
 		display: flex;
-		overflow-x: scroll;
+		overflow-x: hidden;
 		gap: 20px;
 
 		.card {

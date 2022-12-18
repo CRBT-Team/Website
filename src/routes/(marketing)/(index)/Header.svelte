@@ -20,7 +20,7 @@
 				<Discord slot="icon" />
 				Add to Discord
 			</Button>
-			<Button inline href="#features" style="secondary">
+			<Button inline href="#features" style="link">
 				<ChevronDown slot="icon" />
 				See features
 			</Button>
@@ -55,6 +55,7 @@
 
 			.buttons {
 				display: flex;
+				align-items: center;
 				gap: 10px;
 			}
 		}
