@@ -2,10 +2,27 @@
 	import { page } from '$app/stores';
 	import Crbt from '$lib/svg/crbt.svelte';
 	import { Menu, Search } from 'lucide-svelte';
+	import { onMount } from 'svelte';
+	import SearchFlyout from './SearchFlyout.svelte';
 
-	let selectedTab: 'home' | 'search' | 'more' = 'home';
+	type Tab = 'home' | 'search' | 'more';
 
-	console.log($page);
+	let selectedTab: Tab = 'home';
+	let previouslySelected: Tab;
+
+	page.subscribe(({ url: { pathname } }) => {
+		if (pathname.endsWith('/')) {
+			selectTab('home');
+		}
+		if (pathname.endsWith('more')) {
+			selectTab('more');
+		}
+	});
+
+	function selectTab(tab: typeof selectedTab) {
+		selectedTab = tab;
+		previouslySelected = tab;
+	}
 </script>
 
 <nav class="navbar-mobile">
@@ -13,7 +30,7 @@
 		href="/"
 		class="item"
 		class:selected={selectedTab === 'home'}
-		on:click={() => (selectedTab = 'home')}
+		on:click={() => selectTab('home')}
 	>
 		<div class="background" />
 		<div class="icon">
@@ -25,7 +42,7 @@
 	<div
 		class="item"
 		class:selected={selectedTab === 'search'}
-		on:click={() => (selectedTab = 'search')}
+		on:click={() => (selectedTab = selectedTab === 'search' ? previouslySelected : 'search')}
 	>
 		<div class="background" />
 		<div class="icon">
@@ -37,7 +54,7 @@
 		href="/more"
 		class="item"
 		class:selected={selectedTab === 'more'}
-		on:click={() => (selectedTab = 'more')}
+		on:click={() => selectTab('more')}
 	>
 		<div class="background" />
 		<div class="icon">
@@ -46,6 +63,7 @@
 		More
 	</a>
 </nav>
+<SearchFlyout show={selectedTab === 'search'} on:close={() => (selectedTab = previouslySelected)} />
 
 <style lang="scss">
 	.navbar-mobile {
@@ -55,7 +73,7 @@
 		position: fixed;
 		bottom: 0;
 		left: 0;
-		z-index: 1;
+		z-index: 9;
 		width: 100%;
 		background-color: var(--color-surface);
 		padding: 20px;
@@ -73,7 +91,8 @@
 			.background {
 				position: absolute;
 				height: 34px;
-				width: 0px;
+				width: 20px;
+				opacity: 0;
 				transition: width 0.2s ease-out;
 				background-color: var(--color-surface-variant);
 				border-radius: 20px;
@@ -92,6 +111,7 @@
 
 				.background {
 					width: 64px;
+					opacity: 1;
 					transition: width 0s none;
 				}
 
@@ -109,8 +129,7 @@
 
 	@media (min-width: 800px) {
 		.navbar-mobile {
-			transform: translateY(100%);
-			transition: transform 0.2s ease-in-out;
+			display: none;
 		}
 	}
 </style>

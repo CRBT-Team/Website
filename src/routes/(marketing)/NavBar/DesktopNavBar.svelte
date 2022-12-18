@@ -110,8 +110,7 @@
 
 	@media (max-width: 800px) {
 		.navbar-desktop {
-			transform: translateY(-100%);
-			transition: transform 0.2s ease-in-out;
+			display: none;
 		}
 	}
 </style>
