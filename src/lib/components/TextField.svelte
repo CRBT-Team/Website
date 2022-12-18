@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
+
 	export let type: 'text' | 'password' = 'text';
 	export let disabled = false;
 	export let placeholder = '';
@@ -11,8 +13,11 @@
 
 	let inputEl: HTMLInputElement | HTMLTextAreaElement | null;
 
+	const inputDispatcher = createEventDispatcher();
+
 	function changeValue() {
 		value = inputEl.value;
+		inputDispatcher('input', value);
 	}
 </script>
 
