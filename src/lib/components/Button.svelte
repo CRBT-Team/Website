@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let inline = false;
 	export let href: string = '';
-	export let style: 'primary' | 'secondary' | 'tertiary' = 'primary';
+	export let style: 'primary' | 'secondary' | 'tertiary' | 'link' = 'primary';
 </script>
 
 {#if href}
@@ -38,6 +38,20 @@
 			--button-bg-hover: var(--color-tertiary-container);
 			--button-text-hover: var(--color-on-tertiary-container);
 		}
+		&.link {
+			--button-bg: transparent;
+			--button-text: var(--color-secondary);
+			--button-bg-hover: var(--color-surface-variant);
+			--button-text-hover: var(--color-on-surface-variant);
+
+			padding: 0.5rem 1rem !important;
+			gap: 0.5rem;
+			&:hover {
+				box-shadow: 0px 0px 0px;
+				background-color: var(--button-bg-hover);
+				color: var(--button-text-hover);
+			}
+		}
 
 		text-overflow: ellipsis;
 		// transition: 0.6s;
@@ -66,8 +80,6 @@
 		&:hover {
 			transition: box-shadow 0.2s ease-in-out;
 			box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 6px;
-			// background-color: var(--button-bg-hover);
-			// color: var(--button-text-hover);
 		}
 
 		:global(svg) {
