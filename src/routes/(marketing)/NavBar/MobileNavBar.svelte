@@ -2,30 +2,27 @@
 	import { page } from '$app/stores';
 	import Crbt from '$lib/svg/crbt.svelte';
 	import { Menu, Search } from 'lucide-svelte';
-	import { onMount } from 'svelte';
 	import SearchFlyout from './SearchFlyout.svelte';
 
-	type Tab = 'home' | 'search' | 'more';
+	type Tab = 'home' | 'more';
+	let showSearch = false;
 
 	let selectedTab: Tab = 'home';
-	let previouslySelected: Tab;
 
 	page.subscribe(({ url: { pathname } }) => {
-		if (pathname.endsWith('/')) {
-			selectTab('home');
-		}
-		if (pathname.endsWith('more')) {
-			selectTab('more');
-		}
+		if (pathname.endsWith('/')) selectTab('home');
+		if (pathname.endsWith('more')) selectTab('more');
 	});
 
 	function selectTab(tab: typeof selectedTab) {
 		selectedTab = tab;
-		previouslySelected = tab;
 	}
 </script>
 
 <nav class="navbar-mobile">
+	{#if showSearch}
+		<SearchFlyout on:close={() => (showSearch = false)} />
+	{/if}
 	<a
 		href="/"
 		class="item"
@@ -39,11 +36,7 @@
 		Home
 	</a>
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<div
-		class="item"
-		class:selected={selectedTab === 'search'}
-		on:click={() => (selectedTab = selectedTab === 'search' ? previouslySelected : 'search')}
-	>
+	<div class="item" on:click={() => (showSearch = true)}>
 		<div class="background" />
 		<div class="icon">
 			<Search />
@@ -63,20 +56,18 @@
 		More
 	</a>
 </nav>
-<SearchFlyout show={selectedTab === 'search'} on:close={() => (selectedTab = previouslySelected)} />
 
 <style lang="scss">
 	.navbar-mobile {
 		display: flex;
 		justify-content: space-around;
-		align-items: center;
 		position: fixed;
 		bottom: 0;
 		left: 0;
 		z-index: 9;
 		width: 100%;
 		background-color: var(--color-surface);
-		padding: 20px;
+		padding: 10px;
 		transition: transform 0.2s ease-in-out;
 
 		.item {

@@ -888,6 +888,11 @@ svelte-check@^2.9.2:
     svelte-preprocess "^4.0.0"
     typescript "*"
 
+svelte-gestures@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/svelte-gestures/-/svelte-gestures-1.4.1.tgz#8f0541e07eba1b0c779dd6015d2142ca71561a37"
+  integrity sha512-TAmfcz+DgdfrRDFSQ9UsXxhqDjQR7LaUaALauqITaTCVSHPWXIZ9WSBPP6DrXh9MYqgVZwy85wJdv7NQPwsZfA==
+
 svelte-hmr@^0.15.1:
   version "0.15.1"
   resolved "https://registry.yarnpkg.com/svelte-hmr/-/svelte-hmr-0.15.1.tgz#d11d878a0bbb12ec1cba030f580cd2049f4ec86b"

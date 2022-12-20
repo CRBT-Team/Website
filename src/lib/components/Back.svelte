@@ -1,18 +1,28 @@
 <script lang="ts">
 	import { ArrowLeft } from 'lucide-svelte';
 
-	export let href = '/';
+	export let href = '';
 </script>
 
-<div class="back-btn">
-	<a {href}>
+{#if href}
+	<div class="back-btn">
+		<a {href}>
+			<ArrowLeft />
+		</a>
+	</div>
+{:else}
+	<button class="back-btn" on:click={() => history.back()}>
 		<ArrowLeft />
-	</a>
-</div>
+	</button>
+{/if}
 
 <style lang="scss">
 	.back-btn {
 		padding: 1.5rem 1rem;
-		margin-bottom: 3.8rem;
+		appearance: none;
+		background-color: inherit;
+		color: inherit;
+		border: none;
+		cursor: pointer;
 	}
 </style>
