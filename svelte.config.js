@@ -5,6 +5,9 @@ import adapter from '@sveltejs/adapter-netlify';
 export default {
 	preprocess: preprocess(),
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		csrf: {
+			checkOrigin: false
+		}
 	}
 };
