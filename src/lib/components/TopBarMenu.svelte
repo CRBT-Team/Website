@@ -9,8 +9,8 @@
 	let scrollPercentage: number;
 
 	function solidify() {
-		const perc = 1 - Math.round(document.scrollingElement.scrollTop / 1.5) / 100;
-		scrollPercentage = perc < 0 ? 0 : perc;
+		const perc = Math.round(document.scrollingElement.scrollTop / 1.5) / 100;
+		scrollPercentage = perc > 1 ? 1 : perc;
 		solid = document.scrollingElement.scrollTop > 60;
 	}
 
@@ -20,14 +20,14 @@
 <svelte:window on:scroll={solidify} />
 
 <!-- <div class="topbar-header"> -->
-<div class="topbar" class:solid style="--scroll:{scrollPercentage}">
+<div class="topbar" class:solid style="--scroll:{solid ? scrollPercentage : 0}">
 	{#if showBackBtn}
 		<Back href={btnHref} />
 	{/if}
 	<div class="topbar-header">{text}</div>
 </div>
 
-<h1 class="top-header-text">{text}</h1>
+<h1 class="top-header-text" style="--scroll:{scrollPercentage}">{text}</h1>
 
 <!-- </div> -->
 <style lang="scss">
@@ -46,7 +46,7 @@
 
 		.topbar-header {
 			font-size: 1.6rem;
-			transform: translateY(calc(var(--scroll) * 100px));
+			opacity: var(--scroll);
 		}
 
 		&.solid {
@@ -64,6 +64,7 @@
 		font-weight: 400;
 		padding: 20px;
 		margin-bottom: 0.5rem;
+		opacity: calc(1 - var(--scroll));
 	}
 	// }
 </style>

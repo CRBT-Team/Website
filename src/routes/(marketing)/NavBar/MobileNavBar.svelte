@@ -1,28 +1,39 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import Crbt from '$lib/svg/crbt.svelte';
+	import Modal from '$lib/components/Modal.svelte';
+	import TextField from '$lib/components/TextField.svelte';
+	import CRBT from '$lib/svg/crbt.svelte';
 	import { Menu, Search } from 'lucide-svelte';
-	import SearchFlyout from './SearchFlyout.svelte';
+	import Links from '../WebsiteLink/Links.svelte';
 
 	type Tab = 'home' | 'more';
-	let showSearch = false;
 
 	let selectedTab: Tab = 'home';
+	let searchValue = '';
+	let showSearchModal = false;
 
 	page.subscribe(({ url: { pathname } }) => {
 		if (pathname.endsWith('/')) selectTab('home');
 		if (pathname.endsWith('more')) selectTab('more');
 	});
 
-	function selectTab(tab: typeof selectedTab) {
+	function selectTab(tab: Tab) {
 		selectedTab = tab;
 	}
 </script>
 
+{#if showSearchModal}
+	<Modal title="Search" on:close={() => (showSearchModal = false)}>
+		<div class="middle">
+			<TextField on:input={(t) => (searchValue = t.detail)} type="text" />
+		</div>
+		<div class="bottom">
+			<Links filter={(i) => i.label.toLowerCase().includes(searchValue?.toLowerCase())} />
+		</div>
+	</Modal>
+{/if}
+
 <nav class="navbar-mobile">
-	{#if showSearch}
-		<SearchFlyout on:close={() => (showSearch = false)} />
-	{/if}
 	<a
 		href="/"
 		class="item"
@@ -31,12 +42,12 @@
 	>
 		<div class="background" />
 		<div class="icon">
-			<Crbt />
+			<CRBT />
 		</div>
 		Home
 	</a>
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<div class="item" on:click={() => (showSearch = true)}>
+	<div class="item" on:click={() => (showSearchModal = true)}>
 		<div class="background" />
 		<div class="icon">
 			<Search />
@@ -122,5 +133,15 @@
 		.navbar-mobile {
 			display: none;
 		}
+	}
+
+	.middle {
+		width: 100%;
+		padding: 0px 20px;
+	}
+
+	.bottom {
+		overflow-y: scroll;
+		width: 100%;
 	}
 </style>
