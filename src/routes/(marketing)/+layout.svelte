@@ -3,6 +3,7 @@
 	import Footer from './Footer.svelte';
 	import MobileNavBar from './NavBar/MobileNavBar.svelte';
 	// export let data: PageServerData;
+	import '../../styles/home.scss';
 </script>
 
 <DesktopNavBar
@@ -16,8 +17,6 @@
 	null}
 />
 <MobileNavBar />
-<main>
-	<slot />
-</main>
+<slot />
 
 <Footer />

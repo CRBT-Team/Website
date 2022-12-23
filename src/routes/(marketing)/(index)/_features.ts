@@ -25,7 +25,8 @@ export const marketingFeatures: Feature[] = [
 	},
 	{
 		name: 'Giveaways',
-		description: 'Give neat prizes away to your members.',
+		description:
+			'Give back to your community by create randomized giveaway with customizable rules.',
 		icon: Gift
 	},
 	{

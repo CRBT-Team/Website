@@ -1,6 +1,6 @@
 <script>
+	import AddToDiscord from '$lib/components/AddToDiscord.svelte';
 	import Button from '$lib/components/Button.svelte';
-	import Discord from '$lib/svg/brands/discord.svelte';
 	import { ChevronDown } from 'lucide-svelte';
 </script>
 
@@ -16,10 +16,8 @@
 		</p>
 
 		<div class="buttons">
-			<Button inline href="/invite">
-				<Discord slot="icon" />
-				Add to Discord
-			</Button>
+			<AddToDiscord />
+
 			<Button inline href="#features" style="link">
 				<ChevronDown slot="icon" />
 				See features
@@ -39,10 +37,10 @@
 			justify-content: center;
 			align-items: center;
 			flex-direction: column;
-			gap: 20px;
+			gap: 2.5rem;
 			max-width: 40rem;
 			text-align: center;
-			margin: 60px 40px;
+			margin: 5rem 3.5rem;
 
 			.tagline {
 				font-size: 3.5rem;
@@ -57,7 +55,7 @@
 			.buttons {
 				display: flex;
 				align-items: center;
-				gap: 10px;
+				gap: 1rem;
 			}
 		}
 	}

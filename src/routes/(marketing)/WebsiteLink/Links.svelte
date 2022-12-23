@@ -25,7 +25,7 @@
 			align-items: center;
 			font-size: 1.1rem;
 			.icon {
-				padding: 20px;
+				padding: 1.5rem 1.5rem 1.5rem 0;
 				:global(svg) {
 					width: 24px;
 					height: 24px;

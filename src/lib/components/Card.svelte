@@ -1,15 +1,35 @@
-<div {...$$restProps} on:click>
-	<slot />
-</div>
+<script lang="ts">
+	export let href = '';
+</script>
+
+{#if href}
+	<a {href}>
+		<div class="card" {...$$restProps} on:click>
+			<slot />
+		</div>
+	</a>
+{:else}
+	<div class="card" {...$$restProps} on:click>
+		<slot />
+	</div>
+{/if}
 
 <style lang="scss">
-	div {
+	.card {
 		display: flex;
 		flex-direction: column;
-		// background-color: var(--color-surface);
 		border: 1px solid var(--color-primary);
-		color: var(--color-on-surface);
 		border-radius: var(--border-radius-medium);
-		padding: 15px;
+		padding: 1.2rem;
+		transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+		box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 0px;
+
+		&:hover {
+			box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 6px;
+			transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+			background-color: var(--color-surface);
+			color: var(--color-on-surface);
+			border: 1px solid var(--color-surface);
+		}
 	}
 </style>

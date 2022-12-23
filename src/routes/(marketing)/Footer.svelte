@@ -35,7 +35,7 @@
 
 <style lang="scss">
 	footer {
-		background: var(--color-surface);
+		// background: var(--color-surface);
 		width: 100%;
 		// min-width: 1350px;
 		margin: auto auto 0 auto;
@@ -44,8 +44,8 @@
 		gap: 5rem;
 		justify-content: space-around;
 		align-items: center;
-		color: var(--color-on-surface);
-		fill: var(--color-on-surface);
+		// color: var(--color-on-surface);
+		// fill: var(--color-on-surface);
 
 		a {
 			text-decoration: none;

@@ -3,6 +3,8 @@
 	import Links from '../WebsiteLink/Links.svelte';
 </script>
 
-<TopBarMenu text="More" showBackBtn />
+<main>
+	<TopBarMenu text="More" showBackBtn>More</TopBarMenu>
 
-<Links />
+	<Links />
+</main>
