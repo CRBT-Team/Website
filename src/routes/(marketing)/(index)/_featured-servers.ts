@@ -31,6 +31,6 @@ export const servers: FeaturedServer[] = [
 		iconUrl: 'https://cdn.discordapp.com/emojis/717683480787550228.png',
 		approximateMembers: 540,
 		category: 'Emojis',
-		inviteCode: 'AvwhNtsgAC'
+		inviteCode: 'N5MtRsSuyB'
 	}
 ];

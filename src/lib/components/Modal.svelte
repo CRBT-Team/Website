@@ -72,8 +72,8 @@
 
 		transition: transform ease-in-out 0.3s;
 		width: 100%;
-		max-height: 70%;
-		z-index: 18;
+		max-height: 80%;
+		z-index: 10;
 		gap: 10px;
 		border-radius: var(--border-radius-medium) var(--border-radius-medium) 0 0;
 
@@ -82,7 +82,7 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			padding: 10px 20px;
+			padding: 0px 20px;
 		}
 	}
 

@@ -13,8 +13,8 @@ import type { Feature } from 'src/routes/(app)/dashboard/_features';
 
 export const marketingFeatures: Feature[] = [
 	{
-		description: 'Send fully customizable messages and assign roles when a member joins or leaves.',
 		name: 'Welcome & Farewell messages',
+		description: 'Send fully customizable messages and assign roles when a member joins or leaves.',
 		icon: Hand
 	},
 	{

@@ -46,14 +46,13 @@
 		</div>
 		Home
 	</a>
-	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<div class="item" on:click={() => (showSearchModal = true)}>
+	<button class="item" on:click={() => (showSearchModal = true)}>
 		<div class="background" />
 		<div class="icon">
 			<Search />
 		</div>
 		Search
-	</div>
+	</button>
 	<a
 		href="/more"
 		class="item"
@@ -89,6 +88,10 @@
 			align-items: center;
 			gap: 5px;
 			cursor: pointer;
+			border: none;
+			font-family: inherit;
+			appearance: none;
+			background-color: transparent;
 
 			.background {
 				position: absolute;

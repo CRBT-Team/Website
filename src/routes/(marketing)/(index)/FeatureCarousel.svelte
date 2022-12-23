@@ -21,20 +21,16 @@
 					});
 					scrollFinished = true;
 				} else {
-					if (scrollFinished) {
-						setTimeout(() => {
+					setTimeout(
+						() => {
 							features?.scrollBy({
-								left: 20,
+								left: 30,
 								behavior: 'smooth'
 							});
 							scrollFinished = false;
-						}, 700);
-					} else {
-						features?.scrollBy({
-							left: 20,
-							behavior: 'smooth'
-						});
-					}
+						},
+						scrollFinished ? 700 : 0
+					);
 				}
 			}
 		}, 100);
@@ -43,9 +39,10 @@
 	});
 </script>
 
+<h1 class="section-title">And many more!</h1>
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
-	class="features"
+	class="feature-carousel"
 	bind:this={features}
 	on:mouseenter={() => (scrolling = false)}
 	on:mouseleave={() => (scrolling = true)}
@@ -69,11 +66,16 @@
 </div>
 
 <style lang="scss">
-	.features {
+	.section-title {
+		text-align: center;
+	}
+
+	.feature-carousel {
 		justify-content: start;
 		display: flex;
 		overflow-x: hidden;
 		gap: 20px;
+		padding-top: 0px;
 
 		.card {
 			width: 250px;

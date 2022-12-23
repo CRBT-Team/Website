@@ -45,12 +45,13 @@
 			margin: 60px 40px;
 
 			.tagline {
-				font-size: 3.75rem;
+				font-size: 3.5rem;
 				margin: 0;
 			}
 
 			.descriptive-text {
-				font-size: 1.4rem;
+				font-size: 1.2rem;
+				color: var(--color-on-surface);
 			}
 
 			.buttons {
@@ -63,7 +64,7 @@
 
 	@media (max-width: 800px) {
 		.tagline {
-			font-size: 3rem !important;
+			font-size: 2.5rem !important;
 		}
 	}
 </style>

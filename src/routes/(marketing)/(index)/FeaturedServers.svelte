@@ -3,8 +3,8 @@
 </script>
 
 <div class="servers">
-	<h2>
-		Empowering the <span class="emphasis-primary">best communities</span>.
+	<h2 class="section-title">
+		Empowering the <span class="emphasis-primary">best communities on Discord</span>.
 	</h2>
 	<ul class="server-list">
 		{#each servers as server}
@@ -35,6 +35,7 @@
 		.server-list {
 			gap: 10px;
 			display: flex;
+			padding: 0;
 		}
 
 		.server {
@@ -102,6 +103,10 @@
 	@media (max-width: 860px) {
 		.servers {
 			flex-direction: column;
+
+			.section-title {
+				text-align: center;
+			}
 		}
 	}
 </style>

@@ -3,6 +3,7 @@
 	import type { APIUser } from 'discord-api-types/v10';
 	import { onMount } from 'svelte';
 	import Button from '$lib/components/Button.svelte';
+	import Discord from '$lib/svg/brands/discord.svelte';
 
 	let solidNavBar = false;
 
@@ -17,21 +18,24 @@
 <svelte:window on:scroll={solidify} />
 
 <nav class="navbar-desktop" class:solid={solidNavBar}>
-	<a href="/" class="side">
+	<a href="/" class="logo">
 		<Wordmark />
 	</a>
 
 	<div class="items">
-		<a href="/features" class="item">Features</a>
+		<a href="#features" class="item">Features</a>
 		<a href="/donate" class="item">Donate</a>
 		<a href="/docs" class="item">Docs</a>
 	</div>
 
-	<div class="side">
+	<div class="button">
 		{#if user}
 			<Button href="/dashboard">Dashboard</Button>
 		{:else}
-			<Button href="/login">Login</Button>
+			<Button href="/invite">
+				<Discord slot="icon" />
+				Add to Discord
+			</Button>
 		{/if}
 	</div>
 </nav>
@@ -49,22 +53,8 @@
 		left: 0;
 		z-index: 1;
 
-		// &.showonscroll {
-		// 	opacity: 0;
-		// 	position: fixed;
-
-		// 	> * {
-		// 		transition: transform 0.2s ease;
-		// 		transform: translateY(50px);
-		// 	}
-		// }
-
-		// &:not(.showonscroll) {
-		//   position: sticky;
-		// }
-
 		background-color: rgb(0 0 0 / 0);
-		transition: background 0.2s, opacity 0.2s, transform 0.2s ease-in-out;
+		transition: background-color 0.2s, opacity 0.2s, transform 0.2s ease-in-out;
 
 		.items {
 			display: flex;
@@ -86,25 +76,21 @@
 			}
 		}
 
-		.side {
-			padding: 0px;
-			width: 100px;
+		.logo {
+			width: 200px;
+			:global(svg) {
+				width: 120px;
+			}
+		}
+
+		.button {
+			width: 200px;
 			display: flex;
 			align-items: flex-end;
 		}
 
 		&.solid {
 			background-color: var(--color-surface);
-
-			// &.showonscroll {
-			// 	transition: opacity 0.2s;
-			// 	opacity: 1;
-
-			// 	> * {
-			// 		transition: transform 0.2s ease 0.1s;
-			// 		transform: translateY(0);
-			// 	}
-			// }
 		}
 	}
 
