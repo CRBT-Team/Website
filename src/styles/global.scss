@@ -91,3 +91,7 @@ html {
 .emphasis-primary {
 	color: var(--color-primary);
 }
+
+body.prevent-scroll {
+	overflow: hidden;
+}
