@@ -63,6 +63,12 @@
     "type": "DEPENDENCY"
   },
   {
+    "name": "Fluent Emojis",
+    "author": "Microsoft",
+    "url": "https://github.com/microsoft/fluentui-emoji",
+    "type": "MANUAL_CREDIT"
+  },
+  {
     "name": "prettier",
     "version": "2.8.0",
     "license": "MIT",
