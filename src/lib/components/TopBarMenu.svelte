@@ -19,21 +19,24 @@
 
 <svelte:window on:scroll={solidify} />
 
-<!-- <div class="topbar-header"> -->
-<div class="topbar" class:solid style="--scroll:{solid ? scrollPercentage : 0}">
-	{#if showBackBtn}
-		<Back href={btnHref} />
-	{/if}
-	<div class="topbar-header">{text}</div>
-</div>
+<div class="topbar-header">
+	<div class="topbar" class:solid style="--scroll:{solid ? scrollPercentage : 0}">
+		{#if showBackBtn}
+			<Back href={btnHref} />
+		{/if}
+		<div class="topbar-header">{text}</div>
+	</div>
 
-<h1 class="top-header-text" style="--scroll:{scrollPercentage}">{text}</h1>
+	<h1 class="top-header-text" style="--scroll:{scrollPercentage}">
+		<slot />
+	</h1>
+</div>
 
 <!-- </div> -->
 <style lang="scss">
-	// .topbar-header {
 	.topbar {
-		position: sticky;
+		position: fixed;
+		opacity: var(--scroll);
 		top: 0;
 		left: 0;
 		width: 100%;
@@ -41,13 +44,11 @@
 		transition: background-color 0.2s, opacity 0.2s;
 		display: flex;
 		align-items: center;
-		overflow: hidden;
-		margin-bottom: 3.8rem;
-
 		.topbar-header {
-			font-size: 1.6rem;
-			opacity: var(--scroll);
+			padding: 2rem 0;
 		}
+		margin-bottom: 3.8rem;
+		font-size: 1.6rem;
 
 		&.solid {
 			color: var(--color-on-surface);
@@ -62,9 +63,19 @@
 	.top-header-text {
 		font-size: 3rem;
 		font-weight: 400;
-		padding: 20px;
-		margin-bottom: 0.5rem;
+		margin-bottom: 1rem;
+		margin-top: 8rem;
 		opacity: calc(1 - var(--scroll));
 	}
-	// }
+
+	@media (min-width: 800px) {
+		.topbar {
+			display: none;
+		}
+
+		.top-header-text {
+			margin-top: 2rem;
+			opacity: 1;
+		}
+	}
 </style>
