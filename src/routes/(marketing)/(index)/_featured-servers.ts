@@ -10,7 +10,7 @@ export interface FeaturedServer {
 export const servers: FeaturedServer[] = [
 	{
 		id: '738747595438030888',
-		iconUrl: '/assets/logos/clembs.png',
+		iconUrl: '/assets/avatars/clembs.png',
 		inviteCode: '6uNwP46',
 		name: 'Clembs Server',
 		category: 'Coding & Gaming',

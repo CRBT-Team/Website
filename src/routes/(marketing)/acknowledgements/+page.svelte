@@ -1,78 +1,93 @@
 <script lang="ts">
+	export const prerender = true;
+
 	import Button from '$lib/components/Button.svelte';
 	import MetaTags from '$lib/components/MetaTags.svelte';
-	import Section from '$lib/components/Section.svelte';
-	import { trimURL } from '$lib/util/functions/trimURL';
-	import { ExternalLink } from 'lucide-svelte';
-	import { credits, CRBTTeam } from './_credits';
+	import TopBarMenu from '$lib/components/TopBarMenu.svelte';
+	import { Heart } from 'lucide-svelte';
+	import PersonCredit from './PersonCredit.svelte';
+	import { CRBTTeam, supporters, localization, specialThanks } from './_credits';
 </script>
 
-<MetaTags title="Credits" description="People who made CRBT what it is today." />
+<MetaTags title="Acknowledgements" description="People who shaped CRBT" />
 
-<Section align="center">
-	<h1 style="font-size:xx-large;">The people that <span class="pink">shaped CRBT</span>.</h1>
-	<p>
-		CRBT sure would not have been this great if it wasn't for the incredible help and support of
-		these people.
-	</p>
-</Section>
-<Section align="center" className="group">
-	<table class="list">
-		{#each [...CRBTTeam, ...credits] as member}
-			<tr class="item">
-				<td class="profile">
-					<!-- <img src={member.pfp ?? '/assets/default_pfp.svg'} alt={member.name} /> -->
-					<h4>{member.name}</h4>
-				</td>
-				<td class="description">
-					{@html member.roles?.replace('Supporter', '<a href="/donate">Supporter</a>') ?? ''}
-				</td>
-				<!-- <td class="linkbutton">
-					{#if member.url}
-						<Button inline href={member.url}><ExternalLink />{trimURL(member.url)}</Button>
-					{/if}
-				</td> -->
-			</tr>
-		{/each}
-	</table>
-</Section>
+<main>
+	<div class="header">
+		<TopBarMenu showBackBtn text="Credits">
+			The people who <span class="emphasis-primary">shaped CRBT</span>.
+		</TopBarMenu>
+		CRBT surely would not have been this great if it wasn't for the incredible help and support of these
+		people, and for the existence of these tools.
+	</div>
+	<section>
+		<h2>The CRBT Team</h2>
+		<p>The main developers and founders of CRBT.</p>
+		<div class="list">
+			{#each CRBTTeam as person}
+				<PersonCredit {person} />
+			{/each}
+		</div>
+	</section>
+	<section>
+		<h2>Supporters</h2>
+		<p>
+			People who have donated to Clembs in the past, or who are actively still supporting the
+			project!
+		</p>
+		<div class="list">
+			{#each supporters as person}
+				<PersonCredit minimal {person} />
+			{/each}
+			<Button style="secondary" inline href="/donate">
+				<Heart slot="icon" />
+				Donate
+			</Button>
+		</div>
+	</section>
+
+	<section>
+		<h2>Localization team</h2>
+		<p>People that actively help us to bring CRBT into many languages and cultures. ありがとう!</p>
+		<div class="list">
+			{#each localization as person}
+				<PersonCredit minimal {person} />
+			{/each}
+		</div>
+	</section>
+
+	<section>
+		<h2>Special thanks</h2>
+		<p>
+			People that were involved a lot in the project or helped with miscellaneous things like art.
+		</p>
+		<div class="list">
+			{#each Object.entries(specialThanks).map(([name, url]) => ({ name, url })) as person}
+				<PersonCredit minimal {person} />
+			{/each}
+		</div>
+	</section>
+</main>
 
 <style lang="scss">
-	.list {
-		max-width: max-content;
-	}
-
-	.item {
-		background-color: var(--color-surface);
-		color: var(--color-on-surface);
-		border-radius: var(--border-radius-medium);
+	.header {
 		display: flex;
-		flex-wrap: wrap;
-		margin-top: 10px;
-		// flex-direction: column;
-		align-items: center;
-		text-align: left;
-		padding: 0.7rem;
-
-		.profile {
-			display: flex;
-			flex-wrap: wrap;
-			align-items: center;
-			gap: 1rem;
-			// margin-right: auto;
-			img {
-				border-radius: 50%;
-				height: 45px;
-				width: 45px;
-				object-fit: cover;
-				image-rendering: optimizeSpeed;
-			}
-		}
+		flex-direction: column;
+		gap: 2rem;
+		margin: 0 auto;
 	}
 
-	@media (max-width: 800px) {
-		.item {
-			gap: 0.5rem;
-		}
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin: 3rem 0;
+	}
+
+	.list {
+		display: grid;
+		width: 100%;
+		height: 100%;
+		gap: 1rem;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	}
 </style>
