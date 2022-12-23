@@ -4,7 +4,7 @@
 
 <div class="servers">
 	<h2 class="section-title">
-		Empowering the <span class="emphasis-primary">best communities on Discord</span>.
+		Discord's <span class="emphasis-primary">best communities</span> use CRBT.
 	</h2>
 	<ul class="server-list">
 		{#each servers as server}
@@ -30,10 +30,11 @@
 		background-color: var(--color-surface);
 		align-items: center;
 		justify-content: space-around;
-		gap: 20px;
+		gap: 2rem;
+		padding: 2rem;
 
 		.server-list {
-			gap: 10px;
+			gap: 1rem;
 			display: flex;
 			padding: 0;
 		}
