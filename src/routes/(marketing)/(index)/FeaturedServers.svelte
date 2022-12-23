@@ -33,6 +33,10 @@
 		gap: 2rem;
 		padding: 2rem;
 
+		.section-title {
+			margin: 0;
+		}
+
 		.server-list {
 			gap: 1rem;
 			display: flex;

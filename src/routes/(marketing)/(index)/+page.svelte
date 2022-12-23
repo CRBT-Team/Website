@@ -88,7 +88,6 @@
 
 		> :global(*) {
 			width: 100%;
-			// max-width: 70rem;
 		}
 
 		.main-features {

@@ -34,6 +34,10 @@
 		text-align: center;
 		gap: 0.8rem;
 
+		h2 {
+			margin: 0;
+		}
+
 		&.minimal {
 			flex-direction: row;
 			text-align: left;

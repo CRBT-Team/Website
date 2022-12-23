@@ -38,7 +38,7 @@
 			{#each supporters as person}
 				<PersonCredit minimal {person} />
 			{/each}
-			<Button style="secondary" inline href="/donate">
+			<Button style="secondary" href="/donate">
 				<Heart slot="icon" />
 				Donate
 			</Button>
@@ -77,9 +77,6 @@
 	}
 
 	section {
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
 		margin: 3rem 0;
 	}
 

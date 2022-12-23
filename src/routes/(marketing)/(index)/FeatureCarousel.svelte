@@ -73,10 +73,6 @@
 </div>
 
 <style lang="scss">
-	.features-wrapper {
-		padding: 2rem 0;
-	}
-
 	.section-title {
 		text-align: center;
 		margin-bottom: 20px;
@@ -99,7 +95,6 @@
 			width: 22rem;
 			display: flex;
 			flex-direction: column;
-			gap: 0.8rem;
 
 			h3 {
 				font-size: 1.5rem;
