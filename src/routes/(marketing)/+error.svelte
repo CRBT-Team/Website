@@ -1,28 +1,14 @@
-<script context="module" lang="ts">
-	export const load = ({ status, error }) => {
-		return {
-			props: {
-				status,
-				...error
-			}
-		};
-	};
-</script>
-
 <script lang="ts">
 	import MetaTags from '$lib/components/MetaTags.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import { Home } from 'lucide-svelte';
 	import Section from '$lib/components/Section.svelte';
-
-	export let status: number;
-	export let message: string;
-	export let stack: string;
+	import { page } from '$app/stores';
 </script>
 
 <Section align="center">
 	<div>
-		{#if status === 404}
+		{#if $page.status === 404}
 			<MetaTags title="Not found" />
 
 			<h1>Page not found</h1>
@@ -33,12 +19,12 @@
 		{:else}
 			<MetaTags title="Error" />
 
-			<h1>{status}</h1>
+			<h1>{$page.status}</h1>
 
 			<h2>
-				<pre>{message}</pre>
+				<pre>{$page.error.message}</pre>
 			</h2>
-			<pre>{stack}</pre>
+			<pre>{String($page.error)}</pre>
 		{/if}
 	</div>
 </Section>
