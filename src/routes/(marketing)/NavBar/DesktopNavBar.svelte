@@ -66,6 +66,7 @@
 			display: flex;
 			height: 100%;
 			align-items: center;
+			text-decoration: none;
 
 			padding: 15px;
 			border-radius: var(--border-radius-medium);

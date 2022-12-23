@@ -3,10 +3,8 @@
 </script>
 
 {#if href}
-	<a {href}>
-		<div class="card" {...$$restProps} on:click>
-			<slot />
-		</div>
+	<a {href} class="card" {...$$restProps} on:click>
+		<slot />
 	</a>
 {:else}
 	<div class="card" {...$$restProps} on:click>

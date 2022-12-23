@@ -117,6 +117,7 @@
 			font-size: 1.2rem;
 			display: flex;
 			flex-direction: column;
+			text-decoration: none;
 			align-items: center;
 			gap: 5px;
 			cursor: pointer;

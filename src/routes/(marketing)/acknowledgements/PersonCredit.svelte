@@ -25,6 +25,10 @@
 </Card>
 
 <style lang="scss">
+	:global(.card) {
+		text-decoration: none;
+	}
+
 	.item {
 		color: var(--color-on-surface);
 		border-radius: var(--border-radius-medium);
