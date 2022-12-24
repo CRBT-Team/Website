@@ -2,7 +2,8 @@
 	import { page } from '$app/stores';
 
 	export let title: string = undefined;
-	export let description: string = undefined;
+	export let description: string =
+		"Quit the hassle with all of your different bots. CRBT does it all in a simple, powerful and efficient solution that's easy to set up. Make your server the best version of itself thanks to CRBT's features: Moderation, Utilities, Polls, Giveaways, Economy, and so on... What are you waiting for?";
 	export let image: string = '/banner.png';
 	export let thumbnail: string = undefined;
 
