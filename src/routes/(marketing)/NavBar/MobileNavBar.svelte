@@ -5,6 +5,7 @@
 	import TextField from '$lib/components/TextField.svelte';
 	import CRBT from '$lib/svg/crbt.svelte';
 	import { Menu, Search } from 'lucide-svelte';
+	// import { onMount } from 'svelte';
 	import Links from '../WebsiteLink/Links.svelte';
 
 	type Tab = 'home' | 'more';
@@ -12,6 +13,7 @@
 	let selectedTab: Tab = 'home';
 	let searchValue = '';
 	let showSearchModal = false;
+	// let scrolled = false;
 
 	page.subscribe(({ url: { pathname } }) => {
 		console.log(page);
@@ -31,7 +33,13 @@
 		}
 		showSearchModal = !showSearchModal;
 	}
+
+	// const scroll = () => (scrolled = document.scrollingElement.scrollTop > 5);
+
+	// onMount(scroll);
 </script>
+
+<!-- <svelte:window on:scroll={scroll} /> -->
 
 {#if showSearchModal}
 	<Modal title="Search" on:close={toggleSearch}>

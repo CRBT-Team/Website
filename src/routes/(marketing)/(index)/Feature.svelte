@@ -29,7 +29,7 @@
 		gap: 4rem;
 		max-width: 100rem;
 		align-items: center;
-		transition: transform 0.3s ease-in, opacity 0.2s ease-in;
+		transition: transform 0.4s ease-out, opacity 0.2s ease-out;
 		opacity: 0;
 		transform: translateY(10rem);
 
