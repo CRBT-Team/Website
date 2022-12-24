@@ -23,6 +23,7 @@
 		.link {
 			display: flex;
 			align-items: center;
+			text-decoration: none;
 			font-size: 1.1rem;
 			.icon {
 				padding: 1.5rem 1.5rem 1.5rem 0;
