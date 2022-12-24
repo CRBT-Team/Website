@@ -8,8 +8,11 @@ body {
 	font-size: var(--body-medium-font-size);
 	font-family: var(--body-medium-font-family);
 	font-weight: var(--body-medium-font-weight);
-	background-color: var(--color-background);
 	color: var(--color-on-background);
+}
+
+.root {
+	background-color: var(--color-background);
 }
 
 ::selection {

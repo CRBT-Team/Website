@@ -6,7 +6,7 @@
 
 <MetaTags
 	title="Terms of Service"
-	description="Read about the CRBT service, and the agreement to the terms of use."
+	description="Read about the CRBT service and its terms of use."
 />
 
 <main>

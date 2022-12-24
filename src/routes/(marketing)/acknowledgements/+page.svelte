@@ -9,11 +9,11 @@
 	import { CRBTTeam, supporters, localization, specialThanks } from './_credits';
 </script>
 
-<MetaTags title="Acknowledgements" description="People who shaped CRBT" />
+<MetaTags title="Acknowledgements" description="The people who shaped CRBT" />
 
 <main>
 	<div class="header">
-		<TopBarMenu showBackBtn text="Credits">
+		<TopBarMenu showBackBtn text="Acknowledgements">
 			The people who <span class="emphasis-primary">shaped CRBT</span>.
 		</TopBarMenu>
 		CRBT surely would not have been this great if it wasn't for the incredible help and support of these

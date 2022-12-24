@@ -3,17 +3,16 @@
 
 	export let title: string = undefined;
 	export let description: string = undefined;
-	export let image: string = undefined;
-	export let thumbnail: string = '/assets/logos/crbt.png';
+	export let image: string = '/banner.png';
+	export let thumbnail: string = undefined;
 
 	let tags = {
 		site_name: 'CRBT',
-		title: title ? `CRBT - ${title}` : 'CRBT - The perfect just-about-anything Discord app.',
+		title: title ? `${title} - CRBT` : 'CRBT | The perfect just-about-anything Discord app.',
 		description,
 		baseUrl: $page.url.host,
 		thumbnail: image ? undefined : thumbnail,
-		image,
-		color: '#F17188'
+		image
 	};
 </script>
 
@@ -23,7 +22,6 @@
 	<meta name="title" content={tags.title} />
 	{#if description} <meta name="description" content={tags.description} /> {/if}
 	<meta name="copyright" content="&copy;{new Date().getFullYear()} CRBT" />
-	<meta name="theme-color" content={tags.color} />
 	<!-- Google index -->
 	<meta name="”robots”" content="”follow,index”" />
 	<meta name="”googlebot”" content="”follow,index”" />
@@ -43,6 +41,5 @@
 	<meta name="twitter:image" content={tags.image ?? tags.thumbnail} />
 	<!-- Icons -->
 	<meta name="image" content={tags.image ?? tags.thumbnail} />
-	<link rel="icon" type="image/png" href={tags.thumbnail} />
 	<link rel="apple-touch-icon" href={tags.thumbnail} />
 </svelte:head>

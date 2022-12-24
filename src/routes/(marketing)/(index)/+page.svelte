@@ -49,9 +49,9 @@
 		/>
 		<Feature
 			featureName="Polls, Giveaways, Role Pickers"
-			title="Create delightful experience for your users."
+			title="Create delightful experiences for your users."
 			description="CRBT includes brilliantly crafted tools to help you interact with your community, like gathering their opinion with dynamic Polls, or rewarding them with Giveaways."
-			imageUrl="/assets/welcome.svg"
+			imageUrl="/assets/main-features.svg"
 			position="right"
 		/>
 		<Feature
