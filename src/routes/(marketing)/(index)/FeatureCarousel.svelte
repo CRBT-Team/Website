@@ -2,6 +2,7 @@
 	import Card from '$lib/components/Card.svelte';
 	import { onMount } from 'svelte';
 
+	let previousTimestamp: number;
 	let featureCarousel: Element;
 	let scrolling = true;
 	let scrollFinished = false;
@@ -9,10 +10,16 @@
 	import { marketingFeatures } from './_features';
 
 	onMount(() => {
-		const interval = setInterval(() => {
-			let currentScroll = featureCarousel?.scrollLeft + document.body.scrollWidth;
-			let maxScroll = featureCarousel?.scrollWidth;
+		function scrollCarousel(timestamp: number) {
+			// if (!previousTimestamp) {
+			// 	previousTimestamp = timestamp;
+			// }
+			// const elapsed = timestamp - previousTimestamp;
+			const scrollingSpeed = 1;
+			const currentScroll = featureCarousel?.scrollLeft + document.body.scrollWidth;
+			const maxScroll = featureCarousel?.scrollWidth;
 
+			// previousTimestamp = timestamp;
 			if (scrolling) {
 				if (currentScroll >= maxScroll) {
 					featureCarousel?.scrollTo({
@@ -20,26 +27,22 @@
 						behavior: 'smooth'
 					});
 					scrollFinished = true;
+					setTimeout(() => {
+						featureCarousel.scrollLeft += scrollingSpeed;
+						scrollFinished = false;
+					}, 700);
 				} else {
-					if (scrollFinished) {
-						setTimeout(() => {
-							featureCarousel?.scrollBy({
-								left: 30,
-								behavior: 'smooth'
-							});
-							scrollFinished = false;
-						}, 700);
-					} else {
-						featureCarousel?.scrollBy({
-							left: 30,
-							behavior: 'smooth'
-						});
+					if (!scrollFinished) {
+						featureCarousel.scrollLeft += scrollingSpeed;
 					}
 				}
 			}
-		}, 100);
 
-		return () => clearInterval(interval);
+			requestAnimationFrame(scrollCarousel);
+		}
+		const animate = requestAnimationFrame(scrollCarousel);
+
+		return () => cancelAnimationFrame(animate);
 	});
 </script>
 
