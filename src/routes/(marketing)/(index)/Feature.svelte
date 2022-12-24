@@ -7,7 +7,7 @@
 </script>
 
 <div class="feature {position}">
-	<img class="image" alt={title} src={imageUrl} />
+	<img class="image" alt={title} src={imageUrl} loading="lazy" />
 
 	<div class="feature-content">
 		<span class="feature-name">{featureName}</span>

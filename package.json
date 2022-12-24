@@ -2,6 +2,7 @@
 	"name": "crbt-website",
 	"version": "3.0.0",
 	"private": true,
+	"license": "GPL-3.0",
 	"type": "module",
 	"scripts": {
 		"build": "prisma generate && vite build",
