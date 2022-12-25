@@ -65,6 +65,8 @@
 		background-color: var(--button-bg);
 		gap: 1rem;
 		width: 100%;
+		border: none;
+		font-family: inherit;
 		padding: 1rem 0;
 		height: min-content;
 		border-radius: var(--border-radius-medium);

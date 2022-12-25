@@ -16,7 +16,6 @@
 	// let scrolled = false;
 
 	page.subscribe(({ url: { pathname } }) => {
-		console.log(page);
 		if (pathname.endsWith('/')) selectTab('home');
 		if (pathname.endsWith('more')) selectTab('more');
 	});

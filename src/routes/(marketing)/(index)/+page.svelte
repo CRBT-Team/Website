@@ -58,14 +58,14 @@
 			featureName="Utilities & Automation"
 			title="Get work done faster, within Discord."
 			description="The Discord bot integrates a few helpful commands to get information quickly. The Search command allows browsing the Internet with the people you're chatting with, while Reminders can be great to plan the work ahead."
-			imageUrl="/assets/welcome.svg"
+			imageUrl="/assets/utilities.svg"
 			position="left"
 		/>
 		<Feature
 			featureName="Privacy first"
 			title="Because you don't have to be the product."
 			description="We have a clear goal to make our data collection policies transparent, and we give you the tools to change how we operate for you. And because your data is yours, you're free to download or erase everything whenever you want."
-			imageUrl="/assets/welcome.svg"
+			imageUrl="/assets/privacy.svg"
 			position="right"
 		/>
 	</div>
