@@ -18,10 +18,13 @@ export const rateLimitError = (retryAfter: number) =>
 		429
 	);
 
-export const invalidBody = (missingProp: string) => ({
-	status: 400,
-	body: {
-		error: 'Invalid body',
-		details: `Missing property: ${missingProp}`
-	}
-});
+export const invalidBody = (missingProp: string | string[]) =>
+	formatError(
+		{
+			error: 'Invalid body',
+			details: `Missing ${typeof missingProp === 'string' ? 'property' : 'properties'} : ${
+				typeof missingProp === 'string' ? missingProp : missingProp.join(', ')
+			}`
+		},
+		400
+	);
