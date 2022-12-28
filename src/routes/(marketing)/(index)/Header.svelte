@@ -18,11 +18,8 @@
 		<div class="buttons">
 			<AddToDiscord />
 
-			<Button
-				inline
-				on:click={() => document.querySelector('.content').scrollIntoView(true)}
-				style="link"
-			>
+			<!-- on:click={() => document.querySelector('.content').scrollIntoView(true)} -->
+			<Button inline href="#features" style="link">
 				<ChevronDown slot="icon" />
 				See features
 			</Button>

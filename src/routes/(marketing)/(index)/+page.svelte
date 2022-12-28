@@ -39,6 +39,9 @@
 <div class="content">
 	<FeaturedServers />
 
+	<!-- svelte-ignore a11y-missing-content -->
+	<a name="features" />
+
 	<div bind:this={mainFeatures} class="main-features">
 		<Feature
 			featureName="Welcome & Farewell messages"

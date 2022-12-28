@@ -23,7 +23,7 @@
 	</a>
 
 	<div class="items">
-		<a href="#features" class="item">Features</a>
+		<a href="/#features" class="item">Features</a>
 		<a href="/donate" class="item">Donate</a>
 		<a href="/docs" class="item">Docs</a>
 	</div>
