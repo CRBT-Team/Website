@@ -14,5 +14,6 @@
 		height: var(--size);
 		object-fit: cover;
 		border-radius: 2rem;
+		max-width: max-content;
 	}
 </style>

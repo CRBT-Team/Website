@@ -2,6 +2,7 @@
 	import AddToDiscord from '$lib/components/AddToDiscord.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import { ChevronDown } from 'lucide-svelte';
+	import AppDemo from './AppDemo.svelte';
 </script>
 
 <header class="hero-header">
@@ -25,23 +26,21 @@
 			</Button>
 		</div>
 	</div>
+
+	<AppDemo />
 </header>
 
 <style lang="scss">
 	.hero-header {
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
 		align-items: center;
+		margin: 5rem 3.5rem;
 
 		.hero-content {
 			display: flex;
-			justify-content: center;
-			align-items: center;
 			flex-direction: column;
 			gap: 2.5rem;
-			max-width: 40rem;
-			text-align: center;
-			margin: 5rem 3.5rem;
 
 			.tagline {
 				font-size: 3.5rem;
@@ -62,6 +61,10 @@
 	}
 
 	@media (max-width: 800px) {
+		.hero-header {
+			flex-direction: column;
+		}
+
 		.tagline {
 			font-size: 2.5rem !important;
 		}

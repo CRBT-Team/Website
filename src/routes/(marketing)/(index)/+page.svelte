@@ -40,9 +40,9 @@
 	<FeaturedServers />
 
 	<!-- svelte-ignore a11y-missing-content -->
-	<a name="features" />
+	<!-- <a name="features" /> -->
 
-	<div bind:this={mainFeatures} class="main-features">
+	<div id="features" bind:this={mainFeatures} class="main-features">
 		<Feature
 			featureName="Welcome & Farewell messages"
 			title="Wave hi to your new Discord members!"

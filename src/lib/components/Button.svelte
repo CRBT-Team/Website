@@ -2,15 +2,21 @@
 	export let inline = false;
 	export let href: string = '';
 	export let style: 'primary' | 'secondary' | 'tertiary' | 'link' = 'primary';
+	export let disabled = false;
 </script>
 
-{#if href}
-	<a class="button {style}" class:inline {href}>
+{#if disabled}
+	<div class="button {style}" class:disabled class:inline>
+		<slot name="icon" />
+		<slot />
+	</div>
+{:else if href}
+	<a class="button {style}" class:disabled class:inline {href}>
 		<slot name="icon" />
 		<slot />
 	</a>
 {:else}
-	<button class="button {style}" class:inline on:click on:submit>
+	<button class="button {style}" class:disabled class:inline on:click on:submit>
 		<div class="icon">
 			<slot name="icon" />
 		</div>
@@ -38,6 +44,10 @@
 			--button-bg-hover: var(--color-tertiary-container);
 			--button-text-hover: var(--color-on-tertiary-container);
 		}
+		&.disabled {
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
 		&.link {
 			--button-bg: transparent;
 			--button-text: var(--color-secondary);
@@ -46,7 +56,7 @@
 
 			padding: 0.5rem 1rem !important;
 			gap: 0.5rem;
-			&:hover {
+			&:hover:not(.disabled) {
 				box-shadow: 0px 0px 0px;
 				background-color: var(--button-bg-hover);
 				color: var(--button-text-hover);
@@ -79,7 +89,7 @@
 		transition: box-shadow 0.2s ease-in-out;
 		box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 0px;
 
-		&:hover {
+		&:hover:not(.disabled) {
 			transition: box-shadow 0.2s ease-in-out;
 			box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 6px;
 		}
