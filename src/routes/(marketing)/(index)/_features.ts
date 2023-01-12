@@ -56,11 +56,5 @@ export const marketingFeatures: Feature[] = [
 		description:
 			"Get reminded about a message, a command's cooldown and everything in between, and manage them with ease.",
 		icon: BellRing
-	},
-	{
-		name: 'Achievements',
-		description:
-			"Get reminded about a message, a command's cooldown and everything in between, and manage them with ease.",
-		icon: Trophy
 	}
 ];

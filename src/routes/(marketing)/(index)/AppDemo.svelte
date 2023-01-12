@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Avatar from '$lib/components/Avatar.svelte';
 	import Button from '$lib/components/Button.svelte';
-	import { PlusCircle, RefreshCw, Send } from 'lucide-svelte';
+	import { PlusCircle, RefreshCw, Send, Smile } from 'lucide-svelte';
 
 	const commands = [
 		{
@@ -11,12 +11,17 @@
 		{
 			name: 'search',
 			description: 'Search something on the web.'
+		},
+		{
+			name: 'settings',
+			description: 'Set up CRBT for your server.'
 		}
 	] as const;
 	type Command = typeof commands[number]['name'];
 	let selectedCommand: Command;
 	let commandInUse: Command;
 	let demoOver = false;
+	let focusedCommandId = 0;
 
 	function sendCommand() {
 		commandInUse = selectedCommand;
@@ -31,22 +36,43 @@
 		commandInUse = null;
 		demoOver = false;
 	}
+
+	function handleFocus(ev: KeyboardEvent) {
+		console.log(ev.code);
+		if (ev.code === 'ArrowUp' && focusedCommandId === 0) {
+			focusedCommandId -= 1;
+		}
+		if (ev.code === 'ArrowDown' && focusedCommandId !== commands.length - 1) {
+			focusedCommandId += 1;
+		}
+	}
 </script>
 
 <svelte:body
-	on:keypress={(e) => {
-		if (e.code === 'Enter' && selectedCommand) {
-			sendCommand();
-		}
+	on:keydown={(e) => {
+		if (e.code === 'Enter') {
+			if (selectedCommand) {
+				sendCommand();
+			} else {
+				selectedCommand = commands[focusedCommandId].name;
+			}
+		} else handleFocus(e);
 	}}
 />
 
 <div class="app-demo-wrapper">
 	<div class="app-demo">
+		<div class="messages" />
 		{#if !selectedCommand && !commandInUse}
 			<ul class="commands">
-				{#each commands as command}
-					<li on:click={() => (selectedCommand = command.name)} class="command">
+				CRBT
+				{#each commands as command, i}
+					<!-- svelte-ignore a11y-click-events-have-key-events -->
+					<div
+						on:click={() => (selectedCommand = command.name)}
+						class="command"
+						aria-selected={focusedCommandId === i}
+					>
 						<Avatar alt="CRBT" src="/assets/logos/crbt.png" size="24px" />
 						<div class="meta">
 							<div class="command-name">
@@ -56,10 +82,11 @@
 								{command.description}
 							</div>
 						</div>
-					</li>
+					</div>
 				{/each}
 			</ul>
 		{/if}
+
 		<div class="chat-box">
 			<div class="icon" class:disabled={!selectedCommand}>
 				{#if selectedCommand}
@@ -73,9 +100,12 @@
 					/{selectedCommand ?? ''}
 				{/if}
 			</div>
-			<div on:click={sendCommand} class="icon" class:disabled={!selectedCommand}>
-				<Send />
+			<div class="icon disabled">
+				<Smile />
 			</div>
+			<button class="icon" on:click={sendCommand} class:disabled={!selectedCommand}>
+				<Send />
+			</button>
 		</div>
 	</div>
 
@@ -89,9 +119,15 @@
 		border-radius: var(--border-radius-medium);
 		border: 2px solid var(--color-surface);
 		width: 100%;
-		min-width: 300px;
+		min-width: 400px;
 		padding: 5px;
-		height: 200px;
+		height: 300px;
+		display: flex;
+		flex-direction: column;
+
+		.messages {
+			flex: 1;
+		}
 
 		.commands {
 			list-style: none;
@@ -109,6 +145,12 @@
 				display: flex;
 				gap: 10px;
 				align-items: center;
+				cursor: pointer;
+				border-radius: var(--border-radius-small);
+
+				.command-description {
+					opacity: 0.5;
+				}
 
 				&:hover {
 					background-color: var(--color-surface-variant);
@@ -117,26 +159,36 @@
 		}
 
 		.chat-box {
-			margin-top: auto;
-			padding: 10px;
+			padding: 5px;
 			display: flex;
-			justify-content: space-between;
+			justify-content: space-evenly;
 			align-items: center;
 			font-size: 1.1rem;
 			border-radius: var(--border-radius-small);
 			background-color: var(--color-surface);
+			color: var(--color-on-surface);
 			width: 100%;
 			gap: 5px;
 
 			.text-input {
 				width: 100%;
-				height: 100%;
 			}
 
 			.icon {
+				padding: 0.5rem;
+				border: none;
+				font-family: inherit;
+				background-color: var(--color-surface);
+				border-radius: var(--border-radius-small);
+
 				&.disabled {
 					cursor: not-allowed;
 					opacity: 0.5;
+				}
+
+				&:hover:not(.disabled) {
+					cursor: pointer;
+					background-color: var(--color-surface-variant);
 				}
 			}
 		}

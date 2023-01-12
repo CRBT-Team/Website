@@ -6,10 +6,10 @@
 </script>
 
 {#if disabled}
-	<div class="button {style}" class:disabled class:inline>
+	<button class="button {style}" class:disabled class:inline>
 		<slot name="icon" />
 		<slot />
-	</div>
+	</button>
 {:else if href}
 	<a class="button {style}" class:disabled class:inline {href}>
 		<slot name="icon" />
@@ -17,9 +17,7 @@
 	</a>
 {:else}
 	<button class="button {style}" class:disabled class:inline on:click on:submit>
-		<div class="icon">
-			<slot name="icon" />
-		</div>
+		<slot name="icon" />
 		<slot />
 	</button>
 {/if}

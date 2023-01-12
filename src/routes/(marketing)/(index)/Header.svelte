@@ -19,7 +19,6 @@
 		<div class="buttons">
 			<AddToDiscord />
 
-			<!-- on:click={() => document.querySelector('.content').scrollIntoView(true)} -->
 			<Button inline href="#features" style="link">
 				<ChevronDown slot="icon" />
 				See features
@@ -33,9 +32,10 @@
 <style lang="scss">
 	.hero-header {
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-evenly;
 		align-items: center;
 		margin: 5rem 3.5rem;
+		gap: 3rem;
 
 		.hero-content {
 			display: flex;
@@ -60,9 +60,15 @@
 		}
 	}
 
-	@media (max-width: 800px) {
+	@media (max-width: 900px) {
 		.hero-header {
 			flex-direction: column;
+
+			.hero-content {
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+			}
 		}
 
 		.tagline {

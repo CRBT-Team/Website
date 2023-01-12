@@ -27,7 +27,7 @@
 	.feature {
 		display: flex;
 		gap: 4rem;
-		max-width: 100rem;
+		max-width: 90rem;
 		align-items: center;
 		transition: transform 0.4s ease-out, opacity 0.2s ease-out;
 		opacity: 0;
@@ -40,7 +40,7 @@
 
 		.image {
 			max-width: 100%;
-			min-width: 40%;
+			min-width: 50%;
 		}
 
 		&.left {
@@ -63,8 +63,6 @@
 
 			.title {
 				font-size: 2.3rem;
-				margin-top: 1rem;
-				margin-bottom: 2rem;
 			}
 			.description {
 				font-size: 1.2rem;

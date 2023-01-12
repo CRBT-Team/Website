@@ -98,7 +98,13 @@
 			flex-direction: column;
 			gap: 5rem;
 			align-items: center;
-			padding: 3rem;
+			padding: 5rem;
+		}
+	}
+
+	@media (max-width: 800px) {
+		.main-features {
+			padding: 2rem !important;
 		}
 	}
 </style>
