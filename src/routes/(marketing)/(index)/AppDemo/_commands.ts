@@ -39,11 +39,17 @@ export const commands = new Map<
 			title: 'Web results for "CRBT Discord"',
 			fields: [
 				{
+					name: 'CRBT (@crbt_app) / Twitter',
+					value:
+						'**[🔒 twitter.com › crbt_app](https://twitter.com/crbt_app)**\nAhead of the launch of the Web Dashboard in the coming months, CRBT(dot)ga evolves into...'
+				},
+				{
 					name: 'CRBT | Discord Bot Labs',
 					value:
-						':locked: bots.discordlabs.org › bot › 595731552709771264\nCRBT The Discord companion made for you. CRBT aims to replace most of the bots you have in one modern and convienient experience, from get...'
+						'**[🔒 bots.discordlabs.org › bot › 595731552709771264](https://bots.discordlabs.org/bot/595731552709771264)**\nCRBT The Discord companion made for you. CRBT aims to replace most of the bots you have in one modern and convienient experience, from get...'
 				}
-			]
+			],
+			color: 15888775
 		}
 	})
 	.set(3, {

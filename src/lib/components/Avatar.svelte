@@ -9,11 +9,16 @@
 </div>
 
 <style lang="scss">
-	.avatar img {
+	.avatar {
 		width: var(--size);
 		height: var(--size);
-		object-fit: cover;
-		border-radius: 2rem;
-		max-width: max-content;
+
+		img {
+			width: var(--size);
+			height: var(--size);
+			object-fit: cover;
+			border-radius: 2rem;
+			max-width: max-content;
+		}
 	}
 </style>

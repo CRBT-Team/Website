@@ -2,7 +2,9 @@
 	import Avatar from '$lib/components/Avatar.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import Message from '$lib/components/discord/Message/Message.svelte';
+	import { MessageFlags } from 'discord-api-types/v10';
 	import { Gift, PlusCircle, RefreshCw, Send, Smile } from 'lucide-svelte';
+	import { slide } from 'svelte/transition';
 	import { commands } from './_commands';
 
 	let selectedCommandId: number;
@@ -13,10 +15,16 @@
 	function sendCommand() {
 		usedCommandId = selectedCommandId;
 		selectedCommandId = null;
-		setTimeout(() => {
-			isDemoOver = true;
-		}, 1000);
+		setTimeout(() => (isDemoOver = true), 1500);
 	}
+
+	const author = {
+		avatar: '08623d6756f476051146d9fb0f211da2',
+		username: 'CRBT',
+		discriminator: '0456',
+		bot: true,
+		id: '595731552709771264'
+	};
 
 	function resetDemo() {
 		selectedCommandId = null;
@@ -55,22 +63,27 @@
 	<div class="app-demo">
 		<div class="messages">
 			{#if usedCommandId}
-				<Message
-					message={{
-						author: {
-							avatar: '08623d6756f476051146d9fb0f211da2',
-							username: 'CRBT',
-							discriminator: '0456',
-							bot: true,
-							id: '595731552709771264'
-						},
-						embeds: [commands.get(usedCommandId).embed]
-					}}
-				/>
+				<div in:slide class="message">
+					{#await new Promise((resolve) => setTimeout(resolve, 1500))}
+						<Message
+							message={{
+								author,
+								flags: MessageFlags.Loading
+							}}
+						/>
+					{:then}
+						<Message
+							message={{
+								author,
+								embeds: [commands.get(usedCommandId).embed]
+							}}
+						/>
+					{/await}
+				</div>
 			{/if}
 		</div>
-		<div class="top-part" on:mouseenter={() => (focusedCommandId = null)}>
-			{#if !selectedCommandId && !usedCommandId}
+		{#if !selectedCommandId && !usedCommandId}
+			<div class="top-part" in:slide on:mouseenter={() => (focusedCommandId = null)}>
 				<div class="bot-profile">
 					<Avatar alt="CRBT" src="/assets/logos/crbt.png" size="20px" />
 					CRBT
@@ -94,7 +107,9 @@
 						<span class="command-description"> CRBT </span>
 					</div>
 				{/each}
-			{:else if selectedCommandId}
+			</div>
+		{:else if selectedCommandId}
+			<div class="top-part" in:slide>
 				<div class="command">
 					<div class="meta">
 						<span class="command-name">
@@ -105,8 +120,8 @@
 						</span>
 					</div>
 				</div>
-			{/if}
-		</div>
+			</div>
+		{/if}
 
 		<div class="chat-box">
 			<div class="icon" class:disabled={!selectedCommandId}>
@@ -139,25 +154,45 @@
 </div>
 
 <style lang="scss">
+	.app-demo-wrapper {
+		width: 400px;
+		max-width: 600px;
+	}
+
 	.app-demo {
 		border-radius: var(--border-radius-medium);
 		border: 2px solid var(--color-surface);
-		width: 100%;
-		min-width: 400px;
 		padding: 5px;
-		height: 300px;
+		width: 100%;
+		height: 450px;
+		overflow: 0;
 		display: flex;
 		flex-direction: column;
+		margin-bottom: 1rem;
 
 		.messages {
 			flex: 1;
 			padding: 5px;
+			height: 100%;
+			display: flex;
+			align-items: flex-end;
+			margin-bottom: 5px;
+		}
+
+		@keyframes swipe-up {
+			0% {
+				transform: translateY(-100%);
+			}
+			100% {
+				transform: translateY(0);
+			}
 		}
 
 		.top-part {
 			&:empty {
-				display: none;
+				transform: translateY(-100%);
 			}
+			animation: swipe-up 0.2 ease-in;
 			list-style: none;
 			padding: 5px;
 			display: flex;
@@ -170,7 +205,7 @@
 			max-height: max-content;
 
 			.bot-profile {
-				padding: 2px;
+				padding: 5px;
 				align-items: center;
 				display: flex;
 				gap: 5px;
@@ -178,7 +213,7 @@
 
 			.command {
 				width: 100%;
-				padding: 5px;
+				padding: 10px;
 				display: flex;
 				gap: 10px;
 				align-items: center;
@@ -198,6 +233,7 @@
 		}
 
 		.chat-box {
+			z-index: 2;
 			padding: 5px;
 			display: flex;
 			justify-content: space-evenly;
@@ -231,6 +267,12 @@
 					background-color: var(--color-surface-variant);
 				}
 			}
+		}
+	}
+
+	@media (max-width: 900px) {
+		.app-demo-wrapper {
+			width: 100% !important;
 		}
 	}
 </style>

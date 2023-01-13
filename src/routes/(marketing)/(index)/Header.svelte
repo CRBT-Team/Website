@@ -34,7 +34,7 @@
 		display: flex;
 		justify-content: space-evenly;
 		align-items: center;
-		margin: 5rem 3.5rem;
+		margin: 5rem 1.5rem;
 		gap: 3rem;
 
 		.hero-content {
@@ -60,7 +60,7 @@
 		}
 	}
 
-	@media (max-width: 900px) {
+	@media (max-width: 950px) {
 		.hero-header {
 			flex-direction: column;
 
