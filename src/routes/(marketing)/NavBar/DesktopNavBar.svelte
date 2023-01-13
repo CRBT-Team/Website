@@ -51,7 +51,7 @@
 		position: sticky;
 		top: 0;
 		left: 0;
-		z-index: 1;
+		z-index: 9;
 
 		background-color: rgb(0 0 0 / 0);
 		transition: background-color 0.2s, opacity 0.2s, transform 0.2s ease-in-out;

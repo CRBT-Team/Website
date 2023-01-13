@@ -34,16 +34,17 @@
 		display: flex;
 		justify-content: space-evenly;
 		align-items: center;
-		margin: 5rem 1.5rem;
-		gap: 3rem;
-
+		padding: 2rem 3rem;
+		gap: 2rem;
+		width: 100%;
 		.hero-content {
 			display: flex;
 			flex-direction: column;
-			gap: 2.5rem;
+			gap: 1.5rem;
+			max-width: 30rem;
 
 			.tagline {
-				font-size: 3.5rem;
+				font-size: 3rem;
 				margin: 0;
 			}
 

@@ -132,8 +132,8 @@
 				{/if}
 			</div>
 			<div class="text-input">
-				{#if selectedCommandId}
-					/{commands.get(selectedCommandId).name ?? ''}
+				{#if !usedCommandId}
+					/{commands.get(selectedCommandId)?.name ?? ''}
 				{/if}
 			</div>
 			<div class="icon disabled">
@@ -155,7 +155,7 @@
 
 <style lang="scss">
 	.app-demo-wrapper {
-		width: 400px;
+		width: 500px;
 		max-width: 600px;
 	}
 
@@ -164,19 +164,19 @@
 		border: 2px solid var(--color-surface);
 		padding: 5px;
 		width: 100%;
-		height: 450px;
-		overflow: 0;
+		height: 400px;
+		overflow: hidden;
 		display: flex;
 		flex-direction: column;
 		margin-bottom: 1rem;
 
 		.messages {
 			flex: 1;
-			padding: 5px;
+			padding: 5px 0;
 			height: 100%;
 			display: flex;
 			align-items: flex-end;
-			margin-bottom: 5px;
+			overflow-y: scroll;
 		}
 
 		@keyframes swipe-up {

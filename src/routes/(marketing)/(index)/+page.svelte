@@ -97,6 +97,7 @@
 			display: flex;
 			flex-direction: column;
 			gap: 5rem;
+			max-width: 80rem;
 			align-items: center;
 			padding: 5rem;
 		}

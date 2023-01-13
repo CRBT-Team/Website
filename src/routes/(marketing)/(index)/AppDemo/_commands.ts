@@ -46,7 +46,7 @@ export const commands = new Map<
 				{
 					name: 'CRBT | Discord Bot Labs',
 					value:
-						'**[🔒 bots.discordlabs.org › bot › 595731552709771264](https://bots.discordlabs.org/bot/595731552709771264)**\nCRBT The Discord companion made for you. CRBT aims to replace most of the bots you have in one modern and convienient experience, from get...'
+						'**[🔒 bots.discordlabs.org › bot › 595731552709771264](https://bots.discordlabs.org/bot/595731552709771264)**\nCRBT The Discord companion made for you. CRBT aims to replace most of the bots...'
 				}
 			],
 			color: 15888775
