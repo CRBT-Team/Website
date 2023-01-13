@@ -2,7 +2,7 @@
 	import AddToDiscord from '$lib/components/AddToDiscord.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import { ChevronDown } from 'lucide-svelte';
-	import AppDemo from './AppDemo.svelte';
+	import AppDemo from './AppDemo/AppDemo.svelte';
 </script>
 
 <header class="hero-header">

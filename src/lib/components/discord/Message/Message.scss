@@ -2,9 +2,43 @@
 	display: flex;
 	gap: 15px;
 
-	.message-author-profile-picture img {
-		width: 35px;
-		height: auto;
-		border-radius: 99rem;
+	.header {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+
+		.message-timestamp {
+			color: var(--color-on-surface);
+			font-size: 0.75rem;
+		}
+
+		.author-profile {
+			display: flex;
+			gap: 0.25rem;
+			font-weight: 600;
+			font-size: 1.2rem;
+
+			.bot-badge {
+				display: flex;
+				align-items: center;
+				background-color: var(--color-primary);
+				color: var(--color-on-primary);
+				padding: 2px 5px;
+				font-size: 0.7rem;
+				border-radius: 9rem;
+				gap: 3px;
+
+				svg {
+					width: 16px;
+					height: 16px;
+				}
+			}
+		}
+	}
+
+	.message-content {
+		&:empty {
+			display: none;
+		}
 	}
 }
