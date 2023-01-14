@@ -181,7 +181,7 @@
 		border: 2px solid var(--color-surface);
 		padding: 15px;
 		width: 100%;
-		height: 400px;
+		min-height: 400px;
 		overflow: hidden;
 		display: flex;
 		flex-direction: column;
@@ -270,6 +270,7 @@
 				border: none;
 				font-family: inherit;
 				background-color: var(--color-surface);
+				color: var(--color-on-surface);
 				border-radius: var(--border-radius-small);
 
 				&.disabled {
