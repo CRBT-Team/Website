@@ -81,7 +81,7 @@
 				flex-direction: column;
 				gap: 1.1rem;
 			}
-			padding-bottom: 110px;
+			padding-bottom: 150px;
 		}
 	}
 </style>

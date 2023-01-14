@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import AddToDiscord from '$lib/components/AddToDiscord.svelte';
+	import Button from '$lib/components/Button.svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import TextField from '$lib/components/TextField.svelte';
+	import Discord from '$lib/svg/brands/discord.svelte';
 	import CRBT from '$lib/svg/crbt.svelte';
 	import { Menu, Search } from 'lucide-svelte';
-	// import { onMount } from 'svelte';
+	import { onMount } from 'svelte';
+	import { slide } from 'svelte/transition';
 	import Links from '../WebsiteLink/Links.svelte';
 
 	type Tab = 'home' | 'more';
@@ -13,7 +15,8 @@
 	let selectedTab: Tab = 'home';
 	let searchValue = '';
 	let showSearchModal = false;
-	// let scrolled = false;
+	let scrolled = false;
+	let previousScroll = 0;
 
 	page.subscribe(({ url: { pathname } }) => {
 		if (pathname.endsWith('/')) selectTab('home');
@@ -33,12 +36,15 @@
 		showSearchModal = !showSearchModal;
 	}
 
-	// const scroll = () => (scrolled = document.scrollingElement.scrollTop > 5);
+	function scroll() {
+		scrolled = window.scrollY > previousScroll;
+		previousScroll = window.scrollY;
+	}
 
-	// onMount(scroll);
+	onMount(scroll);
 </script>
 
-<!-- <svelte:window on:scroll={scroll} /> -->
+<svelte:window on:scroll={scroll} />
 
 {#if showSearchModal}
 	<Modal title="Search" on:close={toggleSearch}>
@@ -52,8 +58,11 @@
 {/if}
 
 <div class="navbar-mobile-wrapper">
-	<div class="fab">
-		<AddToDiscord />
+	<div class="fab" class:hidden={!scrolled}>
+		<Button inline href="/invite">
+			<Discord slot="icon" />
+			Add to Discord
+		</Button>
 	</div>
 	<nav class="navbar-mobile">
 		<a
@@ -104,6 +113,13 @@
 
 		.fab {
 			margin-right: 10px;
+			transition: transform 0.2s ease-in-out;
+			transform: translateY(0%);
+
+			&.hidden {
+				transform: translateY(200%);
+				transition: transform 0.2s ease-in-out;
+			}
 		}
 	}
 

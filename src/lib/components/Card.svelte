@@ -1,13 +1,15 @@
 <script lang="ts">
 	export let href = '';
+	let className = '';
+	export { className as class };
 </script>
 
 {#if href}
-	<a {href} class="card" {...$$restProps} on:click>
+	<a {href} class="card {className}" {...$$restProps} on:click>
 		<slot />
 	</a>
 {:else}
-	<div class="card" {...$$restProps} on:click>
+	<div class="card {className}" {...$$restProps} on:click>
 		<slot />
 	</div>
 {/if}
@@ -18,6 +20,7 @@
 		flex-direction: column;
 		border: 1px solid var(--color-primary);
 		border-radius: var(--border-radius-medium);
+		background-color: var(--color-background);
 		padding: 1.2rem;
 		transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 		box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 0px;

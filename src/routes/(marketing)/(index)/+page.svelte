@@ -2,13 +2,13 @@
 	export const prerender = true;
 
 	import FeaturedServers from './FeaturedServers.svelte';
-	import FeatureCarousel from './FeatureCarousel.svelte';
 	import Header from './Header.svelte';
 	import Feature from './Feature.svelte';
 	import MetaTags from '$lib/components/MetaTags.svelte';
 	import Cta from '$lib/components/CTA.svelte';
 	import { onDestroy, onMount } from 'svelte';
 	import Reviews from './Reviews.svelte';
+	import FeatureGrid from './FeatureGrid/Grid.svelte';
 
 	let mainFeatures: HTMLDivElement;
 	let observer: IntersectionObserver;
@@ -73,7 +73,9 @@
 		/>
 	</div>
 
-	<FeatureCarousel />
+	<FeatureGrid />
+
+	<!-- <FeatureCarousel /> -->
 
 	<Reviews />
 

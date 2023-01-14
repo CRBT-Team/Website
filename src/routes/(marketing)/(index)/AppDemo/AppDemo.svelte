@@ -60,6 +60,9 @@
 />
 
 <div class="app-demo-wrapper">
+	<div class="demo-header-text">
+		<h3>Try me out!</h3>
+	</div>
 	<div class="app-demo">
 		<div class="messages">
 			{#if usedCommandId}
@@ -159,10 +162,24 @@
 		max-width: 600px;
 	}
 
+	.demo-header-text {
+		display: flex;
+		justify-content: flex-end;
+
+		h3 {
+			font-size: 1.3rem;
+			transform: rotate(8deg) translate(25px, 30px);
+			background-color: var(--color-primary);
+			color: var(--color-on-primary);
+			border-radius: var(--border-radius-medium);
+			padding: 0.5rem 1rem;
+		}
+	}
+
 	.app-demo {
 		border-radius: var(--border-radius-medium);
 		border: 2px solid var(--color-surface);
-		padding: 5px;
+		padding: 15px;
 		width: 100%;
 		height: 400px;
 		overflow: hidden;
@@ -172,11 +189,10 @@
 
 		.messages {
 			flex: 1;
-			padding: 5px 0;
+			padding: 10px 0;
 			height: 100%;
 			display: flex;
 			align-items: flex-end;
-			overflow-y: scroll;
 		}
 
 		@keyframes swipe-up {

@@ -1,62 +1,13 @@
 <script lang="ts">
 	import Card from '$lib/components/Card.svelte';
-	import { onMount } from 'svelte';
-
-	let previousTimestamp: number;
-	let featureCarousel: Element;
-	let scrolling = true;
-	let scrollFinished = false;
-
 	import { marketingFeatures } from './_features';
-
-	onMount(() => {
-		function scrollCarousel(timestamp: number) {
-			// if (!previousTimestamp) {
-			// 	previousTimestamp = timestamp;
-			// }
-			// const elapsed = timestamp - previousTimestamp;
-			const scrollingSpeed = 1;
-			const currentScroll = featureCarousel?.scrollLeft + document.body.scrollWidth;
-			const maxScroll = featureCarousel?.scrollWidth;
-
-			// previousTimestamp = timestamp;
-			if (scrolling) {
-				if (currentScroll >= maxScroll) {
-					featureCarousel?.scrollTo({
-						left: 0,
-						behavior: 'smooth'
-					});
-					scrollFinished = true;
-					setTimeout(() => {
-						featureCarousel.scrollLeft += scrollingSpeed;
-						scrollFinished = false;
-					}, 700);
-				} else {
-					if (!scrollFinished) {
-						featureCarousel.scrollLeft += scrollingSpeed;
-					}
-				}
-			}
-
-			requestAnimationFrame(scrollCarousel);
-		}
-		const animate = requestAnimationFrame(scrollCarousel);
-
-		return () => cancelAnimationFrame(animate);
-	});
 </script>
 
 <div class="features-wrapper">
 	<h1 class="section-title">And many more features!</h1>
 
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<div
-		class="feature-carousel"
-		bind:this={featureCarousel}
-		on:mouseenter={() => (scrolling = false)}
-		on:mouseleave={() => (scrolling = true)}
-		on:click={() => (scrolling = !scrolling)}
-	>
+	<div class="feature-carousel">
 		{#each marketingFeatures as feature}
 			<Card>
 				<div class="feature">

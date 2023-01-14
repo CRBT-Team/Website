@@ -99,7 +99,7 @@
 		}
 
 		&.inline {
-			width: max-content;
+			max-width: max-content;
 			padding: 1rem 2rem;
 		}
 	}
