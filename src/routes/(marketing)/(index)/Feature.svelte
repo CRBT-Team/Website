@@ -20,7 +20,7 @@
 <style lang="scss">
 	@media (prefers-reduced-motion) {
 		.feature {
-			transition: none;
+			transition: none !important;
 		}
 	}
 

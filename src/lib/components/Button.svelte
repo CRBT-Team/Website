@@ -104,6 +104,11 @@
 		}
 	}
 
+	@media (prefers-contrast: more) {
+		.button {
+			border: 2px solid;
+		}
+	}
 	@media (max-width: 800px) {
 		.button {
 			padding: 1rem 1.5rem;

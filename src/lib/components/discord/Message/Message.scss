@@ -1,6 +1,6 @@
 .message-root {
 	display: flex;
-	gap: 15px;
+	gap: 0.8rem;
 	width: 100%;
 	transition: height 0.5s ease-in;
 
@@ -16,7 +16,7 @@
 
 		.author-profile {
 			display: flex;
-			gap: 0.25rem;
+			gap: 0.5rem;
 			font-weight: 600;
 			font-size: 1.2rem;
 
@@ -27,8 +27,8 @@
 				color: var(--color-on-primary);
 				padding: 2px 5px;
 				font-size: 0.7rem;
-				border-radius: 9rem;
-				gap: 3px;
+				border-radius: var(--border-radius-small);
+				gap: 0.25rem;
 
 				svg {
 					width: 16px;
@@ -42,6 +42,10 @@
 		:empty {
 			display: none;
 		}
+	}
+
+	.message-content {
+		margin-top: 0.5rem;
 	}
 
 	.embed-wrapper {

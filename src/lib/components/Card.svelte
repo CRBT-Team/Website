@@ -18,7 +18,7 @@
 	.card {
 		display: flex;
 		flex-direction: column;
-		border: 1px solid var(--color-primary);
+		border: 1px solid var(--color-surface-variant);
 		border-radius: var(--border-radius-medium);
 		background-color: var(--color-background);
 		padding: 1.2rem;

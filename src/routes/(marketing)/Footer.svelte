@@ -64,10 +64,20 @@
 
 		.socials {
 			display: flex;
-			:global(svg) {
-				margin: 10px;
-				width: 2rem;
-				height: 2rem;
+			gap: 0.5rem;
+			a {
+				padding: 0.5rem;
+				border-radius: var(--border-radius-medium);
+
+				&:hover {
+					background-color: var(--color-surface-variant);
+					color: var(--color-on-surface-variant);
+				}
+
+				:global(svg) {
+					width: 2rem;
+					height: 2rem;
+				}
 			}
 		}
 	}
