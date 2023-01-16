@@ -38,7 +38,6 @@
 		<textarea
 			class="input"
 			{id}
-			{type}
 			bind:this={inputEl}
 			on:input={changeValue}
 			{placeholder}

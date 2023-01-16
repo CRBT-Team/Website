@@ -1,6 +1,5 @@
 <script>
 	import Discord from '$lib/svg/brands/discord.svelte';
-	import Guilded from '$lib/svg/brands/guilded.svelte';
 	import KoFi from '$lib/svg/brands/ko-fi.svelte';
 	import Twitter from '$lib/svg/brands/twitter.svelte';
 </script>
@@ -67,7 +66,7 @@
 			gap: 0.5rem;
 			a {
 				padding: 0.5rem;
-				border-radius: var(--border-radius-medium);
+				border-radius: var(--border-radius-small);
 
 				&:hover {
 					background-color: var(--color-surface-variant);

@@ -50,7 +50,9 @@
 				<div class="embed-content">
 					{#if embed.author}
 						<div class="embed-author">
-							<Avatar src={embed.author?.icon_url} alt="Embed author icon" size="24px" />
+							{#if embed.author.icon_url}
+								<Avatar src={embed.author.icon_url} alt="Embed author icon" size="24px" />
+							{/if}
 							<a href={embed.author?.url} class="embed-author-name">
 								{embed.author?.name ?? ''}
 							</a>

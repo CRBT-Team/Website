@@ -28,11 +28,7 @@
 	}
 
 	function toggleSearch() {
-		if (showSearchModal) {
-			document.body.classList.remove('prevent-scroll');
-		} else {
-			document.body.classList.add('prevent-scroll');
-		}
+		document.body.classList.toggle('prevent-scroll');
 		showSearchModal = !showSearchModal;
 	}
 

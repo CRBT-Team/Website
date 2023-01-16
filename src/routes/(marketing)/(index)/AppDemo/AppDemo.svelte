@@ -5,12 +5,13 @@
 	import { MessageFlags } from 'discord-api-types/v10';
 	import { Gift, PlusCircle, RefreshCw, Send, Smile } from 'lucide-svelte';
 	import { slide } from 'svelte/transition';
-	import { commands } from './_commands';
+	import { commands as allCommands } from './_commands';
 
 	let selectedCommandId: number;
 	let usedCommandId: number;
 	let focusedCommandId = 1;
 	let isDemoOver = false;
+	let commands = allCommands.sort((a, b) => 0.5 - Math.random()).slice(0, 3);
 
 	function sendCommand() {
 		usedCommandId = selectedCommandId;
@@ -27,6 +28,7 @@
 	};
 
 	function resetDemo() {
+		commands = allCommands.sort((a, b) => 0.5 - Math.random()).slice(0, 3);
 		selectedCommandId = null;
 		usedCommandId = null;
 		isDemoOver = false;
@@ -40,7 +42,7 @@
 			ev.preventDefault();
 			focusedCommandId -= 1;
 		}
-		if (ev.code === 'ArrowDown' && focusedCommandId !== commands.size) {
+		if (ev.code === 'ArrowDown' && focusedCommandId !== commands.length) {
 			ev.preventDefault();
 			focusedCommandId += 1;
 		}
@@ -78,7 +80,7 @@
 						<Message
 							message={{
 								author,
-								embeds: [commands.get(usedCommandId).embed]
+								embeds: [commands[usedCommandId].embed]
 							}}
 						/>
 					{/await}
@@ -88,11 +90,12 @@
 		{#if !selectedCommandId && !usedCommandId}
 			<div class="top-part" in:slide on:mouseenter={() => (focusedCommandId = null)}>
 				<div class="bot-profile">
-					<Avatar alt="CRBT" src="/assets/logos/crbt.png" size="20px" />
+					<Avatar alt="CRBT" src="/assets/logos/crbt-small.png" size="20px" />
 					CRBT
 				</div>
-				{#each Array.from(commands) as [id, command]}
+				{#each commands as command, id}
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
+					<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 					<div
 						on:click={() => (selectedCommandId = id)}
 						class="command clickable"
@@ -116,10 +119,10 @@
 				<div class="command">
 					<div class="meta">
 						<span class="command-name">
-							/{commands.get(selectedCommandId).name}
+							/{commands[selectedCommandId].name}
 						</span>
 						<span class="command-description">
-							{commands.get(selectedCommandId).description}
+							{commands[selectedCommandId].description}
 						</span>
 					</div>
 				</div>
@@ -129,14 +132,14 @@
 		<div class="chat-box">
 			<div class="icon" class:disabled={!selectedCommandId}>
 				{#if selectedCommandId}
-					<Avatar alt="CRBT" src="/assets/logos/crbt.png" size="24px" />
+					<Avatar alt="CRBT" src="/assets/logos/crbt-small.png" size="24px" />
 				{:else}
 					<PlusCircle />
 				{/if}
 			</div>
 			<div class="text-input">
 				{#if !usedCommandId}
-					/{commands.get(selectedCommandId)?.name ?? ''}
+					/{commands[selectedCommandId]?.name ?? ''}
 				{/if}
 			</div>
 			<div class="icon disabled">
@@ -269,9 +272,10 @@
 				padding: 0.5rem;
 				border: none;
 				font-family: inherit;
-				background-color: var(--color-surface);
-				color: var(--color-on-surface);
+				background-color: var(--color-surface-variant);
+				color: var(--color-on-surface-variant);
 				border-radius: var(--border-radius-small);
+				background-color: var(--color-surface);
 
 				&.disabled {
 					cursor: not-allowed;
@@ -281,7 +285,8 @@
 
 				&:hover:not(.disabled, .clickable) {
 					cursor: pointer;
-					background-color: var(--color-surface-variant);
+					color: var(--color-on-primary);
+					background-color: var(--color-primary);
 				}
 			}
 		}

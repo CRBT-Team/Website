@@ -1,20 +1,17 @@
 import type { APIEmbed } from 'discord-api-types/v10';
 
-export const commands = new Map<
-	number,
+export const commands: {
+	name: string;
+	description: string;
+	embed: APIEmbed;
+}[] = [
 	{
-		name: string;
-		description: string;
-		embed: APIEmbed;
-	}
->()
-	.set(1, {
 		name: 'user info',
 		description: "Get a user's info.",
 		embed: {
 			author: {
 				name: 'CRBT#0456 - User info',
-				icon_url: '/assets/logos/crbt.png'
+				icon_url: '/assets/logos/crbt-small.png'
 			},
 			fields: [
 				{
@@ -27,12 +24,12 @@ export const commands = new Map<
 				}
 			],
 			thumbnail: {
-				url: '/assets/logos/crbt.png'
+				url: '/assets/logos/crbt-small.png'
 			},
 			color: 15888775
 		}
-	})
-	.set(2, {
+	},
+	{
 		name: 'search',
 		description: 'Search something on the web.',
 		embed: {
@@ -51,8 +48,8 @@ export const commands = new Map<
 			],
 			color: 15888775
 		}
-	})
-	.set(3, {
+	},
+	{
 		name: 'settings',
 		description: 'Set up CRBT for your server.',
 		embed: {
@@ -63,10 +60,42 @@ export const commands = new Map<
 			},
 			title: 'CRBT Community / Overview',
 			thumbnail: {
-				url: '/assets/logos/crbt.png'
+				url: '/assets/logos/crbt-small.png'
 			},
 			description:
 				'CRBT includes many customizable features like Economy, Moderation Reports, the Welcome message and its Accent Color! Scroll down for a full list of features!',
 			color: 15888775
 		}
-	});
+	},
+	{
+		name: 'poll',
+		description: 'Create a poll.',
+		embed: {
+			author: {
+				name: 'CRBT Poll'
+			},
+			title: 'What new feature would you like to see?',
+			fields: [
+				{
+					name: 'Web dashboard!',
+					value: '95% • 9 votes'
+				}
+			]
+		}
+	},
+	{
+		name: 'reminder new',
+		description: 'Set a reminder.',
+		embed: {
+			title: '<:success:1063558595242905670> Reminder set!',
+			description: 'You will be reminded by DM in 10 years.',
+			fields: [
+				{
+					name: 'Subject',
+					value: 'Release the next CRBT version!'
+				}
+			],
+			color: 5305201
+		}
+	}
+];

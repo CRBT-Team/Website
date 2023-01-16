@@ -21,6 +21,7 @@
 		border: 1px solid var(--color-surface-variant);
 		border-radius: var(--border-radius-medium);
 		background-color: var(--color-background);
+		cursor: pointer;
 		padding: 1.2rem;
 		transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 		box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 0px;

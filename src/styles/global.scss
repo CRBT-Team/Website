@@ -5,14 +5,11 @@ body {
 	max-height: 100vh;
 	text-rendering: optimizeLegibility;
 	margin: 0;
+	background-color: var(--color-background);
 	font-size: var(--body-medium-font-size);
 	font-family: var(--body-medium-font-family);
 	font-weight: var(--body-medium-font-weight);
 	color: var(--color-on-background);
-}
-
-.root {
-	background-color: var(--color-background);
 }
 
 ::selection {

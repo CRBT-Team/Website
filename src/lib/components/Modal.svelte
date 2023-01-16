@@ -15,9 +15,7 @@
 
 <svelte:body
 	on:keydown={(e) => {
-		if (e.code === 'Escape') {
-			close();
-		}
+		if (e.code === 'Escape') close();
 	}}
 />
 
@@ -58,7 +56,7 @@
 		height: 100%;
 		opacity: 0.5;
 		background-color: rgb(0 0 0);
-		z-index: 5;
+		z-index: 10;
 	}
 
 	.modal {
@@ -72,8 +70,8 @@
 
 		transition: transform ease-in-out 0.3s;
 		width: 100%;
-		max-height: 80%;
-		z-index: 10;
+		height: 80%;
+		z-index: 11;
 		gap: 10px;
 		border-radius: var(--border-radius-medium) var(--border-radius-medium) 0 0;
 
