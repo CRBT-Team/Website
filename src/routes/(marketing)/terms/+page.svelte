@@ -1,5 +1,4 @@
 <script>
-	export const prerender = true;
 	import MetaTags from '$lib/components/MetaTags.svelte';
 	import TopBarMenu from '$lib/components/TopBarMenu.svelte';
 </script>

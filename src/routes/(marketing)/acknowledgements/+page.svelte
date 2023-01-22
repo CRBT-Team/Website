@@ -1,6 +1,4 @@
 <script lang="ts">
-	export const prerender = true;
-
 	import Button from '$lib/components/Button.svelte';
 	import MetaTags from '$lib/components/MetaTags.svelte';
 	import TopBarMenu from '$lib/components/TopBarMenu.svelte';

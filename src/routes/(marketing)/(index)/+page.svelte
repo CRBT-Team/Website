@@ -1,6 +1,4 @@
 <script lang="ts">
-	export const prerender = true;
-
 	import FeaturedServers from './FeaturedServers.svelte';
 	import Header from './Header.svelte';
 	import Feature from './Feature.svelte';

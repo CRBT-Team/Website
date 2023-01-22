@@ -57,6 +57,7 @@
 				display: flex;
 				align-items: center;
 				gap: 1rem;
+				flex-wrap: wrap;
 			}
 		}
 	}
@@ -70,6 +71,10 @@
 				align-items: center;
 				text-align: center;
 				margin-top: 3rem;
+
+				.buttons {
+					justify-content: center;
+				}
 			}
 		}
 
