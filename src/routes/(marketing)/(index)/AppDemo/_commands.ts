@@ -77,8 +77,14 @@ export const commands: {
 			title: 'What new feature would you like to see?',
 			fields: [
 				{
-					name: 'Web dashboard!',
-					value: '95% • 9 votes'
+					name: 'Web dashboard',
+					value:
+						'<:progressfillstart:971334221782196234><:progressfill:971334221450862642><:progressfill:971334221450862642><:progressfill:971334221450862642><:progressfill:971334221450862642><:progressfill:971334221450862642><:progressfillcut:971334221455036456><:progressempty:1050093579525173338><:progressempty:1050093579525173338><:progressemptyend:971334221425700894>\n75% • 32 vote(s)'
+				},
+				{
+					name: 'More cats',
+					value:
+						'<:progressfillstart:971334221782196234><:progressfill:971334221450862642><:progressfillcut:971334221455036456><:progressempty:1050093579525173338><:progressempty:1050093579525173338><:progressempty:1050093579525173338><:progressempty:1050093579525173338><:progressempty:1050093579525173338><:progressempty:1050093579525173338><:progressemptyend:971334221425700894>\n25% • 16 vote(s)'
 				}
 			]
 		}
@@ -87,12 +93,12 @@ export const commands: {
 		name: 'reminder new',
 		description: 'Set a reminder.',
 		embed: {
-			title: '<:success:1063558595242905670> Reminder set!',
-			description: 'You will be reminded by DM in 10 years.',
+			title: '<:success:1035880323482931230> Reminder set!',
+			description: 'You will be reminded by DM in 2 years.',
 			fields: [
 				{
 					name: 'Subject',
-					value: 'Release the next CRBT version!'
+					value: 'Grow a beard.'
 				}
 			],
 			color: 5305201

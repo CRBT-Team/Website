@@ -71,7 +71,6 @@
 		border: none;
 		font-family: inherit;
 		padding: 1rem 0;
-		height: min-content;
 		border-radius: var(--border-radius-medium);
 		text-decoration: none;
 		font-size: 1.1rem;

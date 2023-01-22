@@ -49,23 +49,25 @@
 	}
 </script>
 
-<svelte:body
-	on:keydown={(e) => {
-		if (e.code === 'Enter') {
-			if (selectedCommandId) {
-				sendCommand();
-			} else {
-				selectedCommandId = focusedCommandId;
-			}
-		} else handleFocus(e);
-	}}
-/>
-
 <div class="app-demo-wrapper">
 	<div class="demo-header-text">
 		<h3>Try me out!</h3>
 	</div>
-	<div class="app-demo">
+	<!-- svelte-ignore a11y-positive-tabindex -->
+	<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+	<div
+		class="app-demo"
+		tabindex="1"
+		on:keydown={(e) => {
+			if (e.code === 'Enter') {
+				if (selectedCommandId) {
+					sendCommand();
+				} else {
+					selectedCommandId = focusedCommandId;
+				}
+			} else handleFocus(e);
+		}}
+	>
 		<div class="messages">
 			{#if usedCommandId}
 				<div in:slide class="message">
@@ -80,7 +82,7 @@
 						<Message
 							message={{
 								author,
-								embeds: [commands[usedCommandId].embed]
+								embeds: [commands[usedCommandId - 1].embed]
 							}}
 						/>
 					{/await}
@@ -97,9 +99,12 @@
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 					<div
-						on:click={() => (selectedCommandId = id)}
+						on:click={() => {
+							selectedCommandId = id + 1;
+							console.log(selectedCommandId);
+						}}
 						class="command clickable"
-						aria-selected={focusedCommandId === id}
+						aria-selected={focusedCommandId === id + 1}
 					>
 						<div class="meta">
 							<div class="command-name">
@@ -119,10 +124,10 @@
 				<div class="command">
 					<div class="meta">
 						<span class="command-name">
-							/{commands[selectedCommandId].name}
+							/{commands[selectedCommandId - 1].name}
 						</span>
 						<span class="command-description">
-							{commands[selectedCommandId].description}
+							{commands[selectedCommandId - 1].description}
 						</span>
 					</div>
 				</div>
@@ -139,7 +144,7 @@
 			</div>
 			<div class="text-input">
 				{#if !usedCommandId}
-					/{commands[selectedCommandId]?.name ?? ''}
+					/{commands[selectedCommandId - 1]?.name ?? ''}
 				{/if}
 			</div>
 			<div class="icon disabled">
