@@ -2,15 +2,18 @@
 	import { page } from '$app/stores';
 
 	export let title: string = undefined;
-	export let description: string = undefined;
+	export let description: string =
+		"Quit the hassle with all of your different bots. CRBT does it all in a simple, powerful and efficient solution that's easy to set up. Make your server the best version of itself thanks to CRBT's features: Moderation, Utilities, Polls, Giveaways, Economy, and so on... What are you waiting for?";
+	export let image: string = '/banner.png';
+	export let thumbnail: string = undefined;
 
 	let tags = {
 		site_name: 'CRBT',
-		title: title ? `CRBT - ${title}` : 'CRBT - The Discord companion made for you.',
+		title: title ? `${title} - CRBT` : 'CRBT | The perfect just-about-anything Discord app.',
 		description,
 		baseUrl: $page.url.host,
-		image: '/assets/logos/crbt.png',
-		color: '#F17188'
+		thumbnail: image ? undefined : thumbnail,
+		image
 	};
 </script>
 
@@ -19,8 +22,7 @@
 	<meta name="author" content={tags.site_name} />
 	<meta name="title" content={tags.title} />
 	{#if description} <meta name="description" content={tags.description} /> {/if}
-	<meta name="copyright" content="&copy;{new Date().getFullYear()} CRBT Team" />
-	<meta name="theme-color" content={tags.color} />
+	<meta name="copyright" content="&copy;{new Date().getFullYear()} CRBT" />
 	<!-- Google index -->
 	<meta name="”robots”" content="”follow,index”" />
 	<meta name="”googlebot”" content="”follow,index”" />
@@ -31,15 +33,14 @@
 	{#if description} <meta property="og:description" content={tags.description} /> {/if}
 	<meta property="og:url" content="{tags.baseUrl}{$page.url.pathname}" />
 	<meta property="og:type" content="website" />
-	<meta property="og:image" content={tags.image} />
+	<meta property="og:image" content={tags.image ?? tags.thumbnail} />
 	<!-- Twitter -->
-	<meta name="twitter:card" content="summary_small_image" />
+	<meta name="twitter:card" content={tags.image ? 'summary_large_image' : 'summary_small_image'} />
 	<meta name="twitter:site" content={tags.site_name} />
 	<meta name="twitter:title" content={tags.title} />
-	{#if description}<meta name="twitter:description" content={tags.description} /> {/if}
-	<meta name="twitter:image" content={tags.image} />
+	{#if description} <meta name="twitter:description" content={tags.description} /> {/if}
+	<meta name="twitter:image" content={tags.image ?? tags.thumbnail} />
 	<!-- Icons -->
-	<meta name="image" content={tags.image} />
-	<link rel="icon" type="image/png" href={tags.image} />
-	<link rel="apple-touch-icon" href={tags.image} />
+	<meta name="image" content={tags.image ?? tags.thumbnail} />
+	<link rel="apple-touch-icon" href={tags.thumbnail} />
 </svelte:head>

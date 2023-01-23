@@ -19,7 +19,7 @@
 		&.center {
 			flex-direction: column;
 			justify-content: center;
-			text-align: center;
+			// text-align: center;
 		}
 
 		&.left {

@@ -1,0 +1,296 @@
+:root {
+	--font-stack-base: Inter, 'Helvetica Neue', system-ui, -apple-system, BlinkMacSystemFont,
+		'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	--font-paragraph: 'Work Sans', var(--font-stack-base);
+	--font-heading: 'DM Sans', var(--font-stack-base);
+
+	--brand-light: #f27187;
+
+	/* primary */
+	--palette-primary0: #000000;
+	--palette-primary10: #400012;
+	--palette-primary20: #660122;
+	--palette-primary25: #76102c;
+	--palette-primary30: #861e37;
+	--palette-primary35: #952a42;
+	--palette-primary40: #a5364d;
+	--palette-primary50: #c54f65;
+	--palette-primary60: #e6687e;
+	--palette-primary70: #ff8699;
+	--palette-primary80: #ffb2bb;
+	--palette-primary90: #ffd9dd;
+	--palette-primary95: #ffeced;
+	--palette-primary98: #fff8f7;
+	--palette-primary99: #fffbff;
+	--palette-primary100: #ffffff;
+	/* secondary */
+	--palette-secondary0: #000000;
+	--palette-secondary10: #2c1518;
+	--palette-secondary20: #43292d;
+	--palette-secondary25: #503437;
+	--palette-secondary30: #5c3f42;
+	--palette-secondary35: #694a4e;
+	--palette-secondary40: #76565a;
+	--palette-secondary50: #906e72;
+	--palette-secondary60: #ac888b;
+	--palette-secondary70: #c8a2a5;
+	--palette-secondary80: #e5bdc0;
+	--palette-secondary90: #ffd9dd;
+	--palette-secondary95: #ffeced;
+	--palette-secondary98: #fff8f7;
+	--palette-secondary99: #fffbff;
+	--palette-secondary100: #ffffff;
+	/* tertiary */
+	--palette-tertiary0: #000000;
+	--palette-tertiary10: #2a1700;
+	--palette-tertiary20: #442b07;
+	--palette-tertiary25: #513611;
+	--palette-tertiary30: #5e411b;
+	--palette-tertiary35: #6b4d26;
+	--palette-tertiary40: #785831;
+	--palette-tertiary50: #937147;
+	--palette-tertiary60: #af8a5e;
+	--palette-tertiary70: #cca476;
+	--palette-tertiary80: #e9bf8f;
+	--palette-tertiary90: #ffddb8;
+	--palette-tertiary95: #ffeede;
+	--palette-tertiary98: #fff8f4;
+	--palette-tertiary99: #fffbff;
+	--palette-tertiary100: #ffffff;
+	/* neutral */
+	--palette-neutral0: #000000;
+	--palette-neutral10: #201a1b;
+	--palette-neutral20: #362f2f;
+	--palette-neutral25: #413a3a;
+	--palette-neutral30: #4d4545;
+	--palette-neutral35: #595051;
+	--palette-neutral40: #655c5d;
+	--palette-neutral50: #7e7575;
+	--palette-neutral60: #998e8f;
+	--palette-neutral70: #b4a9a9;
+	--palette-neutral80: #d0c4c4;
+	--palette-neutral90: #ece0e0;
+	--palette-neutral95: #fbeeee;
+	--palette-neutral98: #fff8f7;
+	--palette-neutral99: #fffbff;
+	--palette-neutral100: #ffffff;
+	/* neutral-variant */
+	--palette-neutral-variant0: #000000;
+	--palette-neutral-variant10: #24181a;
+	--palette-neutral-variant20: #3a2d2e;
+	--palette-neutral-variant25: #463839;
+	--palette-neutral-variant30: #524344;
+	--palette-neutral-variant35: #5e4f50;
+	--palette-neutral-variant40: #6b5a5c;
+	--palette-neutral-variant50: #847374;
+	--palette-neutral-variant60: #9f8c8e;
+	--palette-neutral-variant70: #baa6a8;
+	--palette-neutral-variant80: #d7c1c3;
+	--palette-neutral-variant90: #f4dddf;
+	--palette-neutral-variant95: #ffeced;
+	--palette-neutral-variant98: #fff8f7;
+	--palette-neutral-variant99: #fffbff;
+	--palette-neutral-variant100: #ffffff;
+	/* error */
+	--palette-error0: #000000;
+	--palette-error10: #410002;
+	--palette-error20: #690005;
+	--palette-error25: #7e0007;
+	--palette-error30: #93000a;
+	--palette-error35: #a80710;
+	--palette-error40: #ba1a1a;
+	--palette-error50: #de3730;
+	--palette-error60: #ff5449;
+	--palette-error70: #ff897d;
+	--palette-error80: #ffb4ab;
+	--palette-error90: #ffdad6;
+	--palette-error95: #ffedea;
+	--palette-error98: #fff8f7;
+	--palette-error99: #fffbff;
+	--palette-error100: #ffffff;
+	/* light */
+	--color-primary-light: #ae2342;
+	--color-on-primary-light: #ffffff;
+	--color-primary-container-light: #ffd9dd;
+	--color-on-primary-container-light: #400012;
+
+	--color-secondary-light: #76565a;
+	--color-on-secondary-light: #ffffff;
+	--color-secondary-container-light: #ffd9dd;
+	--color-on-secondary-container-light: #2c1518;
+
+	--color-tertiary-light: #785831;
+	--color-on-tertiary-light: #ffffff;
+	--color-tertiary-container-light: #ffddb8;
+	--color-on-tertiary-container-light: #2a1700;
+
+	--color-error-light: #ba1a1a;
+	--color-error-container-light: #ffdad6;
+	--color-on-error-light: #ffffff;
+	--color-on-error-container-light: #410002;
+
+	--color-background-light: #fffbff;
+	--color-on-background-light: #201a1b;
+
+	--color-surface-light: #f8ecf0;
+	--color-on-surface-light: #544243;
+	--color-surface-variant-light: #f4dddf;
+	--color-on-surface-variant-light: #524344;
+
+	--color-outline-light: #847374;
+
+	--color-inverse-on-surface-light: #fbeeee;
+	--color-inverse-surface-light: #362f2f;
+	--color-inverse-primary-light: #ffb2bb;
+
+	--color-shadow-light: #000000;
+
+	--color-surface-tint-light: #a5364d;
+	--color-surface-tint-color-light: #a5364d;
+	/* dark */
+	--color-primary-dark: #ffb2bb;
+	--color-on-primary-dark: #660122;
+	--color-primary-container-dark: #861e37;
+	--color-on-primary-container-dark: #ffd9dd;
+
+	--color-secondary-dark: #e5bdc0;
+	--color-on-secondary-dark: #43292d;
+	--color-secondary-container-dark: #5c3f42;
+	--color-on-secondary-container-dark: #ffd9dd;
+
+	--color-tertiary-dark: #e9bf8f;
+	--color-on-tertiary-dark: #442b07;
+	--color-tertiary-container-dark: #5e411b;
+	--color-on-tertiary-container-dark: #ffddb8;
+
+	--color-error-dark: #ffb4ab;
+	--color-error-container-dark: #93000a;
+	--color-on-error-dark: #690005;
+	--color-on-error-container-dark: #ffdad6;
+
+	--color-background-dark: #201a1b;
+	--color-on-background-dark: #ece0e0;
+
+	--color-surface-dark: #392e2f;
+	--color-on-surface-dark: #ddbec1;
+	--color-surface-variant-dark: #524344;
+	--color-on-surface-variant-dark: #d7c1c3;
+
+	--color-outline-dark: #9f8c8e;
+
+	--color-inverse-on-surface-dark: #201a1b;
+	--color-inverse-surface-dark: #ece0e0;
+	--color-inverse-primary-dark: #a5364d;
+
+	--color-shadow-dark: #000000;
+
+	--color-surface-tint-dark: #ffb2bb;
+	--color-surface-tint-color-dark: #ffb2bb;
+	/* label - small */
+	--typescale-label-small-font-family-name: Roboto;
+	--typescale-label-small-font-family-style: Medium;
+	--typescale-label-small-font-weight: 500px;
+	--typescale-label-small-font-size: 11px;
+	--typescale-label-small-letter-spacing: 0.5px;
+	--typescale-label-small-line-height: 16px;
+	/* label - medium */
+	--typescale-label-medium-font-family-name: Roboto;
+	--typescale-label-medium-font-family-style: Medium;
+	--typescale-label-medium-font-weight: 500px;
+	--typescale-label-medium-font-size: 12px;
+	--typescale-label-medium-letter-spacing: 0.5px;
+	--typescale-label-medium-line-height: 16px;
+	/* label - large */
+	--typescale-label-large-font-family-name: Roboto;
+	--typescale-label-large-font-family-style: Medium;
+	--typescale-label-large-font-weight: 500px;
+	--typescale-label-large-font-size: 14px;
+	--typescale-label-large-letter-spacing: 0.1px;
+	--typescale-label-large-line-height: 20px;
+	/* body - small */
+	--typescale-body-small-font-family-name: Roboto;
+	--typescale-body-small-font-family-style: Regular;
+	--typescale-body-small-font-weight: 400px;
+	--typescale-body-small-font-size: 12px;
+	--typescale-body-small-letter-spacing: 0.4px;
+	--typescale-body-small-line-height: 16px;
+	/* body - medium */
+	--body-medium-font-family: var(--font-paragraph);
+	--body-medium-font-weight: 400px;
+	--body-medium-font-size: 14px;
+	--body-medium-letter-spacing: 0.25px;
+	--body-medium-line-height: 20px;
+	/* body - large */
+	--typescale-body-large-font-family-name: Roboto;
+	--typescale-body-large-font-family-style: Regular;
+	--typescale-body-large-font-weight: 400px;
+	--typescale-body-large-font-size: 16px;
+	--typescale-body-large-letter-spacing: 0.5px;
+	--typescale-body-large-line-height: 24px;
+	/* headline - small */
+	--typescale-headline-small-font-family-name: Roboto;
+	--typescale-headline-small-font-family-style: Regular;
+	--typescale-headline-small-font-weight: 400px;
+	--typescale-headline-small-font-size: 24px;
+	--typescale-headline-small-letter-spacing: 0px;
+	--typescale-headline-small-line-height: 32px;
+	/* headline - medium */
+	--typescale-headline-medium-font-family-name: Roboto;
+	--typescale-headline-medium-font-family-style: Regular;
+	--typescale-headline-medium-font-weight: 400px;
+	--typescale-headline-medium-font-size: 28px;
+	--typescale-headline-medium-letter-spacing: 0px;
+	--typescale-headline-medium-line-height: 36px;
+	/* headline - large */
+	--typescale-headline-large-font-family-name: Roboto;
+	--typescale-headline-large-font-family-style: Regular;
+	--typescale-headline-large-font-weight: 400px;
+	--typescale-headline-large-font-size: 32px;
+	--typescale-headline-large-letter-spacing: 0px;
+	--typescale-headline-large-line-height: 40px;
+	/* display - small */
+	--typescale-display-small-font-family-name: Roboto;
+	--typescale-display-small-font-family-style: Regular;
+	--typescale-display-small-font-weight: 400px;
+	--typescale-display-small-font-size: 36px;
+	--typescale-display-small-letter-spacing: 0px;
+	--typescale-display-small-line-height: 44px;
+	/* display - medium */
+	--typescale-display-medium-font-family-name: Roboto;
+	--typescale-display-medium-font-family-style: Regular;
+	--typescale-display-medium-font-weight: 400px;
+	--typescale-display-medium-font-size: 45px;
+	--typescale-display-medium-letter-spacing: 0px;
+	--typescale-display-medium-line-height: 52px;
+	/* display - large */
+	--typescale-display-large-font-family-name: Roboto;
+	--typescale-display-large-font-family-style: Regular;
+	--typescale-display-large-font-weight: 400px;
+	--typescale-display-large-font-size: 57px;
+	--typescale-display-large-letter-spacing: -0.25px;
+	--typescale-display-large-line-height: 64px;
+	/* title - small */
+	--typescale-title-small-font-family-name: Roboto;
+	--typescale-title-small-font-family-style: Medium;
+	--typescale-title-small-font-weight: 500px;
+	--typescale-title-small-font-size: 14px;
+	--typescale-title-small-letter-spacing: 0.1px;
+	--typescale-title-small-line-height: 20px;
+	/* title - medium */
+	--typescale-title-medium-font-family-name: Roboto;
+	--typescale-title-medium-font-family-style: Medium;
+	--typescale-title-medium-font-weight: 500px;
+	--typescale-title-medium-font-size: 16px;
+	--typescale-title-medium-letter-spacing: 0.15px;
+	--typescale-title-medium-line-height: 24px;
+	/* title - large */
+	--typescale-title-large-font-family-name: Roboto;
+	--typescale-title-large-font-family-style: Regular;
+	--typescale-title-large-font-weight: 400px;
+	--typescale-title-large-font-size: 22px;
+	--typescale-title-large-letter-spacing: 0px;
+	--typescale-title-large-line-height: 28px;
+	/* border radius */
+	--border-radius-medium: 16px;
+	--border-radius-small: 5px;
+}

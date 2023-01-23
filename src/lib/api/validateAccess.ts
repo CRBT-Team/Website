@@ -1,4 +1,4 @@
-import { db } from '$lib/prisma';
+import { prisma } from '$lib/prisma';
 import { formatError, rateLimitError } from './genericErrors';
 import { rateLimit, rateLimitMap } from './rateLimits';
 import type { APITokenData } from '.';
@@ -13,7 +13,7 @@ export async function validateAccess(request: Request, extraProps?: Partial<APIT
 		error = formatError('You must provide an Authorization header');
 	}
 
-	const rawToken = (await db.tokens.findFirst({
+	const rawToken = (await prisma.token.findFirst({
 		where: { token: request.headers.get('Authorization') || undefined }
 	})) as APITokenData;
 
@@ -40,7 +40,8 @@ export async function validateAccess(request: Request, extraProps?: Partial<APIT
 	}
 
 	if (extraProps) {
-		const userId = extraProps.userId.replace('@me', rawToken.data.userId);
+		const userId = extraProps.userId === '@me' ? rawToken.data.userId : extraProps.userId;
+
 		if (userId && userId !== decoded.userId) {
 			isAuthorized = false;
 			error = formatError('Invalid token');

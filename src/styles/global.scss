@@ -1,75 +1,96 @@
-:root {
-	--light: #f27187;
-	--dark: #4a0920;
-	--darker: #242122;
-	--bg: #141414;
-}
-
 html,
 body {
 	scroll-behavior: smooth;
 	padding: 0;
-	min-height: 100vh;
+	max-height: 100vh;
+	text-rendering: optimizeLegibility;
 	margin: 0;
-	display: flex;
-	flex-direction: column;
-	font-size: 18px;
-	font-family: 'DM Sans', Inter, 'Helvetica Neue', system-ui, sans-serif;
-	color: white;
-	background-color: var(--bg);
+	background-color: var(--color-background);
+	font-size: var(--body-medium-font-size);
+	font-family: var(--body-medium-font-family);
+	font-weight: var(--body-medium-font-weight);
+	color: var(--color-on-background);
 }
 
-a {
-	color: inherit;
-	// text-decoration: none;
-	&:hover {
-		color: var(--light);
-	}
+::selection {
+	background-color: var(--color-primary);
+	color: var(--color-on-primary);
 }
 
-@media screen and (max-width: 850px) {
-	html,
-	body {
-		font-size: 16px;
-	}
-	a {
-		position: relative;
-		&::after {
-			content: '';
-			padding: 20px 50px;
-			position: absolute;
-			left: -10px;
-			top: -10px;
-		}
-	}
-	main {
-		margin: 1rem;
-	}
+p,
+body,
+ul,
+ol,
+dl {
+	margin: 0;
 }
 
-@media screen and (max-width: 850px) {
-	ul {
-		margin-block-start: 0.5rem;
-		padding-inline-start: 20px;
-	}
-}
-
-code {
-	font-size: 0.9rem;
-	color: var(--light);
-	background: var(--darker);
-	padding: 0.3rem;
-	border-radius: 5px;
+article,
+aside,
+audio,
+footer,
+header,
+nav,
+section,
+video {
+	display: block;
 }
 
 * {
 	box-sizing: border-box;
 }
 
-li {
-	padding: 0.25rem 0;
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: var(--font-heading);
+	color: var(--color-on-background);
+	margin: 0;
 }
 
-.pink {
-	color: var(--light);
+a {
+	color: inherit;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+img {
+	border: none;
+	max-width: 100%;
+}
+
+input[type='search'] {
+	appearance: textfield;
+}
+
+input[type='submit'] {
+	appearance: none;
+}
+
+input:required:after {
+	color: #f00;
+	content: ' *';
+}
+
+html {
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.emphasis-tertiary {
+	color: var(--color-tertiary);
+}
+.emphasis-primary {
+	color: var(--color-primary);
+}
+
+body.prevent-scroll {
+	overflow: hidden;
 }

@@ -1,116 +1,176 @@
 [
   {
     "name": "@prisma/client",
-    "version": "3.14.0",
+    "version": "4.9.0",
     "license": "Apache-2.0",
-    "url": "https://github.com/prisma/prisma"
+    "url": "https://github.com/prisma/prisma",
+    "type": "DEPENDENCY"
+  },
+  {
+    "name": "@purplet/polyfill",
+    "version": "1.2.1",
+    "license": "Apache-2.0",
+    "url": "https://github.com/CRBT-Team/Purplet",
+    "type": "DEPENDENCY"
+  },
+  {
+    "name": "@purplet/rest",
+    "version": "1.2.0",
+    "license": "Apache-2.0",
+    "url": "github:CRBT-Team/Purplet",
+    "type": "DEPENDENCY"
+  },
+  {
+    "name": "@purplet/utils",
+    "version": "1.0.0",
+    "license": "Apache-2.0",
+    "url": "github:CRBT-Team/Purplet",
+    "type": "DEPENDENCY"
   },
   {
     "name": "@sveltejs/adapter-netlify",
-    "version": "1.0.0-next.58",
+    "version": "1.0.4",
     "license": "MIT",
-    "url": "https://github.com/sveltejs/kit"
+    "url": "https://github.com/sveltejs/kit",
+    "type": "DEPENDENCY"
   },
   {
     "name": "@sveltejs/kit",
-    "version": "1.0.0-next.405",
+    "version": "1.2.2",
     "license": "MIT",
-    "url": "https://github.com/sveltejs/kit"
+    "url": "https://github.com/sveltejs/kit",
+    "type": "DEPENDENCY"
   },
   {
-    "name": "dayjs",
-    "version": "1.11.2",
+    "name": "@types/node",
+    "version": "18.11.18",
     "license": "MIT",
-    "url": "https://github.com/iamkun/dayjs"
+    "url": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "type": "DEPENDENCY"
   },
   {
     "name": "discord-api-types",
-    "version": "0.30.0",
+    "version": "0.37.28",
     "license": "MIT",
-    "url": "https://github.com/discordjs/discord-api-types"
+    "url": "https://github.com/discordjs/discord-api-types",
+    "type": "DEPENDENCY"
+  },
+  {
+    "name": "discord-markdown",
+    "version": "2.5.1",
+    "license": "MIT",
+    "url": "https://github.com/brussell98/discord-markdown",
+    "type": "DEPENDENCY"
   },
   {
     "name": "dotenv",
-    "version": "10.0.0",
+    "version": "16.0.3",
     "license": "BSD-2-Clause",
-    "url": "git://github.com/motdotla/dotenv"
+    "url": "git://github.com/motdotla/dotenv",
+    "type": "DEPENDENCY"
+  },
+  {
+    "name": "Fluent Emojis",
+    "author": "Microsoft",
+    "url": "https://github.com/microsoft/fluentui-emoji",
+    "type": "MANUAL_CREDIT"
   },
   {
     "name": "lucide-svelte",
-    "version": "0.30.0",
+    "version": "0.105.0",
     "license": "ISC",
-    "url": "https://github.com/lucide-icons/lucide"
+    "url": "https://github.com/lucide-icons/lucide",
+    "type": "DEPENDENCY"
   },
   {
     "name": "prettier",
-    "version": "2.6.2",
+    "version": "2.8.3",
     "license": "MIT",
-    "url": "prettier/prettier"
+    "url": "prettier/prettier",
+    "type": "DEPENDENCY"
   },
   {
     "name": "prettier-plugin-svelte",
-    "version": "2.7.0",
+    "version": "2.9.0",
     "license": "MIT",
-    "url": "https://github.com/sveltejs/prettier-plugin-svelte"
+    "url": "https://github.com/sveltejs/prettier-plugin-svelte",
+    "type": "DEPENDENCY"
   },
   {
     "name": "prisma",
-    "version": "3.14.0",
+    "version": "4.9.0",
     "license": "Apache-2.0",
-    "url": "https://github.com/prisma/prisma"
+    "url": "https://github.com/prisma/prisma",
+    "type": "DEPENDENCY"
   },
   {
     "name": "sass",
-    "version": "1.52.1",
+    "version": "1.57.1",
     "license": "MIT",
-    "url": "https://github.com/sass/dart-sass"
+    "url": "https://github.com/sass/dart-sass",
+    "type": "DEPENDENCY"
   },
   {
     "name": "stream",
     "version": "0.0.2",
     "license": "MIT",
-    "url": "git://github.com/juliangruber/stream"
+    "url": "git://github.com/juliangruber/stream",
+    "type": "DEPENDENCY"
   },
   {
     "name": "svelte",
-    "version": "3.48.0",
+    "version": "3.55.1",
     "license": "MIT",
-    "url": "https://github.com/sveltejs/svelte"
+    "url": "https://github.com/sveltejs/svelte",
+    "type": "DEPENDENCY"
   },
   {
     "name": "svelte-check",
-    "version": "2.7.1",
+    "version": "3.0.2",
     "license": "MIT",
-    "url": "https://github.com/sveltejs/language-tools"
+    "url": "https://github.com/sveltejs/language-tools",
+    "type": "DEPENDENCY"
+  },
+  {
+    "name": "svelte-gestures",
+    "version": "1.4.1",
+    "license": "MIT",
+    "url": "https://github.com/Rezi/svelte-gestures",
+    "type": "DEPENDENCY"
   },
   {
     "name": "svelte-preprocess",
-    "version": "4.10.6",
+    "version": "4.10.7",
     "license": "MIT",
-    "url": "https://github.com/sveltejs/svelte-preprocess"
+    "url": "https://github.com/sveltejs/svelte-preprocess",
+    "type": "DEPENDENCY"
   },
   {
     "name": "tslib",
-    "version": "2.4.0",
+    "version": "2.4.1",
     "license": "0BSD",
-    "url": "https://github.com/Microsoft/tslib"
+    "url": "https://github.com/Microsoft/tslib",
+    "type": "DEPENDENCY"
   },
   {
     "name": "typescript",
-    "version": "4.6.4",
+    "version": "4.9.4",
     "license": "Apache-2.0",
-    "url": "https://github.com/Microsoft/TypeScript"
-  },
-  {
-    "name": "validate.js",
-    "version": "0.13.1",
-    "license": "MIT",
-    "url": "https://github.com/ansman/validate.js"
+    "url": "https://github.com/Microsoft/TypeScript",
+    "type": "DEPENDENCY"
   },
   {
     "name": "vite",
-    "version": "3.0.6",
+    "version": "4.0.4",
     "license": "MIT",
-    "url": "https://github.com/vitejs/vite"
+    "url": "https://github.com/vitejs/vite",
+    "type": "DEPENDENCY"
+  },
+  {
+    "name": "zod",
+    "version": "3.20.2",
+    "license": "MIT",
+    "url": "https://github.com/colinhacks/zod",
+    "type": "DEPENDENCY"
   }
 ]
