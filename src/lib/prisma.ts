@@ -1,6 +1,8 @@
-import pkg from '@prisma/client';
-const { PrismaClient } = pkg;
+import { building } from '$app/environment';
+import { PrismaClient } from '@prisma/client';
 
 export const prisma = new PrismaClient();
 
-prisma.$connect().then(() => console.log('Connected to Prisma'));
+if (!building) {
+	prisma.$connect().then(() => console.log('Connected to Prisma'));
+}

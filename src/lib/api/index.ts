@@ -1,3 +1,15 @@
 export * as errors from './genericErrors';
 export { validateAccess, decodeAPIToken } from './validateAccess';
-export * from './types';
+
+enum TokenTypes {
+	API = 'API'
+}
+
+export interface APITokenData {
+	token: string;
+	data: {
+		userId: string;
+		guildId?: string;
+	};
+	type: TokenTypes.API;
+}

@@ -14,7 +14,7 @@
 			<h1>Page not found</h1>
 			<p>We're sorry, but the page you were looking for does not exist.</p>
 			<p>
-				<Button href="/"><Home /> Go home</Button>
+				<Button inline href="/"><Home slot="icon" /> Go home</Button>
 			</p>
 		{:else}
 			<MetaTags title="Error" />

@@ -42,7 +42,7 @@ export const links: PageLink[] = [
 		label: 'Discord Bots page'
 	},
 	{
-		href: '/acknowledgments',
+		href: '/acknowledgements',
 		icon: Scroll,
 		label: 'Acknowledgements'
 	},

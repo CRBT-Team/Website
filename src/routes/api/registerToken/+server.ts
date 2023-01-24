@@ -7,11 +7,11 @@ import { json, type RequestHandler } from '@sveltejs/kit';
 
 export const POST: RequestHandler = async ({ request }) => {
 	if (request.headers.get('Authorization') !== CLIENT_SECRET) {
-		return errors.unauthorized;
+		return errors.unauthorized();
 	}
 
 	if (request.headers.get('content-type') !== 'application/x-www-form-urlencoded') {
-		return errors.badRequest;
+		return errors.badRequest();
 	}
 
 	const bodyBuffer = await request.arrayBuffer();
@@ -19,7 +19,7 @@ export const POST: RequestHandler = async ({ request }) => {
 	const body = new URLSearchParams(bodyString);
 
 	if (!body.has('userId')) {
-		return errors.badRequest;
+		return errors.badRequest();
 	}
 
 	const tokenData: APITokenData['data'] = {
