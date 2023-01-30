@@ -1,15 +1,13 @@
-import {
-	Hand,
-	Coins,
-	Gift,
-	LayoutList,
-	CheckSquare,
-	Languages,
-	Globe2,
-	BellRing,
-	Hammer
-} from 'lucide-svelte';
-import type { Feature } from 'src/routes/(app)/dashboard/_features';
+import { Coins, CheckSquare, Languages, Globe2, BellRing, Hammer } from 'lucide-svelte';
+
+export interface Feature {
+	name: string;
+	description: string;
+	icon: any;
+	badge?: string;
+	href?: string;
+	isToggleable?: boolean;
+}
 
 export const marketingFeatures: Feature[] = [
 	// {

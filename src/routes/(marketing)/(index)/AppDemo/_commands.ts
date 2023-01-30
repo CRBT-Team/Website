@@ -37,8 +37,7 @@ export const commands: {
 			fields: [
 				{
 					name: 'CRBT (@crbt_app) / Twitter',
-					value:
-						'**[🔒 twitter.com › crbt_app](https://twitter.com/crbt_app)**\nAhead of the launch of the Web Dashboard in the coming months, CRBT(dot)ga evolves into...'
+					value: '**[🔒 twitter.com › crbt_app](https://twitter.com/crbt_app)**'
 				},
 				{
 					name: 'CRBT | Discord Bot Labs',
@@ -77,7 +76,7 @@ export const commands: {
 			title: 'What new feature would you like to see?',
 			fields: [
 				{
-					name: 'Web dashboard',
+					name: 'More dogs',
 					value:
 						'<:progressfillstart:971334221782196234><:progressfill:971334221450862642><:progressfill:971334221450862642><:progressfill:971334221450862642><:progressfill:971334221450862642><:progressfill:971334221450862642><:progressfillcut:971334221455036456><:progressempty:1050093579525173338><:progressempty:1050093579525173338><:progressemptyend:971334221425700894>\n75% • 32 vote(s)'
 				},
