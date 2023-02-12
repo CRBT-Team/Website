@@ -6,7 +6,6 @@ import { z, ZodError } from 'zod';
 import { SnowflakeRegex } from '@purplet/utils';
 import { ReminderTypes } from '@prisma/client';
 import { formatError } from '$lib/api/genericErrors';
-import { checkSubcriptionStatus } from '$lib/api/checkSubcriptionStatus';
 
 export const GET: RequestHandler = async ({ params, request }) => {
 	let { isAuthorized, error, tokenData } = await validateAccess(request, { userId: params.userId });
@@ -28,12 +27,11 @@ export const PUT: RequestHandler = async ({ request, params }) => {
 	if (!isAuthorized) return error;
 
 	const userId = params.userId === '@me' ? tokenData.userId : params.userId;
-	const isSubscribed = await checkSubcriptionStatus(userId);
 
 	const body = await request.json();
 
 	const reminders = await prisma.reminder.findMany({ where: { userId } });
-	const maxReminders = isSubscribed ? 50 : 10;
+	const maxReminders = 10;
 
 	if (reminders.length >= maxReminders) {
 		return formatError(`Maximum amount of ${maxReminders} reminders reached for this user.`);
