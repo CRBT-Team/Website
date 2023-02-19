@@ -1,6 +1,6 @@
 import { prisma } from '$lib/prisma';
 import type { RequestHandler } from '@sveltejs/kit';
-import badges from '$lib/json/badges.json';
+import badges from '$lib/util/badges';
 import { validateAccess } from '$lib/api';
 
 export const GET: RequestHandler = async ({ params, request }) => {
@@ -9,27 +9,31 @@ export const GET: RequestHandler = async ({ params, request }) => {
 	if (!isAuthorized) return error;
 
 	const userId = params.userId === '@me' ? tokenData.userId : params.userId;
+	const isSelf = params.userId === '@me' || tokenData.userId === params.userId;
 
 	const userData = await prisma.user.findFirst({
 		where: { id: userId },
 		select: {
+			id: true,
 			accentColor: true,
 			silentJoins: true,
 			silentLeaves: true,
-			id: true,
+			telemetry: true,
 			crbtBadges: true
 		}
 	});
 
 	return {
 		body: {
-			id: userData?.id,
-			accentColor: userData?.accentColor || null,
+			...userData,
 			crbtBadges: userData?.crbtBadges.map((b) => ({ id: b, ...badges[b] })) || null,
-			privacy: {
-				silentJoins: userData?.silentJoins || false,
-				silentLeaves: userData?.silentLeaves || false
-			}
+			...(isSelf
+				? {
+						telemetry: userData.telemetry ?? true,
+						silentJoins: userData.silentJoins ?? false,
+						silentLeaves: userData.silentLeaves ?? false
+				  }
+				: {})
 		}
 	};
 };
