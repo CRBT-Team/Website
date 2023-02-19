@@ -11,7 +11,18 @@ export const GET: RequestHandler = async ({ params, request }) => {
 
 	const serverData = await prisma.servers.findFirst({
 		where: { id: params.guildId },
-		select: { accentColor: true, modules: true }
+		select: {
+			id: true,
+			accentColor: true,
+			flags: true,
+			automaticTheming: true,
+			iconHash: true,
+			joinChannel: true,
+			leaveChannel: true,
+			modLogsChannel: true,
+			modReportsChannel: true,
+			modules: true
+		}
 	});
 
 	return json(serverData);
