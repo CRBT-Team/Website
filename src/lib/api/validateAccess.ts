@@ -4,11 +4,15 @@ import { rateLimit, rateLimitMap } from './rateLimits';
 import type { APITokenData } from '.';
 import { TokenTypes } from '@prisma/client';
 
-export async function validateAccess(request: Request, extraProps?: Partial<APITokenData['data']>) {
+export async function validateAccess(
+	request: Request,
+	extraProps?: Partial<APITokenData['data']>,
+	checkAuthorization = false
+) {
 	let isAuthorized = true;
 	let error = null;
 
-	if (!request.headers.has('Authorization')) {
+	if (checkAuthorization && !request.headers.has('Authorization')) {
 		isAuthorized = false;
 		error = formatError('You must provide an Authorization header');
 	}
@@ -17,24 +21,24 @@ export async function validateAccess(request: Request, extraProps?: Partial<APIT
 		where: { token: request.headers.get('Authorization') || undefined }
 	})) as APITokenData;
 
-	if (!rawToken) {
+	if (checkAuthorization && !rawToken) {
 		isAuthorized = false;
 		error = formatError('Invalid token');
 	}
 
-	if (rawToken.type !== TokenTypes.API) {
+	if (checkAuthorization && rawToken.type !== TokenTypes.API) {
 		isAuthorized = false;
 		error = formatError('You need to provide an valid API token');
 	}
 
-	if (!rawToken.token) {
+	if (checkAuthorization && !rawToken.token) {
 		isAuthorized = false;
 		error = formatError('Invalid token');
 	}
 
 	const decoded = decodeAPIToken(rawToken.token);
 
-	if (!decoded) {
+	if (checkAuthorization && !decoded) {
 		isAuthorized = false;
 		error = formatError('Invalid token');
 	}
@@ -42,12 +46,12 @@ export async function validateAccess(request: Request, extraProps?: Partial<APIT
 	if (extraProps) {
 		const userId = extraProps.userId === '@me' ? rawToken.data.userId : extraProps.userId;
 
-		if (userId && userId !== decoded.userId) {
+		if (checkAuthorization && userId && userId !== decoded.userId) {
 			isAuthorized = false;
 			error = formatError('Invalid token');
 		}
 
-		if (extraProps.guildId !== rawToken.data.guildId) {
+		if (checkAuthorization && extraProps.guildId !== rawToken.data.guildId) {
 			isAuthorized = false;
 			error = formatError('This token is not valid for this guild');
 		}

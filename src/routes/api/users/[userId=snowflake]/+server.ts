@@ -4,7 +4,11 @@ import badges from '$lib/util/badges';
 import { validateAccess } from '$lib/api';
 
 export const GET: RequestHandler = async ({ params, request }) => {
-	let { isAuthorized, error, tokenData } = await validateAccess(request, { userId: params.userId });
+	let { isAuthorized, error, tokenData } = await validateAccess(
+		request,
+		{ userId: params.userId },
+		false
+	);
 
 	if (!isAuthorized) return error;
 
