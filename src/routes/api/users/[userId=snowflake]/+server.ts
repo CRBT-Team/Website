@@ -1,5 +1,5 @@
 import { prisma } from '$lib/prisma';
-import type { RequestHandler } from '@sveltejs/kit';
+import { json, type RequestHandler } from '@sveltejs/kit';
 import badges from '$lib/util/badges';
 import { validateAccess } from '$lib/api';
 
@@ -27,17 +27,15 @@ export const GET: RequestHandler = async ({ params, request }) => {
 		}
 	});
 
-	return {
-		body: {
-			...userData,
-			crbtBadges: userData?.crbtBadges.map((b) => ({ id: b, ...badges[b] })) || null,
-			...(isSelf
-				? {
-						telemetry: userData.telemetry ?? true,
-						silentJoins: userData.silentJoins ?? false,
-						silentLeaves: userData.silentLeaves ?? false
-				  }
-				: {})
-		}
-	};
+	return json({
+		...userData,
+		crbtBadges: userData?.crbtBadges.map((b) => ({ id: b, ...badges[b] })) || null,
+		...(isSelf
+			? {
+					telemetry: userData.telemetry ?? true,
+					silentJoins: userData.silentJoins ?? false,
+					silentLeaves: userData.silentLeaves ?? false
+			  }
+			: {})
+	});
 };
