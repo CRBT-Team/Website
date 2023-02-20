@@ -8,7 +8,11 @@ import { ReminderTypes } from '@prisma/client';
 import { formatError } from '$lib/api/genericErrors';
 
 export const GET: RequestHandler = async ({ params, request }) => {
-	let { isAuthorized, error, tokenData } = await validateAccess(request, { userId: params.userId });
+	let { isAuthorized, error, tokenData } = await validateAccess(
+		request,
+		{ userId: params.userId },
+		{ user: true }
+	);
 
 	if (!isAuthorized) return error;
 
@@ -22,7 +26,11 @@ export const GET: RequestHandler = async ({ params, request }) => {
 };
 
 export const PUT: RequestHandler = async ({ request, params }) => {
-	let { isAuthorized, error, tokenData } = await validateAccess(request, { userId: params.userId });
+	let { isAuthorized, error, tokenData } = await validateAccess(
+		request,
+		{ userId: params.userId },
+		{ user: true }
+	);
 
 	if (!isAuthorized) return error;
 

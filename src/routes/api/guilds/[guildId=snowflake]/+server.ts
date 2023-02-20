@@ -3,9 +3,11 @@ import { json, type RequestHandler } from '@sveltejs/kit';
 import { validateAccess } from '$lib/api';
 
 export const GET: RequestHandler = async ({ params, request }) => {
-	let { isAuthorized, error } = await validateAccess(request, {
-		guildId: params.guildId
-	});
+	let { isAuthorized, error } = await validateAccess(
+		request,
+		{ guildId: params.guildId },
+		{ guild: true }
+	);
 
 	if (!isAuthorized) return error;
 

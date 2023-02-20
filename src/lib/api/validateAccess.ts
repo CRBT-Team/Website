@@ -1,5 +1,5 @@
 import { prisma } from '$lib/prisma';
-import { formatError, rateLimitError } from './genericErrors';
+import { formatError, rateLimitError, unauthorized } from './genericErrors';
 import { rateLimit, rateLimitMap } from './rateLimits';
 import type { APITokenData } from '.';
 import { TokenTypes } from '@prisma/client';
@@ -7,12 +7,18 @@ import { TokenTypes } from '@prisma/client';
 export async function validateAccess(
 	request: Request,
 	extraProps?: Partial<APITokenData['data']>,
-	checkAuthorization = false
+	checks?: {
+		auth?: boolean;
+		user?: boolean;
+		guild?: boolean;
+	}
 ) {
+	checks = { auth: true, user: false, guild: false, ...checks };
+
 	let isAuthorized = true;
 	let error = null;
 
-	if (checkAuthorization && !request.headers.has('Authorization')) {
+	if (checks.auth && !request.headers.has('Authorization')) {
 		isAuthorized = false;
 		error = formatError('You must provide an Authorization header');
 	}
@@ -21,24 +27,24 @@ export async function validateAccess(
 		where: { token: request.headers.get('Authorization') || undefined }
 	})) as APITokenData;
 
-	if (checkAuthorization && !rawToken) {
+	if (checks.auth && !rawToken) {
 		isAuthorized = false;
 		error = formatError('Invalid token');
 	}
 
-	if (checkAuthorization && rawToken.type !== TokenTypes.API) {
+	if (checks.auth && rawToken.type !== TokenTypes.API) {
 		isAuthorized = false;
 		error = formatError('You need to provide an valid API token');
 	}
 
-	if (checkAuthorization && !rawToken.token) {
+	if (checks.auth && !rawToken.token) {
 		isAuthorized = false;
 		error = formatError('Invalid token');
 	}
 
 	const decoded = decodeAPIToken(rawToken.token);
 
-	if (checkAuthorization && !decoded) {
+	if (checks.auth && !decoded) {
 		isAuthorized = false;
 		error = formatError('Invalid token');
 	}
@@ -46,12 +52,12 @@ export async function validateAccess(
 	if (extraProps) {
 		const userId = extraProps.userId === '@me' ? rawToken.data.userId : extraProps.userId;
 
-		if (checkAuthorization && userId && userId !== decoded.userId) {
+		if (checks.auth && userId && userId !== decoded.userId) {
 			isAuthorized = false;
 			error = formatError('Invalid token');
 		}
 
-		if (checkAuthorization && extraProps.guildId !== rawToken.data.guildId) {
+		if (checks.auth && extraProps.guildId !== rawToken.data.guildId) {
 			isAuthorized = false;
 			error = formatError('This token is not valid for this guild');
 		}
@@ -69,6 +75,16 @@ export async function validateAccess(
 
 	const tokenData = { ...rawToken.data, token: rawToken.token, ...decoded };
 
+	if (checks.guild && tokenData.guildId !== extraProps.guildId) {
+		isAuthorized = false;
+		error = unauthorized();
+	}
+
+	if (checks.user && tokenData.userId !== extraProps.userId) {
+		isAuthorized = false;
+		error = unauthorized();
+	}
+
 	return {
 		isAuthorized,
 		error,
@@ -76,7 +92,7 @@ export async function validateAccess(
 	};
 }
 
-export const decodeAPIToken = (token: string) => {
+export function decodeAPIToken(token: string) {
 	try {
 		const [userId, iat, _] = token
 			.split('.')
@@ -90,4 +106,4 @@ export const decodeAPIToken = (token: string) => {
 	} catch (e) {
 		return null;
 	}
-};
+}

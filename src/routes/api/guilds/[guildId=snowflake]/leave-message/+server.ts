@@ -1,11 +1,13 @@
-import { errors, validateAccess } from '$lib/api';
+import { validateAccess } from '$lib/api';
 import { prisma } from '$lib/prisma';
 import { json, type RequestHandler } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async ({ request, params }) => {
-	let { isAuthorized, error } = await validateAccess(request, {
-		guildId: params.guildId
-	});
+	let { isAuthorized, error } = await validateAccess(
+		request,
+		{ guildId: params.guildId },
+		{ guild: true }
+	);
 
 	if (!isAuthorized) return error;
 

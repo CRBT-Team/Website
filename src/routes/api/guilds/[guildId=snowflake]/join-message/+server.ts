@@ -5,9 +5,11 @@ import { z } from 'zod';
 import { SnowflakeRegex } from '@purplet/utils';
 
 export const GET: RequestHandler = async ({ params, request }) => {
-	let { isAuthorized, error } = await validateAccess(request, {
-		guildId: params.guildId
-	});
+	let { isAuthorized, error } = await validateAccess(
+		request,
+		{ guildId: params.guildId },
+		{ guild: true }
+	);
 
 	if (!isAuthorized) return error;
 
@@ -23,9 +25,11 @@ export const GET: RequestHandler = async ({ params, request }) => {
 };
 
 export const PATCH: RequestHandler = async ({ params, request }) => {
-	let { isAuthorized, error } = await validateAccess(request, {
-		guildId: params.guildId
-	});
+	let { isAuthorized, error } = await validateAccess(
+		request,
+		{ guildId: params.guildId },
+		{ guild: true }
+	);
 
 	if (!isAuthorized) return error;
 

@@ -7,13 +7,13 @@ export const GET: RequestHandler = async ({ params, request }) => {
 	let { isAuthorized, error, tokenData } = await validateAccess(
 		request,
 		{ userId: params.userId },
-		false
+		{ auth: false }
 	);
 
 	if (!isAuthorized) return error;
 
 	const userId = params.userId === '@me' ? tokenData.userId : params.userId;
-	const isSelf = params.userId === '@me' || tokenData.userId === params.userId;
+	const isSelf = tokenData && (params.userId === '@me' || tokenData?.userId === params.userId);
 
 	const userData = await prisma.user.findFirst({
 		where: { id: userId },
@@ -28,7 +28,8 @@ export const GET: RequestHandler = async ({ params, request }) => {
 	});
 
 	return json({
-		...userData,
+		id: userId,
+		accentColor: userData.accentColor || 0,
 		crbtBadges: userData?.crbtBadges.map((b) => ({ id: b, ...badges[b] })) || null,
 		...(isSelf
 			? {
