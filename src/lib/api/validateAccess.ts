@@ -52,12 +52,12 @@ export async function validateAccess(
 	if (extraProps) {
 		const userId = extraProps.userId === '@me' ? rawToken.data.userId : extraProps.userId;
 
-		if (checks.auth && userId && userId !== decoded.userId) {
+		if (checks.user && userId && userId !== decoded.userId) {
 			isAuthorized = false;
 			error = formatError('Invalid token');
 		}
 
-		if (checks.auth && extraProps.guildId !== rawToken.data.guildId) {
+		if (checks.guild && extraProps.guildId !== rawToken.data.guildId) {
 			isAuthorized = false;
 			error = formatError('This token is not valid for this guild');
 		}
@@ -74,16 +74,6 @@ export async function validateAccess(
 	}
 
 	const tokenData = { ...rawToken.data, token: rawToken.token, ...decoded };
-
-	if (checks.guild && tokenData.guildId !== extraProps.guildId) {
-		isAuthorized = false;
-		error = unauthorized();
-	}
-
-	if (checks.user && tokenData.userId !== extraProps.userId) {
-		isAuthorized = false;
-		error = unauthorized();
-	}
 
 	return {
 		isAuthorized,
