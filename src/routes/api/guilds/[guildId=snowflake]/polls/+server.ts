@@ -3,26 +3,20 @@ import { prisma } from '$lib/prisma';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import { formatError } from '$lib/api/genericErrors';
+import { handlePagination } from '$lib/api/handlePagination';
 
 export const GET: RequestHandler = async ({ request, params, url }) => {
-	let { isAuthorized, error } = await validateAccess(
+	let { errorMessage } = await validateAccess(
 		request,
 		{ guildId: params.guildId },
 		{ guild: true }
 	);
 
-	if (!isAuthorized) return error;
+	if (errorMessage) return errorMessage;
 
-	const limit = url.searchParams.get('limit') || '10';
-	const page = url.searchParams.get('page') || '0';
+	const { paginationError, limit, page } = handlePagination(url);
 
-	if (isNaN(Number(limit))) {
-		return formatError("Expected number on property 'limit'", 401);
-	}
-
-	if (isNaN(Number(page))) {
-		return formatError("Expected number on property 'page'", 401);
-	}
+	if (paginationError) return paginationError;
 
 	const reminders = await prisma.poll.findMany({
 		where: { serverId: params.guildId },

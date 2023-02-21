@@ -4,13 +4,13 @@ import badges from '$lib/util/badges';
 import { validateAccess } from '$lib/api';
 
 export const GET: RequestHandler = async ({ params, request }) => {
-	let { isAuthorized, error, tokenData } = await validateAccess(
+	let { errorMessage, tokenData } = await validateAccess(
 		request,
 		{ userId: params.userId },
 		{ auth: false }
 	);
 
-	if (!isAuthorized) return error;
+	if (errorMessage) return errorMessage;
 
 	const userId = params.userId === '@me' ? tokenData.userId : params.userId;
 	const isSelf = tokenData && (params.userId === '@me' || tokenData?.userId === params.userId);

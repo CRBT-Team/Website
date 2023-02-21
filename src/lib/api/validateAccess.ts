@@ -1,7 +1,7 @@
 import { prisma } from '$lib/prisma';
-import { formatError, rateLimitError, unauthorized } from './genericErrors';
+import { formatError } from './genericErrors';
 import { rateLimit, rateLimitMap } from './rateLimits';
-import type { APITokenData } from '.';
+import { errors, type APITokenData } from '.';
 import { TokenTypes } from '@prisma/client';
 
 export async function validateAccess(
@@ -15,51 +15,35 @@ export async function validateAccess(
 ) {
 	checks = { auth: true, user: false, guild: false, ...checks };
 
-	let isAuthorized = true;
-	let error = null;
+	let errorMessage: ReturnType<typeof formatError> | null = null;
 
 	if (checks.auth && !request.headers.has('Authorization')) {
-		isAuthorized = false;
-		error = formatError('You must provide an Authorization header');
+		errorMessage = formatError('You must provide an Authorization header');
 	}
 
 	const rawToken = (await prisma.token.findFirst({
-		where: { token: request.headers.get('Authorization') || undefined }
+		where: { token: request.headers.get('Authorization') }
 	})) as APITokenData;
 
-	if (checks.auth && !rawToken) {
-		isAuthorized = false;
-		error = formatError('Invalid token');
-	}
-
-	if (checks.auth && rawToken.type !== TokenTypes.API) {
-		isAuthorized = false;
-		error = formatError('You need to provide an valid API token');
-	}
-
-	if (checks.auth && !rawToken.token) {
-		isAuthorized = false;
-		error = formatError('Invalid token');
+	if (checks.auth && (!rawToken || !rawToken.token || rawToken.type !== TokenTypes.API)) {
+		errorMessage = formatError('Invalid token');
 	}
 
 	const decoded = decodeAPIToken(rawToken.token);
 
 	if (checks.auth && !decoded) {
-		isAuthorized = false;
-		error = formatError('Invalid token');
+		errorMessage = formatError('Invalid token');
 	}
 
 	if (extraProps) {
 		const userId = extraProps.userId === '@me' ? rawToken.data.userId : extraProps.userId;
 
 		if (checks.user && userId && userId !== decoded.userId) {
-			isAuthorized = false;
-			error = formatError('Invalid token');
+			errorMessage = errors.unauthorized();
 		}
 
 		if (checks.guild && extraProps.guildId !== rawToken.data.guildId) {
-			isAuthorized = false;
-			error = formatError('This token is not valid for this guild');
+			errorMessage = errors.unauthorized();
 		}
 	}
 
@@ -67,8 +51,7 @@ export async function validateAccess(
 	const rateLimitDetails = rateLimitMap.get(rawToken.token);
 
 	if (rateLimited) {
-		isAuthorized = false;
-		error = rateLimitError(
+		errorMessage = errors.rateLimitError(
 			rateLimitDetails?.timeWindowMs - (Date.now() - rateLimitDetails?.lastRequestMs) || 0
 		);
 	}
@@ -76,8 +59,7 @@ export async function validateAccess(
 	const tokenData = { ...rawToken.data, token: rawToken.token, ...decoded };
 
 	return {
-		isAuthorized,
-		error,
+		errorMessage,
 		tokenData
 	};
 }

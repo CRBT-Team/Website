@@ -4,9 +4,9 @@ import { validateAccess } from '$lib/api';
 import { prisma } from '$lib/prisma';
 
 export const GET: RequestHandler = async ({ params: { guildId }, request }) => {
-	let { isAuthorized, error } = await validateAccess(request, { guildId: guildId });
+	let { errorMessage } = await validateAccess(request, { guildId: guildId });
 
-	if (!isAuthorized) return error;
+	if (errorMessage) return errorMessage;
 
 	const serverData = await prisma.economy.findFirst({
 		where: { serverId: guildId },

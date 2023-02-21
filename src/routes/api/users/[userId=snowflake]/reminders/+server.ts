@@ -4,13 +4,13 @@ import type { RequestHandler } from '../$types';
 import { json } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async ({ params, request }) => {
-	let { isAuthorized, error, tokenData } = await validateAccess(
+	let { errorMessage, tokenData } = await validateAccess(
 		request,
 		{ userId: params.userId },
 		{ user: true }
 	);
 
-	if (!isAuthorized) return error;
+	if (errorMessage) return errorMessage;
 
 	const userId = params.userId === '@me' ? tokenData.userId : params.userId;
 

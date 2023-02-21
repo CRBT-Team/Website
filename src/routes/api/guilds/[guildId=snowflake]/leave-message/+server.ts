@@ -7,13 +7,13 @@ import { json, type RequestHandler } from '@sveltejs/kit';
 import { z } from 'zod';
 
 export const GET: RequestHandler = async ({ request, params }) => {
-	let { isAuthorized, error } = await validateAccess(
+	let { errorMessage } = await validateAccess(
 		request,
 		{ guildId: params.guildId },
 		{ guild: true }
 	);
 
-	if (!isAuthorized) return error;
+	if (errorMessage) return errorMessage;
 
 	const serverData = await prisma.servers.findFirst({
 		where: { id: params.guildId },
@@ -27,13 +27,13 @@ export const GET: RequestHandler = async ({ request, params }) => {
 };
 
 export const PATCH: RequestHandler = async ({ params, request }) => {
-	let { isAuthorized, error } = await validateAccess(
+	let { errorMessage } = await validateAccess(
 		request,
 		{ guildId: params.guildId },
 		{ guild: true }
 	);
 
-	if (!isAuthorized) return error;
+	if (errorMessage) return errorMessage;
 
 	const body = await request.json();
 	const { leaveMessage, leaveChannel } = body;

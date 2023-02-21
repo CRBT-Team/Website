@@ -1,19 +1,19 @@
 import { prisma } from '$lib/prisma';
 import { json, type RequestHandler } from '@sveltejs/kit';
 import { errors, validateAccess } from '$lib/api';
-import { z, ZodError } from 'zod';
+import { z } from 'zod';
 import { MessageContentStructure, MessageEmbedStructure } from '$lib/api/structures/message';
 import { SnowflakeStructure } from '$lib/api/structures/misc';
 import { formatError } from '$lib/api/genericErrors';
 
 export const GET: RequestHandler = async ({ params, request }) => {
-	let { isAuthorized, error } = await validateAccess(
+	let { errorMessage } = await validateAccess(
 		request,
 		{ guildId: params.guildId },
 		{ guild: true }
 	);
 
-	if (!isAuthorized) return error;
+	if (errorMessage) return errorMessage;
 
 	const serverData = await prisma.servers.findFirst({
 		where: { id: params.guildId },
@@ -27,13 +27,13 @@ export const GET: RequestHandler = async ({ params, request }) => {
 };
 
 export const PATCH: RequestHandler = async ({ params, request }) => {
-	let { isAuthorized, error } = await validateAccess(
+	let { errorMessage } = await validateAccess(
 		request,
 		{ guildId: params.guildId },
 		{ guild: true }
 	);
 
-	if (!isAuthorized) return error;
+	if (errorMessage) return errorMessage;
 
 	const body = await request.json();
 	const { joinMessage, joinChannel } = body;
