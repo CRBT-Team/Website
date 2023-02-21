@@ -1,8 +1,10 @@
 import { prisma } from '$lib/prisma';
 import { json, type RequestHandler } from '@sveltejs/kit';
 import { errors, validateAccess } from '$lib/api';
-import { z } from 'zod';
-import { SnowflakeRegex } from '@purplet/utils';
+import { z, ZodError } from 'zod';
+import { MessageContentStructure, MessageEmbedStructure } from '$lib/api/structures/message';
+import { SnowflakeStructure } from '$lib/api/structures/misc';
+import { formatError } from '$lib/api/genericErrors';
 
 export const GET: RequestHandler = async ({ params, request }) => {
 	let { isAuthorized, error } = await validateAccess(
@@ -41,36 +43,13 @@ export const PATCH: RequestHandler = async ({ params, request }) => {
 	const server = z.object({
 		joinMessage: z
 			.object({
-				content: z.string().max(4096).optional(),
-				embed: z
-					.object({
-						title: z.string().max(256),
-						description: z.string().max(4096),
-						fields: z
-							.array(
-								z.object({
-									name: z.string().max(256),
-									value: z.string().max(1024),
-									inline: z.boolean().optional()
-								})
-							)
-							.max(25),
-						footer: z.object({
-							icon_url: z.string().url(),
-							text: z.string().max(2048)
-						}),
-						author: z.object({
-							icon_url: z.string().url(),
-							url: z.string().url(),
-							name: z.string().max(256)
-						}),
-						color: z.number().int()
-					})
-					.optional(),
+				type: z.literal('JOIN_MESSAGE'),
+				content: MessageContentStructure.optional(),
+				embed: MessageEmbedStructure.optional(),
 				script: z.string().min(20).max(8000).optional()
 			})
 			.optional(),
-		joinChannel: z.string().regex(SnowflakeRegex).optional()
+		joinChannel: SnowflakeStructure.optional()
 	});
 
 	try {
@@ -86,5 +65,7 @@ export const PATCH: RequestHandler = async ({ params, request }) => {
 		});
 
 		return json(data);
-	} catch (e) {}
+	} catch (e) {
+		return formatError(e);
+	}
 };
