@@ -14,10 +14,9 @@ export const handle: Handle = async ({ event, resolve }) => {
 			request.headers.get('content/type') === 'application/x-www-form-urlencoded');
 
 	if (forbidden && !event.url.pathname.endsWith(allowedWebhookURLs)) {
-		const csrf_error = error(
-			403,
-			`Cross-site ${event.request.method} form submissions are forbidden`
-		);
+		const csrf_error = error(403, {
+			message: `Cross-site ${event.request.method} form submissions are forbidden`
+		});
 		if (request.headers.get('accept') === 'application/json') {
 			return json(csrf_error.body, { status: csrf_error.status });
 		}
