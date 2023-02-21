@@ -17,7 +17,7 @@ export async function validateAccess(
 
 	let errorMessage: ReturnType<typeof formatError> | null = null;
 
-	if (checks.auth && !request.headers.has('Authorization')) {
+	if (checks.auth && !request.headers.get('Authorization')) {
 		errorMessage = formatError('You must provide an Authorization header');
 	}
 

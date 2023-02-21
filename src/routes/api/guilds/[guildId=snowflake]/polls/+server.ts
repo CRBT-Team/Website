@@ -18,33 +18,25 @@ export const GET: RequestHandler = async ({ request, params, url }) => {
 
 	if (paginationError) return paginationError;
 
-	const reminders = await prisma.poll.findMany({
+	const polls = await prisma.poll.findMany({
 		where: { serverId: params.guildId },
 		...(limit ? { take: Number(limit) } : {}),
-		...(page ? { skip: Number(limit) * Number(page) } : {}),
-		select: {
-			id: true,
-			serverId: true,
-			choices: true,
-			creatorId: true,
-			locale: true,
-			expiresAt: true
-		}
+		...(page ? { skip: Number(limit) * Number(page) } : {})
 	});
 
 	return json(
-		reminders.map((r) => {
-			const [channelId, messageId] = r.id.split('/');
+		polls.map((poll) => {
+			const [channelId, messageId] = poll.id.split('/');
 			return {
-				id: r.id,
+				id: poll.id,
 				channelId,
 				messageId,
-				creatorId: r.creatorId,
-				guildId: r.serverId,
-				locale: r.locale,
-				expiresAt: r.expiresAt,
-				choiceCount: r.choices.length,
-				participants: r.choices
+				creatorId: poll.creatorId,
+				guildId: poll.serverId,
+				locale: poll.locale,
+				expiresAt: poll.expiresAt,
+				choiceCount: poll.choices.length,
+				participants: poll.choices
 			};
 		})
 	);
