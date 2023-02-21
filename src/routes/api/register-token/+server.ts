@@ -43,7 +43,5 @@ export const POST: RequestHandler = async ({ request }) => {
 		data: { token: tokenString, data: tokenData, type: TokenTypes.API }
 	});
 
-	return json({
-		token
-	});
+	return json(token);
 };
