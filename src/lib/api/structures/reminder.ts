@@ -8,6 +8,7 @@ export const ReminderStructure = z
 		guildId: z.union([z.literal('@me'), SnowflakeStructure]),
 		channelId: SnowflakeStructure,
 		// messageId: SnowflakeStructure,
+		//TODO: add "details" field
 		expiresAt: PreprocessedDateStructure,
 		destination: z
 			.union([z.literal('dm'), SnowflakeStructure], {

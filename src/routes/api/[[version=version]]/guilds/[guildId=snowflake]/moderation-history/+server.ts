@@ -4,6 +4,8 @@ import { prisma } from '$lib/prisma';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import type { ModerationStrikeTypes } from '@prisma/client';
+import { formatError, badRequest } from '$lib/api/genericErrors';
+import { ModerationEntryStructure } from '$lib/api/structures/moderation-entry';
 
 export const GET: RequestHandler = async ({ request, params, url }) => {
 	let { errorMessage } = await validateAccess(
@@ -25,7 +27,7 @@ export const GET: RequestHandler = async ({ request, params, url }) => {
 
 	const history = await prisma.moderationStrikes.findMany({
 		where: {
-			serverId: params.guildId,
+			guildId: params.guildId,
 			...(filters.type ? { type: filters.type } : {}),
 			...(filters.userId ? { targetId: filters.userId } : {})
 		},
@@ -42,4 +44,33 @@ export const GET: RequestHandler = async ({ request, params, url }) => {
 			};
 		})
 	});
+};
+
+export const POST: RequestHandler = async ({ request, params, url }) => {
+	let { errorMessage } = await validateAccess(
+		request,
+		{ guildId: params.guildId },
+		{ guild: true }
+	);
+	if (errorMessage) return errorMessage;
+
+	const body = await request.json();
+
+	if (!body) return badRequest();
+
+	try {
+		const parsedData = ModerationEntryStructure.parse(body);
+
+		const serverData = await prisma.moderationStrikes.create({
+			data: {
+				...parsedData,
+				guildId: params.guildId,
+				createdAt: new Date()
+			}
+		});
+
+		return json(serverData);
+	} catch (e) {
+		return formatError(e);
+	}
 };

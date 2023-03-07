@@ -83,7 +83,7 @@ model serverModules {
 model moderationStrikes {
   id          String                @id @default(uuid()) @db.Uuid
   moderatorId String                @map("moderator_id")
-  serverId    String                @map("server_id")
+  guildId     String                @map("server_id")
   targetId    String                @map("target_id")
   reason      String?
   createdAt   DateTime              @map("created_at") @db.Timestamptz(6)
@@ -141,25 +141,25 @@ model Achievement {
 }
 
 model Economy {
-  serverId               String                @id
+  id                     String                @id
   currencyNameSingular   String?               @map("currency_name_singular")
   currencyNamePlural     String?               @map("currency_name_plural")
   currencySymbol         String?               @map("currency_symbol")
   transactionLogsChannel String?               @map("logs_channel")
   commands               EconomyCommands?
-  server                 servers?              @relation(fields: [serverId], references: [id])
+  server                 servers?              @relation(fields: [id], references: [id])
   items                  EconomyItem[]
   categories             EconomyItemCategory[]
 }
 
 model EconomyCommands {
-  serverId      String   @id
+  id            String   @id
   workCooldown  Int
   workStrings   String[]
   workReward    String
   dailyReward   String
   weeklyRewards String[]
-  Economy       Economy? @relation(fields: [serverId], references: [serverId])
+  Economy       Economy? @relation(fields: [id], references: [id])
 }
 
 model EconomyItem {
@@ -172,7 +172,7 @@ model EconomyItem {
   categoryId     Int
   category       EconomyItemCategory @relation(fields: [categoryId], references: [id])
   type           ItemTypes
-  stock          Int
+  stock          Int?
   // for items limited in time
   availableUntil DateTime?           @map("available_until") @db.Timestamptz(6)
   // the value an item can hold (role ID, Multiplier, etc)
@@ -182,7 +182,7 @@ model EconomyItem {
   // who has the item
   owners         ServerMember[]      @relation("items")
   // which economy does the item belong to
-  economy        Economy             @relation(fields: [serverId], references: [serverId])
+  economy        Economy             @relation(fields: [serverId], references: [id])
 }
 
 model EconomyItemCategory {
@@ -191,7 +191,7 @@ model EconomyItemCategory {
   items    EconomyItem[]
   label    String
   emoji    String?
-  economy  Economy       @relation(fields: [serverId], references: [serverId])
+  economy  Economy       @relation(fields: [serverId], references: [id])
 }
 
 model Token {
