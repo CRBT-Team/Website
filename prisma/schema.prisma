@@ -146,10 +146,10 @@ model Economy {
   currency_symbol             String?
   transaction_logs_channel_id String?
   guild                       servers?              @relation(fields: [id], references: [id])
-  work_cooldown               Int
+  work_cooldown               Int?
   work_strings                String[]
-  work_reward                 String
-  daily_reward                String
+  work_reward                 String?
+  daily_reward                String?
   weekly_rewards              String[]
   items                       EconomyItem[]
   categories                  EconomyItemCategory[]
