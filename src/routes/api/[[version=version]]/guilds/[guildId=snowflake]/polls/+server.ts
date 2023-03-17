@@ -20,23 +20,23 @@ export const GET: RequestHandler = async ({ request, params, url }) => {
 	if (paginationError) return paginationError;
 
 	const polls = await prisma.poll.findMany({
-		where: { serverId: params.guildId },
+		where: { guild_id: params.guildId },
 		...(limit ? { take: Number(limit) } : {}),
 		...(page ? { skip: Number(limit) * Number(page) } : {})
 	});
 
 	return json(
 		polls.map((poll) => {
-			const [channelId, messageId] = poll.id.split('/');
+			const [channel_id, message_id] = poll.id.split('/');
 			return {
 				id: poll.id,
-				channelId,
-				messageId,
-				creatorId: poll.creatorId,
-				guildId: poll.serverId,
+				channel_id: channel_id,
+				message_id: message_id,
+				creator_id: poll.creator_id,
+				guild_id: poll.guild_id,
 				locale: poll.locale,
-				expiresAt: poll.expiresAt,
-				choiceCount: poll.choices.length,
+				expires_at: poll.expires_at,
+				choice_count: poll.choices.length,
 				participants: poll.choices
 			};
 		})
@@ -59,7 +59,7 @@ export const POST: RequestHandler = async ({ request, params }) => {
 	try {
 		const parsedData = PollStructure.parse(body);
 
-		const polls = await prisma.poll.findMany({ where: { serverId: params.guildId } });
+		const polls = await prisma.poll.findMany({ where: { guild_id: params.guildId } });
 		const maxPolls = 10;
 
 		if (polls.length >= maxPolls) {
@@ -68,11 +68,11 @@ export const POST: RequestHandler = async ({ request, params }) => {
 
 		const serverData = await prisma.poll.create({
 			data: {
-				id: `${parsedData.channelId}/${parsedData.messageId}`,
-				serverId: params.guildId,
+				id: `${parsedData.channel_id}/${parsedData.message_id}`,
+				guild_id: params.guildId,
 				choices: parsedData.choices,
-				creatorId: parsedData.creatorId,
-				expiresAt: parsedData.expiresAt,
+				creator_id: parsedData.creator_id,
+				expires_at: parsedData.expires_at,
 				locale: parsedData.locale
 			}
 		});

@@ -1,0 +1,199 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Giveaway {
+  id           String   @id
+  guild_id     String
+  channel_id   String
+  message_id   String
+  host_id      String
+  guild        Guild    @relation(fields: [guild_id], references: [id])
+  prize        String
+  end_time     DateTime @db.Timestamptz(6)
+  participants String[]
+}
+
+model Poll {
+  id         String   @id
+  guild_id   String
+  channel_id String
+  message_id String
+  creator_id String
+  title      String
+  choices    Json[]
+  flags      Int
+  image      String?
+  end_time   DateTime @db.Timestamptz(6)
+  creator    User     @relation(fields: [creator_id], references: [id])
+  guild      Guild    @relation(fields: [guild_id], references: [id])
+}
+
+model Reminder {
+  id          String   @id
+  user_id     String
+  user        User     @relation(fields: [user_id], references: [id])
+  end_time    DateTime @db.Timestamptz(6)
+  locale      String
+  destination String
+  subject     String
+  details     String?
+  type        Int
+}
+
+model Guild {
+  id                       String            @id
+  join_channel_id          String?
+  join_message             Json?
+  leave_channel_id         String?
+  leave_message            Json?
+  notifications_channel_id String?
+  reports_channel_id       String?
+  accent_color             Int?
+  auto_theming_enabled     Boolean?          @default(true)
+  icon                     String?
+  economy                  Economy?
+  features                 String[]
+  giveaways                Giveaway[]
+  polls                    Poll[]
+  flags                    Int?              @default(0)
+  achievements             Achievement[]
+  // permissions  ServerPermissions[]
+  members                  GuildMember[]
+  moderation_history       ModerationEntry[]
+}
+
+// model ServerPermissions {
+//   serverId            String   @id @map("server_id")
+//   server              servers  @relation(fields: [serverId], references: [id])
+//   moderatorRoles      String[] @map("mod_roles")
+//   pollsAllowed        Json[]   @map("polls_allowlist")
+//   pollsDisallowed     Json[]   @map("polls_blocklist")
+//   giveawaysAllowed    Json[]   @map("gways_allowlist")
+//   giveawaysDisallowed Json[]   @map("gways_blocklist")
+// }
+
+model ModerationEntry {
+  id        String  @id
+  user_id   String
+  guild_id  String
+  target_id String
+  reason    String?
+  type      Int
+  details   String
+  options   Json?
+  guild     Guild   @relation(fields: [guild_id], references: [id])
+}
+
+model User {
+  id            String        @id
+  accent_color  Int?
+  badges        Int?
+  telemetry     Boolean       @default(true)
+  silent_joins  Boolean       @default(false)
+  silent_leaves Boolean       @default(false)
+  reminders     Reminder[]
+  member_data   GuildMember[]
+  polls         Poll[]
+}
+
+model GuildMember {
+  id           String              @id
+  user_id      String
+  user         User                @relation(references: [id], fields: [user_id])
+  guild_id     String
+  guild        Guild               @relation(references: [id], fields: [guild_id])
+  achievements MemberAchievement[]
+  last_work    DateTime?           @db.Timestamptz(6)
+  last_daily   DateTime?           @db.Timestamptz(6)
+  work_xp      Int                 @default(0) @db.Integer
+  money        Int                 @default(0) @db.Integer
+  items        Item[]              @relation("items")
+  active_items Item[]              @relation("active_items")
+  daily_streak Int                 @map("daily_streak")
+
+  @@map("ServerMember")
+}
+
+model MemberAchievement {
+  achievement_id String       @unique
+  achievement    Achievement  @relation(fields: [achievement_id], references: [id])
+  userId         String       @unique
+  user           GuildMember? @relation(fields: [userId], references: [id])
+  progression    Json[]
+  achievedAt     DateTime?    @map("achieved_at") @db.Timestamptz(6)
+}
+
+model Achievement {
+  id           String              @id
+  guild_id     String
+  guild        Guild               @relation(fields: [guild_id], references: [id])
+  name         String
+  description  String?
+  requirements Json[]
+  members      MemberAchievement[]
+}
+
+model Economy {
+  id                          String           @id
+  currency_name_singular      String?
+  currency_name_plural        String?
+  currency_symbol             String?
+  store_banner                String?
+  transaction_logs_channel_id String?
+  commands                    EconomyCommands?
+  guild                       Guild?           @relation(fields: [id], references: [id])
+  items                       Item[]
+  categories                  ItemCategory[]
+}
+
+model EconomyCommands {
+  id             String   @id
+  work_cooldown  Int
+  work_strings   Json[]
+  work_reward    String
+  daily_reward   String
+  weekly_rewards Json[]
+  Economy        Economy? @relation(fields: [id], references: [id])
+}
+
+model Item {
+  id              String        @id
+  guild_id        String
+  name            String
+  emoji           String?
+  description     String?
+  price           Int
+  category_id     String
+  category        ItemCategory  @relation(fields: [category_id], references: [id])
+  type            Int
+  max_stock       Int?
+  available_until DateTime?     @db.Timestamptz(6)
+  values          Json[]
+  // who owns the item
+  owners          GuildMember[] @relation("items")
+  // who's currently using the item
+  active_members  GuildMember[] @relation("active_items")
+  economy         Economy       @relation(fields: [guild_id], references: [id])
+  flags           Int
+}
+
+model ItemCategory {
+  id       String  @id
+  guild_id String
+  items    Item[]
+  label    String
+  emoji    String?
+  economy  Economy @relation(fields: [guild_id], references: [id])
+}
+
+model Token {
+  token String @id
+  data  Json   @db.Json
+  type  Int
+}

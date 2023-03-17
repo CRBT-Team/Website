@@ -4,10 +4,10 @@ import { ModerationStrikeTypes } from '@prisma/client';
 
 export const ModerationEntryStructure = z
 	.object({
-		moderatorId: SnowflakeStructure,
-		targetId: SnowflakeStructure,
+		moderator_id: SnowflakeStructure,
+		target_id: SnowflakeStructure,
 		reason: z.string().max(256).optional(),
-		expiresAt: PreprocessedDateStructure.optional(),
+		expires_at: PreprocessedDateStructure.optional(),
 		type: z.nativeEnum(ModerationStrikeTypes)
 		//TODO: add "details" field
 		// details: z.string().optional()

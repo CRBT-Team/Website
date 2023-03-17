@@ -17,12 +17,12 @@ export const GET: RequestHandler = async ({ request, params }) => {
 
 	const serverData = await prisma.servers.findFirst({
 		where: { id: params.guildId },
-		select: { leaveMessage: true, leaveChannel: true }
+		select: { leave_message: true, leave_channel_id: true }
 	});
 
 	return json({
-		leaveMessage: serverData?.leaveMessage,
-		leaveChannel: serverData?.leaveChannel
+		leave_message: serverData?.leave_message,
+		leave_channel_id: serverData?.leave_channel_id
 	});
 };
 
@@ -36,20 +36,20 @@ export const PATCH: RequestHandler = async ({ params, request }) => {
 	if (errorMessage) return errorMessage;
 
 	const body = await request.json();
-	const { leaveMessage, leaveChannel } = body;
+	const { leave_message, leave_channel_id } = body;
 
-	if (!leaveMessage && !leaveChannel) return errors.invalidBody(['leaveMessage', 'leaveChannel']);
+	if (!leave_message && !leave_channel_id)
+		return errors.invalidBody(['leave_message', 'leave_channel_id']);
 
 	const server = z.object({
-		leaveMessage: z
+		leave_message: z
 			.object({
-				type: z.literal('LEAVE_MESSAGE'),
 				content: MessageContentStructure.optional(),
 				embed: MessageEmbedStructure.optional(),
 				script: z.string().min(20).max(8000).optional()
 			})
 			.optional(),
-		leaveChannel: SnowflakeStructure.optional()
+		leave_channel_id: SnowflakeStructure.optional()
 	});
 
 	try {
@@ -58,13 +58,18 @@ export const PATCH: RequestHandler = async ({ params, request }) => {
 		const serverData = await prisma.servers.upsert({
 			create: {
 				id: params.guildId,
-				...data
+				leave_message: {
+					...data.leave_message,
+					type: 'LEAVE_MESSAGE'
+				},
+				leave_channel_id: data.leave_channel_id
 			},
 			update: data,
-			where: { id: params.guildId }
+			where: { id: params.guildId },
+			select: { leave_channel_id: true, leave_message: true }
 		});
 
-		return json(data);
+		return json(serverData);
 	} catch (e) {
 		return formatError(e);
 	}

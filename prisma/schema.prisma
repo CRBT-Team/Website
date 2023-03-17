@@ -9,29 +9,29 @@ datasource db {
 
 model Giveaway {
   id           String   @id
-  hostId       String
-  serverId     String
-  server       servers  @relation(fields: [serverId], references: [id])
-  expiresAt    DateTime @map("expires_at") @db.Timestamptz(6)
+  host_id      String   @map("hostId")
+  guild_id     String   @map("serverId")
+  guild        servers  @relation(fields: [guild_id], references: [id])
+  expires_at   DateTime @map("expires_at") @db.Timestamptz(6)
   locale       String
   participants String[]
 }
 
 model Poll {
-  id        String   @id
-  creatorId String
-  choices   Json[]
-  expiresAt DateTime @map("expires_at") @db.Timestamptz(6)
-  locale    String
-  serverId  String
-  server    servers  @relation(fields: [serverId], references: [id])
+  id         String   @id
+  creator_id String   @map("creatorId")
+  choices    Json[]
+  expires_at DateTime @map("expires_at") @db.Timestamptz(6)
+  locale     String
+  guild_id   String   @map("serverId")
+  guild      servers  @relation(fields: [guild_id], references: [id])
 }
 
 model Reminder {
   id          String         @id
-  userId      String
-  user        User           @relation(fields: [userId], references: [id])
-  expiresAt   DateTime       @map("expires_at") @db.Timestamptz(6)
+  user_id     String         @map("userId")
+  user        User           @relation(fields: [user_id], references: [id])
+  expires_at  DateTime       @db.Timestamptz(6)
   locale      String
   destination String
   subject     String
@@ -40,24 +40,24 @@ model Reminder {
 }
 
 model servers {
-  id                String         @id
-  joinChannel       String?        @map("join_channel")
-  joinMessage       Json?          @map("join_message")
-  leaveChannel      String?        @map("leave_channel")
-  leaveMessage      Json?          @map("leave_message")
-  modLogsChannel    String?        @map("modlogs_channel")
-  modReportsChannel String?        @map("reports_channel")
-  accentColor       Int?           @map("accent_color")
-  automaticTheming  Boolean?       @default(true) @map("auto_theme")
-  iconHash          String?        @map("icon")
-  economy           Economy?
-  modules           serverModules?
-  giveaways         Giveaway[]
-  polls             Poll[]
-  flags             Int?           @default(0)
-  achievements      Achievement[]
+  id                       String         @id
+  join_channel_id          String?        @map("join_channel")
+  join_message             Json?
+  leave_channel_id         String?        @map("leave_channel")
+  leave_message            Json?
+  notifications_channel_id String?        @map("modlogs_channel")
+  reports_channel_id       String?        @map("reports_channel")
+  accent_color             Int?
+  auto_theming_enabled     Boolean?       @default(true) @map("auto_theme")
+  icon                     String?
+  economy                  Economy?
+  modules                  serverModules?
+  giveaways                Giveaway[]
+  polls                    Poll[]
+  flags                    Int?           @default(0)
+  achievements             Achievement[]
   // permissions  ServerPermissions[]
-  members           ServerMember[]
+  members                  ServerMember[]
 }
 
 // model ServerPermissions {
@@ -71,36 +71,36 @@ model servers {
 // }
 
 model serverModules {
-  id                String  @id
-  economy           Boolean @default(false)
-  joinMessage       Boolean @default(false) @map("join_message")
-  leaveMessage      Boolean @default(false) @map("leave_message")
-  moderationLogs    Boolean @default(false) @map("modlogs")
-  moderationReports Boolean @default(false) @map("modreports")
-  server            servers @relation(fields: [id], references: [id])
+  id                       String  @id
+  economy                  Boolean @default(false)
+  join_message             Boolean @default(false)
+  leave_message            Boolean @default(false)
+  moderation_notifications Boolean @default(false) @map("modlogs")
+  moderation_reports       Boolean @default(false) @map("modreports")
+  guild                    servers @relation(fields: [id], references: [id])
 }
 
 model moderationStrikes {
-  id          String                @id @default(uuid()) @db.Uuid
-  moderatorId String                @map("moderator_id")
-  guildId     String                @map("server_id")
-  targetId    String                @map("target_id")
-  reason      String?
-  createdAt   DateTime              @map("created_at") @db.Timestamptz(6)
-  expiresAt   DateTime?             @map("expires_at") @db.Timestamptz(6)
-  type        ModerationStrikeTypes
-  details     String?
+  id           String                @id @default(uuid()) @db.Uuid
+  moderator_id String
+  guild_id     String                @map("server_id")
+  target_id    String
+  reason       String?
+  created_at   DateTime              @db.Timestamptz(6)
+  expires_at   DateTime?             @db.Timestamptz(6)
+  type         ModerationStrikeTypes
+  details      String?
 }
 
 model User {
-  id           String         @id
-  accentColor  Int?           @map("accent_color")
-  crbtBadges   String[]       @map("crbt_badges")
-  telemetry    Boolean        @default(true)
-  silentJoins  Boolean        @default(false) @map("silent_joins")
-  silentLeaves Boolean        @default(false) @map("silent_leaves")
-  reminders    Reminder[]
-  memberData   ServerMember[]
+  id            String         @id
+  accent_color  Int?
+  crbt_badges   String[]
+  telemetry     Boolean        @default(true)
+  silent_joins  Boolean        @default(false)
+  silent_leaves Boolean        @default(false)
+  reminders     Reminder[]
+  memberData    ServerMember[]
 }
 
 model ServerMember {
@@ -145,7 +145,7 @@ model Economy {
   currency_name_plural        String?
   currency_symbol             String?
   transaction_logs_channel_id String?
-  server                      servers?              @relation(fields: [id], references: [id])
+  guild                       servers?              @relation(fields: [id], references: [id])
   work_cooldown               Int
   work_strings                String[]
   work_reward                 String

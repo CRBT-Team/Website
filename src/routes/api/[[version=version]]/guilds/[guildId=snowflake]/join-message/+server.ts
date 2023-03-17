@@ -17,12 +17,12 @@ export const GET: RequestHandler = async ({ params, request }) => {
 
 	const serverData = await prisma.servers.findFirst({
 		where: { id: params.guildId },
-		select: { joinMessage: true, joinChannel: true }
+		select: { join_message: true, join_channel_id: true }
 	});
 
 	return json({
-		joinMessage: serverData?.joinMessage,
-		joinChannel: serverData?.joinChannel
+		id: params.guildId,
+		...serverData
 	});
 };
 
@@ -36,20 +36,20 @@ export const PATCH: RequestHandler = async ({ params, request }) => {
 	if (errorMessage) return errorMessage;
 
 	const body = await request.json();
-	const { joinMessage, joinChannel } = body;
+	const { join_message, join_channel_id } = body;
 
-	if (!joinMessage && !joinChannel) return errors.invalidBody(['joinMessage', 'joinChannel']);
+	if (!join_message && !join_channel_id)
+		return errors.invalidBody(['join_message', 'join_channel_id']);
 
 	const server = z.object({
-		joinMessage: z
+		join_message: z
 			.object({
-				type: z.literal('JOIN_MESSAGE'),
 				content: MessageContentStructure.optional(),
 				embed: MessageEmbedStructure.optional(),
 				script: z.string().min(20).max(8000).optional()
 			})
 			.optional(),
-		joinChannel: SnowflakeStructure.optional()
+		join_channel_id: SnowflakeStructure.optional()
 	});
 
 	try {
@@ -58,11 +58,15 @@ export const PATCH: RequestHandler = async ({ params, request }) => {
 		const serverData = await prisma.servers.upsert({
 			create: {
 				id: params.guildId,
-				...data
+				join_message: {
+					...data.join_message,
+					type: 'JOIN_MESSAGE'
+				},
+				join_channel_id: data.join_channel_id
 			},
 			update: data,
 			where: { id: params.guildId },
-			select: { joinChannel: true, joinMessage: true }
+			select: { join_channel_id: true, join_message: true }
 		});
 
 		return json(serverData);

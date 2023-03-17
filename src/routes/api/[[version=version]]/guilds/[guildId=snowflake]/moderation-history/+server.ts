@@ -21,15 +21,15 @@ export const GET: RequestHandler = async ({ request, params, url }) => {
 	if (paginationError) return paginationError;
 
 	const filters = {
-		userId: url.searchParams.get('userId'),
+		user_id: url.searchParams.get('user_id'),
 		type: url.searchParams.get('type') as ModerationStrikeTypes
 	};
 
 	const history = await prisma.moderationStrikes.findMany({
 		where: {
-			guildId: params.guildId,
+			guild_id: params.guildId,
 			...(filters.type ? { type: filters.type } : {}),
-			...(filters.userId ? { targetId: filters.userId } : {})
+			...(filters.user_id ? { targetId: filters.user_id } : {})
 		},
 		...(limit ? { take: Number(limit) } : {}),
 		...(page ? { skip: Number(limit) * Number(page) } : {})
@@ -64,13 +64,13 @@ export const POST: RequestHandler = async ({ request, params, url }) => {
 		const serverData = await prisma.moderationStrikes.create({
 			data: {
 				//TODO: add details
-				expiresAt: parsedData.expiresAt,
+				expires_at: parsedData.expires_at,
 				type: parsedData.type,
-				moderatorId: parsedData.moderatorId,
-				targetId: parsedData.targetId,
+				moderator_id: parsedData.moderator_id,
+				target_id: parsedData.target_id,
 				reason: parsedData.reason,
-				guildId: params.guildId,
-				createdAt: new Date()
+				guild_id: params.guildId,
+				created_at: new Date()
 			}
 		});
 

@@ -9,8 +9,8 @@ export const GET: RequestHandler = async ({ params: { guildId }, request }) => {
 	if (errorMessage) return errorMessage;
 
 	const serverData = await prisma.economy.findFirst({
-		where: { serverId: guildId },
-		include: { categories: true, commands: true, items: true }
+		where: { id: guildId },
+		include: { categories: true, items: true }
 	});
 
 	return json(serverData);

@@ -3,12 +3,12 @@ import { PreprocessedDateStructure, SnowflakeStructure } from './misc';
 
 export const PollStructure = z
 	.object({
-		channelId: SnowflakeStructure,
-		messageId: SnowflakeStructure,
-		creatorId: SnowflakeStructure,
+		channel_id: SnowflakeStructure,
+		message_id: SnowflakeStructure,
+		creator_id: SnowflakeStructure,
 		choices: z.never().array().array(),
 		locale: z.string().default('en-US'),
-		expiresAt: PreprocessedDateStructure
+		expires_at: PreprocessedDateStructure
 	})
 	.strict()
 	.required();

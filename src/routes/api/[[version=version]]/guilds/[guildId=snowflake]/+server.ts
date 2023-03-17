@@ -15,17 +15,20 @@ export const GET: RequestHandler = async ({ params, request }) => {
 		where: { id: params.guildId },
 		select: {
 			id: true,
-			accentColor: true,
+			accent_color: true,
 			flags: true,
-			automaticTheming: true,
-			iconHash: true,
-			joinChannel: true,
-			leaveChannel: true,
-			modLogsChannel: true,
-			modReportsChannel: true,
+			auto_theming_enabled: true,
+			icon: true,
+			join_channel_id: true,
+			leave_channel_id: true,
+			notifications_channel_id: true,
+			reports_channel_id: true,
 			modules: true
 		}
 	});
 
-	return json(serverData);
+	return json({
+		id: params.guildId,
+		...serverData
+	});
 };

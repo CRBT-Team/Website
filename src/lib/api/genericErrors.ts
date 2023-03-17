@@ -21,11 +21,11 @@ export const badRequest = () => formatError('Bad Request', 400);
 
 export const internalServerError = () => formatError('Internal Server Error', 500);
 
-export const rateLimitError = (retryAfter: number) =>
+export const rateLimitError = (retry_after: number) =>
 	formatError(
 		{
 			error: 'Rate limited',
-			retryAfter
+			retry_after: retry_after
 		},
 		429
 	);
