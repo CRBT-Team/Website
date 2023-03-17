@@ -94,7 +94,6 @@ model moderationStrikes {
 
 model User {
   id           String         @id
-  guildedId    String?        @unique @map("guilded_id")
   accentColor  Int?           @map("accent_color")
   crbtBadges   String[]       @map("crbt_badges")
   telemetry    Boolean        @default(true)
@@ -106,92 +105,86 @@ model User {
 
 model ServerMember {
   id           String              @id
-  userId       String
-  user         User                @relation(references: [id], fields: [userId])
-  serverId     String
-  server       servers             @relation(references: [id], fields: [serverId])
+  user_id      String
+  user         User                @relation(references: [id], fields: [user_id])
+  guild_id     String
+  guild        servers             @relation(references: [id], fields: [guild_id])
   achievements MemberAchievement[]
-  lastWork     DateTime?           @map("last_work") @db.Timestamptz(6)
-  lastDaily    DateTime?           @map("last_daily") @db.Timestamptz(6)
-  workExp      Int                 @default(0) @db.Integer
+  last_work    DateTime?           @db.Timestamptz(6)
+  last_daily   DateTime?           @db.Timestamptz(6)
+  work_exp     Int                 @default(0) @db.Integer
   money        Int                 @default(0) @db.Integer
-  activeItems  EconomyItem[]       @relation("active_items")
+  active_items EconomyItem[]       @relation("active_items")
   items        EconomyItem[]       @relation("items")
-  dailyStreak  Int                 @map("daily_streak")
+  daily_streak Int
 }
 
 model MemberAchievement {
-  achievementId String        @unique
-  achievement   Achievement   @relation(fields: [achievementId], references: [achievementId])
-  userId        String        @unique
-  user          ServerMember? @relation(fields: [userId], references: [id])
-  progression   Json[]
-  achievedAt    DateTime?     @map("achieved_at") @db.Timestamptz(6)
+  achievement_id String        @id
+  achievement    Achievement   @relation(fields: [achievement_id], references: [achievement_id])
+  member_id      String        @unique
+  member         ServerMember? @relation(fields: [member_id], references: [id])
+  progression    Json[]
+  achieved_at    DateTime?     @db.Timestamptz(6)
 }
 
 model Achievement {
-  achievementId String              @id @default(uuid())
-  serverId      String              @map("server_id")
-  server        servers?            @relation(fields: [serverId], references: [id])
-  name          String
-  description   String?
-  requirements  Json[]
-  totalSteps    Int                 @map("total_steps")
-  members       MemberAchievement[]
+  achievement_id String              @id
+  guild_id       String
+  guild          servers?            @relation(fields: [guild_id], references: [id])
+  name           String
+  description    String?
+  requirements   Json[]
+  total_steps    Int
+  members        MemberAchievement[]
 }
 
 model Economy {
-  id                     String                @id
-  currencyNameSingular   String?               @map("currency_name_singular")
-  currencyNamePlural     String?               @map("currency_name_plural")
-  currencySymbol         String?               @map("currency_symbol")
-  transactionLogsChannel String?               @map("logs_channel")
-  commands               EconomyCommands?
-  server                 servers?              @relation(fields: [id], references: [id])
-  items                  EconomyItem[]
-  categories             EconomyItemCategory[]
-}
-
-model EconomyCommands {
-  id            String   @id
-  workCooldown  Int
-  workStrings   String[]
-  workReward    String
-  dailyReward   String
-  weeklyRewards String[]
-  Economy       Economy? @relation(fields: [id], references: [id])
+  id                          String                @id
+  currency_name_singular      String?
+  currency_name_plural        String?
+  currency_symbol             String?
+  transaction_logs_channel_id String?
+  server                      servers?              @relation(fields: [id], references: [id])
+  work_cooldown               Int
+  work_strings                String[]
+  work_reward                 String
+  daily_reward                String
+  weekly_rewards              String[]
+  items                       EconomyItem[]
+  categories                  EconomyItemCategory[]
 }
 
 model EconomyItem {
-  id             Int                 @id @default(autoincrement())
-  serverId       String              @map("server_id")
-  name           String
-  icon           String?
-  description    String?
-  price          Int
-  categoryId     Int
-  category       EconomyItemCategory @relation(fields: [categoryId], references: [id])
-  type           ItemTypes
-  stock          Int?
+  id              String              @id
+  guild_id        String
+  name            String
+  icon            String?
+  description     String?
+  price           Int
+  category_id     String
+  category        EconomyItemCategory @relation(fields: [category_id], references: [id])
+  type            Int
+  stock           Int?
   // for items limited in time
-  availableUntil DateTime?           @map("available_until") @db.Timestamptz(6)
+  available_until DateTime?           @db.Timestamptz(6)
   // the value an item can hold (role ID, Multiplier, etc)
-  value          String?
+  value           String?
   // who's currently using the item
-  activeMembers  ServerMember[]      @relation("active_items")
+  activeMembers   ServerMember[]      @relation("active_items")
   // who has the item
-  owners         ServerMember[]      @relation("items")
+  owners          ServerMember[]      @relation("items")
   // which economy does the item belong to
-  economy        Economy             @relation(fields: [serverId], references: [id])
+  economy         Economy             @relation(fields: [guild_id], references: [id])
 }
 
 model EconomyItemCategory {
-  id       Int           @id @default(autoincrement())
-  serverId String
+  id       String        @id
+  guild_id String
   items    EconomyItem[]
   label    String
   emoji    String?
-  economy  Economy       @relation(fields: [serverId], references: [id])
+  economy  Economy       @relation(fields: [guild_id], references: [id])
 }
 
 model Token {
@@ -208,20 +201,6 @@ enum ModerationStrikeTypes {
   TIMEOUT
   WARN
   REPORT
-}
-
-enum EconomyCommandTypes {
-  work
-  hourly
-  crime
-}
-
-enum ItemTypes {
-  ROLE
-  WEAPON
-  INCOME_MULTIPLIER
-  COSMETIC
-  OTHER
 }
 
 enum TokenTypes {
