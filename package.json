@@ -21,6 +21,7 @@
 		"@sapphire/snowflake": "^3.4.0",
 		"discord-markdown": "^2.5.1",
 		"lucide-svelte": "^0.105.0",
+		"node-cache": "^5.1.2",
 		"zod": "^3.20.2"
 	},
 	"devDependencies": {
