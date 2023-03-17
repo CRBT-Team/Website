@@ -15,7 +15,7 @@ export const GET: RequestHandler = async ({ params, request }) => {
 	const userId = params.userId === '@me' ? tokenData.userId : params.userId;
 
 	const userData = await prisma.reminder.findMany({
-		where: { userId }
+		where: { user_id: userId }
 	});
 
 	return json(userData);
