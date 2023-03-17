@@ -15,7 +15,7 @@ model Giveaway {
   host_id      String
   guild        Guild    @relation(fields: [guild_id], references: [id])
   prize        String
-  end_time     DateTime @db.Timestamptz(6)
+  end_date     DateTime @db.Timestamptz(6)
   participants String[]
 }
 
@@ -29,7 +29,7 @@ model Poll {
   choices    Json[]
   flags      Int
   image      String?
-  end_time   DateTime @db.Timestamptz(6)
+  end_date   DateTime @db.Timestamptz(6)
   creator    User     @relation(fields: [creator_id], references: [id])
   guild      Guild    @relation(fields: [guild_id], references: [id])
 }
@@ -38,7 +38,7 @@ model Reminder {
   id          String   @id
   user_id     String
   user        User     @relation(fields: [user_id], references: [id])
-  end_time    DateTime @db.Timestamptz(6)
+  end_date    DateTime @db.Timestamptz(6)
   locale      String
   destination String
   subject     String

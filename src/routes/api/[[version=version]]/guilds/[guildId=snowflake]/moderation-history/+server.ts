@@ -64,7 +64,7 @@ export const POST: RequestHandler = async ({ request, params, url }) => {
 		const serverData = await prisma.moderationStrikes.create({
 			data: {
 				//TODO: add details
-				expires_at: parsedData.expires_at,
+				end_date: parsedData.end_date,
 				type: parsedData.type,
 				moderator_id: parsedData.moderator_id,
 				target_id: parsedData.target_id,

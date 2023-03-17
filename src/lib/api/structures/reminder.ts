@@ -9,7 +9,7 @@ export const ReminderStructure = z
 		channel_id: SnowflakeStructure,
 		// messageId: SnowflakeStructure,
 		//TODO: add "details" field
-		expires_at: PreprocessedDateStructure,
+		end_date: PreprocessedDateStructure,
 		destination: z
 			.union([z.literal('dm'), SnowflakeStructure], {
 				invalid_type_error: "You need to input a valid channel ID or 'dm' to send it by DM."

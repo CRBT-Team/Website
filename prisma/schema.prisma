@@ -12,7 +12,7 @@ model Giveaway {
   host_id      String   @map("hostId")
   guild_id     String   @map("serverId")
   guild        servers  @relation(fields: [guild_id], references: [id])
-  expires_at   DateTime @map("expires_at") @db.Timestamptz(6)
+  end_date     DateTime @map("expires_at") @db.Timestamptz(6)
   locale       String
   participants String[]
 }
@@ -21,7 +21,7 @@ model Poll {
   id         String   @id
   creator_id String   @map("creatorId")
   choices    Json[]
-  expires_at DateTime @map("expires_at") @db.Timestamptz(6)
+  end_date   DateTime @map("expires_at") @db.Timestamptz(6)
   locale     String
   guild_id   String   @map("serverId")
   guild      servers  @relation(fields: [guild_id], references: [id])
@@ -31,7 +31,7 @@ model Reminder {
   id          String         @id
   user_id     String         @map("userId")
   user        User           @relation(fields: [user_id], references: [id])
-  expires_at  DateTime       @db.Timestamptz(6)
+  end_date    DateTime       @map("expires_at") @db.Timestamptz(6)
   locale      String
   destination String
   subject     String
@@ -87,7 +87,7 @@ model moderationStrikes {
   target_id    String
   reason       String?
   created_at   DateTime              @db.Timestamptz(6)
-  expires_at   DateTime?             @db.Timestamptz(6)
+  end_date     DateTime?             @map("expires_at") @db.Timestamptz(6)
   type         ModerationStrikeTypes
   details      String?
 }

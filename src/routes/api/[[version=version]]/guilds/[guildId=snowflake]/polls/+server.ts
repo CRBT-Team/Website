@@ -35,7 +35,7 @@ export const GET: RequestHandler = async ({ request, params, url }) => {
 				creator_id: poll.creator_id,
 				guild_id: poll.guild_id,
 				locale: poll.locale,
-				expires_at: poll.expires_at,
+				end_date: poll.end_date,
 				choice_count: poll.choices.length,
 				participants: poll.choices
 			};
@@ -72,7 +72,7 @@ export const POST: RequestHandler = async ({ request, params }) => {
 				guild_id: params.guildId,
 				choices: parsedData.choices,
 				creator_id: parsedData.creator_id,
-				expires_at: parsedData.expires_at,
+				end_date: parsedData.end_date,
 				locale: parsedData.locale
 			}
 		});
