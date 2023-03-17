@@ -1,9 +1,10 @@
-import { validateAccess } from '$lib/api';
+import { errors, validateAccess } from '$lib/api';
 import { prisma } from '$lib/prisma';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import { formatError } from '$lib/api/genericErrors';
 import { handlePagination } from '$lib/api/handlePagination';
+import { PollStructure } from '$lib/api/structures/poll';
 
 export const GET: RequestHandler = async ({ request, params, url }) => {
 	let { errorMessage } = await validateAccess(
@@ -42,36 +43,42 @@ export const GET: RequestHandler = async ({ request, params, url }) => {
 	);
 };
 
-// export const POST: RequestHandler = async ({ request, params }) => {
-// 	let { isAuthorized, error } = await validateAccess(
-// 		request,
-// 		{ guildId: params.guildId },
-// 		{ guild: true }
-// 	);
+export const POST: RequestHandler = async ({ request, params }) => {
+	let { errorMessage } = await validateAccess(
+		request,
+		{ guildId: params.guildId },
+		{ guild: true }
+	);
 
-// 	if (!isAuthorized) return error;
+	if (errorMessage) return errorMessage;
 
-// 	const polls = await prisma.poll.findMany({ where: { serverId: params.guildId } });
-// 	const maxPolls = 10;
+	const body = await request.json();
 
-// 	if (polls.length >= maxPolls) {
-// 		return formatError(`Maximum amount of ${maxPolls} reminders reached for this guild.`);
-// 	}
+	if (!body) return errors.badRequest();
 
-// 	const poll = z
-// 		.object({
-// 			channelId: SnowflakeStructure,
-// 			messageId: SnowflakeStructure,
-// 			creatorId: SnowflakeStructure,
-// 			choices: z.never().array().array(),
-//       locale: z.string().default('en-US'),
-//       expiresAt: z.preprocess((arg) => {
-// 				if (typeof arg == 'string') return new Date(arg);
-// 			}, z.date()),
+	try {
+		const parsedData = PollStructure.parse(body);
 
-// 		})
-// 		.strict()
-// 		.required();
+		const polls = await prisma.poll.findMany({ where: { serverId: params.guildId } });
+		const maxPolls = 10;
 
-// 	type Poll = z.infer<typeof poll>;
-// };
+		if (polls.length >= maxPolls) {
+			return formatError(`Maximum amount of ${maxPolls} reminders reached for this guild.`);
+		}
+
+		const serverData = await prisma.poll.create({
+			data: {
+				id: `${parsedData.channelId}/${parsedData.messageId}`,
+				serverId: params.guildId,
+				choices: parsedData.choices,
+				creatorId: parsedData.creatorId,
+				expiresAt: parsedData.expiresAt,
+				locale: parsedData.locale
+			}
+		});
+
+		return json(serverData);
+	} catch (e) {
+		return formatError(e);
+	}
+};

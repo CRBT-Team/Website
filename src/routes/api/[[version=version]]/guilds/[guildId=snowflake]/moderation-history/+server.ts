@@ -63,7 +63,12 @@ export const POST: RequestHandler = async ({ request, params, url }) => {
 
 		const serverData = await prisma.moderationStrikes.create({
 			data: {
-				...parsedData,
+				//TODO: add details
+				expiresAt: parsedData.expiresAt,
+				type: parsedData.type,
+				moderatorId: parsedData.moderatorId,
+				targetId: parsedData.targetId,
+				reason: parsedData.reason,
 				guildId: params.guildId,
 				createdAt: new Date()
 			}

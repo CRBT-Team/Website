@@ -61,10 +61,11 @@ export const PATCH: RequestHandler = async ({ params, request }) => {
 				...data
 			},
 			update: data,
-			where: { id: params.guildId }
+			where: { id: params.guildId },
+			select: { joinChannel: true, joinMessage: true }
 		});
 
-		return json(data);
+		return json(serverData);
 	} catch (e) {
 		return formatError(e);
 	}
