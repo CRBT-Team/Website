@@ -2,12 +2,13 @@ import { errors, validateAccess } from '$lib/api';
 import { getGuildSettings } from '$lib/api/guild-settings';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import { economyNotSetupError, formatError } from '$lib/api/genericErrors';
+import { formatError } from '$lib/api/genericErrors';
 import { ItemStructure } from '$lib/api/structures/guild/economy/item';
 import { prisma } from '$lib/prisma';
 import { generateSnowflake } from '$lib/snowflake';
 import type { Prisma } from '@prisma/client';
 import { validateItemValue } from '$lib/api/validateItemValue';
+import { validateEconomy } from '$lib/api/validateEconomy';
 
 export const POST: RequestHandler = async ({ params, request }) => {
 	let { errorMessage } = await validateAccess(
@@ -23,18 +24,11 @@ export const POST: RequestHandler = async ({ params, request }) => {
 	if (!body) return errors.badRequest();
 
 	const { economy } = await getGuildSettings(params.guildId);
+	const economyValidationError = await validateEconomy(economy, params, {
+		items: true
+	});
 
-	if (!economy) return economyNotSetupError(params.guildId);
-
-	const category = economy.categories.find(({ id }) => id === params.categoryId);
-
-	if (!category) return formatError(`Category not found.`, 404);
-
-	if (category.items.length >= 20)
-		return formatError(`Max item capacity of 20 reached for Category ${category.id}.`);
-
-	if (economy.items.length >= 100)
-		return formatError(`Max total item capacity of 100 reached for Guild ${params.guildId}.`);
+	if (economyValidationError) return economyValidationError;
 
 	try {
 		const parsedData = ItemStructure.parse(body);

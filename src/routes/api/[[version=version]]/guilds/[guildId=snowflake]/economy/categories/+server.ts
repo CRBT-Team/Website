@@ -1,11 +1,12 @@
 import { validateAccess } from '$lib/api';
-import { badRequest, formatError, economyNotSetupError } from '$lib/api/genericErrors';
+import { badRequest, formatError } from '$lib/api/genericErrors';
 import { CategoryStructure } from '$lib/api/structures/guild/economy/category';
 import { prisma } from '$lib/prisma';
 import { generateSnowflake } from '$lib/snowflake';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import { getGuildSettings } from '$lib/api/guild-settings';
+import { validateEconomy } from '$lib/api/validateEconomy';
 
 export const POST: RequestHandler = async ({ params, request }) => {
 	let { errorMessage } = await validateAccess(
@@ -20,17 +21,15 @@ export const POST: RequestHandler = async ({ params, request }) => {
 
 	if (!body) return badRequest();
 
+	const { economy } = await getGuildSettings(params.guildId);
+	const economyValidationError = await validateEconomy(economy, params, {
+		categories: true
+	});
+
+	if (economyValidationError) return economyValidationError;
+
 	try {
 		const parsedData = CategoryStructure.parse(body);
-
-		const { economy } = await getGuildSettings(params.guildId);
-
-		if (!economy) {
-			return economyNotSetupError(params.guildId);
-		}
-
-		if (economy.categories.length >= 10)
-			return formatError(`Max category capacity of 10 reached for Guild ${params.guildId}.`);
 
 		const newCategory = await prisma.category.create({
 			data: {

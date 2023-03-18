@@ -10,6 +10,7 @@ import {
 	type FullGuildSettings
 } from '$lib/api/guild-settings';
 import type { RequestEvent } from './$types';
+import { validateEconomy } from '$lib/api/validateEconomy';
 
 export const GET: RequestHandler = async ({ params, request }) => {
 	let { errorMessage } = await validateAccess(
@@ -20,10 +21,9 @@ export const GET: RequestHandler = async ({ params, request }) => {
 	if (errorMessage) return errorMessage;
 
 	const { economy } = await getGuildSettings(params.guildId);
+	const economyValidationError = await validateEconomy(economy, params);
 
-	if (!economy) {
-		return economyNotSetupError(params.guildId);
-	}
+	if (economyValidationError) return economyValidationError;
 
 	return json({
 		id: params.guildId,

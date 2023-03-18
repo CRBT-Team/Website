@@ -3,9 +3,10 @@ import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import { getGuildSettings } from '$lib/api/guild-settings';
 import { prisma } from '$lib/prisma';
-import { formatError, economyNotSetupError } from '$lib/api/genericErrors';
+import { formatError } from '$lib/api/genericErrors';
 import { ItemStructure } from '$lib/api/structures/guild/economy/item';
 import { validateItemValue } from '$lib/api/validateItemValue';
+import { validateEconomy } from '$lib/api/validateEconomy';
 
 export const GET: RequestHandler = async ({ params, request }) => {
 	let { errorMessage } = await validateAccess(
@@ -16,10 +17,12 @@ export const GET: RequestHandler = async ({ params, request }) => {
 
 	if (errorMessage) return errorMessage;
 
-	const {
-		economy: { items }
-	} = await getGuildSettings(params.guildId);
-	const item = items.find(({ id }) => id === params.itemId);
+	const { economy } = await getGuildSettings(params.guildId);
+	const economyValidationError = await validateEconomy(economy, params);
+
+	if (economyValidationError) return economyValidationError;
+
+	const item = economy.items.find(({ id }) => id === params.itemId);
 
 	return json(item);
 };
@@ -38,16 +41,9 @@ export const PATCH: RequestHandler = async ({ params, request }) => {
 	if (!body) return errors.badRequest();
 
 	const { economy } = await getGuildSettings(params.guildId);
+	const economyValidationError = await validateEconomy(economy, params);
 
-	if (!economy) return economyNotSetupError(params.guildId);
-
-	const category = economy.categories.find(({ id }) => id === params.categoryId);
-
-	if (!category) return formatError(`Category not found.`, 404);
-
-	const item = economy.items.find(({ id }) => id === params.itemId);
-
-	if (!item) return formatError('Item not found.', 404);
+	if (economyValidationError) return economyValidationError;
 
 	try {
 		const parsedData = ItemStructure.omit({ type: true }).partial().parse(body);
@@ -66,6 +62,35 @@ export const PATCH: RequestHandler = async ({ params, request }) => {
 		await getGuildSettings(params.guildId, true);
 
 		return json(newItem);
+	} catch (e) {
+		return formatError(e);
+	}
+};
+
+export const DELETE: RequestHandler = async ({ params, request }) => {
+	let { errorMessage } = await validateAccess(
+		request,
+		{ guildId: params.guildId },
+		{ guild: true }
+	);
+
+	if (errorMessage) return errorMessage;
+
+	const { economy } = await getGuildSettings(params.guildId);
+	const economyValidationError = await validateEconomy(economy, params);
+
+	if (economyValidationError) return economyValidationError;
+
+	try {
+		await prisma.item.delete({
+			where: { id: params.itemId }
+		});
+
+		await getGuildSettings(params.guildId, true);
+
+		return json({
+			message: 'success'
+		});
 	} catch (e) {
 		return formatError(e);
 	}
