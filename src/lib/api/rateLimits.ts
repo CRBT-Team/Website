@@ -10,7 +10,7 @@ export const rateLimitMap = new Map<
 
 export const rateLimit = (
 	token: string,
-	timeWindowMs: number = 60 * 1000,
+	timeWindowMs: number = 10 * 1000,
 	maxRequests: number = 5
 ): boolean => {
 	const now = Date.now();
