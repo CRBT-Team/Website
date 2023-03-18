@@ -67,7 +67,7 @@ async function handleUpsertEconomyRequest({ params, request }: RequestEvent): Pr
 		const { economy: newEconomy } = await fetchWithCache<FullGuildSettings>(
 			`settings:${params.guildId}`,
 			() =>
-				prisma.servers.update({
+				prisma.guild.update({
 					where: { id: params.guildId },
 					data: {
 						economy: {

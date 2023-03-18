@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { PreprocessedDateStructure, SnowflakeStructure } from './misc';
+import { PreprocessedDateStructure, SnowflakeStructure } from '../misc';
 import { ModerationStrikeTypes } from '@prisma/client';
 
 export const ModerationEntryStructure = z

@@ -4,7 +4,7 @@ import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import { formatError } from '$lib/api/genericErrors';
 import { handlePagination } from '$lib/api/handlePagination';
-import { PollStructure } from '$lib/api/structures/poll';
+import { PollStructure } from '$lib/api/structures/guild/poll';
 
 export const GET: RequestHandler = async ({ request, params, url }) => {
 	let { errorMessage } = await validateAccess(

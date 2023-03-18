@@ -15,7 +15,7 @@ export const GET: RequestHandler = async ({ request, params }) => {
 
 	if (errorMessage) return errorMessage;
 
-	const serverData = await prisma.servers.findFirst({
+	const serverData = await prisma.guild.findFirst({
 		where: { id: params.guildId },
 		select: { leave_message: true, leave_channel_id: true }
 	});
@@ -55,7 +55,7 @@ export const PATCH: RequestHandler = async ({ params, request }) => {
 	try {
 		const data = server.parse(body);
 
-		const serverData = await prisma.servers.upsert({
+		const serverData = await prisma.guild.upsert({
 			create: {
 				id: params.guildId,
 				leave_message: {

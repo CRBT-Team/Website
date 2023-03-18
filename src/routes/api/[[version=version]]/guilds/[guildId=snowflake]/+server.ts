@@ -57,7 +57,7 @@ export const PATCH: RequestHandler = async ({ request, params }) => {
 		const serverData = await fetchWithCache<FullGuildSettings>(
 			`settings:${params.guildId}`,
 			() =>
-				prisma.servers.upsert({
+				prisma.guild.upsert({
 					where: { id: params.guildId },
 					create: {
 						id: params.guildId,

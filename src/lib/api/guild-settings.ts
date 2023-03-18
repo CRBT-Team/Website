@@ -1,22 +1,15 @@
 import { fetchWithCache } from '$lib/cache';
 import { prisma } from '$lib/prisma';
-import type {
-	Economy,
-	EconomyItem,
-	EconomyItemCategory,
-	Prisma,
-	serverModules,
-	servers
-} from '@prisma/client';
+import type { Economy, Item, Guild, Category, Prisma, serverModules } from '@prisma/client';
 
 export type FullGuildSettings = Partial<
-	servers & {
+	Guild & {
 		modules?: Partial<serverModules>;
 		economy?: Partial<
 			Economy & {
-				items: EconomyItem[];
-				categories: (EconomyItemCategory & {
-					items: EconomyItem[];
+				items: Item[];
+				categories: (Category & {
+					items: Item[];
 				})[];
 			}
 		>;
@@ -40,12 +33,12 @@ export const prismaGuildInclude = {
 export async function getGuildSettings(
 	guildId: string,
 	force = false,
-	select?: Prisma.serversSelect
+	select?: Prisma.GuildSelect
 ) {
 	const settings = await fetchWithCache<FullGuildSettings>(
 		`settings:${guildId}`,
 		() =>
-			prisma.servers.findFirst({
+			prisma.guild.findFirst({
 				where: { id: guildId },
 				include: prismaGuildInclude
 			}),

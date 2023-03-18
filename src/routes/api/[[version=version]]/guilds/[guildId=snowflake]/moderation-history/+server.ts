@@ -5,7 +5,7 @@ import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import type { ModerationStrikeTypes } from '@prisma/client';
 import { formatError, badRequest } from '$lib/api/genericErrors';
-import { ModerationEntryStructure } from '$lib/api/structures/moderation-entry';
+import { ModerationEntryStructure } from '$lib/api/structures/guild/moderation-entry';
 
 export const GET: RequestHandler = async ({ request, params, url }) => {
 	let { errorMessage } = await validateAccess(

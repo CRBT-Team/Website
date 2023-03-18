@@ -30,13 +30,14 @@ export const POST: RequestHandler = async ({ params, request }) => {
 			return economyNotSetupError(params.guildId);
 		}
 
-		const newCategory = await prisma.economyItemCategory.create({
+		const newCategory = await prisma.category.create({
 			data: {
 				id: generateSnowflake().toString(),
 				label: parsedData.label,
 				guild_id: params.guildId,
 				emoji: parsedData.emoji
-			}
+			},
+			include: { items: true }
 		});
 
 		await getGuildSettings(params.guildId, true);

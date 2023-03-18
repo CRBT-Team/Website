@@ -14,7 +14,7 @@ export const GET: RequestHandler = async ({ params, request }) => {
 
 	const {
 		economy: { categories }
-	} = await getGuildSettings(params.guildId, false);
+	} = await getGuildSettings(params.guildId);
 	const category = categories.find(({ id }) => id === params.categoryId);
 
 	return json(category);
