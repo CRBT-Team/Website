@@ -88,9 +88,7 @@ export const DELETE: RequestHandler = async ({ params, request }) => {
 
 		await getGuildSettings(params.guildId, true);
 
-		return json({
-			message: 'success'
-		});
+		return new Response(undefined, { status: 204 });
 	} catch (e) {
 		return formatError(e);
 	}
