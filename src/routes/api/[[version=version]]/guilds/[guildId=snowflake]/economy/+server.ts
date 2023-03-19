@@ -31,7 +31,7 @@ export const GET: RequestHandler = async ({ params, request }) => {
 		currency_name_plural: economy.currency_name_plural,
 		currency_symbol: economy.currency_symbol,
 		transaction_logs_channel_id: economy.transaction_logs_channel_id,
-		categories: economy.categories,
+		categories: economy.categories.map((c) => (({ items, ...o }) => o)(c)),
 		item_count: economy.items.length
 		// work_cooldown: economy.work_cooldown,
 		// work_strings: economy.work_strings,
