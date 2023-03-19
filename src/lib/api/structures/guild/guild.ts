@@ -3,7 +3,7 @@ import { SnowflakeStructure } from '../misc';
 
 export const GuildStructure = z
 	.object({
-		accent_color: z.number(),
+		accent_color: z.number().int().nullish(),
 		auto_theming_enabled: z.boolean(),
 		join_channel_id: SnowflakeStructure,
 		leave_channel_id: SnowflakeStructure,
