@@ -4,9 +4,13 @@ import EmojiJSON from '../../json/emoji.json';
 
 export const SnowflakeStructure = z.string().regex(SnowflakeRegex);
 
-export const PreprocessedDateStructure = z.preprocess((arg) => {
-	if (typeof arg == 'string') return new Date(arg);
-}, z.date());
+export const PreprocessedDateStructure = z
+	.preprocess((arg) => {
+		if (arg && typeof arg === 'string') {
+			return new Date(arg);
+		}
+	}, z.date())
+	.refine((d) => d.getTime() > Date.now(), 'Date must not be set in the past.');
 
 export const EmojiStructure = z
 	.string()

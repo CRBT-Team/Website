@@ -5,6 +5,33 @@ import type { RequestHandler } from './$types';
 import { formatError } from '$lib/api/genericErrors';
 import { handlePagination } from '$lib/api/handlePagination';
 import { PollStructure } from '$lib/api/structures/guild/poll';
+import { generateSnowflake } from '$lib/snowflake';
+import type { Poll } from '@prisma/client';
+import { SnowflakeRegex } from '@purplet/utils';
+
+export function _formatPoll(poll: Poll) {
+	const isV2 = SnowflakeRegex.test(poll.id) && poll.title;
+	const [channel_id, message_id] = isV2 ? poll.id.split('/') : [poll.channel_id, poll.message_id];
+
+	return {
+		id: poll.id,
+		channel_id: channel_id,
+		message_id: message_id,
+		creator_id: poll.creator_id,
+		guild_id: poll.guild_id,
+		locale: poll.locale,
+		end_date: poll.end_date,
+		...(isV2
+			? {
+					title: poll.title,
+					choices: poll.choices
+			  }
+			: {
+					choice_count: poll.choices.length,
+					participants: poll.choices
+			  })
+	};
+}
 
 export const GET: RequestHandler = async ({ request, params, url }) => {
 	let { errorMessage } = await validateAccess(
@@ -25,26 +52,11 @@ export const GET: RequestHandler = async ({ request, params, url }) => {
 		...(page ? { skip: Number(limit) * Number(page) } : {})
 	});
 
-	return json(
-		polls.map((poll) => {
-			const [channel_id, message_id] = poll.id.split('/');
-			return {
-				id: poll.id,
-				channel_id: channel_id,
-				message_id: message_id,
-				creator_id: poll.creator_id,
-				guild_id: poll.guild_id,
-				locale: poll.locale,
-				end_date: poll.end_date,
-				choice_count: poll.choices.length,
-				participants: poll.choices
-			};
-		})
-	);
+	return json(polls.map(_formatPoll));
 };
 
 export const POST: RequestHandler = async ({ request, params }) => {
-	let { errorMessage } = await validateAccess(
+	let { errorMessage, tokenData } = await validateAccess(
 		request,
 		{ guildId: params.guildId },
 		{ guild: true }
@@ -68,10 +80,16 @@ export const POST: RequestHandler = async ({ request, params }) => {
 
 		const serverData = await prisma.poll.create({
 			data: {
-				id: `${parsedData.channel_id}/${parsedData.message_id}`,
+				id: generateSnowflake().toString(),
+				channel_id: parsedData.channel_id,
+				message_id: parsedData.message_id,
+				title: parsedData.title,
 				guild_id: params.guildId,
-				choices: parsedData.choices,
-				creator_id: parsedData.creator_id,
+				choices: parsedData.choices.map((name) => ({
+					name,
+					participants: []
+				})),
+				creator_id: parsedData.creator_id === '@me' ? tokenData.userId : parsedData.creator_id,
 				end_date: parsedData.end_date,
 				locale: parsedData.locale
 			}

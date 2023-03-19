@@ -19,11 +19,14 @@ model Giveaway {
 
 model Poll {
   id         String   @id
+  guild_id   String   @map("serverId")
+  channel_id String?
+  message_id String?
   creator_id String   @map("creatorId")
+  title      String?
   choices    Json[]
   end_date   DateTime @map("expires_at") @db.Timestamptz(6)
   locale     String
-  guild_id   String   @map("serverId")
   guild      Guild    @relation(fields: [guild_id], references: [id])
 }
 
