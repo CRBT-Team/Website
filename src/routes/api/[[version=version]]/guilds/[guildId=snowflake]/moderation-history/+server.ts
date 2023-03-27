@@ -3,9 +3,12 @@ import { handlePagination } from '$lib/api/handlePagination';
 import { prisma } from '$lib/prisma';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import type { ModerationStrikeTypes } from '@prisma/client';
 import { formatError, badRequest } from '$lib/api/genericErrors';
-import { ModerationEntryStructure } from '$lib/api/structures/guild/moderation-entry';
+import {
+	ModerationEntryStructure,
+	ModerationEntryType
+} from '$lib/api/structures/guild/moderation-entry';
+import { generateSnowflake } from '$lib/snowflake';
 
 export const GET: RequestHandler = async ({ request, params, url }) => {
 	let { errorMessage } = await validateAccess(
@@ -21,15 +24,19 @@ export const GET: RequestHandler = async ({ request, params, url }) => {
 	if (paginationError) return paginationError;
 
 	const filters = {
-		user_id: url.searchParams.get('user_id'),
-		type: url.searchParams.get('type') as ModerationStrikeTypes
+		target_id: url.searchParams.get('target_id'),
+		type: url.searchParams.get('type') ? Number(url.searchParams.get('type')) : null
 	};
 
-	const history = await prisma.moderationStrikes.findMany({
+	if (filters.type && (isNaN(filters.type) || !ModerationEntryType[filters.type])) {
+		return formatError('Invalid filter type', 400);
+	}
+
+	const history = await prisma.moderationEntry.findMany({
 		where: {
 			guild_id: params.guildId,
 			...(filters.type ? { type: filters.type } : {}),
-			...(filters.user_id ? { targetId: filters.user_id } : {})
+			...(filters.target_id ? { target_id: filters.target_id } : {})
 		},
 		...(limit ? { take: Number(limit) } : {}),
 		...(page ? { skip: Number(limit) * Number(page) } : {})
@@ -37,10 +44,10 @@ export const GET: RequestHandler = async ({ request, params, url }) => {
 
 	return json({
 		count: history.length,
-		items: history.map((modCase) => {
+		items: history.map((entry) => {
 			return {
-				...modCase,
-				details: JSON.parse(modCase.details)
+				...entry,
+				details: JSON.parse(entry.details)
 			};
 		})
 	});
@@ -61,16 +68,16 @@ export const POST: RequestHandler = async ({ request, params, url }) => {
 	try {
 		const parsedData = ModerationEntryStructure.parse(body);
 
-		const serverData = await prisma.moderationStrikes.create({
+		const serverData = await prisma.moderationEntry.create({
 			data: {
 				//TODO: add details
+				id: generateSnowflake().toString(),
 				end_date: parsedData.end_date,
 				type: parsedData.type,
-				moderator_id: parsedData.moderator_id,
+				user_id: parsedData.user_id,
 				target_id: parsedData.target_id,
 				reason: parsedData.reason,
-				guild_id: params.guildId,
-				created_at: new Date()
+				guild_id: params.guildId
 			}
 		});
 

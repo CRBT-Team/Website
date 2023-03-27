@@ -2,6 +2,8 @@ import { json } from '@sveltejs/kit';
 import { ZodError } from 'zod';
 
 export function formatError(error: any, status = 500) {
+	console.error(error);
+
 	if (error instanceof ZodError) {
 		return json(
 			{
