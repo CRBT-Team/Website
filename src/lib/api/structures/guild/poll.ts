@@ -1,6 +1,20 @@
 import { z } from 'zod';
 import { PreprocessedDateStructure, SnowflakeStructure } from '../misc';
 
+export interface Poll {
+	channel_id: string;
+	message_id: string;
+	creator_id: string;
+	title: string;
+	choices: {
+		title: string;
+		participants: string[];
+	}[];
+	end_date: Date;
+	locale: string;
+	id: string;
+}
+
 export const PollStructure = z
 	.object({
 		channel_id: SnowflakeStructure,

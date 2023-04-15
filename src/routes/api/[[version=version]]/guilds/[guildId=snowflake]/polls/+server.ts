@@ -8,6 +8,7 @@ import { PollStructure } from '$lib/api/structures/guild/poll';
 import { generateSnowflake } from '$lib/snowflake';
 import type { Poll } from '@prisma/client';
 import { SnowflakeRegex } from '@purplet/utils';
+import { fetchWithCache } from '$lib/cache';
 
 export function _formatPoll(poll: Poll) {
 	const isV2 = SnowflakeRegex.test(poll.id) && poll.title;
@@ -78,22 +79,28 @@ export const POST: RequestHandler = async ({ request, params }) => {
 			return formatError(`Maximum amount of ${maxPolls} reminders reached for this guild.`);
 		}
 
-		const serverData = await prisma.poll.create({
-			data: {
-				id: generateSnowflake().toString(),
-				channel_id: parsedData.channel_id,
-				message_id: parsedData.message_id,
-				title: parsedData.title,
-				guild_id: params.guildId,
-				choices: parsedData.choices.map((name) => ({
-					name,
-					participants: []
-				})),
-				creator_id: parsedData.creator_id === '@me' ? tokenData.userId : parsedData.creator_id,
-				end_date: parsedData.end_date,
-				locale: parsedData.locale
-			}
-		});
+		const newId = generateSnowflake().toString();
+		const serverData = await fetchWithCache(
+			`poll:${newId}`,
+			() =>
+				prisma.poll.create({
+					data: {
+						id: newId,
+						channel_id: parsedData.channel_id,
+						message_id: parsedData.message_id,
+						title: parsedData.title,
+						guild_id: params.guildId,
+						choices: parsedData.choices.map((name) => ({
+							name,
+							participants: []
+						})),
+						creator_id: parsedData.creator_id === '@me' ? tokenData.userId : parsedData.creator_id,
+						end_date: parsedData.end_date,
+						locale: parsedData.locale
+					}
+				}),
+			true
+		);
 
 		return json(serverData);
 	} catch (e) {
