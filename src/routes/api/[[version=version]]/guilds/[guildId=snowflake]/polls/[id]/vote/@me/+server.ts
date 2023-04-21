@@ -94,6 +94,10 @@ export const DELETE: RequestHandler = async ({ request, params }) => {
 			c.participants.find((p) => p === tokenData.userId)
 		);
 
+		if (currentVoteIndex === -1) {
+			return formatError('No vote found.', 400);
+		}
+
 		poll.choices[currentVoteIndex].participants = poll.choices[
 			currentVoteIndex
 		].participants.filter((v) => v !== tokenData.userId);
