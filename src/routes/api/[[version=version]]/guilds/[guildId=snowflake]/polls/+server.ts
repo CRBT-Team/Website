@@ -90,8 +90,8 @@ export const POST: RequestHandler = async ({ request, params }) => {
 						message_id: parsedData.message_id,
 						title: parsedData.title,
 						guild_id: params.guildId,
-						choices: parsedData.choices.map((name) => ({
-							name,
+						choices: parsedData.choices.map((title) => ({
+							title,
 							participants: []
 						})),
 						creator_id: parsedData.creator_id === '@me' ? tokenData.userId : parsedData.creator_id,

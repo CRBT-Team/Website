@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { PreprocessedDateStructure, SnowflakeStructure } from '../misc';
 
 export interface Poll {
+	guild_id: string;
 	channel_id: string;
 	message_id: string;
 	creator_id: string;
