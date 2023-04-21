@@ -43,7 +43,7 @@ export const PUT: RequestHandler = async ({ request, params }) => {
 		);
 
 		if (currentVoteIndex === newChoiceIndex) {
-			return formatError('Can not vote for same choice.', 400);
+			return formatError('Can not vote for the same choice.', 400);
 		}
 
 		poll.choices[newChoiceIndex].participants.push(tokenData.userId);
@@ -57,7 +57,54 @@ export const PUT: RequestHandler = async ({ request, params }) => {
 				prisma.poll.update({
 					where: { id: params.id },
 					data: {
-						choices: []
+						choices: poll.choices
+					}
+				}),
+			true
+		);
+
+		return json(newPoll);
+	} catch (e) {
+		return formatError(e);
+	}
+};
+
+export const DELETE: RequestHandler = async ({ request, params }) => {
+	let { errorMessage, tokenData } = await validateAccess(
+		request,
+		{ guildId: params.guildId },
+		{ guild: true }
+	);
+	if (errorMessage) return errorMessage;
+
+	params.id = params.id.replace(/_/g, '/');
+
+	const poll = (await fetchWithCache(`poll:${params.id}`, () =>
+		prisma.poll.findFirst({
+			where: { id: params.id }
+		})
+	)) as any as Poll;
+
+	if (!poll) {
+		return formatError('Poll not found.', 404);
+	}
+
+	try {
+		const currentVoteIndex = poll.choices.findIndex((c) =>
+			c.participants.find((p) => p === tokenData.userId)
+		);
+
+		poll.choices[currentVoteIndex].participants = poll.choices[
+			currentVoteIndex
+		].participants.filter((v) => v !== tokenData.userId);
+
+		const newPoll = await fetchWithCache(
+			`poll:${params.id}`,
+			() =>
+				prisma.poll.update({
+					where: { id: params.id },
+					data: {
+						choices: poll.choices
 					}
 				}),
 			true
