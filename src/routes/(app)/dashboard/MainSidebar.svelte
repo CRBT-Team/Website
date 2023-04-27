@@ -2,20 +2,23 @@
 	import { page } from '$app/stores';
 	import type { RESTAPIPartialCurrentUserGuild } from 'discord-api-types/v10';
 	import { items } from './_SidebarItems';
+	import Crbt from '$lib/svg/crbt.svelte';
 
 	export let currentGuild: RESTAPIPartialCurrentUserGuild;
 	$: selectedItem = $page.url.pathname
 		.replace(`/dashboard/${currentGuild.id}`, '')
 		.replace('/', '');
-
-	export let hide = false;
 </script>
 
-<aside class="main-sidebar" class:hide>
+<aside class="main-sidebar">
+	<div class="heading-logo">
+		<Crbt />
+	</div>
+
 	{#each items as group}
 		<div class="item group">
 			<p class="item-label">
-				{group.label.replace('<servername>', currentGuild.name)}
+				{group.label}
 			</p>
 		</div>
 		{#each group.items as item}
@@ -38,52 +41,35 @@
 
 <style lang="scss">
 	.main-sidebar {
-		width: 0px;
-		min-width: 256px;
+		width: 330px;
 		background-color: var(--color-surface);
 		display: flex;
 		flex-direction: column;
-
-		transition-duration: 200ms;
-		transition-delay: 0ms;
-		// transition: width 0.2s ease-in;
 		overflow-y: hidden;
 		z-index: 1;
-		flex-grow: 1;
+		gap: 3px;
 
-		&.hide {
-			// transform: translateX(-100%);
+		.heading-logo {
+			fill: var(--color-on-surface);
+			padding: 30px;
 
-			min-width: 0px;
-			visibility: hidden;
-			// transition: width 0.2s ease-out;
-			transition-duration: 200ms;
-			transition-delay: 0ms;
-
-			.item {
-				transition: transform 0.2s ease-out, opacity 0.15s ease-out;
-				transform: translateX(-20%);
-				opacity: 0;
-
-				:global(svg) {
-					transition: transform 0.2s ease-out;
-					transform: translateX(-20%);
-				}
+			:global(svg) {
+				height: 40px;
 			}
 		}
 
 		.item {
-			transition: transform 0.2s ease-in, opacity 0.15s ease-in;
-			overflow: hidden;
-			transform: translateX(0);
-			border-radius: 20px;
+			border-radius: 999px;
 			display: flex;
 			color: var(--color-on-surface);
 			text-decoration: none;
 			align-items: center;
-			margin: 0 8px;
-			padding: 0px 20px;
-			gap: 10px;
+			margin: 0 10px;
+			font-size: 16px;
+			padding: 13px 25px;
+			gap: 15px;
+			opacity: 0.7;
+			user-select: none;
 
 			.item-label {
 				text-overflow: ellipsis;
@@ -105,6 +91,7 @@
 			&.selected {
 				font-weight: 700;
 				background-color: var(--color-secondary-container);
+				opacity: 1;
 
 				:global(svg) {
 					transition: stroke 0.2s;

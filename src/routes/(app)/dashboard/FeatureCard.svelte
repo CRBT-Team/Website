@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
-	import Switch from '$lib/components/Switch.svelte';
 	import type { Feature } from './_features';
 	import Card from '../../../lib/components/Card.svelte';
 
@@ -15,18 +14,13 @@
 				<svelte:component this={feature.icon} />
 			</div>
 		{/if}
-		{#if feature.isToggleable}
-			<button on:click={(e) => e.stopPropagation()}>
-				<Switch checked={true} style="--thumb-size: 1rem;" />
-			</button>
-		{/if}
 	</div>
 	<h3>{feature.name}</h3>
 	<p>{@html feature.description}</p>
 </Card>
 
 <style lang="scss">
-	:global(.feature) {
+	:global(.card) {
 		cursor: pointer;
 
 		.top {

@@ -40,18 +40,27 @@
 	.breadcrumbs {
 		display: flex;
 		align-items: center;
-		margin: 0 10px;
 		user-select: none;
+		position: relative;
+		left: -5px;
+		z-index: 2;
+
+		:last-child {
+			font-weight: 600;
+		}
+
 		h1 {
-			padding: 5px;
+			padding: 7px;
 			border-radius: var(--border-radius-medium);
 			opacity: 0.9;
 
-			&:hover:is(:not(:last-child)) {
+			&:hover:not(:last-child) {
 				background-color: rgba(0, 0, 0, 0.1);
 				opacity: 1;
+				font-weight: 400;
 			}
 			a {
+				text-decoration: none;
 				color: var(--color-on-surface);
 			}
 		}

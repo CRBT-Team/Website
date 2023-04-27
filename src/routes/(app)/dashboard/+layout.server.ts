@@ -18,9 +18,7 @@ export const load: LayoutServerLoad = async (e) => {
 	// @ts-ignore
 	const user: APIUser = locals?.user || (await rest.user.getCurrentUser());
 
-	// @ts-ignore
 	const guilds: RESTGetAPICurrentUserGuildsResult =
-		// @ts-ignore
 		locals?.guilds ||
 		// @ts-ignore
 		(await rest.user.getCurrentUserGuilds()).filter(

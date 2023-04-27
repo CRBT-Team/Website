@@ -13,16 +13,16 @@ export interface SidebarItem {
 
 export const items: SidebarItem[] = [
 	{
-		label: '<servername>',
+		label: 'General',
 		items: [
 			{
-				label: 'Overview',
+				label: 'Dashboard',
 				href: '',
 				icon: Settings2
 			},
 			{
-				label: 'Appearance',
-				href: 'appareance',
+				label: 'Theming',
+				href: 'theming',
 				icon: Brush
 			},
 			{
@@ -30,11 +30,6 @@ export const items: SidebarItem[] = [
 				href: 'logs',
 				icon: Scroll
 			}
-			// {
-			//   label: 'CRBT+',
-			//   href: 'plus',
-			//   icon: Plus
-			// }
 		]
 	},
 	{
