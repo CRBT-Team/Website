@@ -1,6 +1,6 @@
 {
 	"name": "crbt-website",
-	"version": "3.0.0",
+	"version": "3.1.0",
 	"private": true,
 	"license": "GPL-3.0",
 	"type": "module",
@@ -18,15 +18,15 @@
 	"dependencies": {
 		"@prisma/client": "^4.9.0",
 		"@purplet/rest": "^1.0.1",
+		"@sapphire/snowflake": "^3.4.0",
 		"discord-markdown": "^2.5.1",
 		"lucide-svelte": "^0.105.0",
-		"svelte-gestures": "^1.4.1",
+		"node-cache": "^5.1.2",
 		"zod": "^3.20.2"
 	},
 	"devDependencies": {
 		"@purplet/polyfill": "^1.2.1",
 		"@purplet/utils": "^1.0.0",
-		"@sveltejs/adapter-auto": "^1.0.2",
 		"@sveltejs/adapter-netlify": "^1.0.4",
 		"@sveltejs/kit": "^1.2.6",
 		"@types/node": "^18.11.18",

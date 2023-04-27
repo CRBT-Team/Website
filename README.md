@@ -1,6 +1,6 @@
-![CRBT Website + Dashboard](/.assets/readme-banner.png)
+![CRBT Website](/.assets/readme-banner.png)
 
-# Website + Dashboard
+# Website
 
 [![Netlify status](https://api.netlify.com/api/v1/badges/89d0a765-1a3c-460c-aed1-8638426e7e54/deploy-status)](https://app.netlify.com/sites/crbt/deploys)
 [![Discord](https://img.shields.io/discord/995533040040292373?color=F27187&label=discord&logo=discord&logoColor=white)](https://discord.gg/AvwhNtsgAC)

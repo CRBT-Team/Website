@@ -9,29 +9,32 @@ datasource db {
 
 model Giveaway {
   id           String   @id
-  hostId       String
-  serverId     String
-  server       servers  @relation(fields: [serverId], references: [id])
-  expiresAt    DateTime @map("expires_at") @db.Timestamptz(6)
+  host_id      String   @map("hostId")
+  guild_id     String   @map("serverId")
+  guild        Guild    @relation(fields: [guild_id], references: [id])
+  end_date     DateTime @map("expires_at") @db.Timestamptz(6)
   locale       String
   participants String[]
 }
 
 model Poll {
-  id        String   @id
-  creatorId String
-  choices   Json[]
-  expiresAt DateTime @map("expires_at") @db.Timestamptz(6)
-  locale    String
-  serverId  String
-  server    servers  @relation(fields: [serverId], references: [id])
+  id         String   @id
+  guild_id   String   @map("serverId")
+  channel_id String?
+  message_id String?
+  creator_id String   @map("creatorId")
+  title      String?
+  choices    Json[]
+  end_date   DateTime @map("expires_at") @db.Timestamptz(6)
+  locale     String
+  guild      Guild    @relation(fields: [guild_id], references: [id])
 }
 
 model Reminder {
   id          String         @id
-  userId      String
-  user        User           @relation(fields: [userId], references: [id])
-  expiresAt   DateTime       @map("expires_at") @db.Timestamptz(6)
+  user_id     String         @map("userId")
+  user        User           @relation(fields: [user_id], references: [id])
+  end_date    DateTime       @map("expires_at") @db.Timestamptz(6)
   locale      String
   destination String
   subject     String
@@ -39,24 +42,28 @@ model Reminder {
   type        ReminderTypes?
 }
 
-model servers {
-  id               String         @id
-  joinChannel      String?        @map("join_channel")
-  joinMessage      Json?          @map("join_message")
-  leaveChannel     String?        @map("leave_channel")
-  leaveMessage     Json?          @map("leave_message")
-  modLogsChannel   String?        @map("modlogs_channel")
-  accentColor      Int?           @map("accent_color")
-  economy          Economy?
-  modules          serverModules?
-  giveaways        Giveaway[]
-  polls            Poll[]
-  flags            Int?           @default(0)
-  achievements     Achievement[]
+model Guild {
+  id                       String            @id
+  join_channel_id          String?           @map("join_channel")
+  join_message             Json?
+  leave_channel_id         String?           @map("leave_channel")
+  leave_message            Json?
+  notifications_channel_id String?           @map("modlogs_channel")
+  reports_channel_id       String?           @map("reports_channel")
+  accent_color             Int?
+  auto_theming_enabled     Boolean?          @default(true) @map("auto_theme")
+  icon                     String?
+  economy                  Economy?
+  modules                  serverModules?
+  giveaways                Giveaway[]
+  polls                    Poll[]
+  flags                    Int?              @default(0)
+  // achievements             Achievement[]
   // permissions  ServerPermissions[]
-  members          ServerMember[]
-  premiumExpiresAt DateTime?      @map("sub_expiration")
-  hasPremium       Boolean        @default(false) @map("premium")
+  members                  GuildMember[]
+  moderation_history       ModerationEntry[]
+
+  @@map("servers")
 }
 
 // model ServerPermissions {
@@ -70,155 +77,133 @@ model servers {
 // }
 
 model serverModules {
-  id             String  @id
-  economy        Boolean @default(false)
-  joinMessage    Boolean @default(false) @map("join_message")
-  leaveMessage   Boolean @default(false) @map("leave_message")
-  moderationLogs Boolean @default(false) @map("modlogs")
-  server         servers @relation(fields: [id], references: [id])
+  id                       String  @id
+  economy                  Boolean @default(false)
+  join_message             Boolean @default(false)
+  leave_message            Boolean @default(false)
+  moderation_notifications Boolean @default(false) @map("modlogs")
+  moderation_reports       Boolean @default(false) @map("modreports")
+  guild                    Guild   @relation(fields: [id], references: [id])
 }
 
 model moderationStrikes {
-  id          String                @id @default(uuid()) @db.Uuid
-  moderatorId String                @map("moderator_id")
-  serverId    String                @map("server_id")
-  targetId    String                @map("target_id")
-  reason      String?
-  createdAt   DateTime              @map("created_at") @db.Timestamptz(6)
-  expiresAt   DateTime?             @map("expires_at") @db.Timestamptz(6)
-  type        ModerationStrikeTypes
+  id           String                @id @default(uuid()) @db.Uuid
+  moderator_id String
+  guild_id     String                @map("server_id")
+  target_id    String
+  reason       String?
+  created_at   DateTime              @db.Timestamptz(6)
+  end_date     DateTime?             @map("expires_at") @db.Timestamptz(6)
+  type         ModerationStrikeTypes
+  details      String?
 }
 
-model Transaction {
-  id             Int              @id @default(autoincrement())
-  userId         String           @map("user_id")
-  user           User             @relation(fields: [userId], references: [id])
-  serverId       String?          @map("server_id")
-  purchasedAt    DateTime         @map("purchased_at")
-  availableUntil DateTime?        @map("available_until")
-  item           PurchasableTypes
+model ModerationEntry {
+  id        String    @id
+  user_id   String
+  guild_id  String
+  target_id String
+  reason    String?
+  end_date  DateTime? @db.Timestamptz(6)
+  type      Int
+  details   String?
+  options   Json?
+  guild     Guild     @relation(fields: [guild_id], references: [id])
 }
 
 model User {
-  id                 String               @id
-  guildedId          String?              @unique @map("guilded_id")
-  accentColor        Int?                 @map("accent_color")
-  crbtBadges         String[]             @map("crbt_badges")
-  telemetry          Boolean              @default(true)
-  silentJoins        Boolean              @default(false) @map("silent_joins")
-  silentLeaves       Boolean              @default(false) @map("silent_leaves")
-  enableAchievements Boolean              @default(true) @map("achievements_enabled")
-  premiumExpiresAt   DateTime?            @map("sub_expiration")
-  transactionHistory Transaction[]
-  reminders          Reminder[]
-  globalAchievements GlobalAchievements[]
-  memberData         ServerMember[]
+  id            String        @id
+  accent_color  Int?
+  crbt_badges   String[]
+  telemetry     Boolean       @default(true)
+  silent_joins  Boolean       @default(false)
+  silent_leaves Boolean       @default(false)
+  reminders     Reminder[]
+  memberData    GuildMember[]
 }
 
-model ServerMember {
-  id           String              @id
-  userId       String
-  user         User                @relation(references: [id], fields: [userId])
-  serverId     String
-  server       servers             @relation(references: [id], fields: [serverId])
-  achievements MemberAchievement[]
-  lastWork     DateTime?           @map("last_work") @db.Timestamptz(6)
-  lastHourly   DateTime?           @map("last_hourly") @db.Timestamptz(6)
-  workExp      Int                 @default(0) @db.Integer
-  money        Int                 @default(0) @db.Integer
-  activeItems  EconomyItem[]       @relation("active_items")
-  items        EconomyItem[]       @relation("items")
+model GuildMember {
+  id           String    @id
+  user_id      String
+  user         User      @relation(references: [id], fields: [user_id])
+  guild_id     String
+  guild        Guild     @relation(references: [id], fields: [guild_id])
+  // achievements MemberAchievement[]
+  last_work    DateTime? @db.Timestamptz(6)
+  last_daily   DateTime? @db.Timestamptz(6)
+  work_exp     Int       @default(0) @db.Integer
+  money        Int       @default(0) @db.Integer
+  active_items Item[]    @relation("active_items")
+  items        Item[]    @relation("items")
+  daily_streak Int
 }
 
-model Statistics {
-  date         String   @id
-  servers      Int
-  uniqueUsers  String[]
-  commandsUsed String[]
-  members      Int
-}
+// model MemberAchievement {
+//   achievement_id String       @id
+//   achievement    Achievement  @relation(fields: [achievement_id], references: [achievement_id])
+//   member_id      String       @unique
+//   member         GuildMember? @relation(fields: [member_id], references: [id])
+//   progression    Json[]
+//   achieved_at    DateTime?    @db.Timestamptz(6)
+// }
 
-model GlobalAchievements {
-  id          String    @id
-  userId      String    @map("user_id")
-  user        User      @relation(fields: [userId], references: [id])
-  achievement String
-  progression Int
-  achievedAt  DateTime? @map("achieved_at") @db.Timestamptz(6)
-}
-
-model MemberAchievement {
-  achievementId String        @unique
-  achievement   Achievement   @relation(fields: [achievementId], references: [achievementId])
-  userId        String        @unique
-  user          ServerMember? @relation(fields: [userId], references: [id])
-  progression   Json[]
-  achievedAt    DateTime?     @map("achieved_at") @db.Timestamptz(6)
-}
-
-model Achievement {
-  achievementId String              @id @default(uuid())
-  serverId      String              @map("server_id")
-  server        servers?            @relation(fields: [serverId], references: [id])
-  name          String
-  description   String?
-  requirements  Json[]
-  totalSteps    Int                 @map("total_steps")
-  members       MemberAchievement[]
-}
+// model Achievement {
+//   achievement_id String              @id
+//   guild_id       String
+//   guild          Guild?              @relation(fields: [guild_id], references: [id])
+//   name           String
+//   description    String?
+//   requirements   Json[]
+//   total_steps    Int
+//   members        MemberAchievement[]
+// }
 
 model Economy {
-  serverId               String                @id
-  currencyNameSingular   String?               @map("currency_name_singular")
-  currencyNamePlural     String?               @map("currency_name_plural")
-  currencySymbol         String?               @map("currency_symbol")
-  transactionLogsChannel String?               @map("logs_channel")
-  commands               EconomyCommands?
-  server                 servers?              @relation(fields: [serverId], references: [id])
-  items                  EconomyItem[]
-  categories             EconomyItemCategory[]
+  id                          String     @id
+  currency_name_singular      String?
+  currency_name_plural        String?
+  currency_symbol             String?
+  transaction_logs_channel_id String?
+  guild                       Guild?     @relation(fields: [id], references: [id])
+  work_cooldown               Int?
+  work_strings                String[]
+  work_reward                 String?
+  daily_reward                String?
+  weekly_rewards              String[]
+  items                       Item[]
+  categories                  Category[]
 }
 
-model EconomyCommands {
-  serverId      String   @id
-  workCooldown  Int
-  workStrings   String[]
-  workReward    String
-  dailyReward   String
-  weeklyRewards String[]
-  Economy       Economy? @relation(fields: [serverId], references: [serverId])
-}
-
-model EconomyItem {
-  id             Int                 @id @default(autoincrement())
-  serverId       String              @map("server_id")
-  name           String
-  icon           String?
-  description    String?
-  price          Int
-  categoryId     Int
-  category       EconomyItemCategory @relation(fields: [categoryId], references: [id])
-  type           ItemTypes
-  stock          Int
+model Item {
+  id              String        @id
+  guild_id        String
+  name            String
+  emoji           String
+  description     String?
+  price           Int
+  category_id     String
+  category        Category      @relation(fields: [category_id], references: [id])
+  type            Int
+  stock           Int?
   // for items limited in time
-  availableUntil DateTime?           @map("available_until") @db.Timestamptz(6)
+  available_until DateTime?     @db.Timestamptz(6)
   // the value an item can hold (role ID, Multiplier, etc)
-  value          String?
+  value           String?
   // who's currently using the item
-  activeMembers  ServerMember[]      @relation("active_items")
+  activeMembers   GuildMember[] @relation("active_items")
   // who has the item
-  owners         ServerMember[]      @relation("items")
+  owners          GuildMember[] @relation("items")
   // which economy does the item belong to
-  economy        Economy             @relation(fields: [serverId], references: [serverId])
+  economy         Economy       @relation(fields: [guild_id], references: [id])
 }
 
-model EconomyItemCategory {
-  id       Int           @id @default(autoincrement())
-  serverId String
-  items    EconomyItem[]
+model Category {
+  id       String  @id
+  guild_id String
+  items    Item[]
   label    String
-  emoji    String?
-  economy  Economy       @relation(fields: [serverId], references: [serverId])
+  emoji    String
+  economy  Economy @relation(fields: [guild_id], references: [id])
 }
 
 model Token {
@@ -234,25 +219,11 @@ enum ModerationStrikeTypes {
   KICK
   TIMEOUT
   WARN
-}
-
-enum EconomyCommandTypes {
-  work
-  hourly
-  crime
-}
-
-enum ItemTypes {
-  ROLE
-  WEAPON
-  INCOME_MULTIPLIER
-  COSMETIC
-  OTHER
+  REPORT
 }
 
 enum TokenTypes {
   API
-  REDEEM
 }
 
 enum ReminderTypes {
@@ -264,8 +235,4 @@ enum ReminderTypes {
   MESSAGE
   // reminder set for someone's birthday (deprecated feature)
   BIRTHDAY
-}
-
-enum PurchasableTypes {
-  PREMIUM
 }

@@ -56,26 +56,22 @@ export const supporters: PersonCredit[] = [
 export const localization: PersonCredit[] = [
 	{
 		name: 'bkly',
-		url: 'https://youtube.com/bklydesign',
 		avatar: '/assets/avatars/bkly.png'
 	},
 	{
 		name: 'Morgan Jones',
-		url: 'https://github.com/INF-INITY',
 		avatar: '/assets/avatars/sweet.png'
 	},
 	{
 		name: 'Arsenii Iablochnikov Vadimovich',
-		url: 'https://youtube.com/channel/UCJSQ9yn_mY3OUauMRvhsNNg',
 		avatar: '/assets/avatars/y0urd0ctor.png'
 	},
 	{
 		name: 'navy',
-		url: 'https://twitter.com/NavyBluue_'
+		avatar: '/assets/avatars/navy.png'
 	},
 	{
 		name: 'Trubiso',
-		url: 'https://trubiso.tk',
 		avatar: '/assets/avatars/trubiso.png'
 	},
 	{
@@ -91,8 +87,7 @@ export const localization: PersonCredit[] = [
 	},
 	{
 		name: 'Sorizona Macara',
-		avatar: '/assets/avatars/sorizona.png',
-		url: 'https://steamcommunity.com/id/Sorizona/'
+		avatar: '/assets/avatars/sorizona.png'
 	},
 	{
 		name: 'Akasora',
@@ -104,8 +99,7 @@ export const localization: PersonCredit[] = [
 	},
 	{
 		name: 'Luca',
-		avatar: '/assets/avatars/luca.png',
-		url: 'https://youtube.com/channel/UCFFBvpaP4ReGfE5z9YUUMDw'
+		avatar: '/assets/avatars/luca.png'
 	},
 	{
 		name: 'Kutomi1',
@@ -113,5 +107,17 @@ export const localization: PersonCredit[] = [
 	},
 	{
 		name: 'tecavuzcu'
+	},
+	{
+		name: 'benyahh',
+		avatar: '/assets/avatars/benyahh.png'
+	},
+	{
+		name: 'SonicQ',
+		avatar: '/assets/avatars/sonicq.png'
+	},
+	{
+		name: 'Carrot <3',
+		avatar: '/assets/avatars/carrot.png'
 	}
 ];

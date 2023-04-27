@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Wordmark from '$lib/svg/wordmark.svelte';
-	import type { APIUser } from 'discord-api-types/v10';
 	import { onMount } from 'svelte';
 	import Button from '$lib/components/Button.svelte';
 	import Discord from '$lib/svg/brands/discord.svelte';
@@ -8,8 +7,6 @@
 	let solidNavBar = false;
 
 	// export let show: 'always' | 'onscroll' = 'always';
-	export let user: APIUser | null;
-
 	const solidify = () => (solidNavBar = document.scrollingElement.scrollTop > 5);
 
 	onMount(solidify);
@@ -29,14 +26,10 @@
 	</div>
 
 	<div class="button">
-		{#if user}
-			<Button href="/dashboard">Dashboard</Button>
-		{:else}
-			<Button href="/invite">
-				<Discord slot="icon" />
-				Add to Discord
-			</Button>
-		{/if}
+		<Button href="/invite">
+			<Discord slot="icon" />
+			Add to Discord
+		</Button>
 	</div>
 </nav>
 

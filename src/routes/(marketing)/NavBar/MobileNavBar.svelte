@@ -7,7 +7,6 @@
 	import CRBT from '$lib/svg/crbt.svelte';
 	import { Menu, Search } from 'lucide-svelte';
 	import { onMount } from 'svelte';
-	import { slide } from 'svelte/transition';
 	import Links from '../WebsiteLink/Links.svelte';
 
 	type Tab = 'home' | 'more';

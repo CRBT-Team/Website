@@ -1,55 +1,49 @@
 import { prisma } from '$lib/prisma';
-import { formatError, rateLimitError } from './genericErrors';
+import { formatError } from './genericErrors';
 import { rateLimit, rateLimitMap } from './rateLimits';
-import type { APITokenData } from '.';
+import { errors, type APITokenData } from '.';
 import { TokenTypes } from '@prisma/client';
 
-export async function validateAccess(request: Request, extraProps?: Partial<APITokenData['data']>) {
-	let isAuthorized = true;
-	let error = null;
+export async function validateAccess(
+	request: Request,
+	extraProps?: Partial<APITokenData['data']>,
+	checks?: {
+		auth?: boolean;
+		user?: boolean;
+		guild?: boolean;
+	}
+) {
+	checks = { auth: true, user: false, guild: false, ...checks };
 
-	if (!request.headers.has('Authorization')) {
-		isAuthorized = false;
-		error = formatError('You must provide an Authorization header');
+	let errorMessage: ReturnType<typeof formatError> | null = null;
+
+	if (checks.auth && !request.headers.get('Authorization')) {
+		errorMessage = formatError('You must provide an Authorization header');
 	}
 
 	const rawToken = (await prisma.token.findFirst({
-		where: { token: request.headers.get('Authorization') || undefined }
+		where: { token: request.headers.get('Authorization') }
 	})) as APITokenData;
 
-	if (!rawToken) {
-		isAuthorized = false;
-		error = formatError('Invalid token');
-	}
-
-	if (rawToken.type !== TokenTypes.API) {
-		isAuthorized = false;
-		error = formatError('You need to provide an valid API token');
-	}
-
-	if (!rawToken.token) {
-		isAuthorized = false;
-		error = formatError('Invalid token');
+	if (checks.auth && (!rawToken || !rawToken.token || rawToken.type !== TokenTypes.API)) {
+		errorMessage = formatError('Invalid token');
 	}
 
 	const decoded = decodeAPIToken(rawToken.token);
 
-	if (!decoded) {
-		isAuthorized = false;
-		error = formatError('Invalid token');
+	if (checks.auth && !decoded) {
+		errorMessage = formatError('Invalid token');
 	}
 
 	if (extraProps) {
 		const userId = extraProps.userId === '@me' ? rawToken.data.userId : extraProps.userId;
 
-		if (userId && userId !== decoded.userId) {
-			isAuthorized = false;
-			error = formatError('Invalid token');
+		if (checks.user && userId && userId !== decoded.userId) {
+			errorMessage = errors.unauthorized();
 		}
 
-		if (extraProps.guildId !== rawToken.data.guildId) {
-			isAuthorized = false;
-			error = formatError('This token is not valid for this guild');
+		if (checks.guild && extraProps.guildId !== rawToken.data.guildId) {
+			errorMessage = errors.unauthorized();
 		}
 	}
 
@@ -57,8 +51,7 @@ export async function validateAccess(request: Request, extraProps?: Partial<APIT
 	const rateLimitDetails = rateLimitMap.get(rawToken.token);
 
 	if (rateLimited) {
-		isAuthorized = false;
-		error = rateLimitError(
+		errorMessage = errors.rateLimitError(
 			rateLimitDetails?.timeWindowMs - (Date.now() - rateLimitDetails?.lastRequestMs) || 0
 		);
 	}
@@ -66,13 +59,12 @@ export async function validateAccess(request: Request, extraProps?: Partial<APIT
 	const tokenData = { ...rawToken.data, token: rawToken.token, ...decoded };
 
 	return {
-		isAuthorized,
-		error,
+		errorMessage,
 		tokenData
 	};
 }
 
-export const decodeAPIToken = (token: string) => {
+export function decodeAPIToken(token: string) {
 	try {
 		const [userId, iat, _] = token
 			.split('.')
@@ -86,4 +78,4 @@ export const decodeAPIToken = (token: string) => {
 	} catch (e) {
 		return null;
 	}
-};
+}
