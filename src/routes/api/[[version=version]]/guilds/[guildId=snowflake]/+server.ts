@@ -2,7 +2,7 @@ import { prisma } from '$lib/prisma';
 import { json, type RequestHandler } from '@sveltejs/kit';
 import { errors, validateAccess } from '$lib/api';
 import { GuildStructure } from '$lib/api/structures/guild/guild';
-import { fetchWithCache } from '$lib/cache';
+import { cache, fetchWithCache } from '$lib/cache';
 import {
 	type FullGuildSettings,
 	getGuildSettings,
@@ -70,6 +70,29 @@ export const PATCH: RequestHandler = async ({ request, params }) => {
 		);
 
 		return json(serverData);
+	} catch (e) {
+		return formatError(e);
+	}
+};
+
+export const DELETE: RequestHandler = async ({ request, params }) => {
+	let { errorMessage } = await validateAccess(
+		request,
+		{ guildId: params.guildId },
+		{ guild: true }
+	);
+
+	if (errorMessage) return errorMessage;
+
+	try {
+		await prisma.guild.delete({
+			where: { id: params.guildId },
+			include: prismaGuildInclude
+		});
+
+		cache.del(`settings:${params.id}`);
+
+		return new Response(undefined, { status: 204 });
 	} catch (e) {
 		return formatError(e);
 	}
