@@ -16,7 +16,7 @@
 		"credit": "ack -F=md -D"
 	},
 	"dependencies": {
-		"@prisma/client": "^4.9.0",
+		"@prisma/client": "^5.1.1",
 		"@purplet/rest": "^1.0.1",
 		"@sapphire/snowflake": "^3.4.0",
 		"discord-markdown": "^2.5.1",
@@ -34,7 +34,7 @@
 		"dotenv": "^16.0.3",
 		"prettier": "^2.8.3",
 		"prettier-plugin-svelte": "^2.9.0",
-		"prisma": "^4.9.0",
+		"prisma": "^5.1.1",
 		"sass": "^1.57.1",
 		"scss": "^0.2.4",
 		"stream": "^0.0.2",
