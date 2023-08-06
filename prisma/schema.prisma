@@ -58,7 +58,7 @@ model Guild {
   giveaways                Giveaway[]
   polls                    Poll[]
   flags                    Int?              @default(0)
-  // achievements             Achievement[]
+  achievements             Achievement[]
   // permissions  ServerPermissions[]
   members                  GuildMember[]
   moderation_history       ModerationEntry[]
@@ -128,7 +128,7 @@ model GuildMember {
   user         User      @relation(references: [id], fields: [user_id])
   guild_id     String
   guild        Guild     @relation(references: [id], fields: [guild_id])
-  // achievements MemberAchievement[]
+  achievements MemberAchievement[]
   last_work    DateTime? @db.Timestamptz(6)
   last_daily   DateTime? @db.Timestamptz(6)
   work_exp     Int       @default(0) @db.Integer
@@ -138,25 +138,31 @@ model GuildMember {
   daily_streak Int
 }
 
-// model MemberAchievement {
-//   achievement_id String       @id
-//   achievement    Achievement  @relation(fields: [achievement_id], references: [achievement_id])
-//   member_id      String       @unique
-//   member         GuildMember? @relation(fields: [member_id], references: [id])
-//   progression    Json[]
-//   achieved_at    DateTime?    @db.Timestamptz(6)
-// }
+model MemberAchievement {
+  achievement_id String       @id
+  achievement    Achievement  @relation(fields: [achievement_id], references: [achievement_id])
+  member_id      String       @unique
+  member         GuildMember? @relation(fields: [member_id], references: [id])
+  progression    Json[]
+  achieved_at    DateTime?    @db.Timestamptz(6)
+}
 
-// model Achievement {
-//   achievement_id String              @id
-//   guild_id       String
-//   guild          Guild?              @relation(fields: [guild_id], references: [id])
-//   name           String
-//   description    String?
-//   requirements   Json[]
-//   total_steps    Int
-//   members        MemberAchievement[]
-// }
+model Achievement {
+  achievement_id String              @id
+  guild_id       String
+  guild          Guild?              @relation(fields: [guild_id], references: [id])
+  name           String
+  description    String?
+  icon           String?
+  rewards        RewardTypes[]
+  money          Int?
+  role_id        String?
+  type           Int
+  total_steps    Int
+  requirements   Json[]
+  limited_time   DateTime?
+  members        MemberAchievement[]
+}
 
 model Economy {
   id                          String     @id
@@ -206,12 +212,6 @@ model Category {
   economy  Economy @relation(fields: [guild_id], references: [id])
 }
 
-model Token {
-  token String     @id
-  data  Json       @db.Json
-  type  TokenTypes
-}
-
 enum ModerationStrikeTypes {
   BAN
   TEMPBAN
@@ -220,10 +220,6 @@ enum ModerationStrikeTypes {
   TIMEOUT
   WARN
   REPORT
-}
-
-enum TokenTypes {
-  API
 }
 
 enum ReminderTypes {
@@ -235,4 +231,11 @@ enum ReminderTypes {
   MESSAGE
   // reminder set for someone's birthday (deprecated feature)
   BIRTHDAY
+}
+
+enum RewardTypes {
+  // give money on unlock
+  MONEY
+  // give a role on unlock
+  ROLE
 }

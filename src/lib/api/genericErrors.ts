@@ -23,15 +23,6 @@ export const badRequest = () => formatError('Bad Request', 400);
 
 export const internalServerError = () => formatError('Internal Server Error', 500);
 
-export const rateLimitError = (retry_after: number) =>
-	formatError(
-		{
-			error: 'Rate limited',
-			retry_after: retry_after
-		},
-		429
-	);
-
 export const invalidBody = (missingProp: string | string[]) =>
 	formatError(
 		{
