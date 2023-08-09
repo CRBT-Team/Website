@@ -1,10 +1,19 @@
 import { fetchWithCache } from '$lib/cache';
 import { prisma } from '$lib/prisma';
-import type { Economy, Item, Guild, Category, Prisma, serverModules } from '@prisma/client';
+import type {
+	Economy,
+	Item,
+	Guild,
+	Category,
+	Prisma,
+	serverModules,
+	Achievement
+} from '@prisma/client';
 
 export type FullGuildSettings = Partial<
 	Guild & {
 		modules?: Partial<serverModules>;
+		achievements?: Partial<Achievement[]>;
 		economy?: Partial<
 			Economy & {
 				items: Item[];
@@ -18,6 +27,7 @@ export type FullGuildSettings = Partial<
 
 export const prismaGuildInclude = {
 	modules: true,
+	achievements: true,
 	economy: {
 		include: {
 			items: true,
