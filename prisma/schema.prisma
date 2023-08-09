@@ -123,24 +123,24 @@ model User {
 }
 
 model GuildMember {
-  id           String    @id
+  id           String              @id
   user_id      String
-  user         User      @relation(references: [id], fields: [user_id])
+  user         User                @relation(references: [id], fields: [user_id])
   guild_id     String
-  guild        Guild     @relation(references: [id], fields: [guild_id])
+  guild        Guild               @relation(references: [id], fields: [guild_id])
   achievements MemberAchievement[]
-  last_work    DateTime? @db.Timestamptz(6)
-  last_daily   DateTime? @db.Timestamptz(6)
-  work_exp     Int       @default(0) @db.Integer
-  money        Int       @default(0) @db.Integer
-  active_items Item[]    @relation("active_items")
-  items        Item[]    @relation("items")
+  last_work    DateTime?           @db.Timestamptz(6)
+  last_daily   DateTime?           @db.Timestamptz(6)
+  work_exp     Int                 @default(0) @db.Integer
+  money        Int                 @default(0) @db.Integer
+  active_items Item[]              @relation("active_items")
+  items        Item[]              @relation("items")
   daily_streak Int
 }
 
 model MemberAchievement {
   achievement_id String       @id
-  achievement    Achievement  @relation(fields: [achievement_id], references: [achievement_id])
+  achievement    Achievement  @relation(fields: [achievement_id], references: [id])
   member_id      String       @unique
   member         GuildMember? @relation(fields: [member_id], references: [id])
   progression    Json[]
@@ -148,20 +148,20 @@ model MemberAchievement {
 }
 
 model Achievement {
-  achievement_id String              @id
-  guild_id       String
-  guild          Guild?              @relation(fields: [guild_id], references: [id])
-  name           String
-  description    String?
-  icon           String?
-  rewards        RewardTypes[]
-  money          Int?
-  role_id        String?
-  type           Int
-  total_steps    Int
-  requirements   Json[]
-  limited_time   DateTime?
-  members        MemberAchievement[]
+  id              String              @id
+  guild_id        String
+  guild           Guild?              @relation(fields: [guild_id], references: [id])
+  name            String
+  description     String?
+  icon            String?
+  rewards         RewardTypes[]
+  money           Int?
+  role_id         String?
+  type            Int
+  total_steps     Int
+  requirements    Json[]
+  available_until DateTime?
+  members         MemberAchievement[]
 }
 
 model Economy {
