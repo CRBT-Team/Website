@@ -5,15 +5,14 @@
 	"license": "GPL-3.0",
 	"type": "module",
 	"scripts": {
-		"build": "prisma generate && vite build",
+		"build": "vite build",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"dev": "vite dev",
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
 		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. .",
 		"package": "vite package",
-		"preview": "vite preview",
-		"credit": "ack -F=md -D"
+		"preview": "vite preview"
 	},
 	"dependencies": {
 		"lucide-svelte": "^0.105.0"
