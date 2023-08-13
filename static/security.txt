@@ -1,5 +1,5 @@
-Contact: clembs@clembs.xyz
-Expires: 2022-04-12T13:00:00.000Z
+Contact: clembs@clembs.com
+Expires: 2024-08-14T00:00:00.000Z
 Preferred-Languages: en
 Canonical: https://crbt.app/security.txt
 Policy: https://crbt.app/policy
