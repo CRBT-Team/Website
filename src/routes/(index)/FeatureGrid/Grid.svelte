@@ -3,7 +3,7 @@
 	import FlipCard from '$lib/components/FlipCard.svelte';
 	import { marketingFeatures } from '../_features';
 
-	let expandedCard: typeof marketingFeatures[number]['name'] = null;
+	let expandedCard: (typeof marketingFeatures)[number]['name'] = null;
 </script>
 
 <div class="features-wrapper">
