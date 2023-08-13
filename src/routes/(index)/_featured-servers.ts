@@ -10,10 +10,10 @@ export interface FeaturedServer {
 export const servers: FeaturedServer[] = [
 	{
 		id: '738747595438030888',
-		iconUrl: '/assets/avatars/clembs.png',
+		iconUrl: '/assets/avatars/habile.png',
 		inviteCode: '6uNwP46',
-		name: 'Clembs Server',
-		category: 'Coding & Gaming',
+		name: "Habile's Lounge",
+		category: 'General Purpose',
 		approximateMembers: 90
 	},
 	{

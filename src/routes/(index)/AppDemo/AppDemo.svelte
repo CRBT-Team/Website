@@ -2,7 +2,7 @@
 	import Avatar from '$lib/components/Avatar.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import Message from '$lib/components/discord/Message/Message.svelte';
-	import { MessageFlags } from 'discord-api-types/v10';
+	import { MessageFlags, type APIUser } from 'discord-api-types/v10';
 	import { Gift, PlusCircle, RefreshCw, Send, Smile } from 'lucide-svelte';
 	import { slide } from 'svelte/transition';
 	import { commands as allCommands } from './_commands';
@@ -19,8 +19,9 @@
 		setTimeout(() => (isDemoOver = true), 1500);
 	}
 
-	const author = {
-		avatar: '08623d6756f476051146d9fb0f211da2',
+	const author: APIUser = {
+		avatar: '90f936a706b20f0798eb271bd16308d3',
+		global_name: 'CRBT',
 		username: 'CRBT',
 		discriminator: '0456',
 		bot: true,
@@ -82,6 +83,7 @@
 						<Message
 							message={{
 								author,
+								content: commands[usedCommandId - 1].content,
 								embeds: [commands[usedCommandId - 1].embed]
 							}}
 						/>
@@ -92,7 +94,7 @@
 		{#if !selectedCommandId && !usedCommandId}
 			<div class="top-part" in:slide on:mouseenter={() => (focusedCommandId = null)}>
 				<div class="bot-profile">
-					<Avatar alt="CRBT" src="/assets/logos/crbt-small.png" size="20px" />
+					<Avatar alt="CRBT" src="/assets/logos/crbt.png" size="20px" />
 					CRBT
 				</div>
 				{#each commands as command, id}
@@ -137,7 +139,7 @@
 		<div class="chat-box">
 			<div class="icon" class:disabled={!selectedCommandId}>
 				{#if selectedCommandId}
-					<Avatar alt="CRBT" src="/assets/logos/crbt-small.png" size="24px" />
+					<Avatar alt="CRBT" src="/assets/logos/crbt.png" size="24px" />
 				{:else}
 					<PlusCircle />
 				{/if}
