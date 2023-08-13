@@ -1,12 +1,11 @@
 <script>
 	import Discord from '$lib/svg/brands/discord.svelte';
 	import KoFi from '$lib/svg/brands/ko-fi.svelte';
-	import Twitter from '$lib/svg/brands/twitter.svelte';
 </script>
 
 <footer>
 	<div class="copyright">
-		&copy; CRBT {new Date().getFullYear()}. All rights reserved.<br />
+		&copy; 2019-{new Date().getFullYear()} Clembs. All rights reserved.<br />
 		CRBT is not affiliated with Discord.
 	</div>
 
@@ -17,17 +16,14 @@
 	</div>
 
 	<div class="socials">
-		<a href="/discord">
+		<a href="https://discord.gg/AvwhNtsgAC">
 			<Discord />
 		</a>
 		<!-- <a href="/guilded">
 			<Guilded />
 		</a> -->
-		<a href="/donate">
+		<a href="https://ko-fi.com/clembs">
 			<KoFi />
-		</a>
-		<a href="/twitter">
-			<Twitter />
 		</a>
 	</div>
 </footer>
