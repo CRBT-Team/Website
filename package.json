@@ -1,6 +1,6 @@
 {
 	"name": "crbt-website",
-	"version": "3.1.0",
+	"version": "3.2.0",
 	"private": true,
 	"license": "GPL-3.0",
 	"type": "module",
@@ -16,27 +16,20 @@
 		"credit": "ack -F=md -D"
 	},
 	"dependencies": {
-		"@prisma/client": "^5.1.1",
-		"@purplet/rest": "^1.0.1",
-		"@sapphire/snowflake": "^3.4.0",
-		"discord-markdown": "^2.5.1",
-		"lucide-svelte": "^0.105.0",
-		"node-cache": "^5.1.2",
-		"zod": "^3.20.2"
+		"lucide-svelte": "^0.105.0"
 	},
 	"devDependencies": {
 		"@purplet/polyfill": "^1.2.1",
-		"@purplet/utils": "^1.0.0",
+		"@purplet/rest": "^1.0.1",
 		"@sveltejs/adapter-netlify": "^1.0.4",
 		"@sveltejs/kit": "^1.2.6",
 		"@types/node": "^18.11.18",
-		"discord-api-types": "^0.37.29",
-		"dotenv": "^16.0.3",
+		"discord-api-types": "^0.37.52",
+		"discord-markdown": "^2.5.1",
+		"dotenv": "^16.3.1",
 		"prettier": "^2.8.3",
 		"prettier-plugin-svelte": "^2.9.0",
-		"prisma": "^5.1.1",
 		"sass": "^1.57.1",
-		"scss": "^0.2.4",
 		"stream": "^0.0.2",
 		"svelte": "^3.55.1",
 		"svelte-check": "^3.0.2",
