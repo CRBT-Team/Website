@@ -19,13 +19,13 @@ export const specialThanks = {
 
 export const CRBTTeam: PersonCredit[] = [
 	{
-		name: 'Clément',
+		name: 'Clembs',
 		roles: 'Founder & main developer',
 		url: 'https://clembs.com',
 		avatar: '/assets/avatars/clembs.png'
 	},
 	{
-		name: 'Dave Caruso',
+		name: 'paperdave',
 		roles: 'Purplet main developer',
 		url: 'https://paperdave.net',
 		avatar: '/assets/avatars/dave.png'
@@ -33,7 +33,7 @@ export const CRBTTeam: PersonCredit[] = [
 	{
 		name: 'Trubiso',
 		roles: 'Bot development',
-		url: 'https://trubiso.tk',
+		url: 'https://trubiso.netlify.app',
 		avatar: '/assets/avatars/trubiso.png'
 	}
 ];
@@ -44,7 +44,7 @@ export const supporters: PersonCredit[] = [
 		avatar: '/assets/avatars/james.png'
 	},
 	{
-		name: 'Dave Caruso',
+		name: 'paperdave',
 		avatar: '/assets/avatars/dave.png'
 	},
 	{
@@ -60,7 +60,7 @@ export const localization: PersonCredit[] = [
 	},
 	{
 		name: 'Morgan Jones',
-		avatar: '/assets/avatars/sweet.png'
+		avatar: '/assets/avatars/nsnity.png'
 	},
 	{
 		name: 'Arsenii Iablochnikov Vadimovich',
@@ -83,10 +83,11 @@ export const localization: PersonCredit[] = [
 		avatar: '/assets/avatars/danknil.png'
 	},
 	{
-		name: 'karl2883'
+		name: 'karl2883',
+		avatar: '/assets/avatars/karl2883.png'
 	},
 	{
-		name: 'Sorizona Macara',
+		name: 'Sorizona',
 		avatar: '/assets/avatars/sorizona.png'
 	},
 	{
@@ -94,7 +95,7 @@ export const localization: PersonCredit[] = [
 		avatar: '/assets/avatars/akasora.png'
 	},
 	{
-		name: 'Harole Duong',
+		name: 'Harole',
 		avatar: '/assets/avatars/harole.png'
 	},
 	{
@@ -117,7 +118,7 @@ export const localization: PersonCredit[] = [
 		avatar: '/assets/avatars/sonicq.png'
 	},
 	{
-		name: 'Carrot <3',
+		name: 'Carrot Farmer',
 		avatar: '/assets/avatars/carrot.png'
 	}
 ];

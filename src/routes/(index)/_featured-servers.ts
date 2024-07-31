@@ -12,25 +12,25 @@ export const servers: FeaturedServer[] = [
 		id: '738747595438030888',
 		iconUrl: '/assets/avatars/habile.png',
 		inviteCode: '6uNwP46',
-		name: "Habile's Lounge",
+		name: "habile's hideout",
 		category: 'General Purpose',
-		approximateMembers: 90
+		approximateMembers: 80
 	},
 	{
 		id: '403966971147845636',
 		iconUrl:
-			'https://cdn.discordapp.com/attachments/589185383779270656/1029107988935491634/feb2022.jpg',
+			'/assets/avatars/bkly-community.png',
 		inviteCode: 'R8yB47Y',
 		name: 'bkly Community',
 		category: 'Art & Design',
-		approximateMembers: 180
+		approximateMembers: 160
 	},
 	{
 		id: '717683408012181505',
 		name: 'Emotiguy Appreciation',
 		iconUrl: 'https://cdn.discordapp.com/emojis/717683480787550228.png',
-		approximateMembers: 540,
+		approximateMembers: 630,
 		category: 'Emojis',
 		inviteCode: 'N5MtRsSuyB'
-	}
+	},
 ];
