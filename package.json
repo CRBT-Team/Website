@@ -20,7 +20,7 @@
 	"devDependencies": {
 		"@purplet/polyfill": "^1.2.1",
 		"@purplet/rest": "^1.0.1",
-		"@sveltejs/adapter-netlify": "^1.0.4",
+		"@sveltejs/adapter-netlify": "^5.1.0",
 		"@sveltejs/kit": "^1.2.6",
 		"@types/node": "^18.11.18",
 		"discord-api-types": "^0.37.52",
