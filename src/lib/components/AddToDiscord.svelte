@@ -4,7 +4,7 @@
 	import Button from './Button.svelte';
 </script>
 
-<Button inline href="/invite">
+<Button disabled inline href="/invite">
 	<Discord slot="icon" />
 	Add to Discord
 </Button>

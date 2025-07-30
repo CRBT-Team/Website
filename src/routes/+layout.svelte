@@ -4,8 +4,10 @@
 	import MobileNavBar from './NavBar/MobileNavBar.svelte';
 	import '../styles/home.scss';
 	import '../styles/theme.scss';
+	import EosBanner from '$lib/components/EOSBanner.svelte';
 </script>
 
+<EosBanner />
 <DesktopNavBar />
 <MobileNavBar />
 <slot />

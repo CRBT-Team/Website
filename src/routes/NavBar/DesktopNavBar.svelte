@@ -26,7 +26,7 @@
 	</div>
 
 	<div class="button">
-		<Button href="/invite">
+		<Button disabled href="/invite">
 			<Discord slot="icon" />
 			Add to Discord
 		</Button>
@@ -47,7 +47,10 @@
 		z-index: 9;
 
 		background-color: rgb(0 0 0 / 0);
-		transition: background-color 0.2s, opacity 0.2s, transform 0.2s ease-in-out;
+		transition:
+			// background-color 0.2s,
+			opacity 0.2s,
+			transform 0.2s ease-in-out;
 
 		.items {
 			display: flex;
