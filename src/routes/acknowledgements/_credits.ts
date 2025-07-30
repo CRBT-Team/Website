@@ -25,10 +25,10 @@ export const CRBTTeam: PersonCredit[] = [
 		avatar: '/assets/avatars/clembs.png'
 	},
 	{
-		name: 'paperdave',
+		name: 'Chloe',
 		roles: 'Purplet main developer',
-		url: 'https://paperdave.net',
-		avatar: '/assets/avatars/dave.png'
+		url: 'https://paperclover.net',
+		avatar: '/assets/avatars/clover.png'
 	},
 	{
 		name: 'Trubiso',
@@ -44,8 +44,8 @@ export const supporters: PersonCredit[] = [
 		avatar: '/assets/avatars/james.png'
 	},
 	{
-		name: 'paperdave',
-		avatar: '/assets/avatars/dave.png'
+		name: 'Chloe',
+		avatar: '/assets/avatars/clover.png'
 	},
 	{
 		name: 'bkly',
@@ -63,7 +63,7 @@ export const localization: PersonCredit[] = [
 		avatar: '/assets/avatars/nsnity.png'
 	},
 	{
-		name: 'Arsenii Iablochnikov Vadimovich',
+		name: 'Y0urD0ctor',
 		avatar: '/assets/avatars/y0urd0ctor.png'
 	},
 	{
