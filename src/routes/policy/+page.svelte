@@ -60,3 +60,14 @@
 		Discord user data is stored on them.
 	</p>
 </main>
+
+<style lang="scss">
+	h1,
+	h2,
+	ul,
+	li,
+	p {
+		margin-top: 1.1em;
+		margin-bottom: 0.1em;
+	}
+</style>

@@ -75,6 +75,9 @@
 	}
 
 	section {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
 		margin: 3rem 0;
 	}
 
